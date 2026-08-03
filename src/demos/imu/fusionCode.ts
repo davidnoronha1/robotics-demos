@@ -14,50 +14,6 @@ import {
   withYaw,
 } from "./quaternion";
 
-/** EKF predict: integrate the gyro to advance q, and grow the local
- * attitude-error covariance P through the linearized error dynamics
- * F = I - skew(gyro)*dt, adding process noise qScale*dt per axis.
- * Kept out of the editable template so the on-screen code can just call it. */
-function ekfPredict(
-  q: THREE.Quaternion,
-  P: number[][],
-  gyro: [number, number, number],
-  dt: number,
-  qScale: number,
-): { q: THREE.Quaternion; P: number[][] } {
-  const qNew = integrate(q, gyro, dt);
-  const F = Matrix.eye(3).subtract(new Matrix(skew(gyro)).mul(dt));
-  const Q = Matrix.eye(3).mul(qScale * dt);
-  const Pnew = F.mmul(new Matrix(P)).mmul(F.transpose()).add(Q);
-  return { q: qNew, P: Pnew.to2DArray() };
-}
-
-/** One EKF measurement update, folding reading `z` (predicted as h(q), with
- * covariance R) into (q, P) via the local attitude-error linearization:
- * innovation y = z - h, measurement Jacobian H = skew(h) (to first order, a
- * small body-frame rotation deltaTheta perturbs the predicted reading by
- * skew(h)*deltaTheta), gain K = P*H^T*(H*P*H^T + R)^-1, then q is corrected
- * by composing in deltaTheta = K*y (never by editing q's raw components —
- * they don't live on a flat space) and P shrinks by (I - K*H).
- * Kept out of the editable template so the on-screen code can just call it. */
-function kalmanCorrect(
-  q: THREE.Quaternion,
-  P: number[][],
-  z: [number, number, number],
-  h: [number, number, number],
-  R: [number, number, number],
-): { q: THREE.Quaternion; P: number[][] } {
-  const Pm = new Matrix(P);
-  const H = new Matrix(skew(h));
-  const y = new Matrix([[z[0] - h[0]], [z[1] - h[1]], [z[2] - h[2]]]);
-  const S = H.mmul(Pm).mmul(H.transpose()).add(diag(R));
-  const K = Pm.mmul(H.transpose()).mmul(inverse(S));
-  const deltaTheta = K.mmul(y).to1DArray() as [number, number, number];
-  const qNew = integrate(q, deltaTheta, 1);
-  const P1 = Matrix.eye(3).subtract(K.mmul(H)).mmul(Pm);
-  return { q: qNew, P: P1.to2DArray() };
-}
-
 function diag(v: number[]): Matrix {
   const m = Matrix.eye(v.length);
   v.forEach((x, i) => m.set(i, i, x));
@@ -79,65 +35,153 @@ const mathNS = {
   gyroMatrix, // ditto
   skew,
   eulerOf,
-  ekfPredict,
-  kalmanCorrect,
   REF_G: WORLD_G, // world gravity reference
   REF_M: WORLD_M, // world magnetic-field reference (relocked on real devices)
   diag,
 };
 
+/** Full 6-DOF pose: where the phone is, how fast it's going, and how it's
+ * oriented. `P` is the covariance of the 9-vector *error* state
+ * [δp, δv, δθ] — the attitude part is a small body-frame rotation, not raw
+ * quaternion components. */
 export interface FusionState {
-  q: THREE.Quaternion;
-  P: number[][]; // 3×3 covariance of the local attitude-error vector (rad)
+  p: number[]; // world position (m)
+  v: number[]; // world velocity (m/s)
+  q: THREE.Quaternion; // body → world attitude
+  P: number[][]; // 9×9
 }
 
 export type FusionStep = (state: FusionState, sample: ImuSample) => FusionState;
 
 export interface FusionParams {
-  qScale?: number;
+  qGyro?: number;
+  qAccel?: number;
   rAccel?: [number, number, number];
   rMag?: [number, number, number];
+  rPos?: [number, number, number];
+  staticGate?: number;
   alpha?: number;
   useMagYaw?: boolean;
   [key: string]: unknown;
 }
 
+/** Identity-ish starting covariance: we know where the phone starts (it's the
+ * origin by definition) far better than we know its attitude. */
+function initialP(): number[][] {
+  const P = Matrix.identity(9);
+  for (let i = 0; i < 6; i++) P.set(i, i, 0.01);
+  return P.to2DArray();
+}
+
 /** Default EKF template. Every equation is tied to a `params` value the
  * sliders can rewrite (see the block at the top). */
 export const DEFAULT_EKF_SOURCE = `// fusion-template: ekf
-// Attitude EKF (error-state form): math.ekfPredict advances q with the gyro
-// and grows P; math.kalmanCorrect folds in a measurement (accel or mag) by
-// composing a small correction onto q, weighted by how much you trust it
-// (the R covariance below) against how much P has grown since. See
-// ekfPredict/kalmanCorrect in fusionCode.ts for the underlying algebra.
+// 6-DOF pose EKF, error-state (indirect) form.
 //
-// state  : { q: THREE.Quaternion, P: Matrix (3x3 attitude-error covariance) }
-// sample : { gyro:[wx,wy,wz], accel:[ax,ay,az], mag:[mx,my,mz]|null, dt }
+// state  : p world position, v world velocity, q body->world attitude
+// error  : dx = [dp, dv, dTheta] (9x1) — P is the covariance of *this*, not of
+//          the state itself. A quaternion has no flat space to put a Gaussian
+//          on; a small body-frame rotation dTheta does, so all the Kalman
+//          algebra runs on the error and is composed back onto q at the end.
+// sample : { gyro, accel, mag|null, posFix|null, dt }
+//
+// The IMU is not a sensor here, it's the *input*: the gyro drives attitude and
+// the accelerometer drives velocity and position. That integration is what
+// drifts. Gravity, the compass and the position fix are the measurements that
+// pull it back.
 //
 // params : trust values — edit them here, or let the sliders rewrite this
 //          block for you (the "link" checkbox wires them up).
 const params = {
-  qScale: 0.0001,                       // process noise / second (higher = trust gyro less)
-  rAccel: [0.0025, 0.0025, 0.0025],     // accel covariance, per axis (m/s^2)^2
+  qGyro: 0.0001,                        // gyro process noise, (rad/s)^2 per second
+  qAccel: 0.05,                         // accel process noise, (m/s^2)^2 per second
+  rAccel: [0.0025, 0.0025, 0.0025],     // gravity-direction covariance, (m/s^2)^2
   rMag: [4, 4, 4],                      // mag covariance, per axis (uT)^2
+  rPos: [0.0025, 0.0025, 0.0025],       // position-fix covariance, per axis (m^2)
+  staticGate: 0.6,                      // use accel as gravity when ||a|| - g is under this
 };
 
 // World-frame references the synthetic sensors measure against. These come
 // from math.REF_G / math.REF_M and get relocked to the device on real phones.
 const G = math.REF_G;
 const M = math.REF_M;
+const g = Math.hypot(G[0], G[1], G[2]);
 
 function step(state, sample) {
-  const predicted = math.ekfPredict(state.q, state.P, sample.gyro, sample.dt, params.qScale);
+  const { gyro, accel, mag, posFix, dt } = sample;
 
-  const afterAccel = math.kalmanCorrect(
-    predicted.q, predicted.P, sample.accel, math.bodyFrame(predicted.q, G), params.rAccel,
-  );
-  if (!sample.mag) return afterAccel;
+  // --- predict: integrate the IMU, and let the uncertainty grow -----------
+  // q <- q (x) [1, w*dt/2], the small-angle form of q' = 1/2 q (x) [0, w].
+  const dqGyro = new THREE.Quaternion(gyro[0] * dt / 2, gyro[1] * dt / 2, gyro[2] * dt / 2, 1);
+  let q = state.q.clone().multiply(dqGyro).normalize();
 
-  return math.kalmanCorrect(
-    afterAccel.q, afterAccel.P, sample.mag, math.bodyFrame(afterAccel.q, M), params.rMag,
-  );
+  // Strapdown: the accelerometer reads specific force in the body frame.
+  // Rotate it to world and subtract gravity to get the actual acceleration,
+  // then integrate it twice.
+  const aw = new THREE.Vector3(accel[0], accel[1], accel[2]).applyQuaternion(q);
+  const a = [aw.x - G[0], aw.y - G[1], aw.z - G[2]];
+  let p = state.p.map((pi, i) => pi + state.v[i] * dt + 0.5 * a[i] * dt * dt);
+  let v = state.v.map((vi, i) => vi + a[i] * dt);
+
+  // Error dynamics F (9x9), block by block. Position error grows with velocity
+  // error; velocity error grows with tilt error, because tipping the estimate
+  // by dTheta mis-rotates the specific force by a x dTheta and leaks gravity
+  // into the horizontal axes — that block is why a position fix can correct
+  // *attitude*. Attitude error itself just rotates with the body.
+  const [wx, wy, wz] = gyro;
+  const [ax, ay, az] = accel;
+  const wCross = new Matrix([[0, -wz, wy], [wz, 0, -wx], [-wy, wx, 0]]);
+  const aCross = new Matrix([[0, -az, ay], [az, 0, -ax], [-ay, ax, 0]]);
+  const e = new THREE.Matrix4().makeRotationFromQuaternion(q).elements;  // column-major
+  const R = new Matrix([[e[0], e[4], e[8]], [e[1], e[5], e[9]], [e[2], e[6], e[10]]]);
+
+  const F = Matrix.identity(9);
+  F.setSubMatrix(Matrix.identity(3).mul(dt), 0, 3);                    // dp <- dv
+  F.setSubMatrix(R.mmul(aCross).mul(-dt), 3, 6);                       // dv <- dTheta
+  F.setSubMatrix(Matrix.identity(3).subtract(wCross.mul(dt)), 6, 6);   // dTheta <- dTheta
+
+  const Q = Matrix.zeros(9, 9);
+  Q.setSubMatrix(Matrix.identity(3).mul(params.qAccel * dt), 3, 3);
+  Q.setSubMatrix(Matrix.identity(3).mul(params.qGyro * dt), 6, 6);
+
+  let P = F.mmul(new Matrix(state.P)).mmul(F.transpose()).add(Q);      // P <- F P F' + Q
+
+  // --- update: fold in whatever measurements this step actually has -------
+  // Gravity only tells you anything while the phone isn't accelerating —
+  // otherwise linear acceleration masquerades as tilt, so gate on ||a|| ~ g.
+  const updates = [];
+  if (Math.abs(Math.hypot(ax, ay, az) - g) < params.staticGate) updates.push({ z: accel, ref: G, r: params.rAccel });
+  if (mag) updates.push({ z: mag, ref: M, r: params.rMag });
+  if (posFix) updates.push({ z: posFix, ref: null, r: params.rPos });
+
+  for (const u of updates) {
+    // h = what this sensor should read given the current state, H = how h
+    // moves when the error state does.
+    const H = Matrix.zeros(3, 9);
+    let h;
+    if (u.ref) {
+      // A known world vector seen in the body frame: h = conj(q) * ref * q.
+      // Rotating the body by dTheta moves it by h x dTheta, so dh/dTheta = [h]x.
+      h = new THREE.Vector3(u.ref[0], u.ref[1], u.ref[2]).applyQuaternion(q.clone().invert()).toArray();
+      H.setSubMatrix([[0, -h[2], h[1]], [h[2], 0, -h[0]], [-h[1], h[0], 0]], 0, 6);
+    } else {
+      h = p;                                                 // the fix measures p directly
+      H.setSubMatrix(Matrix.identity(3), 0, 0);               // dh/dp = I
+    }
+
+    const y = new Matrix([[u.z[0] - h[0]], [u.z[1] - h[1]], [u.z[2] - h[2]]]);  // innovation
+    const S = H.mmul(P).mmul(H.transpose()).add(Matrix.diag(u.r));   // S = H P H' + R
+    const K = P.mmul(H.transpose()).mmul(math.inverse(S));           // K = P H' S^-1
+    const dx = K.mmul(y).to1DArray();                                // [dp, dv, dTheta]
+
+    p = p.map((pi, i) => pi + dx[i]);
+    v = v.map((vi, i) => vi + dx[3 + i]);
+    // Attitude is *composed*, not added — same small-angle step as the gyro.
+    q = q.multiply(new THREE.Quaternion(dx[6] / 2, dx[7] / 2, dx[8] / 2, 1)).normalize();
+    P = Matrix.identity(9).subtract(K.mmul(H)).mmul(P);              // P <- (I - K H) P
+  }
+
+  return { p, v, q, P: P.to2DArray() };
 }
 
 return step;
@@ -146,6 +190,8 @@ return step;
 /** Default complementary template — the simpler alternative. */
 export const DEFAULT_COMP_SOURCE = `// fusion-template: complementary
 // A one-line blend: gyro attitude slerped toward the accel/mag tilt estimate.
+// Attitude only — p, v and P are carried through untouched, so switching to
+// this filter parks the pose states rather than estimating them.
 //
 // params : alpha blends the two; useMagYaw stops yaw drift with the compass.
 const params = {
@@ -160,7 +206,7 @@ function step(state, sample) {
     ? math.magHeading(sample.accel, sample.mag)
     : math.eulerOf(qGyro).yaw;
   qTilt = math.withYaw(qTilt, yaw);
-  return { q: qTilt.slerp(qGyro, params.alpha).normalize(), P: state.P };
+  return { ...state, q: qTilt.slerp(qGyro, params.alpha).normalize() };
 }
 
 return step;
@@ -192,7 +238,7 @@ export class EditableFusion {
   state: FusionState;
 
   constructor(source: string, q0: THREE.Quaternion) {
-    this.state = { q: q0.clone(), P: Matrix.eye(3).to2DArray() };
+    this.state = { p: [0, 0, 0], v: [0, 0, 0], q: q0.clone(), P: initialP() };
     const r = compileFusion(source);
     this.step = (r.step ?? compileFusion(DEFAULT_EKF_SOURCE).step)!;
     this.templateId = r.templateId ?? "ekf";
@@ -204,7 +250,7 @@ export class EditableFusion {
     const r = compileFusion(source);
     if (r.error || !r.step) return { ok: false, error: r.error };
     if (r.templateId !== this.templateId) {
-      this.state = { q: this.state.q.clone(), P: Matrix.eye(3).to2DArray() };
+      this.state = { p: [0, 0, 0], v: [0, 0, 0], q: this.state.q.clone(), P: initialP() };
       this.templateId = r.templateId ?? "custom";
     }
     this.step = r.step;
@@ -212,7 +258,7 @@ export class EditableFusion {
   }
 
   reset(q?: THREE.Quaternion): void {
-    this.state = { q: (q ?? new THREE.Quaternion()).clone(), P: Matrix.eye(3).to2DArray() };
+    this.state = { p: [0, 0, 0], v: [0, 0, 0], q: (q ?? new THREE.Quaternion()).clone(), P: initialP() };
   }
 
   update(sample: ImuSample): THREE.Quaternion {

@@ -14,7 +14,7 @@
 
     <header>
       <h1>3. IMU attitude estimation</h1>
-      <p>Three attitude estimates from your own phone's sensors: gyro-only, accel-only, and complementary fusion. Pick up your phone and feel why fusion exists.</p>
+      <p>Attitude estimates from your own phone's sensors — gyro-only, accel-only, complementary — and a full 6-DOF pose EKF that estimates position and velocity alongside orientation. Pick up your phone and feel why fusion exists.</p>
     </header>
 
     <div id="imu-root"></div>
@@ -86,29 +86,92 @@
       </details>
 
       <details open>
-        <summary> The EKF (extended Kalman filter)</summary>
-        <p>State is the attitude quaternion $q$ plus the 3×3 covariance $P$ of
-        a small <em>local attitude-error</em> vector $\delta\theta$ (a
-        body-frame rotation, not raw quaternion components — corrections are
-        applied by composing a small rotation onto $q$, never by adding to
-        its $[x,y,z,w]$ numbers directly, since those don't live on a flat
-        space and an additive correction leaks into axes it shouldn't touch).
-        <strong>Predict</strong> — integrate the gyro, and grow $P$ by the
-        linearized error dynamics plus process noise:</p>
-        $$q_k = q_{k-1} \otimes [1,\; \omega\tfrac{dt}{2}]\qquad F = I - dt\,[\omega]_\times\qquad P_k = F P_{k-1} F^{\top} + Q$$
-        <p>$[\omega]_\times$ is the cross-product ("skew") matrix of $\omega$,
-        and $Q = q_{\text{scale}}\,dt\, I$ is the process noise — your trust
-        in the <em>gyro</em>.
+        <summary> The EKF: full 6-DOF pose</summary>
+        <p>Everything above estimates <em>orientation</em>. A pose is 6-DOF —
+        three translations and three rotations — so the filter's state is
+        position, velocity and attitude together:</p>
+        $$x = \big(\underbrace{\mathbf{p}}_{\text{world position}},\;
+        \underbrace{\mathbf{v}}_{\text{world velocity}},\;
+        \underbrace{q}_{\text{attitude}}\big)$$
+        <p>The IMU is not treated as a sensor here — it's the filter's
+        <em>input</em>. The gyro drives attitude and the accelerometer, once
+        rotated into the world frame and stripped of gravity, drives velocity
+        and position. That's a <em>strapdown</em> propagation, and it is the
+        part that drifts:</p>
+        $$\mathbf{a} = R(q)\,\mathbf{a}_m - \mathbf{g}\qquad
+        \mathbf{p}_k = \mathbf{p}_{k-1} + \mathbf{v}_{k-1}dt + \tfrac12 \mathbf{a}\,dt^2\qquad
+        \mathbf{v}_k = \mathbf{v}_{k-1} + \mathbf{a}\,dt\qquad
+        q_k = q_{k-1} \otimes [1,\; \omega\tfrac{dt}{2}]$$
+      </details>
+
+      <details open>
+        <summary> Why the covariance is on the <em>error</em>, not the state</summary>
+        <p>The state has 10 numbers ($3+3+4$) but only 9 degrees of freedom —
+        a quaternion is constrained to the unit sphere, so a Gaussian can't
+        live on it. The standard fix is the <em>error-state</em> (indirect)
+        EKF: keep the big nonlinear state as a plain estimate, and track the
+        covariance of a small 9-vector error about it:</p>
+        $$\delta x = \big(\delta\mathbf{p},\; \delta\mathbf{v},\; \delta\theta\big) \in \mathbb{R}^9
+        \qquad P = \operatorname{cov}(\delta x)\ \ (9\times 9)$$
+        <p>$\delta\theta$ is a small body-frame rotation, related to the true
+        attitude by $q_{\text{true}} = q \otimes [1,\, \delta\theta/2]$. It
+        lives in a flat space, so all the usual Kalman algebra applies, and
+        corrections are <em>composed</em> back onto $q$ rather than added into
+        its $[x,y,z,w]$ numbers — an additive correction leaks into axes it
+        shouldn't touch (that's what the heading-leakage regression check
+        pins down).</p>
+      </details>
+
+      <details open>
+        <summary> Predict: error dynamics and $F$</summary>
+        <p>Linearizing the propagation above about the current estimate gives
+        the 9×9 transition matrix, in 3×3 blocks:</p>
+        $$F = \begin{bmatrix}
+        I & I\,dt & 0\\
+        0 & I & -R(q)[\mathbf{a}_m]_\times dt\\
+        0 & 0 & I - [\omega]_\times dt
+        \end{bmatrix}
+        \qquad
+        Q = \begin{bmatrix} 0 & 0 & 0\\ 0 & \sigma_a^2\,dt\,I & 0\\ 0 & 0 & \sigma_g^2\,dt\,I\end{bmatrix}
+        \qquad P_k = F P_{k-1} F^{\top} + Q$$
+        <p>Read it block by block. Position error grows with velocity error
+        ($I\,dt$). Attitude error just rotates with the body
+        ($I - [\omega]_\times dt$). The interesting one is the middle-right
+        block: tilting the estimate by $\delta\theta$ mis-rotates the measured
+        specific force by $\mathbf{a}_m \times \delta\theta$, leaking gravity
+        into the horizontal axes — which is exactly why a <em>position</em>
+        measurement can end up correcting <em>attitude</em>. That coupling is
+        what makes the 6-DOF filter more than three separate ones.
         <button type="button" data-action="q-high">Q ↑ → trust gyro less</button>
         <button type="button" data-action="q-low">Q ↓ → trust gyro more</button>.</p>
-        <p><strong>Correct</strong> — each measurement (accel then mag) compares
-        the predicted sensor reading $h(q)$ against the actual one:</p>
-        $$y = z - h(q)\qquad H = [h(q)]_\times\qquad S = H P_k H^{\top} + R\qquad K = P_k H^{\top} S^{-1}\qquad \delta\theta = Ky\qquad q \mathrel{\otimes}= [1,\; \tfrac{\delta\theta}{2}]$$
-        <p>$H$ is the Jacobian of $h$ with respect to $\delta\theta$ — a small
-        body-frame rotation by $\delta\theta$ rotates the predicted reading by
-        $h(q) \times \delta\theta$, so $H=[h(q)]_\times$ falls straight out of
-        that. $R$ — the per-axis measurement covariance — is your trust in
-        the <em>sensor</em>.
+      </details>
+
+      <details open>
+        <summary> Update: three measurements, one recipe</summary>
+        <p>Each measurement compares what the sensor <em>should</em> read,
+        $h(x)$, against what it did read, $z$. The algebra is identical every
+        time; only $h$ and its Jacobian $H = \partial h / \partial \delta x$
+        change:</p>
+        $$y = z - h(x)\qquad S = H P H^{\top} + R\qquad K = P H^{\top} S^{-1}
+        \qquad \delta x = K y \qquad P \leftarrow (I - KH)\,P$$
+        <p>and the corrections go back in as
+        $\mathbf{p} \mathrel{+}= \delta\mathbf{p}$,
+        $\mathbf{v} \mathrel{+}= \delta\mathbf{v}$,
+        $q \mathrel{\otimes}= [1,\, \delta\theta/2]$. The three sensors differ
+        only in which columns of $H$ they touch:</p>
+        $$\begin{aligned}
+        \text{gravity (when } \lVert \mathbf{a}_m\rVert \approx g):\quad & h = R(q)^{\top}\mathbf{g}, & H &= \begin{bmatrix} 0 & 0 & [h]_\times\end{bmatrix}\\
+        \text{compass:}\quad & h = R(q)^{\top}\mathbf{m}_\oplus, & H &= \begin{bmatrix} 0 & 0 & [h]_\times\end{bmatrix}\\
+        \text{position fix:}\quad & h = \mathbf{p}, & H &= \begin{bmatrix} I & 0 & 0\end{bmatrix}
+        \end{aligned}$$
+        <p>For the two vector measurements, rotating the body by $\delta\theta$
+        moves the predicted reading by $h \times \delta\theta$, so
+        $H = [h]_\times$ falls straight out. The gravity update is
+        <em>gated</em>: the accelerometer is already the input to the velocity
+        integration, and it only says something about tilt while the phone
+        isn't accelerating — under motion, linear acceleration masquerades as
+        tilt, so the update is skipped unless
+        $\big|\lVert \mathbf{a}_m \rVert - g\big|$ is small.
         <button type="button" data-action="r-accel-high">R_accel ↑ → trust gyro</button>
         <button type="button" data-action="r-accel-low">R_accel ↓ → trust accel</button>
         <button type="button" data-action="r-mag-high">R_mag ↑ → ignore compass</button>
@@ -116,19 +179,42 @@
       </details>
 
       <details open>
+        <summary> Observability: why the position fix matters</summary>
+        <p>Attitude is self-correcting from gravity and the compass, both of
+        which are bounded and always available. Position and velocity are not:
+        nothing in an IMU measures them, so they come purely from that double
+        integration, and a constant accelerometer bias $b$ becomes a position
+        error of</p>
+        $$\Delta \mathbf{p}(t) = \tfrac12\, b\, t^2$$
+        <p>— quadratic, unbounded, hopeless within seconds. The demo therefore
+        feeds the filter a slow (2 Hz), noisy position fix, standing in for
+        GPS, UWB, vision or wheel odometry. That single measurement is what
+        makes the translation states observable, and through the
+        $-R(q)[\mathbf{a}_m]_\times$ coupling it sharpens roll and pitch too.
+        The <em>position error</em> plot runs both side by side: dead reckoning
+        against the same filter with fixes enabled.
+        <button type="button" data-action="r-pos-high">R_pos ↑ → ignore the fix</button>
+        <button type="button" data-action="r-pos-low">R_pos ↓ → snap to the fix</button>.</p>
+      </details>
+
+      <details open>
         <summary> What Q and R do</summary>
-        <p>Two numbers, two behaviors:</p>
+        <p>Two knobs, and everything the filter does sits between them:</p>
         <ul>
           <li><strong>High $R$</strong> (little trust in a sensor): the filter
           barely corrects, so $K \to 0$ and the estimate stays smooth but can
-          drift. Raise $R_{\text{mag}}$ and watch yaw wander again.</li>
-          <li><strong>High $Q$</strong> (little trust in the gyro): $P$ grows,
-          so $K \to H^{-1}$ and the filter snaps to the measurements — jittery,
-          but never drifts. The <em>covariance trace</em> plot shows $P$
-          shrinking on each correction and regrowing between them.</li>
+          drift. Raise $R_{\text{mag}}$ and watch yaw wander again; raise
+          $R_{\text{pos}}$ and position walks off like dead reckoning.</li>
+          <li><strong>High $Q$</strong> (little trust in the IMU): $P$ grows,
+          so $K$ grows with it and the filter snaps to the measurements —
+          jittery, but never drifts. The <em>covariance</em> plot shows both
+          blocks of $P$: the attitude trace shrinking on each accel/mag update,
+          the position trace sawtoothing as it regrows between fixes and
+          collapses at each one.</li>
         </ul>
-        <p>The whole filter — predict, Jacobians, gain, update — is the editable
-        code below. Change the math itself and the phone reacts live.</p>
+        <p>The whole filter — strapdown propagation, the $F$ blocks, Jacobians,
+        gain, update — is the editable code below. Change the math itself and
+        the phone reacts live.</p>
       </details>
     </div>
 

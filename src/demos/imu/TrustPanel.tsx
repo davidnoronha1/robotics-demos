@@ -3,7 +3,9 @@ import { NumberInput } from "../../shared/ui/NumberInput";
 import { Slider } from "../../shared/ui/Slider";
 import type { FusionParams } from "./fusionCode";
 
-export type TrustValues = Required<Pick<FusionParams, "qScale" | "rAccel" | "rMag" | "alpha" | "useMagYaw">>;
+export type TrustValues = Required<
+  Pick<FusionParams, "qGyro" | "qAccel" | "rAccel" | "rMag" | "rPos" | "alpha" | "useMagYaw">
+>;
 
 export interface TrustPanelProps {
   trust: TrustValues;
@@ -18,12 +20,20 @@ export function TrustPanel({ trust, onChange }: TrustPanelProps) {
     <div class="imu-trust">
       <div class="imu-trust-grid">
         <NumberInput
-          label="Q · process noise (gyro trust)"
-          value={trust.qScale}
+          label="Q_gyro · attitude process noise"
+          value={trust.qGyro}
           step={1e-4}
           min={0}
           format={fmt}
-          onChange={(v) => onChange({ qScale: v })}
+          onChange={(v) => onChange({ qGyro: v })}
+        />
+        <NumberInput
+          label="Q_accel · velocity process noise"
+          value={trust.qAccel}
+          step={1e-2}
+          min={0}
+          format={fmt}
+          onChange={(v) => onChange({ qAccel: v })}
         />
         {AXES.map((axis, i) => (
           <NumberInput
@@ -52,6 +62,21 @@ export function TrustPanel({ trust, onChange }: TrustPanelProps) {
               const r = [...trust.rMag] as [number, number, number];
               r[i] = v;
               onChange({ rMag: r });
+            }}
+          />
+        ))}
+        {AXES.map((axis, i) => (
+          <NumberInput
+            key={`rp-${axis}`}
+            label={`R_pos·${axis}`}
+            value={trust.rPos[i]!}
+            step={1e-3}
+            min={0}
+            format={fmt}
+            onChange={(v) => {
+              const r = [...trust.rPos] as [number, number, number];
+              r[i] = v;
+              onChange({ rPos: r });
             }}
           />
         ))}

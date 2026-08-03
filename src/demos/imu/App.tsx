@@ -66,9 +66,11 @@ function defaultTrustValues(): TrustValues {
   const ekf = extractParams(DEFAULT_EKF_SOURCE) ?? {};
   const comp = extractParams(DEFAULT_COMP_SOURCE) ?? {};
   return {
-    qScale: (ekf.qScale as number | undefined) ?? 1e-4,
+    qGyro: (ekf.qGyro as number | undefined) ?? 1e-4,
+    qAccel: (ekf.qAccel as number | undefined) ?? 0.05,
     rAccel: (ekf.rAccel as [number, number, number] | undefined) ?? [0.0025, 0.0025, 0.0025],
     rMag: (ekf.rMag as [number, number, number] | undefined) ?? [4, 4, 4],
+    rPos: (ekf.rPos as [number, number, number] | undefined) ?? [0.0025, 0.0025, 0.0025],
     alpha: (comp.alpha as number | undefined) ?? 0.98,
     useMagYaw: (comp.useMagYaw as boolean | undefined) ?? true,
   };
@@ -112,7 +114,13 @@ export function App() {
   const [noise, setNoise] = useState<NoiseConfig>(
     restored?.noise ?? { ...DEFAULT_NOISE, gyroStd: [...DEFAULT_NOISE.gyroStd] as [number, number, number] },
   );
-  const [trust, setTrust] = useState<TrustValues>(restored?.trust ?? defaultTrustValues());
+  // A session persisted before the filter went 6-DOF has no qGyro/rPos in it;
+  // fall back rather than feeding undefined into the number inputs.
+  const [trust, setTrust] = useState<TrustValues>(
+    restored?.trust?.qGyro !== undefined && restored.trust.rPos !== undefined
+      ? restored.trust
+      : defaultTrustValues(),
+  );
   const [linkEnabled, setLinkEnabled] = useState(restored?.linkEnabled ?? true);
   const [activeTab, setActiveTab] = useState<TabId>("angular");
   const [activeFilter, setActiveFilter] = useState<"ekf" | "comp">(restored?.activeFilter ?? "ekf");
@@ -144,6 +152,7 @@ export function App() {
   const magPlotRef = useRef<PlotPanelHandle>(null);
   const accelVelRef = useRef<PlotPanelHandle>(null);
   const accelPosRef = useRef<PlotPanelHandle>(null);
+  const posErrRef = useRef<PlotPanelHandle>(null);
   const innovRef = useRef<PlotPanelHandle>(null);
   const covRef = useRef<PlotPanelHandle>(null);
   const allPlotRefs = [
@@ -156,15 +165,16 @@ export function App() {
     magPlotRef,
     accelVelRef,
     accelPosRef,
+    posErrRef,
     innovRef,
     covRef,
   ];
 
   // Naive double-integration of gravity-compensated acceleration, in the
-  // world frame. Real velocity here is always ~0 (the physics body is pinned
-  // in place — see physics.ts — it only rotates), so this exists purely to
-  // demonstrate the classic IMU lesson: accelerometer noise/bias integrates
-  // into an unbounded velocity random walk with nothing to correct it.
+  // world frame — the same strapdown propagation the EKF does, but with no
+  // measurement ever correcting it. Kept alongside the filter's own p/v so
+  // the two can be plotted against each other: this one's error grows without
+  // bound, the filter's is pulled back by every position fix.
   const velocityRef = useRef<[number, number, number]>([0, 0, 0]);
   const positionRef = useRef<[number, number, number]>([0, 0, 0]);
   const lastAccelTRef = useRef<number | null>(null);
@@ -262,6 +272,18 @@ export function App() {
       z: positionRef.current[2],
     });
 
+    // The 6-DOF payoff: dead reckoning vs the same integration with position
+    // fixes folded in, both measured against the physics engine's truth.
+    const truthP = c.truePosition;
+    if (truthP) {
+      const fp = c.fusedPosition;
+      const dr = positionRef.current;
+      posErrRef.current?.push(t, {
+        dead: Math.hypot(dr[0] - truthP[0], dr[1] - truthP[1], dr[2] - truthP[2]),
+        ekf: Math.hypot(fp[0] - truthP[0], fp[1] - truthP[1], fp[2] - truthP[2]),
+      });
+    }
+
     const gBody = bodyFrame(c.qFused, WORLD_G);
     const resAccel = Math.hypot(sample.accel[0] - gBody[0], sample.accel[1] - gBody[1], sample.accel[2] - gBody[2]);
     let resMag = NaN;
@@ -269,9 +291,23 @@ export function App() {
       const mBody = bodyFrame(c.qFused, WORLD_M);
       resMag = Math.hypot(sample.mag[0] - mBody[0], sample.mag[1] - mBody[1], sample.mag[2] - mBody[2]);
     }
-    innovRef.current?.push(t, { accel: resAccel, mag: resMag });
+    let resPos = NaN;
+    if (sample.posFix) {
+      const fp = c.fusedPosition;
+      resPos = Math.hypot(
+        sample.posFix[0] - fp[0],
+        sample.posFix[1] - fp[1],
+        sample.posFix[2] - fp[2],
+      );
+    }
+    innovRef.current?.push(t, { accel: resAccel, mag: resMag, pos: resPos });
+    // P is the 9x9 error-state covariance: [dp, dv, dTheta]. Trace of the
+    // position block (0..2) and of the attitude block (6..8).
     const P = c.fused.state.P;
-    covRef.current?.push(t, { trace: P[0]![0]! + P[1]![1]! + P[2]![2]! });
+    covRef.current?.push(t, {
+      pos: P[0]![0]! + P[1]![1]! + P[2]![2]!,
+      att: P[6]![6]! + P[7]![7]! + P[8]![8]!,
+    });
 
     const norm360 = (deg: number) => ((deg % 360) + 360) % 360;
     polarPlotRef.current?.push(t, {
@@ -395,12 +431,14 @@ export function App() {
       mountMath(mathEl, {
         "alpha-low": () => applyTrust({ alpha: 0.2 }),
         "alpha-high": () => applyTrust({ alpha: 0.99 }),
-        "q-high": () => applyTrust({ qScale: 0.02 }),
-        "q-low": () => applyTrust({ qScale: 1e-6 }),
+        "q-high": () => applyTrust({ qGyro: 0.02 }),
+        "q-low": () => applyTrust({ qGyro: 1e-6 }),
         "r-accel-high": () => applyTrust({ rAccel: [0.25, 0.25, 0.25] }),
         "r-accel-low": () => applyTrust({ rAccel: [1e-4, 1e-4, 1e-4] }),
         "r-mag-high": () => applyTrust({ rMag: [200, 200, 200] }),
         "r-mag-low": () => applyTrust({ rMag: [0.1, 0.1, 0.1] }),
+        "r-pos-high": () => applyTrust({ rPos: [10, 10, 10] }),
+        "r-pos-low": () => applyTrust({ rPos: [1e-4, 1e-4, 1e-4] }),
       });
     }
 
@@ -642,16 +680,29 @@ export function App() {
           minWindowSeconds={3}
           maxWindowSeconds={120}
         />
+        <PlotPanel
+          ref={posErrRef}
+          series={[
+            { key: "dead", label: "dead reckoning", color: C.accel },
+            { key: "ekf", label: "EKF (with position fixes)", color: C.fused },
+          ]}
+          yLabel="position error (m)"
+          height={210}
+          windowSeconds={15}
+          minWindowSeconds={3}
+          maxWindowSeconds={120}
+        />
         <p class="imu-note">
           Velocity and position by integrating the accelerometer
           (gravity-compensated, fused orientation used to rotate it into the
-          world frame). The phone here only rotates in place — see the sim's
-          physics — so true velocity and position are always 0; any drift away
-          from 0 is the classic accelerometer problem: noise and bias
-          integrate into an unbounded random walk with nothing to correct it,
-          made worse by the second integration into position, which is why
-          real systems fuse in GPS, wheel odometry, vision, or zero-velocity
-          updates rather than trusting this.
+          world frame). Shift-drag the phone to actually move it. The two
+          traces above are the same integration: dead reckoning has nothing
+          correcting it, so accelerometer noise and bias become an unbounded
+          random walk — doubly so after the second integration into position.
+          The EKF runs the identical propagation but folds in a 2&nbsp;Hz noisy
+          position fix (a stand-in for GPS, UWB, vision, or wheel odometry),
+          and its error stays bounded at roughly the fix's own noise level.
+          Raise <code>R_pos</code> and the two converge again.
         </p>
       </div>
 
@@ -701,6 +752,7 @@ export function App() {
           series={[
             { key: "accel", label: "accel residual", color: C.accel },
             { key: "mag", label: "mag residual", color: C.mag },
+            { key: "pos", label: "position-fix residual", color: C.true },
           ]}
           yLabel="|innovation|"
           height={210}
@@ -710,8 +762,11 @@ export function App() {
         />
         <PlotPanel
           ref={covRef}
-          series={[{ key: "trace", label: "trace(P)", color: C.fused }]}
-          yLabel="attitude covariance"
+          series={[
+            { key: "att", label: "trace(P) attitude", color: C.fused },
+            { key: "pos", label: "trace(P) position", color: C.true },
+          ]}
+          yLabel="covariance"
           height={210}
           windowSeconds={15}
           minWindowSeconds={3}

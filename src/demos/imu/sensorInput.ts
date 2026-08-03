@@ -14,6 +14,12 @@ export interface ImuSource {
 export const WORLD_G: [number, number, number] = [0, 0, 9.81];
 export const WORLD_M: [number, number, number] = [25, 0, 43.3];
 
+/** The position fix that makes the pose EKF's translation states observable:
+ * slow and noisy compared to the IMU, exactly like GPS/UWB/vision would be.
+ * Without it, double-integrating the accelerometer drifts without bound. */
+export const POS_FIX_HZ = 2;
+export const POS_FIX_STD = 0.05; // m, per axis
+
 /** Per-axis noise model. σ is white-noise std; walk is a bias random walk
  * (rad/s·s, m/s²·s, µT·s). `colored` turns on AR(1) correlated noise, which
  * is what makes sensor traces look real instead of clean. */
@@ -102,6 +108,7 @@ export class SyntheticIMU implements ImuSource {
   private callbacks: Array<(s: ImuSample) => void> = [];
   private t = 0;
   private shakeUntil = 0;
+  private sinceFix = 0;
   private gyroAxes: NoiseAxis[];
   private accelAxes: NoiseAxis[];
   private magAxes: NoiseAxis[];
@@ -180,7 +187,21 @@ export class SyntheticIMU implements ImuSource {
     const mag: [number, number, number] = [0, 0, 0];
     for (let i = 0; i < 3; i++) mag[i] = fieldBody[i]! + this.magAxes[i]!.draw(sdt);
 
-    const sample: ImuSample = { gyro, accel, mag, dt: sdt };
+    // Position fixes arrive far slower than the IMU stream, so most samples
+    // carry none — the filter has to coast on dead reckoning in between.
+    let posFix: [number, number, number] | null = null;
+    this.sinceFix += sdt;
+    if (this.sinceFix >= 1 / POS_FIX_HZ) {
+      this.sinceFix = 0;
+      const truth = this.physics.position();
+      posFix = [
+        truth[0] + gaussian() * POS_FIX_STD,
+        truth[1] + gaussian() * POS_FIX_STD,
+        truth[2] + gaussian() * POS_FIX_STD,
+      ];
+    }
+
+    const sample: ImuSample = { gyro, accel, mag, posFix, dt: sdt };
     for (const cb of this.callbacks) cb(sample);
   }
 
@@ -302,7 +323,9 @@ export class RealDeviceIMU implements ImuSource {
       const accel: [number, number, number] = [acc.x ?? 0, acc.y ?? 0, acc.z ?? 0];
       const dt = e.interval ? e.interval / 1000 : 1 / 60;
 
-      const sample: ImuSample = { gyro, accel, mag: this.magReading, dt };
+      // No position sensor on a phone held in the hand, so the pose EKF's
+      // translation states run open-loop here (and visibly drift).
+      const sample: ImuSample = { gyro, accel, mag: this.magReading, posFix: null, dt };
       for (const cb of this.callbacks) cb(sample);
     };
     window.addEventListener("devicemotion", this.listener);

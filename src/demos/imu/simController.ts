@@ -59,6 +59,19 @@ export class ImuController {
     return this.usingReal ? null : this.synthetic.getTrueOrientation();
   }
 
+  /** The EKF's own estimate of where the phone is and how fast it's moving —
+   * the translation half of the 6-DOF state (the complementary filter leaves
+   * both parked at whatever they were). */
+  get fusedPosition(): [number, number, number] {
+    const p = this.fused.state.p;
+    return [p[0]!, p[1]!, p[2]!];
+  }
+
+  get fusedVelocity(): [number, number, number] {
+    const v = this.fused.state.v;
+    return [v[0]!, v[1]!, v[2]!];
+  }
+
   /** True position from the physics engine; null once a real device has
    * taken over (no position sensor to drive it, so it stays at the origin
    * instead of pretending to track it). */

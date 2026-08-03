@@ -75,7 +75,7 @@ function checkZeroNoise(): boolean {
 
     if (Math.abs(qF.length() - 1) > 1e-4) badNorm++;
     const P = fused.state.P;
-    const trace = P[0]![0]! + P[1]![1]! + P[2]![2]!;
+    const trace = P[6]![6]! + P[7]![7]! + P[8]![8]!;
     if (!Number.isFinite(trace) || trace < 0 || trace > 1e6) badCov++;
 
     gyroErrSum += angleBetweenDeg(qG, qT);
@@ -139,6 +139,61 @@ function checkDefaultNoise(): boolean {
   return ok;
 }
 
+/** The 6-DOF check: with position fixes the filter's translation error must
+ * stay near the fix noise, while the same strapdown integration left to run
+ * open-loop (no fixes) walks away. Runs the phone under a drag force so
+ * there's real motion to track, not just a stationary bias test. */
+function checkPoseTracking(): boolean {
+  const physics = new PhonePhysics();
+  const synthetic = new SyntheticIMU(physics);
+  synthetic.mode = "idle";
+
+  const aided = new EditableFusion(DEFAULT_EKF_SOURCE, new THREE.Quaternion());
+  const openLoop = new EditableFusion(DEFAULT_EKF_SOURCE, new THREE.Quaternion());
+
+  const N = 2000; // 20s at dt=0.01
+  const samples: ImuSample[] = [];
+  synthetic.onSample((s) => samples.push(s));
+
+  let aidedErrSum = 0;
+  let openErrSum = 0;
+  let badCov = 0;
+
+  for (let i = 0; i < N; i++) {
+    // Push it around so position actually changes.
+    if (i % 200 === 0) physics.applyDragForce([Math.sin(i / 200) * 6, 0, Math.cos(i / 300) * 4]);
+    synthetic.advance(0.01);
+    const s = samples[samples.length - 1];
+    if (!s) continue;
+
+    aided.update(s);
+    openLoop.update({ ...s, posFix: null });
+
+    const truth = physics.position();
+    const pa = aided.state.p;
+    const po = openLoop.state.p;
+    aidedErrSum += Math.hypot(pa[0]! - truth[0], pa[1]! - truth[1], pa[2]! - truth[2]);
+    openErrSum += Math.hypot(po[0]! - truth[0], po[1]! - truth[1], po[2]! - truth[2]);
+
+    const P = aided.state.P;
+    for (let k = 0; k < 9; k++) {
+      const d = P[k]![k]!;
+      if (!Number.isFinite(d) || d < 0 || d > 1e6) badCov++;
+    }
+  }
+
+  const meanAided = aidedErrSum / N;
+  const meanOpen = openErrSum / N;
+  console.log("\n--- check 4: 6-DOF position tracking, 20s ---");
+  console.log(`mean position error, with fixes : ${meanAided.toFixed(4)} m`);
+  console.log(`mean position error, open loop  : ${meanOpen.toFixed(4)} m`);
+  console.log(`covariance sanity violations: ${badCov}`);
+
+  const ok = meanAided < 0.15 && meanOpen > meanAided * 2 && badCov === 0;
+  console.log(ok ? "PASS" : "FAIL");
+  return ok;
+}
+
 function checkHeadingLeakage(): boolean {
   // The property that separates a *multiplicative* (error-state) EKF from an
   // *additive* one. Hold the phone at a fixed 60° roll with zero gyro and no
@@ -158,7 +213,7 @@ function checkHeadingLeakage(): boolean {
   const N = 1500; // 15s at dt=0.01
   let yawErrMax = 0;
   for (let i = 0; i < N; i++) {
-    const sample: ImuSample = { gyro: [0, 0, 0], accel: gBody, mag: null, dt: 0.01 };
+    const sample: ImuSample = { gyro: [0, 0, 0], accel: gBody, mag: null, posFix: null, dt: 0.01 };
     const qF = fused.update(sample);
     const yawDeg = eulerOf(qF).yaw * (180 / Math.PI);
     const wrapped = Math.abs(((yawDeg % 360) + 540) % 360 - 180);
@@ -178,4 +233,5 @@ function checkHeadingLeakage(): boolean {
 const ok1 = checkZeroNoise();
 const ok2 = checkDefaultNoise();
 const ok3 = checkHeadingLeakage();
-process.exit(ok1 && ok2 && ok3 ? 0 : 1);
+const ok4 = checkPoseTracking();
+process.exit(ok1 && ok2 && ok3 && ok4 ? 0 : 1);

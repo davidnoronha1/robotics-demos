@@ -5,6 +5,8 @@ export interface ImuSample {
   gyro: Vec3; // rad/s, body frame
   accel: Vec3; // m/s^2, body frame, includes gravity
   mag: Vec3 | null; // µT, body frame; null when no magnetometer
+  posFix: Vec3 | null; // m, world frame; a slow, noisy position fix (GPS/UWB/
+  // vision stand-in), null on the steps between fixes and on real devices
   dt: number; // s
 }
 
