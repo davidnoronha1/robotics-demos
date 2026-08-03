@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Browser Robotics Demos</title>
+  <link rel="stylesheet" href="/src/vendor/styles/styles.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Browser Robotics Demos</h1>
+      <p>Interactive perception &amp; planning demos, running entirely in your browser.</p>
+    </header>
+
+    <ul class="demo-list">
+      <li>
+        <span>1. Value iteration on a gridworld</span>
+        <span class="status-tag">coming soon</span>
+        <p class="demo-desc">Dynamic programming solving an MDP — the value heatmap converging sweep by sweep, then the greedy policy crystallizing out of it.</p>
+      </li>
+      <li>
+        <span>2. Camera model + distortion</span>
+        <span class="status-tag">coming soon</span>
+        <p class="demo-desc">The pinhole model plus Brown&ndash;Conrady distortion, and the fact that undistortion is not simply the inverse formula.</p>
+      </li>
+      <li>
+        <a href="/demos/imu/">3. IMU attitude estimation</a>
+        <p class="demo-desc">Three attitude estimates from your own phone's sensors: gyro-only, accel-only, and complementary fusion. Pick up your phone and feel why fusion exists.</p>
+      </li>
+      <li>
+        <span>4. Configuration space visualizer</span>
+        <span class="status-tag">coming soon</span>
+        <p class="demo-desc">A 2-link planar arm in workspace, and its collision set rendered live as a bitmap in &theta;&#8321;/&theta;&#8322; configuration space.</p>
+      </li>
+      <li>
+        <span>5. Particle filter localization + SLAM</span>
+        <span class="status-tag">coming soon</span>
+        <p class="demo-desc">Mapping, kidnapping, and relocalization &mdash; watch a particle cloud collapse into ambiguous clusters in a symmetric corridor.</p>
+      </li>
+      <li>
+        <span>6. Webcam corner detection + optical flow</span>
+        <span class="status-tag">coming soon</span>
+        <p class="demo-desc">Live FAST corners and Lucas&ndash;Kanade tracks on your camera feed. Point a phone at a desk, move it, watch features stick to real objects.</p>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>

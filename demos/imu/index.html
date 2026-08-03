@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>IMU attitude estimation — Browser Robotics Demos</title>
+  <link rel="stylesheet" href="/src/vendor/styles/styles.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <article>
+    <a class="special return-index" href="/">Return To Index</a>
+
+    <header>
+      <h1>3. IMU attitude estimation</h1>
+      <p>Three attitude estimates from your own phone's sensors: gyro-only, accel-only, and complementary fusion. Pick up your phone and feel why fusion exists.</p>
+    </header>
+
+    <div id="imu-root"></div>
+
+    <div id="imu-math" class="math-wrap">
+      <details open>
+        <summary>Frames &amp; why quaternions</summary>
+        <p>The phone has a <em>body</em> frame (X right, Y up the screen, Z out
+        of the glass) and the room has a <em>world</em> frame (X north, Z up).
+        We store the attitude as a unit quaternion $q$, which rotates body
+        vectors into world vectors:</p>
+        $$\mathbf{a}_{\text{world}} = q\, \mathbf{a}_{\text{body}}\, q^{-1}$$
+        <p>We never use Euler angles internally — at pitch $\pm 90°$ two axes
+        line up and one angle becomes undefined (gimbal lock). Quaternions have
+        no such singularity.</p>
+      </details>
+
+      <details open>
+        <summary>What the sensors measure</summary>
+        <p>Each sensor reports a known quantity rotated into the body frame,
+        corrupted by a bias $b$ and noise $n$:</p>
+        $$\omega_m = \underbrace{\omega_{\text{true}}}_{\text{gyro: rotation rate}} + b_g + n_g$$
+        $$\mathbf{a}_m = \underbrace{R(q)\,\mathbf{g}}_{\text{accel: gravity } 9.81\,\text{m/s}^2} + \mathbf{a}_{\text{linear}} + n_a$$
+        $$\mathbf{m}_m = \underbrace{R(q)\,\mathbf{m}_\oplus}_{\text{mag: Earth's field }\sim 50\,\mu\text{T}} + b_m + n_m$$
+        <p>$R(q)$ is the rotation matrix of $q$. Noise here is <em>colored</em>
+        (AR(1)) plus a drifting bias — real IMUs, not clean white noise. The
+        gyro's bias is why integrating it alone drifts forever.</p>
+      </details>
+
+      <details open>
+        <summary>Gyro integration (the motion model)</summary>
+        <p>The quaternion evolves as</p>
+        $$\dot{q} = \tfrac12\, q \otimes [0,\; \omega]$$
+        <p>integrated each step and renormalized. Fast and smooth, but any
+        constant bias in $\omega$ integrates into an unbounded angle error —
+        that's the <em>gyro-only</em> cube drifting.</p>
+      </details>
+
+      <details open>
+        <summary>Accelerometer tilt</summary>
+        <p>At rest the accelerometer measures only gravity, so tilt follows by
+        geometry:</p>
+        $$\text{roll} = \operatorname{atan2}(a_y,\, a_z)\qquad \text{pitch} = \operatorname{atan2}(-a_x,\, \sqrt{a_y^2+a_z^2})$$
+        <p>No integration, no drift — but <strong>yaw is unobservable</strong>
+        (spinning about gravity changes nothing the accelerometer sees), and
+        linear acceleration contaminates the reading. The <em>accel-only</em>
+        cube jitters under motion and never turns.</p>
+      </details>
+
+      <details open>
+        <summary>Magnetometer heading</summary>
+        <p>The compass measures the Earth's field in the body frame. Tilt it
+        back to horizontal using the accel roll/pitch, and the yaw follows:</p>
+        $$\psi = \operatorname{atan2}(-m'_y,\, m'_x)\quad\text{with}\quad m' = \text{tilt-corrected } \mathbf{m}_m$$
+        <p>Bounded and drift-free, but noisy and perturbed by local metal. This
+        is what finally gives us yaw — the whole point of adding the sensor.</p>
+      </details>
+
+      <details open>
+        <summary>Complementary filter</summary>
+        <p>Blend the smooth-but-drifting gyro attitude with the jittery-but-
+        bounded accel/mag tilt. One line, one knob:</p>
+        $$q = \operatorname{slerp}\big(q_{\text{tilt}}^{(\psi)},\; q_{\text{gyro}},\; \alpha\big)$$
+        <p>$\alpha$ is the trust knob:
+        <button type="button" data-action="alpha-low">α → 0 (trust accel)</button>
+        <button type="button" data-action="alpha-high">α → 1 (trust gyro)</button>.
+        The sliders write it straight into the editable code's
+        <code>params</code> block.</p>
+      </details>
+
+      <details open>
+        <summary>The EKF (extended Kalman filter)</summary>
+        <p>State is the attitude quaternion $q$ plus the 3×3 covariance $P$ of
+        a small <em>local attitude-error</em> vector $\delta\theta$ (a
+        body-frame rotation, not raw quaternion components — corrections are
+        applied by composing a small rotation onto $q$, never by adding to
+        its $[x,y,z,w]$ numbers directly, since those don't live on a flat
+        space and an additive correction leaks into axes it shouldn't touch).
+        <strong>Predict</strong> — integrate the gyro, and grow $P$ by the
+        linearized error dynamics plus process noise:</p>
+        $$q_k = q_{k-1} \otimes [1,\; \omega\tfrac{dt}{2}]\qquad F = I - dt\,[\omega]_\times\qquad P_k = F P_{k-1} F^{\top} + Q$$
+        <p>$[\omega]_\times$ is the cross-product ("skew") matrix of $\omega$,
+        and $Q = q_{\text{scale}}\,dt\, I$ is the process noise — your trust
+        in the <em>gyro</em>.
+        <button type="button" data-action="q-high">Q ↑ → trust gyro less</button>
+        <button type="button" data-action="q-low">Q ↓ → trust gyro more</button>.</p>
+        <p><strong>Correct</strong> — each measurement (accel then mag) compares
+        the predicted sensor reading $h(q)$ against the actual one:</p>
+        $$y = z - h(q)\qquad H = [h(q)]_\times\qquad S = H P_k H^{\top} + R\qquad K = P_k H^{\top} S^{-1}\qquad \delta\theta = Ky\qquad q \mathrel{\otimes}= [1,\; \tfrac{\delta\theta}{2}]$$
+        <p>$H$ is the Jacobian of $h$ with respect to $\delta\theta$ — a small
+        body-frame rotation by $\delta\theta$ rotates the predicted reading by
+        $h(q) \times \delta\theta$, so $H=[h(q)]_\times$ falls straight out of
+        that. $R$ — the per-axis measurement covariance — is your trust in
+        the <em>sensor</em>.
+        <button type="button" data-action="r-accel-high">R_accel ↑ → trust gyro</button>
+        <button type="button" data-action="r-accel-low">R_accel ↓ → trust accel</button>
+        <button type="button" data-action="r-mag-high">R_mag ↑ → ignore compass</button>
+        <button type="button" data-action="r-mag-low">R_mag ↓ → lock onto heading</button>.</p>
+      </details>
+
+      <details open>
+        <summary>What Q and R do</summary>
+        <p>Two numbers, two behaviors:</p>
+        <ul>
+          <li><strong>High $R$</strong> (little trust in a sensor): the filter
+          barely corrects, so $K \to 0$ and the estimate stays smooth but can
+          drift. Raise $R_{\text{mag}}$ and watch yaw wander again.</li>
+          <li><strong>High $Q$</strong> (little trust in the gyro): $P$ grows,
+          so $K \to H^{-1}$ and the filter snaps to the measurements — jittery,
+          but never drifts. The <em>covariance trace</em> plot shows $P$
+          shrinking on each correction and regrowing between them.</li>
+        </ul>
+        <p>The whole filter — predict, Jacobians, gain, update — is the editable
+        code below. Change the math itself and the phone reacts live.</p>
+      </details>
+    </div>
+
+    <footer>
+      <a class="special return-index" href="/">Return To Index</a>
+    </footer>
+  </article>
+
+  <script type="module" src="/src/demos/imu/page.tsx"></script>
+</body>
+</html>

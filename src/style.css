@@ -1,0 +1,431 @@
+/* App-specific additions only — base theme (colors, fonts, layout, links)
+   comes from the vendored stylesheet at src/vendor/styles/styles.css,
+   copied verbatim from undefineddarkness.github.io. Nothing in here
+   redefines --black/--white/--gray or body/link/heading rules; it only
+   adds the widgets this site needs that the source site didn't have. */
+
+/* -- Homepage demo list -- */
+
+.demo-list {
+  list-style: none;
+  margin: 1.5em 0 0;
+  padding: 0;
+}
+
+.demo-list li {
+  padding: 1em 0;
+  border-bottom: 1px solid var(--white-darker);
+}
+
+.demo-list .demo-desc {
+  color: var(--gray);
+  font-size: 0.9em;
+  margin: 0.3em 0 0;
+}
+
+.demo-list .status-tag {
+  font-family: var(--mono-font);
+  font-size: 0.75em;
+  color: var(--gray);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  padding: 0.1em 0.5em;
+  margin-left: 0.6em;
+  vertical-align: middle;
+}
+
+/* -- Generic buttons / controls -- */
+
+button {
+  font-family: var(--display-font);
+  background: var(--white-lighter);
+  color: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 3px;
+  padding: 0.4em 0.9em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--white-darker);
+}
+
+button.active {
+  background: var(--black);
+  color: var(--white-lighter);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+input[type="range"] {
+  accent-color: var(--black);
+  width: 100%;
+}
+
+.control-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em 2em;
+  padding: 1em;
+  margin-top: 1em;
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+}
+
+.ctrl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  font-size: 0.85em;
+  min-width: 160px;
+}
+
+.ctrl-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.ctrl-value {
+  font-family: var(--mono-font);
+}
+
+.ctrl-checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.ctrl-transport {
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: flex-end;
+}
+
+.ctrl-readout {
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 220px;
+}
+
+/* -- Tabs -- */
+
+.tabs {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 1.5em;
+  flex-wrap: wrap;
+}
+
+/* -- Time-series plot -- */
+
+.plot {
+  margin-top: 0.75em;
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+  padding: 0.75em;
+}
+
+.plot[hidden] {
+  display: none;
+}
+
+.plot-legend {
+  display: flex;
+  gap: 1.2em;
+  font-size: 0.85em;
+  margin-bottom: 0.5em;
+  font-family: var(--mono-font);
+}
+
+.plot-legend .swatch {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.plot canvas {
+  display: block;
+  width: 100%;
+}
+
+.polar-plot canvas {
+  width: auto;
+  margin: 0 auto;
+}
+
+/* -- IMU demo -- */
+
+.stage {
+  margin-top: 1em;
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.stage canvas {
+  display: block;
+  width: 100%;
+  touch-action: none;
+}
+
+.imu-cubes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.imu-cubes-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.imu-cube {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.imu-cube canvas {
+  background: var(--white-darker);
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+}
+
+.imu-cube-label {
+  font-size: 0.8em;
+  color: var(--gray);
+  text-align: center;
+}
+
+.imu-section {
+  flex: 1 1 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.imu-section h4 {
+  margin: 0;
+  font-size: 0.9em;
+  border-bottom: 1px solid var(--white-darker);
+  padding-bottom: 0.3em;
+}
+
+.imu-noise {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+}
+
+.imu-noise-group {
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.imu-noise-group legend {
+  font-size: 0.8em;
+  padding: 0 0.3em;
+  color: var(--gray);
+}
+
+.imu-noise-row {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.imu-noise-row .ctrl {
+  min-width: 96px;
+}
+
+.imu-trust-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 1.2em;
+}
+
+.ctrl-number input[type="number"] {
+  font-family: var(--mono-font);
+  font-size: 0.9em;
+  width: 100%;
+  background: var(--white-lighter);
+  color: var(--black);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+}
+
+.imu-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+
+.imu-note {
+  font-size: 0.85em;
+  color: var(--gray);
+  margin-top: 0.5em;
+}
+
+.imu-modes {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+
+/* -- Plots -- */
+
+.plot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1em;
+}
+
+/* Without this the `hidden` tab panes stay visible: .plot-grid's own
+   `display: grid` overrides the UA `[hidden] { display: none }` rule
+   (author styles beat UA styles regardless of specificity). */
+.plot-grid[hidden] {
+  display: none;
+}
+
+.plot-chart {
+  width: 100%;
+}
+
+.plot-chart canvas {
+  display: block;
+}
+
+.plot-reset {
+  margin-left: auto;
+  font-size: 0.7em;
+  padding: 0.1em 0.6em;
+}
+
+.plot-legend .swatch {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+/* -- Code editor -- */
+
+.code-editor {
+  margin-top: 0.75em;
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.code-editor .cm-editor {
+  height: 340px;
+}
+
+.code-editor-error {
+  font-family: var(--mono-font);
+  font-size: 0.8em;
+  color: #ff7b72;
+  background: #ff7b7222;
+  border-top: 1px solid #ff7b7255;
+  padding: 0.4em 0.75em;
+  white-space: pre-wrap;
+}
+
+/* -- Math explainer -- */
+
+.math-wrap {
+  margin-top: 1.5em;
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+  padding: 0.75em 1em;
+}
+
+.math-wrap details {
+  border-top: 1px solid var(--white-darker);
+  padding: 0.5em 0;
+}
+
+.math-wrap details:first-child {
+  border-top: none;
+}
+
+.math-wrap summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.math-wrap p {
+  font-size: 0.92em;
+  color: var(--gray);
+}
+
+.math-wrap .katex-display {
+  margin: 0.6em 0;
+  overflow-x: auto;
+}
+
+.math-wrap button {
+  font-size: 0.75em;
+  margin: 0 0.2em;
+  padding: 0.2em 0.6em;
+}
+
+.math-wrap code {
+  font-family: var(--mono-font);
+  background: var(--white-darker);
+  padding: 0.05em 0.3em;
+  border-radius: 3px;
+}
+
+.imu-qr {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  margin-top: 1.5em;
+  font-size: 0.8em;
+  color: var(--gray);
+}
+
+.imu-qr canvas {
+  border-radius: 4px;
+  background: #fff;
+  padding: 4px;
+  border: 1px solid var(--gray);
+}
+
+@media (max-width: 900px) {
+  .imu-cubes-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .imu-cubes {
+    grid-template-columns: 1fr;
+  }
+
+  .imu-cubes-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .plot-grid {
+    grid-template-columns: 1fr;
+  }
+}

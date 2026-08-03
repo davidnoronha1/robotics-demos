@@ -1,0 +1,116 @@
+
+/* Simplified font stack (no custom webfonts for now): a system serif for
+   display/body text, and a system serif monospace for code. The
+   color-emoji fonts go dead last, after the generic keyword — plenty of
+   plain-text symbols (✈ ⚠ etc.) are also present in emoji fonts, so
+   putting them any earlier would make those render as color emoji too.
+   They only need to be reachable at all for codepoints (real pictograph
+   emoji) that generic serif/monospace has no glyph for. */
+:root {
+	--display-font: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Times New Roman', Times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--mono-font: 'Courier New', Courier, 'Nimbus Mono PS', monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--article-size: 1em;
+}
+
+/* Text fonts have glyphs for scattered symbol/dingbat codepoints (the
+   ranges emoji live in) that aren't full color pictographs — left alone,
+   the browser renders those using that glyph instead of ever trying the
+   color-emoji fonts at the end of the stack. Redeclaring each local font
+   restricted to ASCII forces every non-ASCII codepoint to fall through to
+   the next entry — generic serif/monospace first (plain glyphs for
+   longstanding symbol/dingbat blocks), then the color-emoji fonts as the
+   last resort for codepoints nothing else in the stack covers (real
+   pictograph emoji). */
+@font-face { font-family: 'Georgia'; src: local('Georgia'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Iowan Old Style'; src: local('Iowan Old Style'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Palatino Linotype'; src: local('Palatino Linotype'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Palatino'; src: local('Palatino'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Times New Roman'; src: local('Times New Roman'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Times'; src: local('Times'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Courier New'; src: local('Courier New'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Courier'; src: local('Courier'); unicode-range: U+0000-007F; }
+@font-face { font-family: 'Nimbus Mono PS'; src: local('Nimbus Mono PS'); unicode-range: U+0000-007F; }
+
+/* FairfaxOctant's @font-face is NOT declared here. It's injected per-page
+   by .tooling/transformers.sh's gnuplot() function (into final.sh's
+   want_gnuplot_font block) instead of globally — declaring it in this
+   always-bundled stylesheet would make every page a candidate for fetching
+   the font, not just the ones with an actual gnuplot plot. See
+   .gnuplot-container pre in minor.css for where it's used. */
+
+article {
+	font-size: var(--article-size);
+}
+
+body {
+	font-size: 1.4em;
+}
+
+body,.normal-font {
+	font-family: var(--display-font);
+	font-weight: 400;
+}
+
+i,figcaption,var,span.special {
+	font-style: italic;
+}
+
+kbd, pre, code {
+	font-family: var(--mono-font);
+	font-size: calc(0.9 * var(--article-size));
+}
+
+/* Inline code (not inside a <pre> block): make it noticeable without a
+   background fill or an underline (which reads as a link). */
+:not(pre) > code {
+	color: var(--gray);
+	font-weight: bold;
+}
+
+summary{font-size: calc(1.2 * var(--article-size));}
+
+h1,h2,h3,h4,h5,h6,.human {
+	font-family: var(--display-font);
+}
+
+h4,h5,h6 {
+	font-weight: normal;
+	margin: 0;
+}
+h1,h2,h3 {
+	font-weight: normal;
+}
+
+h1 {
+	margin-top: 0;
+	margin-bottom: 0;
+    font-size: clamp(1.6em, 1.1em + 3vw, calc(2.1 * var(--article-size)));
+}
+
+
+h2 {
+	margin-top: 0;
+	margin-bottom: 0.3em;
+	font-size: calc(2 * var(--article-size));
+}
+
+h3 {
+	margin-top: 0;
+	font-size: calc(1.5 * var(--article-size));
+}
+
+h1, h2, h3 {
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+
+h4 {
+	font-size: calc(1 * var(--article-size));
+}
+
+h5 {
+    font-size: calc(0.9 * var(--article-size));
+}
+h6 {
+    font-size: calc(0.8 * var(--article-size));
+}
