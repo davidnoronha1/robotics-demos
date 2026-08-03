@@ -167,9 +167,14 @@ export class SyntheticIMU implements ImuSource {
     for (let i = 0; i < 3; i++) gyro[i] = omegaBody[i]! + this.gyroAxes[i]!.draw(sdt);
 
     const gravityBody = bodyFrame(q, WORLD_G);
+    // Specific force = gravity reaction *plus* whatever linear acceleration
+    // the body actually has (e.g. shift+drag translating it) — without this
+    // term, moving the phone is invisible to the accelerometer.
+    const linAccelBody = bodyFrame(q, this.physics.linearAcceleration());
     const disturbance = this.accelDisturbance();
     const accel: [number, number, number] = [0, 0, 0];
-    for (let i = 0; i < 3; i++) accel[i] = gravityBody[i]! + disturbance[i]! + this.accelAxes[i]!.draw(sdt);
+    for (let i = 0; i < 3; i++)
+      accel[i] = gravityBody[i]! + linAccelBody[i]! + disturbance[i]! + this.accelAxes[i]!.draw(sdt);
 
     const fieldBody = bodyFrame(q, WORLD_M);
     const mag: [number, number, number] = [0, 0, 0];

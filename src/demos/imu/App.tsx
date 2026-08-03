@@ -19,7 +19,7 @@ import {
   injectParams,
   type FusionParams,
 } from "./fusionCode";
-import { bodyFrame, eulerOf } from "./quaternion";
+import { bodyFrame, eulerOf, worldFrame } from "./quaternion";
 import { AngleUnwrap } from "./angleUnwrap";
 import { buildQrAffordance } from "./qr";
 import { mountMath } from "./mathExplain";
@@ -27,6 +27,10 @@ import { NoisePanel } from "./NoisePanel";
 import { TrustPanel, type TrustValues } from "./TrustPanel";
 
 const RAD2DEG = 180 / Math.PI;
+
+/** All "fused" series everywhere in this demo are the same estimate: the
+ * active filter (EKF or complementary) blending gyro + accel + mag. */
+const FUSED_LABEL = "fused (gyro+accel+mag)";
 
 const C = {
   fused: "#5fb87a",
@@ -44,14 +48,14 @@ type CubeKey = "gyro" | "accel" | "fused" | "heading";
 const CUBE_INFO: Array<{ key: CubeKey; label: string; color: string }> = [
   { key: "gyro", label: "Gyro integration only — drifts", color: C.gyro },
   { key: "accel", label: "Accelerometer only — no yaw, jitters", color: C.accel },
-  { key: "fused", label: "Fused (EKF / editable) — stable", color: C.fused },
+  { key: "fused", label: "Fused (EKF / editable, gyro+accel+mag) — stable", color: C.fused },
   { key: "heading", label: "Magnetometer heading — bounded, noisy", color: C.mag },
 ];
 
 type TabId = "angular" | "acceleration" | "heading" | "internals";
 const TAB_SPECS = [
   { id: "angular", label: "Angular (gyro + fused angles)" },
-  { id: "acceleration", label: "Acceleration (accel + fused tilt)" },
+  { id: "acceleration", label: "Acceleration (raw + integrated velocity)" },
   { id: "heading", label: "Heading (mag + fused yaw)" },
   { id: "internals", label: "Filter internals" },
 ];
@@ -138,8 +142,8 @@ export function App() {
   const gyroPlotRef = useRef<PlotPanelHandle>(null);
   const accelPlotRef = useRef<PlotPanelHandle>(null);
   const magPlotRef = useRef<PlotPanelHandle>(null);
-  const accelRollRef = useRef<PlotPanelHandle>(null);
-  const accelPitchRef = useRef<PlotPanelHandle>(null);
+  const accelVelRef = useRef<PlotPanelHandle>(null);
+  const accelPosRef = useRef<PlotPanelHandle>(null);
   const innovRef = useRef<PlotPanelHandle>(null);
   const covRef = useRef<PlotPanelHandle>(null);
   const allPlotRefs = [
@@ -150,11 +154,20 @@ export function App() {
     gyroPlotRef,
     accelPlotRef,
     magPlotRef,
-    accelRollRef,
-    accelPitchRef,
+    accelVelRef,
+    accelPosRef,
     innovRef,
     covRef,
   ];
+
+  // Naive double-integration of gravity-compensated acceleration, in the
+  // world frame. Real velocity here is always ~0 (the physics body is pinned
+  // in place — see physics.ts — it only rotates), so this exists purely to
+  // demonstrate the classic IMU lesson: accelerometer noise/bias integrates
+  // into an unbounded velocity random walk with nothing to correct it.
+  const velocityRef = useRef<[number, number, number]>([0, 0, 0]);
+  const positionRef = useRef<[number, number, number]>([0, 0, 0]);
+  const lastAccelTRef = useRef<number | null>(null);
 
   // Mirrors the latest reactive state into a ref so the dispose/HMR cleanup
   // (a closure captured on first render) can read current values without
@@ -207,19 +220,6 @@ export function App() {
       accel: unwrap("pitchA", eA.pitch * RAD2DEG),
       true: eT ? unwrap("pitchT", eT.pitch * RAD2DEG) : NaN,
     });
-    // Acceleration tab: the tilt the accelerometer (gravity) can actually
-    // inform — fused vs accel-only vs true. Same values as above, mirrored
-    // into the second pair of charts.
-    accelRollRef.current?.push(t, {
-      fused: unwrap("accelRollF", eF.roll * RAD2DEG),
-      accel: unwrap("accelRollA", eA.roll * RAD2DEG),
-      true: eT ? unwrap("accelRollT", eT.roll * RAD2DEG) : NaN,
-    });
-    accelPitchRef.current?.push(t, {
-      fused: unwrap("accelPitchF", eF.pitch * RAD2DEG),
-      accel: unwrap("accelPitchA", eA.pitch * RAD2DEG),
-      true: eT ? unwrap("accelPitchT", eT.pitch * RAD2DEG) : NaN,
-    });
     yawRef.current?.push(t, {
       fused: unwrap("yawF", eF.yaw * RAD2DEG),
       gyro: unwrap("yawG", eG.yaw * RAD2DEG),
@@ -234,6 +234,33 @@ export function App() {
     gyroPlotRef.current?.push(t, { x: sample.gyro[0], y: sample.gyro[1], z: sample.gyro[2] });
     accelPlotRef.current?.push(t, { x: sample.accel[0], y: sample.accel[1], z: sample.accel[2] });
     if (sample.mag) magPlotRef.current?.push(t, { x: sample.mag[0], y: sample.mag[1], z: sample.mag[2] });
+
+    // Velocity by naive integration: rotate the accel reading into the world
+    // frame and subtract gravity to get linear acceleration, then integrate.
+    const lastAccelT = lastAccelTRef.current;
+    if (lastAccelT !== null) {
+      const dt = t - lastAccelT;
+      const aWorld = worldFrame(c.qFused, sample.accel);
+      const v = velocityRef.current;
+      const p = positionRef.current;
+      velocityRef.current = [
+        v[0] + (aWorld[0] - WORLD_G[0]) * dt,
+        v[1] + (aWorld[1] - WORLD_G[1]) * dt,
+        v[2] + (aWorld[2] - WORLD_G[2]) * dt,
+      ];
+      positionRef.current = [p[0] + v[0] * dt, p[1] + v[1] * dt, p[2] + v[2] * dt];
+    }
+    lastAccelTRef.current = t;
+    accelVelRef.current?.push(t, {
+      x: velocityRef.current[0],
+      y: velocityRef.current[1],
+      z: velocityRef.current[2],
+    });
+    accelPosRef.current?.push(t, {
+      x: positionRef.current[0],
+      y: positionRef.current[1],
+      z: positionRef.current[2],
+    });
 
     const gBody = bodyFrame(c.qFused, WORLD_G);
     const resAccel = Math.hypot(sample.accel[0] - gBody[0], sample.accel[1] - gBody[1], sample.accel[2] - gBody[2]);
@@ -264,7 +291,8 @@ export function App() {
     }
 
     const stageQ = c.usingReal ? c.qFused : (c.trueOrientation ?? new THREE.Quaternion());
-    stageRef.current?.setPose(stageQ);
+    const stagePos = c.truePosition ?? [0, 0, 0];
+    stageRef.current?.setPose(stageQ, stagePos);
     stageRef.current?.render();
 
     if (driftSpanRef.current) {
@@ -310,6 +338,9 @@ export function App() {
     const c = getController();
     c.reset();
     unwrapsRef.current.clear();
+    velocityRef.current = [0, 0, 0];
+    positionRef.current = [0, 0, 0];
+    lastAccelTRef.current = null;
     for (const ref of allPlotRefs) ref.current?.reset();
     polarPlotRef.current?.reset();
   }
@@ -338,6 +369,7 @@ export function App() {
     stageRef.current = stage;
     stageHostRef.current!.appendChild(stage.el);
     stage.onSpin((dx, dy) => c.dragTorque(dx, dy));
+    stage.onTranslate((f) => c.dragForce(f));
 
     for (const info of CUBE_INFO) {
       const canvas = cubeCanvasRefs.current[info.key];
@@ -346,7 +378,7 @@ export function App() {
 
     const polar = createPolarPlot({
       series: [
-        { key: "fused", label: "fused", color: C.fused },
+        { key: "fused", label: FUSED_LABEL, color: C.fused },
         { key: "true", label: "true", color: C.true },
       ],
       windowSeconds: 8,
@@ -435,7 +467,8 @@ export function App() {
 
       {!usingReal && (
         <p class="imu-note">
-          Drag the phone to spin it (physics engine), right-drag to orbit the camera, scroll to zoom. Idle / walk /
+          Drag the phone to spin it (physics engine), shift+drag to move it, right-drag to orbit the camera, scroll
+          to zoom. Idle / walk /
           shake below drive the sensors.
         </p>
       )}
@@ -507,7 +540,9 @@ export function App() {
         </div>
       </div>
 
-      <h3>Plots (drag to pan, scroll to zoom, double-click to reset)</h3>
+      <h3>
+        Plots (drag to pan, ctrl/cmd+scroll to zoom, double-click to reset, click a legend entry to show/hide it)
+      </h3>
       <Tabs specs={TAB_SPECS} active={activeTab} onChange={(id) => setActiveTab(id as TabId)} />
 
       <div class="plot-grid" hidden={activeTab !== "angular"}>
@@ -518,7 +553,7 @@ export function App() {
             { key: "y", label: "ωy", color: C.y },
             { key: "z", label: "ωz", color: C.z },
           ]}
-          yLabel="rad/s"
+          yLabel="gyro (rad/s)"
           height={210}
           windowSeconds={15}
           minWindowSeconds={3}
@@ -527,7 +562,7 @@ export function App() {
         <PlotPanel
           ref={rollRef}
           series={[
-            { key: "fused", label: "fused", color: C.fused },
+            { key: "fused", label: FUSED_LABEL, color: C.fused },
             { key: "gyro", label: "gyro-only", color: C.gyro },
             { key: "accel", label: "accel-only", color: C.accel },
             { key: "true", label: "true", color: C.true },
@@ -541,7 +576,7 @@ export function App() {
         <PlotPanel
           ref={pitchRef}
           series={[
-            { key: "fused", label: "fused", color: C.fused },
+            { key: "fused", label: FUSED_LABEL, color: C.fused },
             { key: "gyro", label: "gyro-only", color: C.gyro },
             { key: "accel", label: "accel-only", color: C.accel },
             { key: "true", label: "true", color: C.true },
@@ -555,7 +590,7 @@ export function App() {
         <PlotPanel
           ref={yawRef}
           series={[
-            { key: "fused", label: "fused", color: C.fused },
+            { key: "fused", label: FUSED_LABEL, color: C.fused },
             { key: "gyro", label: "gyro-only", color: C.gyro },
             { key: "true", label: "true", color: C.true },
           ]}
@@ -582,31 +617,42 @@ export function App() {
           maxWindowSeconds={120}
         />
         <PlotPanel
-          ref={accelRollRef}
+          ref={accelVelRef}
           series={[
-            { key: "fused", label: "fused", color: C.fused },
-            { key: "accel", label: "accel-only", color: C.accel },
-            { key: "true", label: "true", color: C.true },
+            { key: "x", label: "X vel", color: C.x },
+            { key: "y", label: "Y vel", color: C.y },
+            { key: "z", label: "Z vel", color: C.z },
           ]}
-          yLabel="roll (deg)"
+          yLabel="m/s"
           height={210}
           windowSeconds={15}
           minWindowSeconds={3}
           maxWindowSeconds={120}
         />
         <PlotPanel
-          ref={accelPitchRef}
+          ref={accelPosRef}
           series={[
-            { key: "fused", label: "fused", color: C.fused },
-            { key: "accel", label: "accel-only", color: C.accel },
-            { key: "true", label: "true", color: C.true },
+            { key: "x", label: "X pos", color: C.x },
+            { key: "y", label: "Y pos", color: C.y },
+            { key: "z", label: "Z pos", color: C.z },
           ]}
-          yLabel="pitch (deg)"
+          yLabel="movement (m)"
           height={210}
           windowSeconds={15}
           minWindowSeconds={3}
           maxWindowSeconds={120}
         />
+        <p class="imu-note">
+          Velocity and position by integrating the accelerometer
+          (gravity-compensated, fused orientation used to rotate it into the
+          world frame). The phone here only rotates in place — see the sim's
+          physics — so true velocity and position are always 0; any drift away
+          from 0 is the classic accelerometer problem: noise and bias
+          integrate into an unbounded random walk with nothing to correct it,
+          made worse by the second integration into position, which is why
+          real systems fuse in GPS, wheel odometry, vision, or zero-velocity
+          updates rather than trusting this.
+        </p>
       </div>
 
       <div class="plot-grid" hidden={activeTab !== "heading"}>
@@ -617,7 +663,7 @@ export function App() {
             { key: "y", label: "my", color: C.y },
             { key: "z", label: "mz", color: C.z },
           ]}
-          yLabel="µT"
+          yLabel="magnetometer (µT)"
           height={210}
           windowSeconds={15}
           minWindowSeconds={3}
@@ -626,7 +672,7 @@ export function App() {
         <PlotPanel
           ref={headingRef}
           series={[
-            { key: "fused", label: "fused", color: C.fused },
+            { key: "fused", label: FUSED_LABEL, color: C.fused },
             { key: "mag", label: "mag-only", color: C.mag },
             { key: "true", label: "true", color: C.true },
           ]}

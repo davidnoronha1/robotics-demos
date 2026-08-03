@@ -64,6 +64,12 @@ export function bodyFrame(q: THREE.Quaternion, v: Vec3): Vec3 {
   return [out.x, out.y, out.z];
 }
 
+/** World-frame view of a body vector: q applied to v (inverse of `bodyFrame`). */
+export function worldFrame(q: THREE.Quaternion, v: Vec3): Vec3 {
+  const out = new THREE.Vector3(...v).applyQuaternion(q);
+  return [out.x, out.y, out.z];
+}
+
 /**
  * Numeric 3×4 Jacobian of h(q) = bodyFrame(q, v) w.r.t. the quaternion
  * components [x, y, z, w]. Finite differences on three's own math — no

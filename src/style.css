@@ -132,6 +132,47 @@ input[type="range"] {
   display: none;
 }
 
+/* Fullscreen overlay when expanded. */
+.plot-expanded {
+  position: fixed;
+  inset: 8px;
+  z-index: 60;
+  overflow: auto;
+  /* Match the page background (--white-lighter inverts with the theme) so the
+     overlay doesn't shift light/dark; the title/legend inherit --black and stay
+     legible against it. */
+  background: var(--white-lighter);
+  color: var(--black);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  padding: 1em;
+}
+
+.plot-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75em;
+  margin-bottom: 0.4em;
+}
+
+.plot-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.plot-controls {
+  display: flex;
+  gap: 0.4em;
+  margin-left: auto;
+}
+
+.plot-controls button {
+  font-size: 0.7em;
+  padding: 0.1em 0.6em;
+  line-height: 1.4;
+}
+
 .plot-legend {
   display: flex;
   gap: 1.2em;
@@ -157,11 +198,13 @@ input[type="range"] {
 .polar-plot canvas {
   width: auto;
   margin: 0 auto;
+  touch-action: none;
 }
 
 /* -- IMU demo -- */
 
 .stage {
+  position: relative;
   margin-top: 1em;
   border: 1px solid var(--white-darker);
   border-radius: 4px;
@@ -173,6 +216,33 @@ input[type="range"] {
   display: block;
   width: 100%;
   touch-action: none;
+}
+
+/* Live axis-arrow orientation gizmo, bottom-right of the stage. */
+.stage-axes {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  background: rgba(13, 17, 23, 0.6);
+  border-radius: 4px;
+  padding: 0.3em;
+  pointer-events: none;
+}
+
+.stage-axes-gizmo {
+  display: block;
+  width: 110px;
+  height: 92px;
+}
+
+.stage-axes-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6em;
+  font-size: 0.75em;
+  font-family: var(--mono-font);
+  padding: 0 0.2em;
 }
 
 .imu-cubes {
@@ -310,9 +380,15 @@ input[type="range"] {
 }
 
 .plot-reset {
-  margin-left: auto;
   font-size: 0.7em;
   padding: 0.1em 0.6em;
+}
+
+.plot-expand {
+  font-size: 0.7em;
+  padding: 0.1em 0.5em;
+  display: inline-flex;
+  align-items: center;
 }
 
 .plot-legend .swatch {
@@ -322,6 +398,16 @@ input[type="range"] {
   border-radius: 50%;
   margin-right: 0.4em;
   vertical-align: middle;
+}
+
+.plot-legend .legend-item {
+  cursor: pointer;
+  user-select: none;
+}
+
+.plot-legend .legend-item.legend-off {
+  opacity: 0.4;
+  text-decoration: line-through;
 }
 
 /* -- Code editor -- */

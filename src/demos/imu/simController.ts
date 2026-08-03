@@ -59,6 +59,13 @@ export class ImuController {
     return this.usingReal ? null : this.synthetic.getTrueOrientation();
   }
 
+  /** True position from the physics engine; null once a real device has
+   * taken over (no position sensor to drive it, so it stays at the origin
+   * instead of pretending to track it). */
+  get truePosition(): [number, number, number] | null {
+    return this.usingReal ? null : this.physics.position();
+  }
+
   private handleSample(sample: ImuSample): void {
     this.simTime += sample.dt;
     this.qGyro = this.gyroOnly.update(sample);
@@ -111,6 +118,10 @@ export class ImuController {
 
   dragTorque(dxPixels: number, dyPixels: number): void {
     if (!this.usingReal) this.physics.applyDragTorque(dxPixels, dyPixels);
+  }
+
+  dragForce(f: [number, number, number]): void {
+    if (!this.usingReal) this.physics.applyDragForce(f);
   }
 
   reset(): void {

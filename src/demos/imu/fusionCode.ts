@@ -14,6 +14,56 @@ import {
   withYaw,
 } from "./quaternion";
 
+/** EKF predict: integrate the gyro to advance q, and grow the local
+ * attitude-error covariance P through the linearized error dynamics
+ * F = I - skew(gyro)*dt, adding process noise qScale*dt per axis.
+ * Kept out of the editable template so the on-screen code can just call it. */
+function ekfPredict(
+  q: THREE.Quaternion,
+  P: number[][],
+  gyro: [number, number, number],
+  dt: number,
+  qScale: number,
+): { q: THREE.Quaternion; P: number[][] } {
+  const qNew = integrate(q, gyro, dt);
+  const F = Matrix.eye(3).subtract(new Matrix(skew(gyro)).mul(dt));
+  const Q = Matrix.eye(3).mul(qScale * dt);
+  const Pnew = F.mmul(new Matrix(P)).mmul(F.transpose()).add(Q);
+  return { q: qNew, P: Pnew.to2DArray() };
+}
+
+/** One EKF measurement update, folding reading `z` (predicted as h(q), with
+ * covariance R) into (q, P) via the local attitude-error linearization:
+ * innovation y = z - h, measurement Jacobian H = skew(h) (to first order, a
+ * small body-frame rotation deltaTheta perturbs the predicted reading by
+ * skew(h)*deltaTheta), gain K = P*H^T*(H*P*H^T + R)^-1, then q is corrected
+ * by composing in deltaTheta = K*y (never by editing q's raw components —
+ * they don't live on a flat space) and P shrinks by (I - K*H).
+ * Kept out of the editable template so the on-screen code can just call it. */
+function kalmanCorrect(
+  q: THREE.Quaternion,
+  P: number[][],
+  z: [number, number, number],
+  h: [number, number, number],
+  R: [number, number, number],
+): { q: THREE.Quaternion; P: number[][] } {
+  const Pm = new Matrix(P);
+  const H = new Matrix(skew(h));
+  const y = new Matrix([[z[0] - h[0]], [z[1] - h[1]], [z[2] - h[2]]]);
+  const S = H.mmul(Pm).mmul(H.transpose()).add(diag(R));
+  const K = Pm.mmul(H.transpose()).mmul(inverse(S));
+  const deltaTheta = K.mmul(y).to1DArray() as [number, number, number];
+  const qNew = integrate(q, deltaTheta, 1);
+  const P1 = Matrix.eye(3).subtract(K.mmul(H)).mmul(Pm);
+  return { q: qNew, P: P1.to2DArray() };
+}
+
+function diag(v: number[]): Matrix {
+  const m = Matrix.eye(v.length);
+  v.forEach((x, i) => m.set(i, i, x));
+  return m;
+}
+
 /** Namespace injected into the editable fusion code so it can use the demo's
  * attitude helpers (three.js math underneath). */
 const mathNS = {
@@ -25,17 +75,15 @@ const mathNS = {
   withYaw,
   magHeading,
   bodyFrame,
-  bodyJacobian, // kept for experimentation; the shipped EKF below doesn't use it (see note there)
+  bodyJacobian, // kept for experimentation; not used by the shipped templates
   gyroMatrix, // ditto
   skew,
   eulerOf,
+  ekfPredict,
+  kalmanCorrect,
   REF_G: WORLD_G, // world gravity reference
   REF_M: WORLD_M, // world magnetic-field reference (relocked on real devices)
-  diag: (v: number[]) => {
-    const m = Matrix.eye(v.length);
-    v.forEach((x, i) => m.set(i, i, x));
-    return m;
-  },
+  diag,
 };
 
 export interface FusionState {
@@ -57,19 +105,11 @@ export interface FusionParams {
 /** Default EKF template. Every equation is tied to a `params` value the
  * sliders can rewrite (see the block at the top). */
 export const DEFAULT_EKF_SOURCE = `// fusion-template: ekf
-// Attitude EKF (multiplicative / error-state form). Fuses the gyro (motion
-// model) with the accelerometer and magnetometer (measurements) using their
-// covariances as trust values.
-//
-// The state is the attitude quaternion q PLUS the 3x3 covariance of a small
-// body-frame attitude-error vector deltaTheta (not the raw quaternion
-// components) — corrections are applied by *composing* a small rotation
-// onto q, never by adding to q's [x,y,z,w] numbers directly. That distinction
-// matters: q's components don't live on a flat space (q stays on the unit
-// sphere), so a correction expressed in the raw components leaks into axes
-// it has no business touching — e.g. an accel-only correction (which should
-// only ever adjust tilt, never heading) visibly drags the heading around.
-// Working in the local error vector avoids that.
+// Attitude EKF (error-state form): math.ekfPredict advances q with the gyro
+// and grows P; math.kalmanCorrect folds in a measurement (accel or mag) by
+// composing a small correction onto q, weighted by how much you trust it
+// (the R covariance below) against how much P has grown since. See
+// ekfPredict/kalmanCorrect in fusionCode.ts for the underlying algebra.
 //
 // state  : { q: THREE.Quaternion, P: Matrix (3x3 attitude-error covariance) }
 // sample : { gyro:[wx,wy,wz], accel:[ax,ay,az], mag:[mx,my,mz]|null, dt }
@@ -87,42 +127,17 @@ const params = {
 const G = math.REF_G;
 const M = math.REF_M;
 
-// One measurement correction. z is the raw reading, h = h(q) the predicted
-// reading (e.g. math.bodyFrame(q, G)). The measurement Jacobian w.r.t. the
-// local attitude error is H = skew(h) — to first order, perturbing q by a
-// small body-frame rotation deltaTheta changes the predicted reading by
-// skew(h)*deltaTheta (rotating h by -deltaTheta). Solving that back out for
-// the deltaTheta the innovation implies is exactly what the Kalman gain does.
-function correct(q, P, z, h, R) {
-  const H = new Matrix(math.skew(h));
-  const y = new Matrix([[z[0] - h[0]], [z[1] - h[1]], [z[2] - h[2]]]);  // innovation
-  const S = H.mmul(P).mmul(H.transpose()).add(math.diag(R));           // S = HPH^T + R
-  const K = P.mmul(H.transpose()).mmul(math.inverse(S));               // Kalman gain
-  const deltaTheta = K.mmul(y).to1DArray();
-  const qNew = math.integrate(q, deltaTheta, 1);                       // q ⊗ [deltaTheta/2, 1], normalized
-  const I = Matrix.eye(3);
-  const P1 = I.subtract(K.mmul(H)).mmul(P);
-  return { q: qNew, P: P1.to2DArray() };
-}
-
 function step(state, sample) {
-  const dt = sample.dt;
+  const predicted = math.ekfPredict(state.q, state.P, sample.gyro, sample.dt, params.qScale);
 
-  // ---- predict: integrate the gyro, grow the covariance ----------------
-  const q = math.integrate(state.q, sample.gyro, dt);
-  const F = Matrix.eye(3).subtract(new Matrix(math.skew(sample.gyro)).mul(dt)); // linearized error dynamics
-  const Q = Matrix.eye(3).mul(params.qScale * dt);
-  const P = F.mmul(new Matrix(state.P)).mmul(F.transpose()).add(Q);
+  const afterAccel = math.kalmanCorrect(
+    predicted.q, predicted.P, sample.accel, math.bodyFrame(predicted.q, G), params.rAccel,
+  );
+  if (!sample.mag) return afterAccel;
 
-  // ---- correct with the accelerometer (tilt / gravity) -----------------
-  const c1 = correct(q, P, sample.accel, math.bodyFrame(q, G), params.rAccel);
-
-  // ---- correct with the magnetometer (heading / field direction) -------
-  if (sample.mag) {
-    const c2 = correct(c1.q, new Matrix(c1.P), sample.mag, math.bodyFrame(c1.q, M), params.rMag);
-    return { q: c2.q, P: c2.P };
-  }
-  return { q: c1.q, P: c1.P };
+  return math.kalmanCorrect(
+    afterAccel.q, afterAccel.P, sample.mag, math.bodyFrame(afterAccel.q, M), params.rMag,
+  );
 }
 
 return step;

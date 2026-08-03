@@ -21,7 +21,7 @@
 
     <div id="imu-math" class="math-wrap">
       <details open>
-        <summary>Frames &amp; why quaternions</summary>
+        <summary> Frames &amp; why quaternions</summary>
         <p>The phone has a <em>body</em> frame (X right, Y up the screen, Z out
         of the glass) and the room has a <em>world</em> frame (X north, Z up).
         We store the attitude as a unit quaternion $q$, which rotates body
@@ -33,7 +33,7 @@
       </details>
 
       <details open>
-        <summary>What the sensors measure</summary>
+        <summary> What the sensors measure</summary>
         <p>Each sensor reports a known quantity rotated into the body frame,
         corrupted by a bias $b$ and noise $n$:</p>
         $$\omega_m = \underbrace{\omega_{\text{true}}}_{\text{gyro: rotation rate}} + b_g + n_g$$
@@ -45,7 +45,7 @@
       </details>
 
       <details open>
-        <summary>Gyro integration (the motion model)</summary>
+        <summary> Gyro integration (the motion model)</summary>
         <p>The quaternion evolves as</p>
         $$\dot{q} = \tfrac12\, q \otimes [0,\; \omega]$$
         <p>integrated each step and renormalized. Fast and smooth, but any
@@ -54,7 +54,7 @@
       </details>
 
       <details open>
-        <summary>Accelerometer tilt</summary>
+        <summary> Accelerometer tilt</summary>
         <p>At rest the accelerometer measures only gravity, so tilt follows by
         geometry:</p>
         $$\text{roll} = \operatorname{atan2}(a_y,\, a_z)\qquad \text{pitch} = \operatorname{atan2}(-a_x,\, \sqrt{a_y^2+a_z^2})$$
@@ -65,7 +65,7 @@
       </details>
 
       <details open>
-        <summary>Magnetometer heading</summary>
+        <summary> Magnetometer heading</summary>
         <p>The compass measures the Earth's field in the body frame. Tilt it
         back to horizontal using the accel roll/pitch, and the yaw follows:</p>
         $$\psi = \operatorname{atan2}(-m'_y,\, m'_x)\quad\text{with}\quad m' = \text{tilt-corrected } \mathbf{m}_m$$
@@ -74,7 +74,7 @@
       </details>
 
       <details open>
-        <summary>Complementary filter</summary>
+        <summary> Complementary filter</summary>
         <p>Blend the smooth-but-drifting gyro attitude with the jittery-but-
         bounded accel/mag tilt. One line, one knob:</p>
         $$q = \operatorname{slerp}\big(q_{\text{tilt}}^{(\psi)},\; q_{\text{gyro}},\; \alpha\big)$$
@@ -86,7 +86,7 @@
       </details>
 
       <details open>
-        <summary>The EKF (extended Kalman filter)</summary>
+        <summary> The EKF (extended Kalman filter)</summary>
         <p>State is the attitude quaternion $q$ plus the 3×3 covariance $P$ of
         a small <em>local attitude-error</em> vector $\delta\theta$ (a
         body-frame rotation, not raw quaternion components — corrections are
@@ -116,7 +116,7 @@
       </details>
 
       <details open>
-        <summary>What Q and R do</summary>
+        <summary> What Q and R do</summary>
         <p>Two numbers, two behaviors:</p>
         <ul>
           <li><strong>High $R$</strong> (little trust in a sensor): the filter
