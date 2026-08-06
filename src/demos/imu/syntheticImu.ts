@@ -82,8 +82,9 @@ function sampleAxes(axes: NoiseAxis[], base: [number, number, number], dt: numbe
 
 /**
  * Desktop fallback. The phone's true orientation is owned by the physics
- * engine (cannon-es); we derive noisy gyro/accel/mag samples from the body's
- * quaternion and angular velocity — the same way a real IMU would. Ground
+ * integrator (`PhonePhysics`); we derive noisy gyro/accel/mag samples from
+ * the body's quaternion and angular velocity — the same way a real IMU
+ * would. Ground
  * truth stays available to drive the drift readout and comparison plots.
  *
  * This is driven externally by the sim loop (`advance(dt)`), not its own
@@ -154,8 +155,8 @@ export class SyntheticIMU implements ImuSource {
     if (torque) this.physics.applyAmbientTorque(torque);
 
     const q = this.physics.quaternion();
-    // cannon-es reports angularVelocity in the world frame; the gyro measures
-    // it in the body frame, same as gravity/mag below.
+    // The integrator reports angularVelocity in the world frame; the gyro
+    // measures it in the body frame, same as gravity/mag below.
     const omegaBody = bodyFrame(q, this.physics.angularVelocity());
     const gyro = sampleAxes(this.gyroAxes, omegaBody, sdt);
 

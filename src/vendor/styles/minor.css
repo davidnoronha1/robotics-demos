@@ -13,8 +13,9 @@
     font-weight: normal;
 }
 
-.katex {
-    white-space: pre;
+.math-display {
+    display: flex;
+    justify-content: center;
 }
 
 .minor-fold summary {
@@ -177,12 +178,6 @@ header .img-sml, .img-pxl {
 .ovr-x {
     overflow-x: auto;
 }
-
-/*
-.katex-html {
-    display: none;
-}
-*/
 
 .linklist a {
     text-decoration: none;

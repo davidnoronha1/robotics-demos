@@ -475,9 +475,11 @@ input[type="range"] {
   color: var(--gray);
 }
 
-.math-wrap .katex-display {
+.math-wrap .math-display {
   margin: 0.6em 0;
   overflow-x: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .math-wrap button {

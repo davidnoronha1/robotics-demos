@@ -1,23 +1,22 @@
-import katex from "katex";
 import { useMemo } from "preact/hooks";
-import "katex/dist/katex.min.css";
+import { mathSvgs } from "virtual:math-svgs";
 
 export interface MathTexProps {
-  /** LaTeX source (no `$` delimiters — KaTeX is applied directly). */
+  /** LaTeX source (no `$` delimiters — MathJax is applied at build time). */
   tex: string;
   /** Render as a centered block equation on its own line. */
   display?: boolean;
 }
 
-/** Renders one LaTeX expression. `renderToString` avoids KaTeX's DOM
- * auto-render pass (and the HTML-string workaround that forced on it): each
- * expression is compiled independently and injected via KaTeX's normal
- * output path. */
+/** Renders one LaTeX expression as an inline SVG baked at build time by the
+ * `math-svgs` Vite plugin (MathJax → SVG). No runtime math library or font
+ * payload ships to the browser. */
 export function MathTex({ tex, display = false }: MathTexProps) {
   const html = useMemo(
-    () => katex.renderToString(tex, { displayMode: display, throwOnError: false }),
+    () => mathSvgs[`${display ? "d" : "i"}\u0000${tex}`] ?? "",
     [tex, display],
   );
-  if (display) return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  if (!html) return null;
+  if (display) return <div class="math-display" dangerouslySetInnerHTML={{ __html: html }} />;
   return <span dangerouslySetInnerHTML={{ __html: html }} />;
 }

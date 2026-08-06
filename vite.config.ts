@@ -1,13 +1,15 @@
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
+import { mathSvgs } from "./scripts/math-svgs-plugin";
+import { asyncStylesheets } from "./scripts/async-stylesheet-plugin";
 
 const root = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
 export default defineConfig({
-  plugins: [preact()],
+  plugins: [preact(), mathSvgs(), asyncStylesheets()],
   optimizeDeps: {
-    include: ["three", "cannon-es", "uplot", "katex", "codemirror", "@codemirror/lang-javascript"],
+    include: ["three", "uplot", "codemirror", "@codemirror/lang-javascript"],
   },
   build: {
     target: "es2022",
