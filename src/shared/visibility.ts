@@ -8,6 +8,10 @@ export function onVisibilityChange(
   onEnter: () => void,
   onLeave: () => void,
 ): () => void {
+  // Fires once at least 5% of the element is on screen — low enough that a
+  // demo starts as soon as it's plausibly visible, not only once fully in view.
+  const VISIBLE_THRESHOLD = 0.05;
+
   let intersecting = false;
   let tabVisible = document.visibilityState === "visible";
 
@@ -21,7 +25,7 @@ export function onVisibilityChange(
       intersecting = !!entry?.isIntersecting;
       sync();
     },
-    { threshold: 0.05 },
+    { threshold: VISIBLE_THRESHOLD },
   );
   io.observe(el);
 

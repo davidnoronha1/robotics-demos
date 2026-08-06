@@ -6,6 +6,13 @@
 
 /* -- Homepage demo list -- */
 
+/* The vendor stylesheet's `body > article { padding-top: 2em }` no longer
+   applies to demo pages: the page shell (article) is now rendered inside a
+   bare mount point (#imu-root), so restore the equivalent top spacing here. */
+#imu-root > article {
+  padding-top: 2em;
+}
+
 .demo-list {
   list-style: none;
   margin: 1.5em 0 0;
@@ -66,13 +73,22 @@ input[type="range"] {
 }
 
 .control-panel {
+  margin-top: 1em;
+  padding: 1em;
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+}
+
+.control-panel .tabs {
+  margin-top: 0;
+}
+
+.imu-panel-body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75em 2em;
-  padding: 1em;
-  margin-top: 1em;
-  border: 1px solid var(--white-darker);
-  border-radius: 4px;
+  align-items: flex-start;
+  padding-top: 1em;
 }
 
 .ctrl {
@@ -275,14 +291,7 @@ input[type="range"] {
   text-align: center;
 }
 
-.imu-section {
-  flex: 1 1 240px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.imu-section h4 {
+.imu-panel-body h4 {
   margin: 0;
   font-size: 0.9em;
   border-bottom: 1px solid var(--white-darker);
@@ -455,6 +464,10 @@ input[type="range"] {
   cursor: pointer;
   font-weight: 600;
   font-size: 0.95em;
+  /* The disclosure arrow is an absolutely-positioned 32px SVG at left: -1.4em
+     (vendor styles) which at this font size underlaps the heading text —
+     pad the text right so it clears the arrow. */
+  padding-left: 1.5em;
 }
 
 .math-wrap p {

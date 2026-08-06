@@ -1,5 +1,10 @@
 import uPlot from "uplot";
 import "uplot/dist/uPlot.min.css";
+import { forwardRef } from "preact/compat";
+import { useEffect, useImperativeHandle, useRef, useState } from "preact/hooks";
+import { bindPointerInput } from "./pointerInput";
+import { PlotLegend } from "./PlotLegend";
+import { PLOT_ZOOM_STEP, isZoomGesture } from "./plotConstants";
 
 export interface SeriesSpec {
   key: string;
@@ -7,16 +12,37 @@ export interface SeriesSpec {
   color: string;
 }
 
-export interface TimeSeriesPlot {
-  el: HTMLElement;
+export interface TimeSeriesPlotProps {
+  series: SeriesSpec[];
+  windowSeconds: number;
+  yLabel?: string;
+  height?: number;
+  minWindowSeconds?: number;
+  maxWindowSeconds?: number;
+}
+
+/** Imperative handle the sim loop drives 60×/sec, bypassing Preact's render
+ * cycle entirely — the chart's data lives inside uPlot, not in component
+ * state. Preact only owns the chrome and the mount/destroy lifecycle. */
+export interface TimeSeriesPlotHandle {
   push(t: number, values: Record<string, number>): void;
   render(): void;
   reset(): void;
-  destroy(): void;
 }
 
 const AXIS_COLOR = "#888";
 const GRID_COLOR = "#8888882a";
+
+const ExpandIcon = () => (
+  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 2H2v4M10 2h4v4M2 10v4h4M14 10v4h-4" />
+  </svg>
+);
+const CollapseIcon = () => (
+  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 4l8 8M12 4l-8 8" />
+  </svg>
+);
 
 /**
  * Streaming time-series chart backed by uPlot.
@@ -32,82 +58,32 @@ const GRID_COLOR = "#8888882a";
  *   - drag to pan (x scrolls; y moves the range)
  *   - double-click or the "reset zoom" button: restore auto-fit + follow
  *   - the "expand" button: view the plot as a fullscreen overlay
+ *
+ * The chrome (header/legend/buttons) is JSX; everything touching uPlot is
+ * imperative and lives in `createEngine`, so the sim loop can stream data
+ * without any React re-render.
  */
-export function createTimeSeriesPlot(opts: {
+interface Engine {
+  push(t: number, values: Record<string, number>): void;
+  render(): void;
+  reset(): void;
+  resetView(): void;
+  setSeriesShown(index: number, shown: boolean): void;
+  setExpanded(expanded: boolean): void;
+  sizeChart(): void;
+  destroy(): void;
+}
+
+function createEngine(opts: {
   series: SeriesSpec[];
   windowSeconds: number;
-  yLabel?: string;
-  height?: number;
-  minWindowSeconds?: number;
-  maxWindowSeconds?: number;
-}): TimeSeriesPlot {
-  const baseHeight = opts.height ?? 220;
-  const windowSeconds = opts.windowSeconds;
-  const minWindow = opts.minWindowSeconds ?? 2;
-  const maxWindow = opts.maxWindowSeconds ?? 120;
-
-  const wrap = document.createElement("div");
-  wrap.className = "plot";
-
-  // ---- Header: title on the left, controls on the right, legend below ----
-  const header = document.createElement("div");
-  header.className = "plot-header";
-
-  if (opts.yLabel) {
-    const title = document.createElement("div");
-    title.className = "plot-title";
-    title.textContent = opts.yLabel;
-    header.appendChild(title);
-  }
-
-  const controls = document.createElement("div");
-  controls.className = "plot-controls";
-
-  const EXPAND_ICON =
-    '<svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2H2v4M10 2h4v4M2 10v4h4M14 10v4h-4"/></svg>';
-  const COLLAPSE_ICON =
-    '<svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>';
-
-  const expandBtn = document.createElement("button");
-  expandBtn.type = "button";
-  expandBtn.className = "plot-expand";
-  expandBtn.innerHTML = EXPAND_ICON;
-  expandBtn.title = "Expand";
-  controls.appendChild(expandBtn);
-
-  const resetBtn = document.createElement("button");
-  resetBtn.type = "button";
-  resetBtn.className = "plot-reset";
-  resetBtn.textContent = "reset zoom";
-  controls.appendChild(resetBtn);
-
-  header.appendChild(controls);
-  wrap.appendChild(header);
-
-  const legend = document.createElement("div");
-  legend.className = "plot-legend";
-  opts.series.forEach((s, i) => {
-    const item = document.createElement("span");
-    item.className = "legend-item";
-    const swatch = document.createElement("span");
-    swatch.className = "swatch";
-    swatch.style.background = s.color;
-    item.append(swatch, document.createTextNode(s.label));
-    // Click a legend entry to show/hide that series — series index in the
-    // uPlot data/series arrays is offset by 1 (index 0 is the x axis).
-    item.addEventListener("click", () => {
-      const seriesIdx = i + 1;
-      const shown = chart.series[seriesIdx]!.show;
-      chart.setSeries(seriesIdx, { show: !shown });
-      item.classList.toggle("legend-off", shown);
-    });
-    legend.appendChild(item);
-  });
-  wrap.appendChild(legend);
-
-  const holder = document.createElement("div");
-  holder.className = "plot-chart";
-  wrap.appendChild(holder);
+  minWindow: number;
+  maxWindow: number;
+  baseHeight: number;
+  wrap: HTMLElement;
+  holder: HTMLElement;
+}): Engine {
+  const { series, windowSeconds, minWindow, maxWindow, baseHeight, wrap, holder } = opts;
 
   const chart = new uPlot(
     {
@@ -147,12 +123,9 @@ export function createTimeSeriesPlot(opts: {
       ],
       legend: { show: false },
       cursor: { y: true, drag: { x: false, y: false } },
-      series: [
-        {},
-        ...opts.series.map((s) => ({ label: s.label, stroke: s.color, width: 1.75 })),
-      ],
+      series: [{}, ...series.map((s) => ({ label: s.label, stroke: s.color, width: 1.75 }))],
     },
-    [[], ...opts.series.map(() => [])],
+    [[], ...series.map(() => [])],
     holder,
   );
 
@@ -168,12 +141,7 @@ export function createTimeSeriesPlot(opts: {
   let yAuto = true;
   let yMin = -1;
   let yMax = 1;
-
-  // ---- Expand state ----
-  let expanded = false;
-  let currentHeight = baseHeight;
-
-  // ---- Core scale helpers ----
+  let sawFirstData = false;
 
   /** Visible x-window; while following, don't show dead space before the first sample. */
   function currentXMin(): number {
@@ -199,8 +167,8 @@ export function createTimeSeriesPlot(opts: {
     for (let i = 0; i < buffer.length; i++) {
       const p = buffer[i]!;
       if (p.t < lo || p.t > hi) continue;
-      for (let s = 0; s < opts.series.length; s++) {
-        const v = p.values[opts.series[s]!.key];
+      for (let s = 0; s < series.length; s++) {
+        const v = p.values[series[s]!.key];
         if (v === undefined || Number.isNaN(v)) continue;
         if (v < min) min = v;
         if (v > max) max = v;
@@ -260,43 +228,35 @@ export function createTimeSeriesPlot(opts: {
     xMax = xMin + span;
   }
 
-  // ---- Expand / collapse ----
-  function setExpanded(next: boolean): void {
-    if (next === expanded) return;
-    expanded = next;
-    wrap.classList.toggle("plot-expanded", expanded);
-    expandBtn.innerHTML = expanded ? COLLAPSE_ICON : EXPAND_ICON;
-    expandBtn.title = expanded ? "Collapse" : "Expand";
-    sizeChart();
+  let expanded = false;
+  function setExpanded(v: boolean): void {
+    expanded = v;
   }
 
   /** Re-read width/height and push the new size into uPlot. */
   function sizeChart(): void {
     const w = Math.max(holder.clientWidth || wrap.clientWidth, 200);
-    if (expanded) {
-      // Fill the overlay: full width, and height minus the header+legend chrome.
-      const chrome = holder.offsetTop;
-      const h = Math.max((wrap.clientHeight || 600) - chrome - 12, 160);
-      currentHeight = h;
-    } else {
-      currentHeight = baseHeight;
-    }
-    chart.setSize({ width: Math.round(w), height: Math.round(currentHeight) });
+    // The expanded overlay (see .plot-expanded) is a viewport-fixed box, so
+    // its clientHeight reflects the fullscreen size; otherwise use the fixed
+    // per-plot height.
+    const h = expanded ? Math.max((wrap.clientHeight || 600) - holder.offsetTop - 12, 160) : baseHeight;
+    chart.setSize({ width: Math.round(w), height: Math.round(h) });
   }
 
   // Immediately establish the real initial window so uPlot doesn't lock in a
   // degenerate range from the empty seed data.
   resetView();
 
-  resetBtn.addEventListener("click", resetView);
-  expandBtn.addEventListener("click", () => setExpanded(!expanded));
+  function setSeriesShown(index: number, shown: boolean): void {
+    chart.setSeries(index, { show: shown });
+  }
 
   // ---- Zoom (ctrl/cmd + wheel, anchored at cursor) ----
   chart.over.addEventListener("wheel", (e: WheelEvent) => {
-    if (!e.ctrlKey && !e.metaKey) return;
+    if (!isZoomGesture(e)) return;
     e.preventDefault();
 
-    const factor = e.deltaY > 0 ? 1.12 : 1 / 1.12;
+    const factor = e.deltaY > 0 ? PLOT_ZOOM_STEP : 1 / PLOT_ZOOM_STEP;
     const cx = chart.posToVal(e.offsetX, "x");
     zoomX(cx, factor);
 
@@ -320,48 +280,46 @@ export function createTimeSeriesPlot(opts: {
   let panning = false;
   let panLast = { x: 0, y: 0 };
 
-  chart.over.addEventListener("pointerdown", (e: PointerEvent) => {
-    panning = true;
-    panLast = { x: e.offsetX, y: e.offsetY };
-    chart.over.setPointerCapture(e.pointerId);
-  });
-  chart.over.addEventListener("pointermove", (e: PointerEvent) => {
-    if (!panning) return;
-    const dxPx = e.offsetX - panLast.x;
-    const dyPx = e.offsetY - panLast.y;
-    panLast = { x: e.offsetX, y: e.offsetY };
+  const unbindPan = bindPointerInput(chart.over, {
+    onDown: (x, y) => {
+      panning = true;
+      panLast = { x, y };
+    },
+    onMove: (x, y) => {
+      if (!panning) return;
+      const dxPx = x - panLast.x;
+      const dyPx = y - panLast.y;
+      panLast = { x, y };
 
-    const span = followed ? windowSeconds : xMax - xMin;
-    const sPerPx = span / Math.max(chart.over.clientWidth, 1);
-    if (dxPx !== 0) {
-      if (followed) {
-        // Dragging backs the view off the live edge into explicit mode.
-        followed = false;
-        xMin = Math.max(0, tNow - windowSeconds);
-        xMax = tNow;
+      const span = followed ? windowSeconds : xMax - xMin;
+      const sPerPx = span / Math.max(chart.over.clientWidth, 1);
+      if (dxPx !== 0) {
+        if (followed) {
+          // Dragging backs the view off the live edge into explicit mode.
+          followed = false;
+          xMin = Math.max(0, tNow - windowSeconds);
+          xMax = tNow;
+        }
+        xMin -= dxPx * sPerPx;
+        xMax -= dxPx * sPerPx;
       }
-      xMin -= dxPx * sPerPx;
-      xMax -= dxPx * sPerPx;
-    }
 
-    if (dyPx !== 0) {
-      if (yAuto) {
-        // Freeze the current fit so vertical drag can pan it.
-        fitY();
-        yAuto = false;
+      if (dyPx !== 0) {
+        if (yAuto) {
+          // Freeze the current fit so vertical drag can pan it.
+          fitY();
+          yAuto = false;
+        }
+        const vPerPx = (yMax - yMin) / Math.max(chart.over.clientHeight, 1);
+        yMin += dyPx * vPerPx;
+        yMax += dyPx * vPerPx;
       }
-      const vPerPx = (yMax - yMin) / Math.max(chart.over.clientHeight, 1);
-      yMin += dyPx * vPerPx;
-      yMax += dyPx * vPerPx;
-    }
-    applyScales();
+      applyScales();
+    },
+    onUp: () => {
+      panning = false;
+    },
   });
-  const stopPan = (e: PointerEvent) => {
-    panning = false;
-    if (chart.over.hasPointerCapture(e.pointerId)) chart.over.releasePointerCapture(e.pointerId);
-  };
-  chart.over.addEventListener("pointerup", stopPan);
-  chart.over.addEventListener("pointercancel", stopPan);
   chart.over.addEventListener("dblclick", resetView);
 
   // Keep the chart sized to its container; also handles expand/collapse and
@@ -376,8 +334,6 @@ export function createTimeSeriesPlot(opts: {
     while (buffer.length > 1 && buffer[0]!.t < cutoff) buffer.shift();
   }
 
-  let sawFirstData = false;
-
   function render(): void {
     const n = buffer.length;
     if (n === 0) return;
@@ -389,12 +345,12 @@ export function createTimeSeriesPlot(opts: {
       resetView();
     }
     const xs = new Array(n);
-    const cols: Array<Array<number | null>> = opts.series.map(() => new Array(n).fill(null));
+    const cols: Array<Array<number | null>> = series.map(() => new Array(n).fill(null));
     for (let i = 0; i < n; i++) {
       const { t, values } = buffer[i]!;
       xs[i] = t;
-      for (let s = 0; s < opts.series.length; s++) {
-        const v = values[opts.series[s]!.key];
+      for (let s = 0; s < series.length; s++) {
+        const v = values[series[s]!.key];
         if (v !== undefined) cols[s]![i] = v;
       }
     }
@@ -414,8 +370,91 @@ export function createTimeSeriesPlot(opts: {
 
   function destroy(): void {
     resize.disconnect();
+    unbindPan();
     chart.destroy();
   }
 
-  return { el: wrap, push, render, reset, destroy };
+  return { push, render, reset, resetView, setSeriesShown, setExpanded, sizeChart, destroy };
 }
+
+export const TimeSeriesPlot = forwardRef<TimeSeriesPlotHandle, TimeSeriesPlotProps>(
+  function TimeSeriesPlot(props, ref) {
+    const wrapRef = useRef<HTMLDivElement>(null);
+    const holderRef = useRef<HTMLDivElement>(null);
+    const engineRef = useRef<Engine | null>(null);
+    const [expanded, setExpanded] = useState(false);
+    const [hidden, setHidden] = useState<ReadonlySet<string>>(new Set());
+
+    useEffect(() => {
+      const engine = createEngine({
+        series: props.series,
+        windowSeconds: props.windowSeconds,
+        minWindow: props.minWindowSeconds ?? 2,
+        maxWindow: props.maxWindowSeconds ?? 120,
+        baseHeight: props.height ?? 220,
+        wrap: wrapRef.current!,
+        holder: holderRef.current!,
+      });
+      engineRef.current = engine;
+      return () => engine.destroy();
+      // Config is fixed for the lifetime of a panel in this demo — mount-once.
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // Re-size after the expanded overlay's class lands in the DOM.
+    useEffect(() => {
+      engineRef.current?.setExpanded(expanded);
+      engineRef.current?.sizeChart();
+    }, [expanded]);
+
+    useImperativeHandle(
+      ref,
+      () => ({
+        push: (t, values) => engineRef.current?.push(t, values),
+        render: () => engineRef.current?.render(),
+        reset: () => engineRef.current?.reset(),
+      }),
+      [],
+    );
+
+    return (
+      <div class={`plot${expanded ? " plot-expanded" : ""}`} ref={wrapRef}>
+        <div class="plot-header">
+          {props.yLabel && <div class="plot-title">{props.yLabel}</div>}
+          <div class="plot-controls">
+            <button
+              type="button"
+              class="plot-expand"
+              title={expanded ? "Collapse" : "Expand"}
+              onClick={() => setExpanded((v) => !v)}
+            >
+              {expanded ? <CollapseIcon /> : <ExpandIcon />}
+            </button>
+            <button type="button" class="plot-reset" onClick={() => engineRef.current?.resetView()}>
+              reset zoom
+            </button>
+          </div>
+        </div>
+        <div class="plot-legend">
+          <PlotLegend
+            series={props.series}
+            hidden={hidden}
+            onToggle={(key, nextShown) => {
+              setHidden((prev) => {
+                const next = new Set(prev);
+                if (nextShown) next.delete(key);
+                else next.add(key);
+                return next;
+              });
+              // Series index in the uPlot data/series arrays is offset by 1
+              // (index 0 is the x axis).
+              const i = props.series.findIndex((s) => s.key === key);
+              engineRef.current?.setSeriesShown(i + 1, nextShown);
+            }}
+          />
+        </div>
+        <div class="plot-chart" ref={holderRef} />
+      </div>
+    );
+  },
+);

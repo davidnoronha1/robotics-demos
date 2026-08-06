@@ -25,7 +25,8 @@
  */
 import * as THREE from "three";
 import { PhonePhysics } from "../src/demos/imu/physics";
-import { SyntheticIMU, WORLD_G, type NoiseConfig } from "../src/demos/imu/sensorInput";
+import { WORLD_G } from "../src/demos/imu/sensorInput";
+import { SyntheticIMU, type NoiseConfig } from "../src/demos/imu/syntheticImu";
 import { GyroOnlyEstimator, type ImuSample } from "../src/demos/imu/estimators";
 import { EditableFusion, DEFAULT_EKF_SOURCE } from "../src/demos/imu/fusionCode";
 import { bodyFrame, eulerOf } from "../src/demos/imu/quaternion";

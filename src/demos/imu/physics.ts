@@ -78,8 +78,8 @@ export class PhonePhysics {
   /** Pointer drag (pixel deltas) becomes a torque about world X (pitch) and
    * world Z (yaw) — the engine turns torque into rotation. */
   applyDragTorque(dxPixels: number, dyPixels: number): void {
-    const SENSITIVITY = 0.55; // N·m per pixel of drag
-    this.body.applyTorque(new CANNON.Vec3(dyPixels * SENSITIVITY, 0, -dxPixels * SENSITIVITY));
+    const DRAG_TORQUE_PER_PX = 0.55; // N·m per pixel of drag
+    this.body.applyTorque(new CANNON.Vec3(dyPixels * DRAG_TORQUE_PER_PX, 0, -dxPixels * DRAG_TORQUE_PER_PX));
     this.body.wakeUp();
   }
 

@@ -14,6 +14,10 @@ export function NumberInput({
   step,
   min,
   max,
+  // Trims trailing zeros (round-trip through Number) rather than a fixed
+  // precision like Slider's default: NumberInput values here span several
+  // orders of magnitude (e.g. qScale ~1e-4 vs rMag ~4), so a flat toFixed(2)
+  // would either truncate the small ones or pad the large ones with zeros.
   format = (v) => String(Number(v.toFixed(4))),
   onChange,
 }: NumberInputProps) {

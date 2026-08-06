@@ -1,16 +1,22 @@
 import * as THREE from "three";
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { forwardRef } from "preact/compat";
 import { setupCanvas } from "../../shared/canvas";
 import { Checkbox } from "../../shared/ui/Checkbox";
 import { Slider } from "../../shared/ui/Slider";
 import { Tabs } from "../../shared/Tabs";
-import { PlotPanel, type PlotPanelHandle } from "../../shared/PlotPanel";
-import { createPolarPlot } from "../../shared/polarPlot";
+import {
+  TimeSeriesPlot,
+  type SeriesSpec,
+  type TimeSeriesPlotHandle,
+  type TimeSeriesPlotProps,
+} from "../../shared/TimeSeriesPlot";
+import { PolarPlot, type PolarPlotHandle } from "../../shared/PolarPlot";
 import { createCodeEditor, type CodeEditor } from "../../shared/codeEditor";
 import { drawCube } from "./renderCube";
 import { createPhoneStage, type PhoneStage } from "./scene3d";
 import { ImuController, DEFAULT_NOISE, type MotionMode, type NoiseConfig } from "./simController";
-import { RealDeviceIMU, WORLD_G, WORLD_M } from "./sensorInput";
+import { RealDeviceIMU } from "./realDeviceImu";
 import type { ImuSample } from "./estimators";
 import {
   DEFAULT_COMP_SOURCE,
@@ -19,14 +25,27 @@ import {
   injectParams,
   type FusionParams,
 } from "./fusionCode";
-import { bodyFrame, eulerOf, worldFrame } from "./quaternion";
-import { AngleUnwrap } from "./angleUnwrap";
 import { buildQrAffordance } from "./qr";
-import { mountMath } from "./mathExplain";
+import { PlotFeed, type PlotId } from "./plotFeed";
+import { MathExplainer } from "./MathExplainer";
 import { NoisePanel } from "./NoisePanel";
 import { TrustPanel, type TrustValues } from "./TrustPanel";
 
-const RAD2DEG = 180 / Math.PI;
+const PANEL_SPECS = [
+  { id: "motion", label: "Motion" },
+  { id: "noise", label: "Sensor noise" },
+  { id: "ekf", label: "EKF config" },
+] as const;
+type PanelId = (typeof PANEL_SPECS)[number]["id"];
+
+/** All plots use the same 15 s streaming window; this is the only knob the
+ * demos themselves touch (the shared plot defaults are broader). */
+type ImuPlotProps = Omit<TimeSeriesPlotProps, "windowSeconds" | "minWindowSeconds" | "maxWindowSeconds">;
+
+const ImuPlot = forwardRef<TimeSeriesPlotHandle, ImuPlotProps>(function ImuPlot(props, ref) {
+  return <TimeSeriesPlot ref={ref} windowSeconds={15} minWindowSeconds={3} maxWindowSeconds={120} {...props} />;
+});
+
 
 /** All "fused" series everywhere in this demo are the same estimate: the
  * active filter (EKF or complementary) blending gyro + accel + mag. */
@@ -45,6 +64,20 @@ const C = {
 
 type CubeKey = "gyro" | "accel" | "fused" | "heading";
 
+const CUBE_CANVAS_W = 140;
+const CUBE_CANVAS_H = 180;
+
+const TIMESCALE_MIN = 0.1;
+const TIMESCALE_MAX = 2;
+const TIMESCALE_STEP = 0.1;
+
+const CUBE_QUATERNION: Record<CubeKey, (c: ImuController) => THREE.Quaternion> = {
+  gyro: (c) => c.qGyro,
+  accel: (c) => c.qAccel,
+  heading: (c) => c.qMag,
+  fused: (c) => c.qFused,
+};
+
 const CUBE_INFO: Array<{ key: CubeKey; label: string; color: string }> = [
   { key: "gyro", label: "Gyro integration only — drifts", color: C.gyro },
   { key: "accel", label: "Accelerometer only — no yaw, jitters", color: C.accel },
@@ -53,11 +86,94 @@ const CUBE_INFO: Array<{ key: CubeKey; label: string; color: string }> = [
 ];
 
 type TabId = "angular" | "acceleration" | "heading" | "internals";
-const TAB_SPECS = [
-  { id: "angular", label: "Angular (gyro + fused angles)" },
-  { id: "acceleration", label: "Acceleration (raw + integrated velocity)" },
-  { id: "heading", label: "Heading (mag + fused yaw)" },
-  { id: "internals", label: "Filter internals" },
+
+interface PlotSpec {
+  id: PlotId;
+  tab: TabId;
+  series: SeriesSpec[];
+  yLabel: string;
+}
+
+const ANGLE_SERIES = (extra: SeriesSpec[]): SeriesSpec[] => [
+  { key: "fused", label: FUSED_LABEL, color: C.fused },
+  ...extra,
+  { key: "true", label: "true", color: C.true },
+];
+const XYZ_SERIES = (yLabel: string): SeriesSpec[] => [
+  { key: "x", label: `${yLabel}x`, color: C.x },
+  { key: "y", label: `${yLabel}y`, color: C.y },
+  { key: "z", label: `${yLabel}z`, color: C.z },
+];
+
+const PLOT_SPECS: PlotSpec[] = [
+  { id: "gyro", tab: "angular", series: XYZ_SERIES("ω"), yLabel: "gyro (rad/s)" },
+  {
+    id: "roll",
+    tab: "angular",
+    series: ANGLE_SERIES([
+      { key: "gyro", label: "gyro-only", color: C.gyro },
+      { key: "accel", label: "accel-only", color: C.accel },
+    ]),
+    yLabel: "roll (deg)",
+  },
+  {
+    id: "pitch",
+    tab: "angular",
+    series: ANGLE_SERIES([
+      { key: "gyro", label: "gyro-only", color: C.gyro },
+      { key: "accel", label: "accel-only", color: C.accel },
+    ]),
+    yLabel: "pitch (deg)",
+  },
+  {
+    id: "yaw",
+    tab: "angular",
+    series: ANGLE_SERIES([{ key: "gyro", label: "gyro-only", color: C.gyro }]),
+    yLabel: "yaw (deg)",
+  },
+  { id: "accel", tab: "acceleration", series: XYZ_SERIES("a"), yLabel: "m/s²" },
+  {
+    id: "accelVel",
+    tab: "acceleration",
+    series: [
+      { key: "x", label: "X vel", color: C.x },
+      { key: "y", label: "Y vel", color: C.y },
+      { key: "z", label: "Z vel", color: C.z },
+    ],
+    yLabel: "m/s",
+  },
+  {
+    id: "accelPos",
+    tab: "acceleration",
+    series: [
+      { key: "x", label: "X pos", color: C.x },
+      { key: "y", label: "Y pos", color: C.y },
+      { key: "z", label: "Z pos", color: C.z },
+    ],
+    yLabel: "movement (m)",
+  },
+  { id: "mag", tab: "heading", series: XYZ_SERIES("m"), yLabel: "magnetometer (µT)" },
+  {
+    id: "heading",
+    tab: "heading",
+    series: ANGLE_SERIES([{ key: "mag", label: "mag-only", color: C.mag }]),
+    yLabel: "heading (deg)",
+  },
+  {
+    id: "innov",
+    tab: "internals",
+    series: [
+      { key: "accel", label: "accel residual", color: C.accel },
+      { key: "mag", label: "mag residual", color: C.mag },
+    ],
+    yLabel: "|innovation|",
+  },
+  {
+    id: "cov",
+    tab: "internals",
+    series: [{ key: "trace", label: "trace(P)", color: C.fused }],
+    yLabel: "attitude covariance",
+  },
 ];
 
 /** Both templates' `params` blocks together are the single source of truth
@@ -115,6 +231,7 @@ export function App() {
   const [trust, setTrust] = useState<TrustValues>(restored?.trust ?? defaultTrustValues());
   const [linkEnabled, setLinkEnabled] = useState(restored?.linkEnabled ?? true);
   const [activeTab, setActiveTab] = useState<TabId>("angular");
+  const [activePanel, setActivePanel] = useState<PanelId>("motion");
   const [activeFilter, setActiveFilter] = useState<"ekf" | "comp">(restored?.activeFilter ?? "ekf");
   const [bannerText, setBannerText] = useState("Using simulated sensors (desktop fallback).");
   const [usingReal, setUsingReal] = useState(false);
@@ -129,45 +246,17 @@ export function App() {
   const qrHostRef = useRef<HTMLDivElement>(null);
   const editorHostRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<CodeEditor | null>(null);
-  const debounceRef = useRef(0);
   const driftSpanRef = useRef<HTMLSpanElement>(null);
-  const unwrapsRef = useRef(new Map<string, AngleUnwrap>());
-  const polarHostRef = useRef<HTMLDivElement>(null);
-  const polarPlotRef = useRef<ReturnType<typeof createPolarPlot> | null>(null);
+  const polarPlotRef = useRef<PolarPlotHandle | null>(null);
 
-  const rollRef = useRef<PlotPanelHandle>(null);
-  const pitchRef = useRef<PlotPanelHandle>(null);
-  const yawRef = useRef<PlotPanelHandle>(null);
-  const headingRef = useRef<PlotPanelHandle>(null);
-  const gyroPlotRef = useRef<PlotPanelHandle>(null);
-  const accelPlotRef = useRef<PlotPanelHandle>(null);
-  const magPlotRef = useRef<PlotPanelHandle>(null);
-  const accelVelRef = useRef<PlotPanelHandle>(null);
-  const accelPosRef = useRef<PlotPanelHandle>(null);
-  const innovRef = useRef<PlotPanelHandle>(null);
-  const covRef = useRef<PlotPanelHandle>(null);
-  const allPlotRefs = [
-    rollRef,
-    pitchRef,
-    yawRef,
-    headingRef,
-    gyroPlotRef,
-    accelPlotRef,
-    magPlotRef,
-    accelVelRef,
-    accelPosRef,
-    innovRef,
-    covRef,
-  ];
+  const plotRefs = useRef<Partial<Record<PlotId, TimeSeriesPlotHandle>>>({});
+  function plotRef(id: PlotId) {
+    return (h: TimeSeriesPlotHandle | null) => {
+      if (h) plotRefs.current[id] = h;
+    };
+  }
 
-  // Naive double-integration of gravity-compensated acceleration, in the
-  // world frame. Real velocity here is always ~0 (the physics body is pinned
-  // in place — see physics.ts — it only rotates), so this exists purely to
-  // demonstrate the classic IMU lesson: accelerometer noise/bias integrates
-  // into an unbounded velocity random walk with nothing to correct it.
-  const velocityRef = useRef<[number, number, number]>([0, 0, 0]);
-  const positionRef = useRef<[number, number, number]>([0, 0, 0]);
-  const lastAccelTRef = useRef<number | null>(null);
+  const feedRef = useRef(new PlotFeed());
 
   // Mirrors the latest reactive state into a ref so the dispose/HMR cleanup
   // (a closure captured on first render) can read current values without
@@ -192,92 +281,9 @@ export function App() {
   function handleSample(sample: ImuSample): void {
     const c = getController();
     const t = c.simTime;
-    const eG = eulerOf(c.qGyro);
-    const eA = eulerOf(c.qAccel);
-    const eF = eulerOf(c.qFused);
-    const eM = eulerOf(c.qMag);
-    const trueQ = c.trueOrientation;
-    const eT = trueQ ? eulerOf(trueQ) : null;
-
-    function unwrap(key: string, deg: number): number {
-      let u = unwrapsRef.current.get(key);
-      if (!u) {
-        u = new AngleUnwrap();
-        unwrapsRef.current.set(key, u);
-      }
-      return u.next(deg);
-    }
-
-    rollRef.current?.push(t, {
-      fused: unwrap("rollF", eF.roll * RAD2DEG),
-      gyro: unwrap("rollG", eG.roll * RAD2DEG),
-      accel: unwrap("rollA", eA.roll * RAD2DEG),
-      true: eT ? unwrap("rollT", eT.roll * RAD2DEG) : NaN,
-    });
-    pitchRef.current?.push(t, {
-      fused: unwrap("pitchF", eF.pitch * RAD2DEG),
-      gyro: unwrap("pitchG", eG.pitch * RAD2DEG),
-      accel: unwrap("pitchA", eA.pitch * RAD2DEG),
-      true: eT ? unwrap("pitchT", eT.pitch * RAD2DEG) : NaN,
-    });
-    yawRef.current?.push(t, {
-      fused: unwrap("yawF", eF.yaw * RAD2DEG),
-      gyro: unwrap("yawG", eG.yaw * RAD2DEG),
-      true: eT ? unwrap("yawT", eT.yaw * RAD2DEG) : NaN,
-    });
-    headingRef.current?.push(t, {
-      fused: unwrap("hdgF", eF.yaw * RAD2DEG),
-      mag: unwrap("hdgM", eM.yaw * RAD2DEG),
-      true: eT ? unwrap("hdgT", eT.yaw * RAD2DEG) : NaN,
-    });
-
-    gyroPlotRef.current?.push(t, { x: sample.gyro[0], y: sample.gyro[1], z: sample.gyro[2] });
-    accelPlotRef.current?.push(t, { x: sample.accel[0], y: sample.accel[1], z: sample.accel[2] });
-    if (sample.mag) magPlotRef.current?.push(t, { x: sample.mag[0], y: sample.mag[1], z: sample.mag[2] });
-
-    // Velocity by naive integration: rotate the accel reading into the world
-    // frame and subtract gravity to get linear acceleration, then integrate.
-    const lastAccelT = lastAccelTRef.current;
-    if (lastAccelT !== null) {
-      const dt = t - lastAccelT;
-      const aWorld = worldFrame(c.qFused, sample.accel);
-      const v = velocityRef.current;
-      const p = positionRef.current;
-      velocityRef.current = [
-        v[0] + (aWorld[0] - WORLD_G[0]) * dt,
-        v[1] + (aWorld[1] - WORLD_G[1]) * dt,
-        v[2] + (aWorld[2] - WORLD_G[2]) * dt,
-      ];
-      positionRef.current = [p[0] + v[0] * dt, p[1] + v[1] * dt, p[2] + v[2] * dt];
-    }
-    lastAccelTRef.current = t;
-    accelVelRef.current?.push(t, {
-      x: velocityRef.current[0],
-      y: velocityRef.current[1],
-      z: velocityRef.current[2],
-    });
-    accelPosRef.current?.push(t, {
-      x: positionRef.current[0],
-      y: positionRef.current[1],
-      z: positionRef.current[2],
-    });
-
-    const gBody = bodyFrame(c.qFused, WORLD_G);
-    const resAccel = Math.hypot(sample.accel[0] - gBody[0], sample.accel[1] - gBody[1], sample.accel[2] - gBody[2]);
-    let resMag = NaN;
-    if (sample.mag) {
-      const mBody = bodyFrame(c.qFused, WORLD_M);
-      resMag = Math.hypot(sample.mag[0] - mBody[0], sample.mag[1] - mBody[1], sample.mag[2] - mBody[2]);
-    }
-    innovRef.current?.push(t, { accel: resAccel, mag: resMag });
-    const P = c.fused.state.P;
-    covRef.current?.push(t, { trace: P[0]![0]! + P[1]![1]! + P[2]![2]! });
-
-    const norm360 = (deg: number) => ((deg % 360) + 360) % 360;
-    polarPlotRef.current?.push(t, {
-      fused: norm360(eF.yaw * RAD2DEG),
-      true: eT ? norm360(eT.yaw * RAD2DEG) : NaN,
-    });
+    const { plots, polarYaw } = feedRef.current.computeFrame(c, sample, t);
+    for (const [id, values] of Object.entries(plots)) plotRefs.current[id as PlotId]?.push(t, values);
+    polarPlotRef.current?.push(t, polarYaw);
   }
 
   function handleRenderFrame(): void {
@@ -285,14 +291,14 @@ export function App() {
     for (const info of CUBE_INFO) {
       const ctx = cubeCtxRefs.current[info.key];
       if (!ctx) continue;
-      ctx.clearRect(0, 0, 140, 180);
-      const q = info.key === "gyro" ? c.qGyro : info.key === "accel" ? c.qAccel : info.key === "heading" ? c.qMag : c.qFused;
-      drawCube(ctx, q, 70, 90, 60);
+      ctx.clearRect(0, 0, CUBE_CANVAS_W, CUBE_CANVAS_H);
+      drawCube(ctx, CUBE_QUATERNION[info.key](c), CUBE_CANVAS_W / 2, CUBE_CANVAS_H / 2, 60);
     }
 
-    const stageQ = c.usingReal ? c.qFused : (c.trueOrientation ?? new THREE.Quaternion());
-    const stagePos = c.truePosition ?? [0, 0, 0];
-    stageRef.current?.setPose(stageQ, stagePos);
+    stageRef.current?.setPose(
+      c.usingReal ? c.qFused : (c.trueOrientation ?? new THREE.Quaternion()),
+      c.truePosition ?? [0, 0, 0],
+    );
     stageRef.current?.render();
 
     if (driftSpanRef.current) {
@@ -301,17 +307,43 @@ export function App() {
         : `${c.driftDeg.toFixed(1)}° vs true`;
     }
 
-    for (const ref of allPlotRefs) ref.current?.render();
+    syncErrorDisplay();
+
+    for (const h of Object.values(plotRefs.current)) h?.render();
     polarPlotRef.current?.render();
   }
 
   function refreshFusion(source: string): void {
     const c = getController();
     const r = c.fused.setSource(source);
-    editorRef.current?.showError(r.ok ? null : (r.error ?? null));
-    if (r.ok && !linkEnabled) {
+    if (r.ok) appliedSourceRef.current = source;
+    compileErrorRef.current = r.ok ? null : (r.error ?? "Unknown error");
+    syncErrorDisplay();
+    // Reads via stateRef, not the closed-over `linkEnabled`: this is called
+    // from the code editor's onChange, registered once in a mount-only
+    // effect, so a captured `linkEnabled` would be frozen at its first-render
+    // value forever.
+    if (r.ok && !stateRef.current.linkEnabled) {
       const p = extractParams(source);
       if (p) setTrust((prev) => ({ ...prev, ...p }));
+    }
+  }
+
+  /** The editor shows whichever error is more relevant right now: a compile
+   * error from the last Apply takes priority (it explains why Apply didn't
+   * take effect); otherwise a runtime error from the currently-running
+   * filter throwing mid-step. Diffed against what's currently displayed so
+   * this can be called every render frame without hammering the DOM. */
+  const compileErrorRef = useRef<string | null>(null);
+  const shownErrorRef = useRef<string | null>(null);
+  /** Source text as of the last successful Apply — lets `applyTrust` tell a
+   * clean buffer from unapplied edits (see below). */
+  const appliedSourceRef = useRef<string | null>(null);
+  function syncErrorDisplay(): void {
+    const msg = compileErrorRef.current ?? getController().fused.runtimeError;
+    if (msg !== shownErrorRef.current) {
+      shownErrorRef.current = msg;
+      editorRef.current?.showError(msg);
     }
   }
 
@@ -319,9 +351,14 @@ export function App() {
     setTrust((prev) => {
       const merged = { ...prev, ...partial };
       if (linkEnabled && editorRef.current) {
+        // Only auto-apply the slider-driven rewrite if the buffer had no
+        // unapplied edits of its own — otherwise a slider nudge would
+        // silently apply whatever unfinished code happens to be sitting in
+        // the editor, defeating the explicit Apply button.
+        const wasClean = editorRef.current.getValue() === appliedSourceRef.current;
         const src = injectParams(editorRef.current.getValue(), merged);
         editorRef.current.setValue(src);
-        refreshFusion(src);
+        if (wasClean) refreshFusion(src);
       }
       return merged;
     });
@@ -337,11 +374,8 @@ export function App() {
   function handleReset(): void {
     const c = getController();
     c.reset();
-    unwrapsRef.current.clear();
-    velocityRef.current = [0, 0, 0];
-    positionRef.current = [0, 0, 0];
-    lastAccelTRef.current = null;
-    for (const ref of allPlotRefs) ref.current?.reset();
+    feedRef.current.reset();
+    for (const h of Object.values(plotRefs.current)) h?.reset();
     polarPlotRef.current?.reset();
   }
 
@@ -373,36 +407,10 @@ export function App() {
 
     for (const info of CUBE_INFO) {
       const canvas = cubeCanvasRefs.current[info.key];
-      if (canvas) cubeCtxRefs.current[info.key] = setupCanvas(canvas, 140, 180);
+      if (canvas) cubeCtxRefs.current[info.key] = setupCanvas(canvas, CUBE_CANVAS_W, CUBE_CANVAS_H);
     }
 
-    const polar = createPolarPlot({
-      series: [
-        { key: "fused", label: FUSED_LABEL, color: C.fused },
-        { key: "true", label: "true", color: C.true },
-      ],
-      windowSeconds: 8,
-      size: 220,
-    });
-    polarPlotRef.current = polar;
-    polarHostRef.current?.appendChild(polar.el);
-
-    const qr = buildQrAffordance();
-    qrHostRef.current?.appendChild(qr);
-
-    const mathEl = document.getElementById("imu-math");
-    if (mathEl) {
-      mountMath(mathEl, {
-        "alpha-low": () => applyTrust({ alpha: 0.2 }),
-        "alpha-high": () => applyTrust({ alpha: 0.99 }),
-        "q-high": () => applyTrust({ qScale: 0.02 }),
-        "q-low": () => applyTrust({ qScale: 1e-6 }),
-        "r-accel-high": () => applyTrust({ rAccel: [0.25, 0.25, 0.25] }),
-        "r-accel-low": () => applyTrust({ rAccel: [1e-4, 1e-4, 1e-4] }),
-        "r-mag-high": () => applyTrust({ rMag: [200, 200, 200] }),
-        "r-mag-low": () => applyTrust({ rMag: [0.1, 0.1, 0.1] }),
-      });
-    }
+    qrHostRef.current?.appendChild(buildQrAffordance());
 
     c.mount(container);
     (window as unknown as { __imuDebug?: unknown }).__imuDebug = c;
@@ -410,7 +418,6 @@ export function App() {
     return () => {
       c.dispose();
       stage.dispose();
-      polar.destroy();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -424,15 +431,13 @@ export function App() {
     const editor = createCodeEditor({ value: initialSource });
     editorRef.current = editor;
     editorHostRef.current.appendChild(editor.el);
+    // The controller's filter was already constructed from equivalent
+    // params (see defaultTrustValues), so only a *restored* source needs an
+    // explicit re-apply — either way, the buffer starts in sync.
+    appliedSourceRef.current = initialSource;
     if (restored?.codeSource) refreshFusion(restored.codeSource);
 
-    editor.onChange((src) => {
-      window.clearTimeout(debounceRef.current);
-      debounceRef.current = window.setTimeout(() => refreshFusion(src), 300);
-    });
-
     return () => {
-      window.clearTimeout(debounceRef.current);
       if (restoreDevRef.current) {
         savePersisted({ ...stateRef.current, codeSource: editor.getValue() });
       }
@@ -463,6 +468,8 @@ export function App() {
         )}
       </div>
 
+      <div ref={qrHostRef} />
+
       <div ref={stageHostRef} />
 
       {!usingReal && (
@@ -489,9 +496,14 @@ export function App() {
       </div>
 
       <div class="control-panel">
-        {!usingReal && (
-          <div class="imu-section">
-            <h4>Motion</h4>
+        <Tabs
+          specs={PANEL_SPECS.filter((s) => s.id === "ekf" || !usingReal)}
+          active={usingReal ? "ekf" : activePanel}
+          onChange={(id) => setActivePanel(id as PanelId)}
+        />
+
+        {!usingReal && activePanel === "motion" && (
+          <div class="imu-panel-body">
             <div class="imu-modes">
               {(["idle", "walk"] as const).map((m) => (
                 <button
@@ -512,9 +524,9 @@ export function App() {
             </button>
             <Slider
               label="Sim time scale"
-              min={0.1}
-              max={2}
-              step={0.1}
+              min={TIMESCALE_MIN}
+              max={TIMESCALE_MAX}
+              step={TIMESCALE_STEP}
               value={timescale}
               format={(v) => `${v.toFixed(1)}×`}
               onChange={setTimescale}
@@ -522,126 +534,48 @@ export function App() {
           </div>
         )}
 
-        {!usingReal && (
-          <div class="imu-section">
-            <h4>Sensor noise</h4>
+        {!usingReal && activePanel === "noise" && (
+          <div class="imu-panel-body">
             <NoisePanel noise={noise} onChange={setNoise} />
           </div>
         )}
 
-        <div class="imu-section">
-          <h4>Trust (covariances)</h4>
-          <TrustPanel trust={trust} onChange={applyTrust} />
-          <Checkbox label="Link sliders → code params" checked={linkEnabled} onChange={setLinkEnabled} />
-          <div class="ctrl ctrl-readout">
-            <span>Gyro-only yaw error</span>
-            <span class="ctrl-value" ref={driftSpanRef} />
+        {(usingReal || activePanel === "ekf") && (
+          <div class="imu-panel-body">
+            <TrustPanel trust={trust} onChange={applyTrust} />
+            <Checkbox label="Link sliders → code params" checked={linkEnabled} onChange={setLinkEnabled} />
+            <div class="ctrl ctrl-readout">
+              <span>Gyro-only yaw error</span>
+              <span class="ctrl-value" ref={driftSpanRef} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <h3>
         Plots (drag to pan, ctrl/cmd+scroll to zoom, double-click to reset, click a legend entry to show/hide it)
       </h3>
-      <Tabs specs={TAB_SPECS} active={activeTab} onChange={(id) => setActiveTab(id as TabId)} />
+      <Tabs
+        specs={[
+          { id: "angular", label: "Angular (gyro + fused angles)" },
+          { id: "acceleration", label: "Acceleration (raw + integrated velocity)" },
+          { id: "heading", label: "Heading (mag + fused yaw)" },
+          { id: "internals", label: "Filter internals" },
+        ]}
+        active={activeTab}
+        onChange={(id) => setActiveTab(id as TabId)}
+      />
 
       <div class="plot-grid" hidden={activeTab !== "angular"}>
-        <PlotPanel
-          ref={gyroPlotRef}
-          series={[
-            { key: "x", label: "ωx", color: C.x },
-            { key: "y", label: "ωy", color: C.y },
-            { key: "z", label: "ωz", color: C.z },
-          ]}
-          yLabel="gyro (rad/s)"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
-        <PlotPanel
-          ref={rollRef}
-          series={[
-            { key: "fused", label: FUSED_LABEL, color: C.fused },
-            { key: "gyro", label: "gyro-only", color: C.gyro },
-            { key: "accel", label: "accel-only", color: C.accel },
-            { key: "true", label: "true", color: C.true },
-          ]}
-          yLabel="roll (deg)"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
-        <PlotPanel
-          ref={pitchRef}
-          series={[
-            { key: "fused", label: FUSED_LABEL, color: C.fused },
-            { key: "gyro", label: "gyro-only", color: C.gyro },
-            { key: "accel", label: "accel-only", color: C.accel },
-            { key: "true", label: "true", color: C.true },
-          ]}
-          yLabel="pitch (deg)"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
-        <PlotPanel
-          ref={yawRef}
-          series={[
-            { key: "fused", label: FUSED_LABEL, color: C.fused },
-            { key: "gyro", label: "gyro-only", color: C.gyro },
-            { key: "true", label: "true", color: C.true },
-          ]}
-          yLabel="yaw (deg)"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
+        {PLOT_SPECS.filter((s) => s.tab === "angular").map((s) => (
+          <ImuPlot key={s.id} ref={plotRef(s.id)} series={s.series} yLabel={s.yLabel} height={210} />
+        ))}
       </div>
 
       <div class="plot-grid" hidden={activeTab !== "acceleration"}>
-        <PlotPanel
-          ref={accelPlotRef}
-          series={[
-            { key: "x", label: "ax", color: C.x },
-            { key: "y", label: "ay", color: C.y },
-            { key: "z", label: "az", color: C.z },
-          ]}
-          yLabel="m/s²"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
-        <PlotPanel
-          ref={accelVelRef}
-          series={[
-            { key: "x", label: "X vel", color: C.x },
-            { key: "y", label: "Y vel", color: C.y },
-            { key: "z", label: "Z vel", color: C.z },
-          ]}
-          yLabel="m/s"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
-        <PlotPanel
-          ref={accelPosRef}
-          series={[
-            { key: "x", label: "X pos", color: C.x },
-            { key: "y", label: "Y pos", color: C.y },
-            { key: "z", label: "Z pos", color: C.z },
-          ]}
-          yLabel="movement (m)"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
+        {PLOT_SPECS.filter((s) => s.tab === "acceleration").map((s) => (
+          <ImuPlot key={s.id} ref={plotRef(s.id)} series={s.series} yLabel={s.yLabel} height={210} />
+        ))}
         <p class="imu-note">
           Velocity and position by integrating the accelerometer
           (gravity-compensated, fused orientation used to rotate it into the
@@ -656,68 +590,38 @@ export function App() {
       </div>
 
       <div class="plot-grid" hidden={activeTab !== "heading"}>
-        <PlotPanel
-          ref={magPlotRef}
-          series={[
-            { key: "x", label: "mx", color: C.x },
-            { key: "y", label: "my", color: C.y },
-            { key: "z", label: "mz", color: C.z },
-          ]}
-          yLabel="magnetometer (µT)"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
-        <PlotPanel
-          ref={headingRef}
-          series={[
-            { key: "fused", label: FUSED_LABEL, color: C.fused },
-            { key: "mag", label: "mag-only", color: C.mag },
-            { key: "true", label: "true", color: C.true },
-          ]}
-          yLabel="heading (deg)"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
+        {PLOT_SPECS.filter((s) => s.tab === "heading").map((s) => (
+          <ImuPlot key={s.id} ref={plotRef(s.id)} series={s.series} yLabel={s.yLabel} height={210} />
+        ))}
         <div class="polar-plot-host">
-          <div ref={polarHostRef} />
-          <p class="imu-note">
-            The magnetometer looks far noisier than the gyro because Earth's field
-            is only ~50&nbsp;µT while the default per-axis σ is 2&nbsp;µT — roughly
-            4% per axis, which maps to several degrees of heading jitter. Real
-            compasses are worse (nearby metal, hard/soft-iron distortion). Nothing
-            stabilizes the raw reading, which is exactly why heading is fused with
-            the gyro rather than trusted on its own.
-          </p>
+          <PolarPlot
+            ref={polarPlotRef}
+            series={[
+              { key: "fused", label: FUSED_LABEL, color: C.fused },
+              { key: "true", label: "true", color: C.true },
+            ]}
+            windowSeconds={8}
+            size={220}
+          />
+          <p class="imu-note">Drag to pan · ctrl/cmd+scroll to zoom · double-click or “reset zoom” to reset</p>
         </div>
+        <p class="imu-note">
+          The magnetometer looks far noisier than the gyro because Earth's field
+          is only ~50&nbsp;µT while the default per-axis σ is 2&nbsp;µT — roughly
+          4% per axis, which maps to several degrees of heading jitter. Real
+          compasses are worse (nearby metal, hard/soft-iron distortion). Nothing
+          stabilizes the raw reading, which is exactly why heading is fused with
+          the gyro rather than trusted on its own.
+        </p>
       </div>
 
       <div class="plot-grid" hidden={activeTab !== "internals"}>
-        <PlotPanel
-          ref={innovRef}
-          series={[
-            { key: "accel", label: "accel residual", color: C.accel },
-            { key: "mag", label: "mag residual", color: C.mag },
-          ]}
-          yLabel="|innovation|"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
-        <PlotPanel
-          ref={covRef}
-          series={[{ key: "trace", label: "trace(P)", color: C.fused }]}
-          yLabel="attitude covariance"
-          height={210}
-          windowSeconds={15}
-          minWindowSeconds={3}
-          maxWindowSeconds={120}
-        />
+        {PLOT_SPECS.filter((s) => s.tab === "internals").map((s) => (
+          <ImuPlot key={s.id} ref={plotRef(s.id)} series={s.series} yLabel={s.yLabel} height={210} />
+        ))}
       </div>
+
+      <MathExplainer onTrust={applyTrust} />
 
       <h3>Editable fusion code</h3>
       <div class="imu-modes">
@@ -729,11 +633,19 @@ export function App() {
         </button>
       </div>
       <div ref={editorHostRef} />
-      <button type="button" onClick={() => selectFilter("ekf")}>
-        Reset code
-      </button>
-
-      <div ref={qrHostRef} />
+      <div class="imu-modes">
+        <button
+          type="button"
+          onClick={() => {
+            if (editorRef.current) refreshFusion(editorRef.current.getValue());
+          }}
+        >
+          Apply
+        </button>
+        <button type="button" onClick={() => selectFilter("ekf")}>
+          Reset code
+        </button>
+      </div>
 
       {import.meta.env.DEV && (
         <Checkbox label="Dev: restore tuning across reload (sessionStorage)" checked={restoreDev} onChange={setRestoreDev} />

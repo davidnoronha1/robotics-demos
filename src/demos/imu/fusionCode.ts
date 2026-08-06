@@ -14,50 +14,8 @@ import {
   withYaw,
 } from "./quaternion";
 
-/** EKF predict: integrate the gyro to advance q, and grow the local
- * attitude-error covariance P through the linearized error dynamics
- * F = I - skew(gyro)*dt, adding process noise qScale*dt per axis.
- * Kept out of the editable template so the on-screen code can just call it. */
-function ekfPredict(
-  q: THREE.Quaternion,
-  P: number[][],
-  gyro: [number, number, number],
-  dt: number,
-  qScale: number,
-): { q: THREE.Quaternion; P: number[][] } {
-  const qNew = integrate(q, gyro, dt);
-  const F = Matrix.eye(3).subtract(new Matrix(skew(gyro)).mul(dt));
-  const Q = Matrix.eye(3).mul(qScale * dt);
-  const Pnew = F.mmul(new Matrix(P)).mmul(F.transpose()).add(Q);
-  return { q: qNew, P: Pnew.to2DArray() };
-}
-
-/** One EKF measurement update, folding reading `z` (predicted as h(q), with
- * covariance R) into (q, P) via the local attitude-error linearization:
- * innovation y = z - h, measurement Jacobian H = skew(h) (to first order, a
- * small body-frame rotation deltaTheta perturbs the predicted reading by
- * skew(h)*deltaTheta), gain K = P*H^T*(H*P*H^T + R)^-1, then q is corrected
- * by composing in deltaTheta = K*y (never by editing q's raw components —
- * they don't live on a flat space) and P shrinks by (I - K*H).
- * Kept out of the editable template so the on-screen code can just call it. */
-function kalmanCorrect(
-  q: THREE.Quaternion,
-  P: number[][],
-  z: [number, number, number],
-  h: [number, number, number],
-  R: [number, number, number],
-): { q: THREE.Quaternion; P: number[][] } {
-  const Pm = new Matrix(P);
-  const H = new Matrix(skew(h));
-  const y = new Matrix([[z[0] - h[0]], [z[1] - h[1]], [z[2] - h[2]]]);
-  const S = H.mmul(Pm).mmul(H.transpose()).add(diag(R));
-  const K = Pm.mmul(H.transpose()).mmul(inverse(S));
-  const deltaTheta = K.mmul(y).to1DArray() as [number, number, number];
-  const qNew = integrate(q, deltaTheta, 1);
-  const P1 = Matrix.eye(3).subtract(K.mmul(H)).mmul(Pm);
-  return { q: qNew, P: P1.to2DArray() };
-}
-
+/** Diagonal matrix from a vector — used to build the measurement noise R
+ * inside the editable EKF template. */
 function diag(v: number[]): Matrix {
   const m = Matrix.eye(v.length);
   v.forEach((x, i) => m.set(i, i, x));
@@ -79,8 +37,6 @@ const mathNS = {
   gyroMatrix, // ditto
   skew,
   eulerOf,
-  ekfPredict,
-  kalmanCorrect,
   REF_G: WORLD_G, // world gravity reference
   REF_M: WORLD_M, // world magnetic-field reference (relocked on real devices)
   diag,
@@ -103,13 +59,11 @@ export interface FusionParams {
 }
 
 /** Default EKF template. Every equation is tied to a `params` value the
- * sliders can rewrite (see the block at the top). */
+ * sliders can rewrite (see the block at the top). The predict/correct math is
+ * written out inline below — edit it and the phone reacts live. */
 export const DEFAULT_EKF_SOURCE = `// fusion-template: ekf
-// Attitude EKF (error-state form): math.ekfPredict advances q with the gyro
-// and grows P; math.kalmanCorrect folds in a measurement (accel or mag) by
-// composing a small correction onto q, weighted by how much you trust it
-// (the R covariance below) against how much P has grown since. See
-// ekfPredict/kalmanCorrect in fusionCode.ts for the underlying algebra.
+// Attitude EKF (error-state form). The whole filter — predict, Jacobians,
+// gain, update — is right here. Edit it and the phone reacts live.
 //
 // state  : { q: THREE.Quaternion, P: Matrix (3x3 attitude-error covariance) }
 // sample : { gyro:[wx,wy,wz], accel:[ax,ay,az], mag:[mx,my,mz]|null, dt }
@@ -127,15 +81,44 @@ const params = {
 const G = math.REF_G;
 const M = math.REF_M;
 
-function step(state, sample) {
-  const predicted = math.ekfPredict(state.q, state.P, sample.gyro, sample.dt, params.qScale);
+// Predict: integrate the gyro to advance q, and grow the local attitude-error
+// covariance P through the linearized error dynamics F = I - [omega]x * dt,
+// adding process noise qScale*dt per axis.
+function ekfPredict(q, P, gyro, dt, qScale) {
+  const qNew = math.integrate(q, gyro, dt);
+  const F = Matrix.eye(3).subtract(new Matrix(math.skew(gyro)).mul(dt));
+  const Q = Matrix.eye(3).mul(qScale * dt);
+  const Pnew = F.mmul(new Matrix(P)).mmul(F.transpose()).add(Q);
+  return { q: qNew, P: Pnew.to2DArray() };
+}
 
-  const afterAccel = math.kalmanCorrect(
+// Correct: fold reading z (predicted as h(q), covariance R) into (q, P) via
+// the local attitude-error linearization. Innovation y = z - h; Jacobian
+// H = [h]x (a small body-frame rotation deltaTheta perturbs the predicted
+// reading by h x deltaTheta); gain K = P H^T (H P H^T + R)^-1; q is corrected
+// by composing deltaTheta = K*y onto it (never by editing q's raw components
+// — they don't live on a flat space) and P shrinks by (I - K H).
+function kalmanCorrect(q, P, z, h, R) {
+  const Pm = new Matrix(P);
+  const H = new Matrix(math.skew(h));
+  const y = new Matrix([[z[0] - h[0]], [z[1] - h[1]], [z[2] - h[2]]]);
+  const S = H.mmul(Pm).mmul(H.transpose()).add(math.diag(R));
+  const K = Pm.mmul(H.transpose()).mmul(math.inverse(S));
+  const deltaTheta = K.mmul(y).to1DArray();
+  const qNew = math.integrate(q, deltaTheta, 1);
+  const P1 = Matrix.eye(3).subtract(K.mmul(H)).mmul(Pm);
+  return { q: qNew, P: P1.to2DArray() };
+}
+
+function step(state, sample) {
+  const predicted = ekfPredict(state.q, state.P, sample.gyro, sample.dt, params.qScale);
+
+  const afterAccel = kalmanCorrect(
     predicted.q, predicted.P, sample.accel, math.bodyFrame(predicted.q, G), params.rAccel,
   );
   if (!sample.mag) return afterAccel;
 
-  return math.kalmanCorrect(
+  return kalmanCorrect(
     afterAccel.q, afterAccel.P, sample.mag, math.bodyFrame(afterAccel.q, M), params.rMag,
   );
 }
@@ -191,6 +174,11 @@ export class EditableFusion {
   private templateId: string;
   state: FusionState;
 
+  /** Set when the currently-applied `step` throws while running (as opposed
+   * to a compile error from `setSource`, which is reported synchronously via
+   * its return value instead). Cleared as soon as a step succeeds again. */
+  runtimeError: string | null = null;
+
   constructor(source: string, q0: THREE.Quaternion) {
     this.state = { q: q0.clone(), P: Matrix.eye(3).to2DArray() };
     const r = compileFusion(source);
@@ -198,7 +186,7 @@ export class EditableFusion {
     this.templateId = r.templateId ?? "ekf";
   }
 
-  /** Recompile on edit. Same template keeps its state (no snap); a template
+  /** Recompile on Apply. Same template keeps its state (no snap); a template
    * switch resets the covariance. On error the last good filter stays. */
   setSource(source: string): { ok: boolean; error?: string } {
     const r = compileFusion(source);
@@ -208,6 +196,7 @@ export class EditableFusion {
       this.templateId = r.templateId ?? "custom";
     }
     this.step = r.step;
+    this.runtimeError = null;
     return { ok: true };
   }
 
@@ -218,9 +207,11 @@ export class EditableFusion {
   update(sample: ImuSample): THREE.Quaternion {
     try {
       this.state = this.step(this.state, sample);
-    } catch {
+      this.runtimeError = null;
+    } catch (e) {
       // The user's edit threw at runtime — keep the last good state so the
-      // sim never dies mid-edit.
+      // sim never dies mid-edit; surface the error so it doesn't fail silently.
+      this.runtimeError = e instanceof Error ? e.message : String(e);
     }
     return this.state.q;
   }
@@ -228,6 +219,14 @@ export class EditableFusion {
 
 // --- params block editing ------------------------------------------------
 
+/**
+ * Finds the `const params = { ... }` block by counting braces from the first
+ * match of the marker. Doesn't understand string/template literals — a param
+ * value containing a literal `{` or `}` (e.g. `note: "a { b"`) would miscount
+ * and return the wrong end index. Not a concern for the numeric/boolean
+ * params this feature actually supports, but worth knowing before extending
+ * `FusionParams` with free-form string values.
+ */
 function findParamsBlock(src: string): { start: number; end: number; body: string } | null {
   // Must include "const " itself: `start` marks where injectParams() begins
   // its replacement, and formatParamsBlock() below re-emits "const params = "
@@ -249,7 +248,9 @@ function findParamsBlock(src: string): { start: number; end: number; body: strin
 
 /** Strip `//` line comments while leaving strings intact, so the params
  * block (which ships with human-readable trailing comments) can be parsed
- * as JSON. */
+ * as JSON. Only handles `//` comments and single/double-quoted strings —
+ * block comments (`/* ... *\/`) and template literals (backticks) inside
+ * the params block are not recognized and will pass through unstripped. */
 function stripComments(src: string): string {
   let out = "";
   let inStr = false;

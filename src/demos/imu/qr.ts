@@ -4,7 +4,7 @@ import qrcode from "qrcode-generator";
  * no external image service, so it works offline and doesn't leak the
  * visited URL to a third party. */
 export function buildQrAffordance(): HTMLElement {
-  const url = window.location.href;
+  const url = "https://robotics-demos.pages.dev/demos/imu/";
   const wrap = document.createElement("div");
   wrap.className = "imu-qr";
 

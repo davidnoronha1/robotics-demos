@@ -2,15 +2,9 @@ import * as THREE from "three";
 import { createSimLoop } from "../../shared/simLoop";
 import { onVisibilityChange } from "../../shared/visibility";
 import { PhonePhysics } from "./physics";
-import {
-  DEFAULT_NOISE,
-  RealDeviceIMU,
-  SyntheticIMU,
-  angleBetweenYaw,
-  type ImuSource,
-  type MotionMode,
-  type NoiseConfig,
-} from "./sensorInput";
+import { angleBetweenYaw, type ImuSource, type MotionMode } from "./sensorInput";
+import { DEFAULT_NOISE, SyntheticIMU, type NoiseConfig } from "./syntheticImu";
+import { RealDeviceIMU } from "./realDeviceImu";
 import { AccelOnlyEstimator, GyroOnlyEstimator, MagHeadingEstimator, type ImuSample } from "./estimators";
 import { DEFAULT_EKF_SOURCE, EditableFusion, setWorldMagReference } from "./fusionCode";
 

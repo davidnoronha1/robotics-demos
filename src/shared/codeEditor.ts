@@ -6,12 +6,13 @@ export interface CodeEditor {
   el: HTMLElement;
   getValue(): string;
   setValue(v: string): void;
-  onChange(cb: (value: string) => void): void;
   showError(msg: string | null): void;
   destroy(): void;
 }
 
-/** CodeMirror 6 wrapper for the editable fusion source. */
+/** CodeMirror 6 wrapper for the editable fusion source. Applying edits is
+ * explicit (the caller reads `getValue()` on its own trigger, e.g. an Apply
+ * button) rather than live — there's no change listener here. */
 export function createCodeEditor(opts: { value: string; readOnly?: boolean }): CodeEditor {
   const wrap = document.createElement("div");
   wrap.className = "code-editor";
@@ -36,15 +37,12 @@ export function createCodeEditor(opts: { value: string; readOnly?: boolean }): C
     ],
   });
 
-  const listeners: Array<(value: string) => void> = [];
-
   return {
     el: wrap,
     getValue: () => view.state.doc.toString(),
     setValue: (v: string) => {
       if (view.state.doc.toString() !== v) view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: v } });
     },
-    onChange: (cb) => listeners.push(cb),
     showError: (msg) => {
       error.textContent = msg ?? "";
       error.hidden = msg == null;

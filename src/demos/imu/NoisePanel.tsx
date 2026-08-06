@@ -1,6 +1,6 @@
 import { Checkbox } from "../../shared/ui/Checkbox";
 import { NumberInput } from "../../shared/ui/NumberInput";
-import type { NoiseConfig } from "./sensorInput";
+import type { NoiseConfig } from "./syntheticImu";
 
 interface Spec {
   key: "gyro" | "accel" | "mag";
