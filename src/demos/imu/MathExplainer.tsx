@@ -12,16 +12,20 @@ export function MathExplainer({ onTrust }: MathExplainerProps) {
   return (
     <div class="math-wrap">
       <details open>
-        <summary>Frames &amp; why quaternions</summary>
+        <summary>Frames, pose &amp; why quaternions</summary>
         <p>
           The phone has a <em>body</em> frame (X right, Y up the screen, Z out of the glass) and the room has a{" "}
-          <em>world</em> frame (X north, Z up). We store the attitude as a unit quaternion <MathTex tex="q" />, which
-          rotates body vectors into world vectors:
+          <em>world</em> frame (X north, Z up). A full 6D <strong>pose</strong> is rotation plus position,{" "}
+          <MathTex tex="(q,\, \mathbf{x})" />: we store attitude as a unit quaternion <MathTex tex="q" />, which
+          rotates body vectors into world vectors, and position as a plain world-frame vector <MathTex tex="\mathbf{x}" />
+          :
         </p>
         <MathTex display tex={String.raw`\mathbf{a}_{\text{world}} = q\, \mathbf{a}_{\text{body}}\, q^{-1}`} />
         <p>
-          We never use Euler angles internally — at pitch <MathTex tex="\pm 90°" /> two axes line up and one angle
-          becomes undefined (gimbal lock). Quaternions have no such singularity.
+          We never use Euler angles for the rotation part — at pitch <MathTex tex="\pm 90°" /> two axes line up and
+          one angle becomes undefined (gimbal lock). Quaternions have no such singularity. Position has no such
+          trick to reach for: there's no gyroscope-equivalent "rate sensor" for translation whose integral is
+          well-behaved, which is the whole problem the next two sections dig into.
         </p>
       </details>
 
@@ -48,6 +52,27 @@ export function MathExplainer({ onTrust }: MathExplainerProps) {
         <p>
           integrated each step and renormalized. Fast and smooth, but any constant bias in <MathTex tex="\omega" />{" "}
           integrates into an unbounded angle error — that's the <em>gyro-only</em> cube drifting.
+        </p>
+      </details>
+
+      <details open>
+        <summary>Position: integrating accel twice</summary>
+        <p>
+          There's no sensor for position, so we try the only thing we have: rotate the accel reading into the world
+          frame with the current attitude estimate, subtract gravity to isolate the phone's own acceleration, and
+          integrate it twice.
+        </p>
+        <MathTex
+          display
+          tex={String.raw`\mathbf{a}_{\text{world}} = q\,\mathbf{a}_m\,q^{-1} \qquad \mathbf{v}_k = \mathbf{v}_{k-1} + (\mathbf{a}_{\text{world}} - \mathbf{g})\,dt \qquad \mathbf{x}_k = \mathbf{x}_{k-1} + \mathbf{v}_k\,dt`}
+        />
+        <p>
+          Two integrations instead of the gyro's one: any bias or noise in <MathTex tex="\mathbf{a}_m" /> becomes a
+          random walk in <MathTex tex="\mathbf{v}" />, which is then itself integrated into <MathTex tex="\mathbf{x}" />{" "}
+          — error grows roughly with <MathTex tex="t^2" /> instead of <MathTex tex="t" />. Nothing observes and
+          corrects it the way accel/mag correct the gyro's attitude drift, so it's unbounded. That's the{" "}
+          <em>accel pos</em> plot running away even though the phone only rotates in place — real systems bound this
+          with GPS, wheel odometry, vision, or zero-velocity updates, not the accelerometer alone.
         </p>
       </details>
 
@@ -184,6 +209,9 @@ export function MathExplainer({ onTrust }: MathExplainerProps) {
           says how fast the phone is turning right now. Integrating that accumulates the total turn: the quaternion
           update <MathTex tex="q \otimes [1,\; \omega\tfrac{dt}{2}]" /> folds a tiny rotation into <MathTex tex="q" />{" "}
           every sample and renormalizes. Do it forever and the errors add up too — that's the gyro-only cube drifting.
+          Position needs integrating twice — accel is a rate of a rate (acceleration → velocity → position) — so its
+          errors compound faster still, which is why the accel-only position plot runs away so much quicker than the
+          gyro-only cube.
         </p>
         <p>
           The <strong>covariance</strong> matrix <MathTex tex="P" /> (and its relatives <MathTex tex="Q" />,{" "}
