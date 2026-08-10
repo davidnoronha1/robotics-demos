@@ -40,7 +40,7 @@ function formatDate(iso: string): string {
   }
 }
 
-const QUICK_PILLS = ["aruco", "vslam", "yolo", "path planning", "robot arm", "depth camera"];
+const QUICK_PILLS = ["aruco", "cuPCL", "vslam", "yolo", "path planning", "robot arm", "depth camera"];
 
 export function App() {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -54,6 +54,34 @@ const DOMAIN_SYNONYMS = [
     keywords: ["simulation", "isaac sim", "omniverse", "digital twin"],
     expansion: "simulation isaac sim omniverse digital twin physics engine warp",
   },
+  {
+    keywords: ["cupcl", "pcl", "point cloud", "pointcloud", "icp", "clustering"],
+    expansion: "cupcl pcl point cloud 3d lidar icp voxel filter segmentation clustering pointpillars bevfusion",
+  },
+  {
+    keywords: ["cuopt", "vrp", "vehicle routing", "logistics"],
+    expansion: "cuopt vehicle routing vrp logistics optimization solver route planning combinatorial",
+  },
+  {
+    keywords: ["cuspatial", "spatial", "gis", "trajectory analytics"],
+    expansion: "cuspatial spatial gis trajectory analytics spatial index geometry distance",
+  },
+  {
+    keywords: ["cusignal", "signal processing", "beamforming"],
+    expansion: "cusignal signal processing fft filter beamforming spectrogram wave",
+  },
+  {
+    keywords: ["cutlass", "gemm", "linear algebra"],
+    expansion: "cutlass gemm matrix multiplication tensor core linear algebra cuda template",
+  },
+  {
+    keywords: ["cccl", "thrust", "cub", "libcudacxx"],
+    expansion: "cccl thrust cub libcudacxx cuda parallel algorithms primitives core",
+  },
+  {
+    keywords: ["dali", "data loading", "data augmentation"],
+    expansion: "dali data loading augmentation image decoding pipeline execution engine",
+  },
 ];
 
 export function expandQuery(text: string): string {
