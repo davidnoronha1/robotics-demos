@@ -104,20 +104,64 @@ export function createPhoneStage(opts: { height?: number }): PhoneStage {
   let camPitch = 0.35;
   let camDist = 4.6;
 
-  /** N per pixel of shift-drag translation. */
+  /** N per pixel of shift-drag / two-finger-drag translation. */
   const DRAG_FORCE_PER_PX = 18;
 
   const canvas = renderer.domElement;
   const spinCbs: Array<(dx: number, dy: number) => void> = [];
   const translateCbs: Array<(worldForce: [number, number, number]) => void> = [];
 
+  function applyTranslate(dx: number, dy: number): void {
+    // Move relative to the camera's current facing: dragging right/left
+    // strafes along the camera's right vector, dragging up/down moves
+    // straight along world up — both in the horizontal-yaw-only basis
+    // `applyCamera` already uses, so it matches what the drag looks like.
+    const rightX = Math.cos(camYaw);
+    const rightZ = -Math.sin(camYaw);
+    const fx = dx * rightX * DRAG_FORCE_PER_PX;
+    const fz = dx * rightZ * DRAG_FORCE_PER_PX;
+    const fy = -dy * DRAG_FORCE_PER_PX;
+    for (const cb of translateCbs) cb([fx, fy, fz]);
+  }
+
+  // Touch: tracked per-finger so one finger spins the phone and two fingers
+  // (their centroid's motion) translate it — mice/pens use the simpler
+  // single-pointer path below (button/shift determine the mode).
+  const touchPoints = new Map<number, { x: number; y: number }>();
+  function touchCentroid(): { x: number; y: number } {
+    let sx = 0;
+    let sy = 0;
+    for (const p of touchPoints.values()) {
+      sx += p.x;
+      sy += p.y;
+    }
+    const n = touchPoints.size || 1;
+    return { x: sx / n, y: sy / n };
+  }
+
   canvas.addEventListener("pointerdown", (e: PointerEvent) => {
     canvas.setPointerCapture(e.pointerId);
+    if (e.pointerType === "touch") {
+      touchPoints.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      return;
+    }
     dragMode = e.button === 2 ? "orbit" : e.shiftKey ? "translate" : "spin";
     lastX = e.clientX;
     lastY = e.clientY;
   });
   canvas.addEventListener("pointermove", (e: PointerEvent) => {
+    if (e.pointerType === "touch") {
+      if (!touchPoints.has(e.pointerId)) return;
+      const before = touchCentroid();
+      touchPoints.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      const after = touchCentroid();
+      const dx = after.x - before.x;
+      const dy = after.y - before.y;
+      if (touchPoints.size >= 2) applyTranslate(dx, dy);
+      else for (const cb of spinCbs) cb(dx, dy);
+      return;
+    }
+
     const dx = e.clientX - lastX;
     const dy = e.clientY - lastY;
     lastX = e.clientX;
@@ -127,21 +171,13 @@ export function createPhoneStage(opts: { height?: number }): PhoneStage {
       camYaw -= dx * 0.01;
       camPitch = Math.max(-1.2, Math.min(1.2, camPitch + dy * 0.01));
     } else if (dragMode === "translate") {
-      // Move relative to the camera's current facing: dragging right/left
-      // strafes along the camera's right vector, dragging up/down moves
-      // straight along world up — both in the horizontal-yaw-only basis
-      // `applyCamera` already uses, so it matches what the drag looks like.
-      const rightX = Math.cos(camYaw);
-      const rightZ = -Math.sin(camYaw);
-      const fx = dx * rightX * DRAG_FORCE_PER_PX;
-      const fz = dx * rightZ * DRAG_FORCE_PER_PX;
-      const fy = -dy * DRAG_FORCE_PER_PX;
-      for (const cb of translateCbs) cb([fx, fy, fz]);
+      applyTranslate(dx, dy);
     } else if (dragMode === "spin") {
       for (const cb of spinCbs) cb(dx, dy);
     }
   });
   const up = (e: PointerEvent) => {
+    if (e.pointerType === "touch") touchPoints.delete(e.pointerId);
     dragMode = null;
     if (canvas.hasPointerCapture(e.pointerId)) canvas.releasePointerCapture(e.pointerId);
   };

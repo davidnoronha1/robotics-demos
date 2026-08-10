@@ -1,15 +1,14 @@
 import qrcode from "qrcode-generator";
 
-/** "Scan to try on your phone" affordance. Rendered locally on canvas —
- * no external image service, so it works offline and doesn't leak the
- * visited URL to a third party. */
-export function buildQrAffordance(): HTMLElement {
-  const url = "https://robotics-demos.pages.dev/demos/imu/";
+/** "Scan to try on your phone" affordance, shared by the demos. Rendered
+ * locally on canvas — no external image service, so it works offline and
+ * doesn't leak the visited URL to a third party. */
+export function buildQrAffordance(opts: { url: string; text: string }): HTMLElement {
   const wrap = document.createElement("div");
-  wrap.className = "imu-qr";
+  wrap.className = "demo-qr";
 
   const qr = qrcode(0, "M");
-  qr.addData(url);
+  qr.addData(opts.url);
   qr.make();
 
   const cellSize = 4;
@@ -34,7 +33,7 @@ export function buildQrAffordance(): HTMLElement {
   }
 
   const text = document.createElement("span");
-  text.textContent = "Scan to try this on your phone — real sensors beat any simulation.";
+  text.textContent = opts.text;
 
   wrap.append(canvas, text);
   return wrap;

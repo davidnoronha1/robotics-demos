@@ -17,6 +17,7 @@ export default defineConfig({
       input: {
         main: root("./index.html"),
         imu: root("./demos/imu/index.html"),
+        optical: root("./demos/opticalflow/index.html"),
       },
     },
   },

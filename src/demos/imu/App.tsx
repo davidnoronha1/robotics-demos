@@ -25,7 +25,7 @@ import {
   injectParams,
   type FusionParams,
 } from "./fusionCode";
-import { buildQrAffordance } from "./qr";
+import { buildQrAffordance } from "../../shared/qr";
 import { PlotFeed, type PlotId } from "./plotFeed";
 import { MathExplainer } from "./MathExplainer";
 import { NoisePanel } from "./NoisePanel";
@@ -410,7 +410,10 @@ export function App() {
       if (canvas) cubeCtxRefs.current[info.key] = setupCanvas(canvas, CUBE_CANVAS_W, CUBE_CANVAS_H);
     }
 
-    qrHostRef.current?.appendChild(buildQrAffordance());
+    const url = "https://robotics-demos.pages.dev/demos/imu/";
+    qrHostRef.current?.appendChild(
+      buildQrAffordance({ url, text: "Scan to try this on your phone — real sensors beat any simulation." }),
+    );
 
     c.mount(container);
     (window as unknown as { __imuDebug?: unknown }).__imuDebug = c;

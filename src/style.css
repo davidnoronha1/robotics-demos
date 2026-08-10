@@ -9,7 +9,8 @@
 /* The vendor stylesheet's `body > article { padding-top: 2em }` no longer
    applies to demo pages: the page shell (article) is now rendered inside a
    bare mount point (#imu-root), so restore the equivalent top spacing here. */
-#imu-root > article {
+#imu-root > article,
+#optical-root > article {
   padding-top: 2em;
 }
 
@@ -388,16 +389,24 @@ input[type="range"] {
   display: block;
 }
 
-.plot-reset {
+.plot-reset,
+.plot-expand {
   font-size: 0.7em;
+  line-height: 1.2;
   padding: 0.1em 0.6em;
+  min-height: 1.7em;
+  box-sizing: border-box;
+  border: 1px solid #c9c9c9;
 }
 
 .plot-expand {
-  font-size: 0.7em;
-  padding: 0.1em 0.5em;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+}
+
+.plot-expand svg {
+  display: block;
 }
 
 .plot-legend .swatch {
@@ -495,7 +504,7 @@ input[type="range"] {
   border-radius: 3px;
 }
 
-.imu-qr {
+.demo-qr {
   display: flex;
   align-items: center;
   gap: 0.75em;
@@ -504,11 +513,134 @@ input[type="range"] {
   color: var(--gray);
 }
 
-.imu-qr canvas {
+.demo-qr canvas {
   border-radius: 4px;
   background: #fff;
   padding: 4px;
   border: 1px solid var(--gray);
+}
+
+/* -- Optical-flow demo -- */
+
+.of-stage {
+  position: relative;
+  margin-top: 1em;
+  border: 1px solid var(--white-darker);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0d1117;
+  aspect-ratio: 4 / 3;
+  touch-action: none;
+}
+
+.of-stage .of-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.of-stage .of-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.of-readouts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5em 1.5em;
+  margin-top: 0.75em;
+}
+
+.of-readouts .ctrl-readout {
+  width: 210px;
+  min-width: 210px;
+  flex: 0 0 auto;
+}
+
+.of-readouts .ctrl-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.of-inset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  align-items: flex-start;
+  margin-top: 1.25em;
+}
+
+.of-inset-row h3 {
+  margin-top: 0;
+}
+
+.of-inset canvas {
+  display: block;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  background: #0d1117;
+}
+
+.of-inset-legend {
+  margin-top: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  font-size: 0.78em;
+  color: var(--gray);
+}
+
+.of-inset-legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.of-dot {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 2px;
+}
+
+.of-diagram-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25em;
+  margin: 0.75em 0;
+}
+
+.of-diagram {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.of-diagram figcaption {
+  font-size: 0.78em;
+  color: var(--gray);
+  text-align: center;
+}
+
+.of-diagram-svg {
+  border: 1px solid var(--white-darker);
+  border-radius: 3px;
+  display: block;
 }
 
 @media (max-width: 900px) {
