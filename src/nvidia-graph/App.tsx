@@ -26,8 +26,42 @@ function edgeScore(ele: cytoscape.EdgeSingular): number {
 function edgeWidth(ele: cytoscape.EdgeSingular): number {
   return Math.max(1, Math.min(3.5, 0.8 + edgeScore(ele) * 1.4));
 }
+
+// --- Selection ripple: when a node is selected, its neighborhood lights up
+// in rings by hop count (1st degree brightest, 2nd degree dimmer, etc.),
+// fading out to SELECTION_INACTIVE_OPACITY past the configured depth.
+// Bump SELECTION_HIGHLIGHT_DEPTH alone to show more/fewer rings.
+const SELECTION_HIGHLIGHT_DEPTH = 3;
+const SELECTION_HIGHLIGHT_FLOOR = 0.5; // brightness multiplier at the outermost highlighted hop
+const SELECTION_INACTIVE_OPACITY = 0.12; // beyond the depth
+
+// `dist` is hop count from the selected node (0 = the node itself), or
+// undefined when nothing is selected (in which case rendering is untouched).
+function selectionOpacity(dist: number | undefined): number {
+  if (dist === undefined || dist <= 0) return 1;
+  if (dist > SELECTION_HIGHLIGHT_DEPTH) return SELECTION_INACTIVE_OPACITY;
+  const t = (dist - 1) / Math.max(1, SELECTION_HIGHLIGHT_DEPTH - 1);
+  return 1 - t * (1 - SELECTION_HIGHLIGHT_FLOOR);
+}
+
 function edgeOpacity(ele: cytoscape.EdgeSingular): number {
-  return Math.max(0.2, Math.min(0.9, 0.2 + edgeScore(ele) * 0.7));
+  const base = Math.max(0.2, Math.min(0.9, 0.2 + edgeScore(ele) * 0.7));
+  return base * selectionOpacity(ele.data("hlDist"));
+}
+
+// BFS out from `rootId` up to `maxDepth` hops, node-to-node (ignores the
+// domain-cluster compound parents). Returns hop count per reached node id.
+function bfsDistances(cy: Core, rootId: string, maxDepth: number): Map<string, number> {
+  const dist = new Map<string, number>([[rootId, 0]]);
+  let frontier = cy.getElementById(rootId);
+  for (let d = 1; d <= maxDepth && frontier.length > 0; d++) {
+    const next = frontier.openNeighborhood("node:child").filter((n) => !dist.has(n.id()));
+    next.forEach((n) => {
+      dist.set(n.id(), d);
+    });
+    frontier = next;
+  }
+  return dist;
 }
 
 function nodeSize(ele: NodeSingular): number {
@@ -152,6 +186,7 @@ export function App() {
           "background-color": (ele: NodeSingular) => colorFor(ele.data("domain")),
           "border-width": 1.5,
           "border-color": (ele: NodeSingular) => colorFor(ele.data("domain")),
+          opacity: (ele: NodeSingular) => selectionOpacity(ele.data("hlDist")),
         },
       },
       {
@@ -220,6 +255,26 @@ export function App() {
       },
       {
         selector: "node.hover-active",
+        style: {
+          "border-width": 4,
+          "border-color": labelColor,
+          width: (ele: NodeSingular) => nodeSize(ele) + 8,
+          height: (ele: NodeSingular) => nodeSize(ele) + 8,
+          "z-index": 999,
+          "font-size": 14,
+          "font-weight": "bold",
+          color: labelColor,
+          "text-background-color": pageBg,
+          "text-background-opacity": 0.9,
+          "text-background-shape": "roundrectangle",
+          "text-background-padding": "3px",
+          "text-margin-y": 6,
+        },
+      },
+      // Marks the exact selected node (hlDist 0) distinctly from the ripple
+      // of dimming-by-hop-count around it.
+      {
+        selector: "node[hlDist = 0]",
         style: {
           "border-width": 4,
           "border-color": labelColor,
@@ -320,13 +375,29 @@ export function App() {
     const cy = cyRef.current;
     if (!cy) return;
     cy.batch(() => {
-      cy.elements().removeClass("hover-fade hover-active");
-      if (!selectedId) return;
+      if (!selectedId) {
+        cy.elements().forEach((ele) => {
+          ele.removeData("hlDist");
+        });
+        return;
+      }
       const n = cy.getElementById(selectedId);
-      if (n.length === 0) return;
-      const neighborhood = n.closedNeighborhood();
-      cy.elements().difference(neighborhood).addClass("hover-fade");
-      neighborhood.addClass("hover-active");
+      if (n.length === 0) {
+        cy.elements().forEach((ele) => {
+          ele.removeData("hlDist");
+        });
+        return;
+      }
+      const distances = bfsDistances(cy, selectedId, SELECTION_HIGHLIGHT_DEPTH);
+      const FAR = SELECTION_HIGHLIGHT_DEPTH + 1; // sentinel: reached but past the ripple, or unreached
+      cy.nodes("node:child").forEach((node) => {
+        node.data("hlDist", distances.get(node.id()) ?? FAR);
+      });
+      cy.edges().forEach((edge) => {
+        const s = distances.get(edge.source().id());
+        const t = distances.get(edge.target().id());
+        edge.data("hlDist", s !== undefined && t !== undefined ? Math.min(s, t) + 1 : FAR);
+      });
     });
     if (selectedId) {
       const n = cy.getElementById(selectedId);
