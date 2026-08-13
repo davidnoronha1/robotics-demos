@@ -92,7 +92,9 @@ export function Panel({ node, edges, onClose, onNavigate }: PanelProps) {
                     : "dependency of"
                   : e.type === "partOf"
                     ? "part of"
-                    : "related to";
+                    : e.type === "semantic"
+                      ? "semantically similar to"
+                      : "related to";
               const link = (
                 <button
                   type="button"

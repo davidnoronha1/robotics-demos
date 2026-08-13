@@ -4,7 +4,8 @@ import fcose from "cytoscape-fcose";
 import { data, domainById, nodesById } from "./data";
 import { downloadContextFile } from "./exportContext";
 import { Panel } from "./Panel";
-import { initTernlight, isTernlightReady, searchProjects } from "./semanticSearch";
+import { getSemanticEdges, initTernlight, isTernlightReady, searchProjects } from "./semanticSearch";
+import type { EdgeData } from "./data";
 
 cytoscape.use(fcose);
 
@@ -53,6 +54,7 @@ export function App() {
   const [query, setQuery] = useState("");
   const [ternReady, setTernReady] = useState(isTernlightReady());
   const [isFocused, setIsFocused] = useState(false);
+  const [edgeMode, setEdgeMode] = useState<"curated" | "semantic">("curated");
 
   useEffect(() => {
     initTernlight().then(() => {
@@ -70,6 +72,11 @@ export function App() {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
+
+  const activeEdges = useMemo<EdgeData[]>(() => {
+    if (edgeMode === "curated") return data.edges;
+    return getSemanticEdges().map((e) => ({ ...e, type: "semantic" }));
+  }, [edgeMode]);
 
   const elements = useMemo<ElementDefinition[]>(() => {
     const counts = new Map<string, number>();
@@ -99,7 +106,7 @@ export function App() {
         },
       });
     }
-    for (const e of data.edges) {
+    for (const e of activeEdges) {
       els.push({
         data: {
           id: `${e.source}->${e.target}:${e.type}`,
@@ -112,7 +119,7 @@ export function App() {
       });
     }
     return els;
-  }, []);
+  }, [activeEdges]);
 
   const styles = useMemo<StylesheetJson>(() => {
     const labelColor = themeVar("--black", "#1f2328");
@@ -194,6 +201,15 @@ export function App() {
           "line-style": "dotted",
           "line-color": "#58a6ff",
           "target-arrow-color": "#58a6ff",
+        },
+      },
+      {
+        selector: "edge.e-semantic",
+        style: {
+          "line-style": "solid",
+          "line-color": "#8957e5",
+          "target-arrow-color": "#8957e5",
+          "target-arrow-shape": "none",
         },
       },
       {
@@ -425,6 +441,17 @@ export function App() {
         </div>
 
         <div class="graph-zoom">
+          <button
+            title={
+              edgeMode === "curated"
+                ? "Showing hand-curated edges — click to show Ternlight embedding similarity instead"
+                : "Showing Ternlight embedding similarity — click to show hand-curated edges instead"
+            }
+            class="graph-edge-toggle"
+            onClick={() => setEdgeMode((m) => (m === "curated" ? "semantic" : "curated"))}
+          >
+            {edgeMode === "curated" ? "Curated edges" : "Semantic edges"}
+          </button>
           <button title="Zoom in" onClick={() => zoomBy(1.3)}>
             +
           </button>
@@ -455,7 +482,9 @@ export function App() {
             ))}
           </ul>
           <p class="graph-legend-hint">
-            Solid = part of · dashed orange = depends on · dotted = related. Click a node for details.
+            {edgeMode === "curated"
+              ? "Solid = part of · dashed orange = depends on · dotted = related. Click a node for details."
+              : "Purple = Ternlight embedding similarity (top matches per project). Click a node for details."}
           </p>
         </details>
       </div>
@@ -463,7 +492,7 @@ export function App() {
       {selectedNode && (
         <Panel
           node={selectedNode}
-          edges={data.edges}
+          edges={activeEdges}
           onClose={() => setSelectedId(null)}
           onNavigate={jumpTo}
         />

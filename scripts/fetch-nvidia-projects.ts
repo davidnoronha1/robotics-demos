@@ -364,6 +364,30 @@ async function main() {
   console.log(`  ${nodes.length} nodes (${nodes.length - config.manual.length} repos, ${config.manual.length} manual products)`);
   console.log(`  ${validEdges.length} edges`);
   console.log(`  ${apiCalls} GitHub API calls`);
+
+  warnAboutUnmanifestedProjects(nodes.map((n) => n.id));
+}
+
+// Reminds you to add newly-fetched projects to the manifest CSV so they get
+// curated relatedTo edges instead of sitting unconnected in the graph.
+function warnAboutUnmanifestedProjects(nodeIds: string[]): void {
+  const manifestFile = resolve(dirname(fileURLToPath(import.meta.url)), "..", "nvidia-projects-manifest.csv");
+  if (!existsSync(manifestFile)) return;
+
+  const manifestIds = new Set<string>();
+  for (const rawLine of readFileSync(manifestFile, "utf8").split("\n")) {
+    const line = rawLine.split("#")[0]!.trim();
+    if (!line) continue;
+    const id = line.split(",")[0]!.trim();
+    if (id) manifestIds.add(id);
+  }
+
+  const newIds = nodeIds.filter((id) => !manifestIds.has(id));
+  if (newIds.length === 0) return;
+
+  console.log(`\n⚠ ${newIds.length} project(s) not yet in nvidia-projects-manifest.csv (no curated edges):`);
+  for (const id of newIds) console.log(`  - ${id}`);
+  console.log("  Run: bun run dump:manifest, edit the new rows' related-id/score pairs, then bun run apply:manifest && bun run fetch:projects");
 }
 
 main().catch((err) => {

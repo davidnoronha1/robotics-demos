@@ -84,13 +84,85 @@ const DOMAIN_SYNONYMS = [
   },
 ];
 
+// --- Fuzzy matching helpers (typo tolerance for the lexical half of search) ---
+
+const FUZZY_MIN_QUERY_LEN = 3;
+const FUZZY_KEYWORD_THRESHOLD = 0.75;
+const FUZZY_FIELD_THRESHOLD = 0.72;
+
+function levenshtein(a: string, b: string): number {
+  const m = a.length;
+  const n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  const dp = new Array<number>(n + 1);
+  for (let j = 0; j <= n; j++) dp[j] = j;
+  for (let i = 1; i <= m; i++) {
+    let prev = dp[0]!;
+    dp[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const tmp = dp[j]!;
+      dp[j] = a[i - 1] === b[j - 1] ? prev : 1 + Math.min(prev, dp[j]!, dp[j - 1]!);
+      prev = tmp;
+    }
+  }
+  return dp[n]!;
+}
+
+// Normalized similarity in [0, 1]; 1 means identical strings.
+function similarity(a: string, b: string): number {
+  const maxLen = Math.max(a.length, b.length);
+  if (maxLen === 0) return 1;
+  return 1 - levenshtein(a, b) / maxLen;
+}
+
+function tokenize(s: string): string[] {
+  return s.split(/[^a-z0-9]+/i).filter(Boolean);
+}
+
+// Best similarity between `query` and any token in `tokens`, skipping tokens
+// whose length is wildly different (cheap pre-filter, avoids O(n*m) DP on
+// obviously-unrelated pairs).
+function bestTokenSimilarity(query: string, tokens: string[]): number {
+  let best = 0;
+  for (const tok of tokens) {
+    if (tok === query) return 1;
+    const maxLen = Math.max(query.length, tok.length);
+    if (Math.abs(query.length - tok.length) / maxLen > 0.5) continue;
+    const sim = similarity(query, tok);
+    if (sim > best) best = sim;
+  }
+  return best;
+}
+
+/**
+ * Tiered text match: exact -> substring -> fuzzy (typo-tolerant token match).
+ * Returns a score in roughly [0, exactWeight].
+ */
+function textScore(qClean: string, text: string, exactWeight: number, substrWeight: number, fuzzyWeight: number): number {
+  if (!text) return 0;
+  if (text === qClean) return exactWeight;
+  if (text.includes(qClean)) return substrWeight;
+  if (qClean.length < FUZZY_MIN_QUERY_LEN) return 0;
+  const sim = bestTokenSimilarity(qClean, tokenize(text));
+  return sim >= FUZZY_FIELD_THRESHOLD ? fuzzyWeight * sim : 0;
+}
+
 export function expandQuery(text: string): string {
   const textLower = text.toLowerCase().trim();
+  const queryTokens = tokenize(textLower);
   const matchedExpansions: string[] = [];
   for (const entry of DOMAIN_SYNONYMS) {
-    if (entry.keywords.some((k) => textLower.includes(k))) {
-      matchedExpansions.push(entry.expansion);
-    }
+    const hit = entry.keywords.some((k) => {
+      if (textLower.includes(k)) return true;
+      // Fuzzy-match single-word keywords against query tokens so typos
+      // (e.g. "arcuo") still trigger the domain expansion.
+      if (!k.includes(" ") && k.length >= FUZZY_MIN_QUERY_LEN) {
+        return bestTokenSimilarity(k, queryTokens) >= FUZZY_KEYWORD_THRESHOLD;
+      }
+      return false;
+    });
+    if (hit) matchedExpansions.push(entry.expansion);
   }
   return text + (matchedExpansions.length ? " " + matchedExpansions.join(" ") : "");
 }
@@ -134,6 +206,55 @@ export function isTernlightReady(): boolean {
   return embedFn !== null;
 }
 
+export interface SemanticEdge {
+  source: string;
+  target: string;
+  score: number;
+}
+
+const SEMANTIC_TOP_K = 4;
+const SEMANTIC_MIN_SCORE = 0.55;
+
+let cachedSemanticEdges: SemanticEdge[] | null = null;
+
+/**
+ * Derives a graph purely from Ternlight embedding similarity: each node's
+ * top-K nearest neighbors above a similarity floor, deduped by unordered
+ * pair (higher score wins when both sides qualify). Computed once and
+ * cached — offers an alternative to the hand-curated manifest edges so you
+ * can compare what the embeddings think is related vs what was curated.
+ */
+export function getSemanticEdges(): SemanticEdge[] {
+  if (cachedSemanticEdges) return cachedSemanticEdges;
+
+  const ids = Object.keys(embeddings);
+  const pairScore = new Map<string, number>();
+
+  for (const id of ids) {
+    const vec = embeddings[id];
+    if (!vec) continue;
+    const neighbors: { id: string; score: number }[] = [];
+    for (const otherId of ids) {
+      if (otherId === id) continue;
+      const otherVec = embeddings[otherId];
+      if (!otherVec) continue;
+      const score = cosineSimilarity(vec, otherVec);
+      if (score >= SEMANTIC_MIN_SCORE) neighbors.push({ id: otherId, score });
+    }
+    neighbors.sort((a, b) => b.score - a.score);
+    for (const n of neighbors.slice(0, SEMANTIC_TOP_K)) {
+      const key = [id, n.id].sort().join("::");
+      pairScore.set(key, Math.max(pairScore.get(key) ?? 0, n.score));
+    }
+  }
+
+  cachedSemanticEdges = [...pairScore.entries()].map(([key, score]) => {
+    const [source, target] = key.split("::") as [string, string];
+    return { source, target, score };
+  });
+  return cachedSemanticEdges;
+}
+
 /**
  * Perform hybrid semantic search using Ternlight embeddings + domain concept expansion.
  */
@@ -163,21 +284,20 @@ export function searchProjects(query: string, maxResults = 12): NodeMatch[] {
       score = cosineSimilarity(qVec, targetVec);
     }
 
-    // 2. Keyword & Substring Matching Boosts
+    // 2. Keyword, Substring & Fuzzy (typo-tolerant) Matching Boosts
     const labelLower = node.label.toLowerCase();
     const descLower = (node.description || "").toLowerCase();
     const summaryLower = (node.summary || "").toLowerCase();
     const topicsLower = (node.topics || []).map((t) => t.toLowerCase());
 
-    if (labelLower === qClean) {
-      score += 0.5;
-    } else if (labelLower.includes(qClean)) {
-      score += 0.35;
-    } else if (descLower.includes(qClean) || summaryLower.includes(qClean)) {
-      score += 0.2;
-    } else if (topicsLower.some((t) => t.includes(qClean))) {
-      score += 0.25;
+    const labelScore = textScore(qClean, labelLower, 0.5, 0.35, 0.3);
+    const descScore = Math.max(textScore(qClean, descLower, 0.2, 0.2, 0.15), textScore(qClean, summaryLower, 0.2, 0.2, 0.15));
+    let topicsScore = 0;
+    for (const t of topicsLower) {
+      topicsScore = Math.max(topicsScore, textScore(qClean, t, 0.25, 0.25, 0.2));
     }
+
+    score += Math.max(labelScore, descScore, topicsScore);
 
     // Include nodes with a positive score threshold
     if (score > 0.05) {

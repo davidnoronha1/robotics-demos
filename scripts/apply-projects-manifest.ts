@@ -30,15 +30,50 @@ interface ManifestEntry {
   related: { id: string; score: number }[];
 }
 
+// Quote-aware CSV row split (description/summary/readme context fields can
+// contain commas, quotes, or "#" — a naive split(",") or split("#") would
+// corrupt those).
+function parseCsvLine(line: string): string[] {
+  const fields: string[] = [];
+  let cur = "";
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i]!;
+    if (inQuotes) {
+      if (c === '"') {
+        if (line[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        cur += c;
+      }
+    } else if (c === '"') {
+      inQuotes = true;
+    } else if (c === ",") {
+      fields.push(cur);
+      cur = "";
+    } else {
+      cur += c;
+    }
+  }
+  fields.push(cur);
+  return fields;
+}
+
+// Leading context columns before the related-id/score pairs: id, description, summary, readme.
+const CONTEXT_COLUMNS = 4;
+
 function parseManifest(text: string): ManifestEntry[] {
   const entries: ManifestEntry[] = [];
   for (const rawLine of text.split("\n")) {
-    const line = rawLine.split("#")[0]!.trim();
-    if (!line) continue;
-    const fields = line.split(",").map((f) => f.trim()).filter((f) => f.length > 0);
-    if (fields.length === 0) continue;
-    const id = fields[0]!;
-    const rest = fields.slice(1);
+    if (!rawLine.trim() || rawLine.trim().startsWith("#")) continue;
+    const fields = parseCsvLine(rawLine).map((f) => f.trim());
+    const id = fields[0];
+    if (!id) continue;
+    const rest = fields.slice(CONTEXT_COLUMNS).filter((f) => f.length > 0);
     const related: { id: string; score: number }[] = [];
     for (let i = 0; i < rest.length; i += 2) {
       const relId = rest[i]!;

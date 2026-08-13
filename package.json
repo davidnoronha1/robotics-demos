@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "fetch:projects": "bun scripts/fetch-nvidia-projects.ts",
     "dump:manifest": "bun scripts/dump-projects-manifest.ts",
+    "dump:manifest:blank": "bun scripts/dump-projects-manifest.ts --blank",
     "apply:manifest": "bun scripts/apply-projects-manifest.ts",
+    "rebuild:edges": "bun scripts/rebuild-edges.ts",
     "generate:embeddings": "bun scripts/generate-embeddings.ts",
     "verify:imu": "tsx scripts/verify-imu-fusion.ts"
   },
