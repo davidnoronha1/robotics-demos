@@ -51,6 +51,8 @@ export function App() {
   const searchWrapRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<Core | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selectedIdRef = useRef<string | null>(null);
+  selectedIdRef.current = selectedId;
   const [query, setQuery] = useState("");
   const [ternReady, setTernReady] = useState(isTernlightReady());
   const [isFocused, setIsFocused] = useState(false);
@@ -271,15 +273,24 @@ export function App() {
       if (evt.target === cy) setSelectedId(null);
     });
 
-    cy.on("mouseover", "node:child", (evt) => {
-      const n = evt.target as cytoscape.NodeSingular;
-      const neighborhood = n.closedNeighborhood();
-      cy.elements().difference(neighborhood).addClass("hover-fade");
-      neighborhood.addClass("hover-active");
-    });
-    cy.on("mouseout", "node:child", () => {
-      cy.elements().removeClass("hover-fade hover-active");
-    });
+    // Hover-to-preview only makes sense with a real mouse: touch devices fire
+    // a synthetic mouseover on tap but no mouseout until another element is
+    // touched, so this would otherwise get stuck highlighting whichever node
+    // was tapped first. The persistent, tap-driven highlight (tied to
+    // selectedId below) covers touch instead.
+    if (!isTouchDevice) {
+      cy.on("mouseover", "node:child", (evt) => {
+        if (selectedIdRef.current) return;
+        const n = evt.target as cytoscape.NodeSingular;
+        const neighborhood = n.closedNeighborhood();
+        cy.elements().difference(neighborhood).addClass("hover-fade");
+        neighborhood.addClass("hover-active");
+      });
+      cy.on("mouseout", "node:child", () => {
+        if (selectedIdRef.current) return;
+        cy.elements().removeClass("hover-fade hover-active");
+      });
+    }
 
     const fcoseOptions = {
       name: "fcose",
@@ -307,10 +318,21 @@ export function App() {
 
   useEffect(() => {
     const cy = cyRef.current;
-    if (!cy || !selectedId) return;
-    const n = cy.getElementById(selectedId);
-    if (n.length > 0) {
-      cy.animate({ center: { eles: n }, zoom: Math.max(cy.zoom(), 1.8), duration: 400 });
+    if (!cy) return;
+    cy.batch(() => {
+      cy.elements().removeClass("hover-fade hover-active");
+      if (!selectedId) return;
+      const n = cy.getElementById(selectedId);
+      if (n.length === 0) return;
+      const neighborhood = n.closedNeighborhood();
+      cy.elements().difference(neighborhood).addClass("hover-fade");
+      neighborhood.addClass("hover-active");
+    });
+    if (selectedId) {
+      const n = cy.getElementById(selectedId);
+      if (n.length > 0) {
+        cy.animate({ center: { eles: n }, zoom: Math.max(cy.zoom(), 1.8), duration: 400 });
+      }
     }
   }, [selectedId]);
 

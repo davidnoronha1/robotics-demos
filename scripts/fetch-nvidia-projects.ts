@@ -159,18 +159,46 @@ function scoreDomain(r: { full_name: string; name: string; description: string |
   return best ?? "data";
 }
 
+const HTML_ENTITIES: Record<string, string> = {
+  nbsp: " ",
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  mdash: "—",
+  ndash: "–",
+};
+
+function decodeEntities(text: string): string {
+  return text.replace(/&(#\d+|#x[0-9a-fA-F]+|[a-zA-Z]+);/g, (m, code) => {
+    if (code[0] === "#") {
+      const cp = code[1] === "x" || code[1] === "X" ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+      return Number.isFinite(cp) ? String.fromCodePoint(cp) : m;
+    }
+    return HTML_ENTITIES[code] ?? m;
+  });
+}
+
 function stripMarkdown(md: string): string {
-  return md
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/`([^`]*)`/g, "$1")
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
-    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
-    .replace(/^\s*[-*+]\s+/gm, "")
-    .replace(/^\s*\d+\.\s+/gm, "")
-    .replace(/^>\s*/gm, "")
-    .replace(/[*_~]/g, "")
-    .replace(/<[^>]+>/g, " ")
+  return decodeEntities(
+    md
+      .replace(/<!--[\s\S]*?-->/g, " ")
+      .replace(/```[\s\S]*?```/g, " ")
+      .replace(/`([^`]*)`/g, "$1")
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, " ") // images/badges
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1") // inline links -> text
+      .replace(/\[([^\]]*)\]\[[^\]]*\]/g, "$1") // reference-style links -> text
+      .replace(/^\s*\[[^\]]+\]:\s*\S+.*$/gm, " ") // reference-link definitions
+      .replace(/https?:\/\/\S+/g, " ") // remaining bare urls
+      .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+      .replace(/^\s*[-*+]\s+/gm, "")
+      .replace(/^\s*\d+\.\s+/gm, "")
+      .replace(/^>\s*/gm, "")
+      .replace(/\|/g, " ")
+      .replace(/[*_~]/g, "")
+      .replace(/<[^>]+>/g, " "),
+  )
     .replace(/\s+/g, " ")
     .trim();
 }

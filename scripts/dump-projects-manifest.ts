@@ -72,9 +72,58 @@ for (const e of data.edges) {
 }
 
 const README_SNIPPET_LEN = 200;
+
+const HTML_ENTITIES: Record<string, string> = {
+  nbsp: " ",
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  mdash: "—",
+  ndash: "–",
+};
+
+function decodeEntities(text: string): string {
+  return text.replace(/&(#\d+|#x[0-9a-fA-F]+|[a-zA-Z]+);/g, (m, code) => {
+    if (code[0] === "#") {
+      const cp = code[1] === "x" || code[1] === "X" ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+      return Number.isFinite(cp) ? String.fromCodePoint(cp) : m;
+    }
+    return HTML_ENTITIES[code] ?? m;
+  });
+}
+
+// Strips markdown/HTML noise (badges, images, links, headings, emphasis,
+// inline code, tables) down to plain prose, so the manifest's context
+// column reads as a sentence instead of raw badge/link soup. Mirrors
+// stripMarkdown() in fetch-nvidia-projects.ts (used there for `summary`).
+function stripMarkdown(md: string): string {
+  return decodeEntities(
+    md
+      .replace(/<!--[\s\S]*?-->/g, " ")
+      .replace(/```[\s\S]*?```/g, " ")
+      .replace(/`([^`]*)`/g, "$1")
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, " ") // images/badges
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1") // inline links -> text
+      .replace(/\[([^\]]*)\]\[[^\]]*\]/g, "$1") // reference-style links -> text
+      .replace(/^\s*\[[^\]]+\]:\s*\S+.*$/gm, " ") // reference-link definitions
+      .replace(/https?:\/\/\S+/g, " ") // remaining bare urls
+      .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+      .replace(/^\s*[-*+]\s+/gm, "")
+      .replace(/^\s*\d+\.\s+/gm, "")
+      .replace(/^>\s*/gm, "")
+      .replace(/\|/g, " ")
+      .replace(/[*_~]/g, "")
+      .replace(/<[^>]+>/g, " "),
+  )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function readmeSnippet(readme?: string): string {
   if (!readme) return "";
-  return readme.replace(/\s+/g, " ").trim().slice(0, README_SNIPPET_LEN);
+  return stripMarkdown(readme).slice(0, README_SNIPPET_LEN);
 }
 
 // CSV-quote a field only when it needs it (contains a comma, quote, or newline).

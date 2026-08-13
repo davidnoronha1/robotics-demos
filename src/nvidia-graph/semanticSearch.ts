@@ -213,7 +213,12 @@ export interface SemanticEdge {
 }
 
 const SEMANTIC_TOP_K = 4;
-const SEMANTIC_MIN_SCORE = 0.55;
+// Sanity floor only (observed best-match scores range ~0.37-1.0) — not tuned
+// as a quality cutoff. A per-node absolute cutoff here would strand any
+// project whose embedding just sits in a sparser part of the space (e.g.
+// niche/deprecated repos), even though it still has a clear best match.
+// Every node keeps its top-K neighbors regardless of how weak the best one is.
+const SEMANTIC_MIN_SCORE = 0.3;
 
 let cachedSemanticEdges: SemanticEdge[] | null = null;
 

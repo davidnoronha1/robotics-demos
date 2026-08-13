@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T17:10:50.718Z",
+  "generatedAt": "2026-08-13T17:30:12.246Z",
   "source": "github-api",
   "domains": [
     {
@@ -163,7 +163,7 @@
       "homepage": "https://tcwang0509.github.io/pix2pixHD/",
       "defaultBranch": "master",
       "description": "Synthesizing and manipulating 2048x1024 images with conditional GANs",
-      "summary": "pix2pixHD Project | Youtube | Paper Pytorch implementation of our method for high-resolution (e.g. 2048x1024) photorealistic image-to-image translation. It can be used for turning semantic label maps into photo-realistic images or synthesizing portraits from face label maps. High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs Ting-Chun Wang 1 , Ming-Yu Liu 1 , Jun-Yan Zhu 2 , Andrew Tao 1 , Jan Kautz 1 , Bryan Catanzaro 1 1 NVIDIA Corporation, 2 UC Berkeley In CVPR 20",
+      "summary": "pix2pixHD Project Youtube Paper Pytorch implementation of our method for high-resolution (e.g. 2048x1024) photorealistic image-to-image translation. It can be used for turning semantic label maps into photo-realistic images or synthesizing portraits from face label maps. High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs Ting-Chun Wang 1 , Ming-Yu Liu 1 , Jun-Yan Zhu 2 , Andrew Tao 1 , Jan Kautz 1 , Bryan Catanzaro 1 1 NVIDIA Corporation, 2 UC Berkeley In CVPR 2018. ",
       "stars": 6931,
       "forks": 1413,
       "language": "Python",
@@ -211,7 +211,7 @@
       "homepage": "https://docs.nvidia.com/deeplearning/dali/user-guide/docs/index.html",
       "defaultBranch": "main",
       "description": "A GPU-accelerated library containing highly optimized building blocks and an execution engine for data processing to accelerate deep learning training and inference applications.",
-      "summary": "|License| |Documentation| |Format| NVIDIA DALI =========== .. overview-begin-marker-do-not-remove The NVIDIA Data Loading Library (DALI) is a GPU-accelerated library for data loading and pre-processing to accelerate deep learning applications. It provides a collection of highly optimized building blocks for loading and processing image, video and audio data. It can be used as a portable drop-in replacement for built in data loaders and data iterators in popular deep learning frameworks. Deep lea",
+      "summary": "License Documentation Format NVIDIA DALI =========== .. overview-begin-marker-do-not-remove The NVIDIA Data Loading Library (DALI) is a GPU-accelerated library for data loading and pre-processing to accelerate deep learning applications. It provides a collection of highly optimized building blocks for loading and processing image, video and audio data. It can be used as a portable drop-in replacement for built in data loaders and data iterators in popular deep learning frameworks. Deep learning ",
       "stars": 5738,
       "forks": 671,
       "language": "C++",
@@ -431,7 +431,7 @@
       "homepage": "https://nvidia.github.io/cccl/",
       "defaultBranch": "main",
       "description": "CUDA Core Compute Libraries",
-      "summary": "|Contributor Guide|Dev Containers|Discord|Godbolt|GitHub Project|Documentation| |-|-|-|-|-|-| CUDA Core Compute Libraries (CCCL) Welcome to the CUDA Core Compute Libraries (CCCL) where our mission is to make CUDA more delightful. This repository unifies three essential CUDA C++ libraries into a single, convenient repository: Thrust (former repo) CUB (former repo) libcudacxx (former repo) The goal of CCCL is to provide CUDA C++ developers with building blocks that make it easier to write safe and",
+      "summary": "Contributor Guide Dev Containers Discord Godbolt GitHub Project Documentation - - - - - - CUDA Core Compute Libraries (CCCL) Welcome to the CUDA Core Compute Libraries (CCCL) where our mission is to make CUDA more delightful. This repository unifies three essential CUDA C++ libraries into a single, convenient repository: Thrust (former repo) CUB (former repo) libcudacxx (former repo) The goal of CCCL is to provide CUDA C++ developers with building blocks that make it easier to write safe and eff",
       "stars": 2466,
       "forks": 462,
       "language": "C++",
@@ -484,7 +484,7 @@
       "homepage": "https://nvidia.github.io/warp/stable/",
       "defaultBranch": "main",
       "description": "A Python framework for GPU-accelerated simulation, robotics, and machine learning.",
-      "summary": "NVIDIA Warp Documentation | Changelog Warp is a Python framework for GPU-accelerated simulation, robotics, and machine learning. Warp takes regular Python functions and JIT compiles them to efficient kernel code that can run on the CPU or GPU. Warp comes with a rich set of primitives for physics simulation, robotics, geometry processing, and more. Warp kernels are differentiable and can be used as part of machine-learning pipelines with frameworks such as PyTorch, JAX and Paddle. A selection of ",
+      "summary": "NVIDIA Warp Documentation Changelog Warp is a Python framework for GPU-accelerated simulation, robotics, and machine learning. Warp takes regular Python functions and JIT compiles them to efficient kernel code that can run on the CPU or GPU. Warp comes with a rich set of primitives for physics simulation, robotics, geometry processing, and more. Warp kernels are differentiable and can be used as part of machine-learning pipelines with frameworks such as PyTorch, JAX and Paddle. A selection of ph",
       "stars": 6992,
       "forks": 587,
       "language": "Python",
@@ -509,7 +509,7 @@
       "homepage": "https://nvidia.github.io/TensorRT-LLM",
       "defaultBranch": "main",
       "description": "TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.",
-      "summary": "TensorRT LLM =========================== TensorRT LLM optimizes inference for LLMs and Visual Gen models with specialized kernels for common operations, an efficient runtime, and a pythonic framework that enables you to customize and extend the system. Architecture&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Performance&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Examples&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Documentation&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Roadmap --- Tech Blogs [07/17] DeepSeek-V4 on NVIDIA Bl",
+      "summary": "TensorRT LLM =========================== TensorRT LLM optimizes inference for LLMs and Visual Gen models with specialized kernels for common operations, an efficient runtime, and a pythonic framework that enables you to customize and extend the system. Architecture Performance Examples Documentation Roadmap --- Tech Blogs [07/17] DeepSeek-V4 on NVIDIA Blackwell: Model-Specific and Agentic-Workload Optimizations in TensorRT LLM ✨ ➡️ link [07/01] Scaling Video Generation Across NVL72 Rack with Ten",
       "stars": 14375,
       "forks": 2661,
       "language": "Python",
@@ -641,7 +641,7 @@
       "homepage": "https://nvidia.github.io/Model-Optimizer/",
       "defaultBranch": "main",
       "description": "A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.",
-      "summary": "NVIDIA Model Optimizer Documentation | Roadmap NVIDIA Model Optimizer (referred to as Model Optimizer, or ModelOpt) is a library comprising state-of-the-art model optimization techniques including quantization, pruning, Neural Architecture Search (NAS), distillation, speculative decoding and sparsity to accelerate models. [Input] Model Optimizer currently supports inputs of a Hugging Face, PyTorch or ONNX model. [Optimize] Model Optimizer provides Python APIs for users to easily compose the abov",
+      "summary": "NVIDIA Model Optimizer Documentation Roadmap NVIDIA Model Optimizer (referred to as Model Optimizer, or ModelOpt) is a library comprising state-of-the-art model optimization techniques including quantization, pruning, Neural Architecture Search (NAS), distillation, speculative decoding and sparsity to accelerate models. [Input] Model Optimizer currently supports inputs of a Hugging Face, PyTorch or ONNX model. [Optimize] Model Optimizer provides Python APIs for users to easily compose the above ",
       "stars": 3436,
       "forks": 544,
       "language": "Python",
@@ -697,7 +697,7 @@
       "homepage": "https://www.nvidia.com/en-us/ai/cosmos/",
       "defaultBranch": "main",
       "description": "NVIDIA Cosmos is an open platform of world models, datasets, and tools that enables developers to build Physical AI for robots, autonomous vehicles, smart infrastructure, and more.",
-      "summary": "Cosmos Website | Framework | Agent Skills | Models Table of Contents Introduction Cosmos 3 Key Capabilities Model Architecture Model Family Supported Generation Settings Input and Output Use Cases Generator Reasoner Quickstart Generator with Diffusers Generator with vLLM-Omni Generator with NIM Generator with SGLang Reasoner with Transformers Reasoner with vLLM Reasoner with TensorRT-LLM Reasoner with NIM Troubleshooting Which CUDA version should I use? Which base container should I use? torch.c",
+      "summary": "Cosmos Table of Contents Introduction Cosmos 3 Key Capabilities Model Architecture Model Family Supported Generation Settings Input and Output Use Cases Generator Reasoner Quickstart Generator with Diffusers Generator with vLLM-Omni Generator with NIM Generator with SGLang Reasoner with Transformers Reasoner with vLLM Reasoner with TensorRT-LLM Reasoner with NIM Troubleshooting Which CUDA version should I use? Which base container should I use? torch.cuda.isavailable() is False Import fails with",
       "stars": 11484,
       "forks": 823,
       "language": "Jupyter Notebook",
@@ -714,7 +714,7 @@
       "homepage": "https://developer.nvidia.com/isaac/gr00t",
       "defaultBranch": "main",
       "description": "NVIDIA Isaac GR00T N1.7 -  A Foundation Model for Generalist Robots.",
-      "summary": "Website | Model | Datasets (Physical AI) | Paper | NVIDIA Isaac | FAQ Table of Contents NVIDIA Isaac GR00T What's New in GR00T N1.7 Installation LeRobot Integration Model Checkpoints & Embodiment Tags Data Format Inference Fine-tuning Evaluation Contributions License Citation --- NVIDIA Isaac GR00T We just released GR00T N1.7 General Availability, the latest version of GR00T N1 with a new VLM backbone (Cosmos-Reason2-2B / Qwen3-VL) and improved performance. This is a General Availability (GA) re",
+      "summary": "FAQ Table of Contents NVIDIA Isaac GR00T What's New in GR00T N1.7 Installation LeRobot Integration Model Checkpoints & Embodiment Tags Data Format Inference Fine-tuning Evaluation Contributions License Citation --- NVIDIA Isaac GR00T We just released GR00T N1.7 General Availability, the latest version of GR00T N1 with a new VLM backbone (Cosmos-Reason2-2B / Qwen3-VL) and improved performance. This is a General Availability (GA) release. You are welcome to download the model, explore the codebase",
       "stars": 7818,
       "forks": 1392,
       "language": "Python",
@@ -748,7 +748,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "DreamGen: Nvidia GEAR Lab's initiative to solve the robotics data problem using world models",
-      "summary": "GR00T Dreams NVIDIA Isaac GR00T-Dreams blueprint generates vast amounts of synthetic trajectory data using NVIDIA Cosmos world foundation models, prompted by a single image and language instructions. This enables robots to learn new tasks in unfamiliar environments without needing specific teleoperation data. As a first step, we release DreamGen: Unlocking Generalization in Robot Learning through Video World Models Website | Paper We provide the full pipeline for DreamGen, as Cosmos-Predict2 as ",
+      "summary": "GR00T Dreams NVIDIA Isaac GR00T-Dreams blueprint generates vast amounts of synthetic trajectory data using NVIDIA Cosmos world foundation models, prompted by a single image and language instructions. This enables robots to learn new tasks in unfamiliar environments without needing specific teleoperation data. As a first step, we release DreamGen: Unlocking Generalization in Robot Learning through Video World Models <a href=\" <a href=\" We provide the full pipeline for DreamGen, as Cosmos-Predict2",
       "stars": 597,
       "forks": 62,
       "language": "Jupyter Notebook",
@@ -804,7 +804,7 @@
       "homepage": "https://nvidia.github.io/OSMO",
       "defaultBranch": "main",
       "description": "The developer-first platform for scaling complex Physical AI workloads across heterogeneous compute—unifying training GPUs, simulation clusters, and edge devices in a simple YAML",
-      "summary": "Welcome to OSMO Workflow Orchestration Purpose-built for Physical AI Get Started | Documentation | Community | Roadmap Use OSMO to manage your workflows and even remotely develop on a backend node. Using OSMO's backend configuration, run your workflows seamlessly on any cloud environment. Build a data factory to manage your synthetic and real robot data, train neural networks with experiment tracking, train robot policies with reinforcement learning, evaluate your models and publish the results,",
+      "summary": "Welcome to OSMO Workflow Orchestration Purpose-built for Physical AI Get Started Documentation Community Roadmap Use OSMO to manage your workflows and even remotely develop on a backend node. Using OSMO's backend configuration, run your workflows seamlessly on any cloud environment. Build a data factory to manage your synthetic and real robot data, train neural networks with experiment tracking, train robot policies with reinforcement learning, evaluate your models and publish the results, test ",
       "stars": 204,
       "forks": 48,
       "language": "Python",
@@ -820,7 +820,7 @@
       "url": "https://github.com/NVIDIA/TensorRT-Edge-LLM",
       "defaultBranch": "main",
       "description": "High-performance, light-weight C++ LLM and VLM Inference Software for Physical AI",
-      "summary": "TensorRT Edge-LLM High-Performance Large Language Model Inference Framework for NVIDIA Edge Platforms Overview&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Support Matrix&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Quick Start&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Performance&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Documentation&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Roadmap --- Latest News [2026/08] Release 0.10.0 adds support for NVIDIA Nemotron-3.5 Lightning with MTP and DFlash, Cosmos3-Edge, DiffusionGemma, Nemotron-",
+      "summary": "TensorRT Edge-LLM High-Performance Large Language Model Inference Framework for NVIDIA Edge Platforms Overview Support Matrix Quick Start Performance Documentation Roadmap --- Latest News [2026/08] Release 0.10.0 adds support for NVIDIA Nemotron-3.5 Lightning with MTP and DFlash, Cosmos3-Edge, DiffusionGemma, Nemotron-3.5-ASR, and DSpark speculative decoding, alongside an experimental direct TensorRT engine builder without ONNX export, multi-turn KV-cache reuse, and video input for the experimen",
       "stars": 502,
       "forks": 105,
       "language": "Python",
@@ -853,7 +853,7 @@
       "url": "https://github.com/NVIDIA/ACCV-Lab",
       "defaultBranch": "main",
       "description": "Accelerated Computer Vision Lab (ACCV-Lab) is a systematic collection of packages with the common goal to facilitate end-to-end efficient training in the ADAS domain, each package offering tools & best practices for a specific aspect/task in this domain.",
-      "summary": "ACCV-Lab Overview Accelerated Computer Vision Lab (ACCV-Lab) is a systematic collection of packages with the common goal to facilitate end-to-end efficient training in the ADAS domain, each package offering tools & best practices for a specific aspect/task in this domain. Resources The following resources provide an overview of the project and its capabilities: | Type | Title | Date | Link | |------|-------|------|------| | 📝 Blog | Accelerate Assisted Driving Training with NVIDIA ACCV-Lab Open",
+      "summary": "ACCV-Lab Overview Accelerated Computer Vision Lab (ACCV-Lab) is a systematic collection of packages with the common goal to facilitate end-to-end efficient training in the ADAS domain, each package offering tools & best practices for a specific aspect/task in this domain. Resources The following resources provide an overview of the project and its capabilities: Type Title Date Link ------ ------- ------ ------ 📝 Blog Accelerate Assisted Driving Training with NVIDIA ACCV-Lab Open-Source Toolkit ",
       "stars": 63,
       "forks": 11,
       "language": "Python",
@@ -870,7 +870,7 @@
       "homepage": "https://dreamdojo-world.github.io",
       "defaultBranch": "main",
       "description": "Official Codebase for \"DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos\" (ICML 2026)",
-      "summary": "Website | Paper | Models | Datasets 💭 DreamDojo 🔥 Highlights DreamDojo is an interactive world model that learns from large-scale human videos. In short, we made the following key contributions: A large-scale video dataset. 44k hours of diverse human egocentric videos, the largest dataset to date for world model pretraining. A foundation world model. The first robot world model of its kind that demonstrates strong generalization to diverse objects and environments after post-training. A distil",
+      "summary": "💭 DreamDojo 🔥 Highlights DreamDojo is an interactive world model that learns from large-scale human videos. In short, we made the following key contributions: A large-scale video dataset. 44k hours of diverse human egocentric videos, the largest dataset to date for world model pretraining. A foundation world model. The first robot world model of its kind that demonstrates strong generalization to diverse objects and environments after post-training. A distillation pipeline. After distillation,",
       "stars": 1039,
       "forks": 73,
       "language": "Python",
@@ -903,7 +903,7 @@
       "homepage": "https://docs.nvidia.com/skills",
       "defaultBranch": "main",
       "description": "Agent Skills for NVIDIA products — install into Claude Code, Codex, and other coding agents to run Physical AI, robotics, simulation, CUDA, and RAG workflows end to end.",
-      "summary": "NVIDIA Agent Skills Official, NVIDIA-verified Agent Skills for Claude Code, Codex, and other coding agents. 📖 Docs: docs.nvidia.com/skills &nbsp;·&nbsp; 📺 Livestream: From Vulnerable to Verified &nbsp;·&nbsp; 📝 Blog: NVIDIA Verified Agent Skills: Capability Governance for AI Agents --- Skills are portable instruction sets that teach AI agents how to use NVIDIA software optimally: Physical AI and robotics workflows, simulation, CUDA-X libraries, RAG and AI Blueprints, and platform tools. This ",
+      "summary": "NVIDIA Agent Skills Official, NVIDIA-verified Agent Skills for Claude Code, Codex, and other coding agents. 📖 Docs: docs.nvidia.com/skills · 📺 Livestream: From Vulnerable to Verified · 📝 Blog: NVIDIA Verified Agent Skills: Capability Governance for AI Agents --- Skills are portable instruction sets that teach AI agents how to use NVIDIA software optimally: Physical AI and robotics workflows, simulation, CUDA-X libraries, RAG and AI Blueprints, and platform tools. This repository is a catalog:",
       "stars": 2906,
       "forks": 337,
       "language": "Python",
@@ -993,7 +993,7 @@
       "homepage": "https://nvidia.github.io/flashdreams/",
       "defaultBranch": "main",
       "description": "high-performance inference and serving library for interactive autoregressive video and world models",
-      "summary": "FlashDreams is a high-performance inference and serving library for interactive autoregressive video and world models. It began as the optimized runtime behind the [NVIDIA OmniDreams closed-loop demo for GTC 2026][omnidreams-blog] and has grown into a general platform for real-time world-model applications across gaming, autonomous vehicles, robotics, simulated or virtual environments, and more. [omnidreams-blog]: https://research.nvidia.com/labs/sil/projects/omnidreams-blog/ https://github.com/",
+      "summary": "FlashDreams is a high-performance inference and serving library for interactive autoregressive video and world models. It began as the optimized runtime behind the NVIDIA OmniDreams closed-loop demo for GTC 2026 and has grown into a general platform for real-time world-model applications across gaming, autonomous vehicles, robotics, simulated or virtual environments, and more. System Requirements NVIDIA GPU with 80 GB VRAM or more (e.g. H100 80GB), see notes below. NVIDIA driver from the R580 se",
       "stars": 454,
       "forks": 44,
       "language": "Python",
@@ -1259,7 +1259,7 @@
       "homepage": "https://developer.nvidia.com/isaac-ros-gems",
       "defaultBranch": "main",
       "description": "Deep learned, NVIDIA-accelerated 3D object pose estimation",
-      "summary": "Isaac ROS Pose Estimation Deep learned, NVIDIA-accelerated 3D object pose estimation Overview Isaac ROS Pose Estimation contains three ROS 2 packages to predict the pose of an object. Refer the following table to see the differences of them: | Node | Novel Object wo/ Retraining | TAO Support | Speed | Quality | Maturity | |----------------------------|-------------------------------|---------------|---------|-----------|-------------| | isaacrosfoundationpose | ✓ | N/A | Fast | Best | New | | is",
+      "summary": "Isaac ROS Pose Estimation Deep learned, NVIDIA-accelerated 3D object pose estimation Overview Isaac ROS Pose Estimation contains three ROS 2 packages to predict the pose of an object. Refer the following table to see the differences of them: Node Novel Object wo/ Retraining TAO Support Speed Quality Maturity ---------------------------- ------------------------------- --------------- --------- ----------- ------------- isaacrosfoundationpose ✓ N/A Fast Best New isaacrosdope x x Fastest Good Time",
       "stars": 489,
       "forks": 54,
       "language": "C++",
@@ -1733,7 +1733,7 @@
       "homepage": "https://developer.nvidia.com/isaac/perceptor",
       "defaultBranch": "main",
       "description": "Perception workflows",
-      "summary": "Isaac Perceptor This repository contains the integrated Isaac Perceptor launch files. Setup and Documentation Visit Isaac Perceptor to learn how to use this repository. Performance | Sample Graph | Input Size | Nova Carter | |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+      "summary": "Isaac Perceptor This repository contains the integrated Isaac Perceptor launch files. Setup and Documentation Visit Isaac Perceptor to learn how to use this repository. Performance Sample Graph Input Size Nova Carter -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
       "stars": 76,
       "forks": 9,
       "language": "CMake",
@@ -2110,7 +2110,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "Isaac Sim Dockerfiles",
-      "summary": "Isaac Sim Dockerfiles (Deprecated) ⚠️ This repository is deprecated and will be made read-only; it is kept for reference only. For current and officially supported Docker workflows for Isaac Sim, please use the Docker tooling in the main Isaac Sim repository: https://github.com/isaac-sim/IsaacSim/tree/main/tools/docker Introduction This repository contains Dockerfiles for building an Isaac Sim container. Pre-Requisites Before getting started, ensure that the system has the latest NVIDIA Driver a",
+      "summary": "Isaac Sim Dockerfiles (Deprecated) ⚠️ This repository is deprecated and will be made read-only; it is kept for reference only. For current and officially supported Docker workflows for Isaac Sim, please use the Docker tooling in the main Isaac Sim repository: Introduction This repository contains Dockerfiles for building an Isaac Sim container. Pre-Requisites Before getting started, ensure that the system has the latest NVIDIA Driver and the NVIDIA Container Toolkit installed. Use your NGC Accou",
       "stars": 121,
       "forks": 16,
       "language": null,
@@ -2318,7 +2318,7 @@
       "homepage": "",
       "defaultBranch": "master",
       "description": "Samples for TensorRT/Deepstream for Tesla & Jetson",
-      "summary": "This repository has ceased updates, please refer to https://github.com/NVIDIA/deepstream for latest DeepStream reference applications. Reference Apps using DeepStream 9.0 This repository contains the reference applications for video analytics tasks using TensorRT and DeepSTream SDK 9.0. Getting Started ## We currently provide three different reference applications: Preferably clone this project in /opt/nvidia/deepstream/deepstream/sources/apps/sampleapps/ To clone the project in the above direct",
+      "summary": "This repository has ceased updates, please refer to for latest DeepStream reference applications. Reference Apps using DeepStream 9.0 This repository contains the reference applications for video analytics tasks using TensorRT and DeepSTream SDK 9.0. Getting Started ## We currently provide three different reference applications: Preferably clone this project in /opt/nvidia/deepstream/deepstream/sources/apps/sampleapps/ To clone the project in the above directory, sudo permission may be required.",
       "stars": 1350,
       "forks": 373,
       "language": "C++",
@@ -2334,7 +2334,7 @@
       "url": "https://github.com/NVIDIA-AI-IOT/argus_camera",
       "defaultBranch": "master",
       "description": "Simple Python / C++ interface to CSI camera connected to NVIDIA Jetson.",
-      "summary": "Argus Camera interface for Jetson ================================= This project provides a simple Python / C++ interface to CSI cameras on the Jetson using the Tegra Multimedia API and the LibArgus. All images are returned in RGBA format for easy processing. Please note that this project experimental and is provided as a convenience for prototyping. This may not work for all CSI cameras, but has been tested for those in the table below. Cameras ------- | Camera Model | Sensor Modes | Frame Rate",
+      "summary": "Argus Camera interface for Jetson ================================= This project provides a simple Python / C++ interface to CSI cameras on the Jetson using the Tegra Multimedia API and the LibArgus. All images are returned in RGBA format for easy processing. Please note that this project experimental and is provided as a convenience for prototyping. This may not work for all CSI cameras, but has been tested for those in the table below. Cameras ------- Camera Model Sensor Modes Frame Rates ----",
       "stars": 97,
       "forks": 41,
       "language": "C++",
@@ -2401,7 +2401,7 @@
       "homepage": "",
       "defaultBranch": "master",
       "description": "An educational AI robot based on NVIDIA Jetson Nano.",
-      "summary": "JetBot --> Looking for a quick way to get started with JetBot? Many third party kits are now available! JetBot is an open-source robot platform for AI learning and experimentation. The original NVIDIA JetBot reference design is an NVIDIA-designed open-source robot based on NVIDIA Jetson Nano that is Affordable - Less than $150 add-on to Jetson Nano Educational - Tutorials from basic motion to AI based collision avoidance Fun! - Interactively programmed from your web browser Building and using Je",
+      "summary": "JetBot Looking for a quick way to get started with JetBot? Many third party kits are now available! JetBot is an open-source robot platform for AI learning and experimentation. The original NVIDIA JetBot reference design is an NVIDIA-designed open-source robot based on NVIDIA Jetson Nano that is Affordable - Less than $150 add-on to Jetson Nano Educational - Tutorials from basic motion to AI based collision avoidance Fun! - Interactively programmed from your web browser Building and using JetBot",
       "stars": 3321,
       "forks": 1072,
       "language": "Jupyter Notebook",
@@ -2469,7 +2469,7 @@
       "homepage": "",
       "defaultBranch": "master",
       "description": "An easy to use PyTorch to TensorRT converter",
-      "summary": "torch2trt What models are you using, or hoping to use, with TensorRT? Feel free to join the discussion here. torch2trt is a PyTorch to TensorRT converter which utilizes the TensorRT Python API. The converter is Easy to use - Convert modules with a single function call torch2trt Easy to extend - Write your own layer converter in Python and register it with @tensorrtconverter If you find an issue, please let us know! Please note, this converter has limited coverage of TensorRT / PyTorch. We create",
+      "summary": "torch2trt What models are you using, or hoping to use, with TensorRT? Feel free to join the discussion here. =7.0), call the following, This enables you to run the QAT example located here. How does it work? This converter works by attaching conversion functions (like convertReLU) to the original PyTorch functional calls (like torch.nn.ReLU.forward). The sample input data is passed through the network, just as before, except now whenever a registered function (torch.nn.ReLU.forward) is encounter",
       "stars": 4878,
       "forks": 697,
       "language": "Python",
@@ -2578,7 +2578,7 @@
       "homepage": "",
       "defaultBranch": "master",
       "description": "Sample apps to demonstrate how to deploy models trained with TAO on DeepStream",
-      "summary": "This repository has ceased updates, please refer to https://github.com/NVIDIA/deepstream for latest DeepStream TAO sample applications. Integrate TAO model with DeepStream SDK Integrate TAO model with DeepStream SDK Description Prerequisites Download Download Source Code with SSH or HTTPS Download Models Triton Inference Server Build Build Sample Application Run Information for Customization TAO Models Label Files DeepStream configuration file Model Outputs CitySemSegFormer PoseClassification 34",
+      "summary": "This repository has ceased updates, please refer to for latest DeepStream TAO sample applications. Integrate TAO model with DeepStream SDK Integrate TAO model with DeepStream SDK Description Prerequisites Download Download Source Code with SSH or HTTPS Download Models Triton Inference Server Build Build Sample Application Run Information for Customization TAO Models Label Files DeepStream configuration file Model Outputs CitySemSegFormer PoseClassification 34. Retail Object Detection / PeopleNet",
       "stars": 456,
       "forks": 109,
       "language": "C++",
@@ -2721,7 +2721,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "ROS 2 package for \"trt_pose\": real-time human pose estimation on NVIDIA Jetson Platform  ",
-      "summary": "ros2trtpose NVIDIA Developer Blog In this repository, we build ros2 wrapper for trtpose for real-time pose estimation on NVIDIA Jetson. Package outputs: Pose message Pose detection image message Visualization markers Launch file for RViz Requirements: ROS 2 Eloquent: Docker Support Install Instructions trtpose Dependencies for trtpose [Install trtpose] (https://github.com/NVIDIA-AI-IOT/trtpose#step-2---install-trtpose) Build: Clone repository under ros2 workspace Install requirements using Build",
+      "summary": "ros2trtpose NVIDIA Developer Blog In this repository, we build ros2 wrapper for trtpose for real-time pose estimation on NVIDIA Jetson. Package outputs: Pose message Pose detection image message Visualization markers Launch file for RViz Requirements: ROS 2 Eloquent: Docker Support Install Instructions trtpose Dependencies for trtpose [Install trtpose] ( Build: Clone repository under ros2 workspace Install requirements using Build and Install ros2trtpose package Run Change Power Mode for Jetson ",
       "stars": 72,
       "forks": 18,
       "language": "Python",
@@ -2845,7 +2845,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "A project demonstrating how to use the libs of cuPCL.",
-      "summary": "cuPCL cuPCL has some libraries used to process points cloud with CUDA and some samples for their usage. There are several subfolders in the project and every subfolder has: lib implemented by CUDA Sample code showing the lib usage and checking the perf and accuracy by comparing its output with PCL's To get started, follow the instructions below. Xavier, Orin, and Linux x86 are supported(For Jetpack 4.x, Jetpack 5.x, and Linux x8664 library, please check the respective branch). If you run into an",
+      "summary": "cuPCL lib for Filter implemented by CUDA Sample code showing the lib usage and checking the perf and accuracy by comparing its output with PCL's A point clound: sample.pcd which has 119978 points NOTE: Now it supports two kinds of filters: PassThrough and VoxelGrid. cuSegmentation This package provides: lib for Segmentation implemented by CUDA Sample code showing the lib usage and checking the perf and accuracy by comparing its output with PCL's A point clound: sample.pcd which has 119978 points",
       "stars": 699,
       "forks": 106,
       "language": "C++",
@@ -2899,7 +2899,7 @@
       "url": "https://github.com/NVIDIA-AI-IOT/deepstream_lpr_app",
       "defaultBranch": "master",
       "description": "Sample app code for LPR deployment on DeepStream",
-      "summary": "------------------------------------------------------------------------------------------------------------------------------------------------------- The sample has been moved to https://github.com/NVIDIA-AI-IOT/deepstreamtaoapps/tree/master/apps/taoothers/deepstreamlprapp Please refer to the new link. -------------------------------------------------------------------------------------------------------------------------------------------------------- Sample For Car License Recognization Desc",
+      "summary": "------------------------------------------------------------------------------------------------------------------------------------------------------- The sample has been moved to Please refer to the new link. -------------------------------------------------------------------------------------------------------------------------------------------------------- Sample For Car License Recognization Description Performance Prerequisition Download Prepare Triton Server Build and Run Notice --- Desc",
       "stars": 231,
       "forks": 67,
       "language": "C",
@@ -2981,7 +2981,7 @@
       "repo": "NVIDIA-AI-IOT/jetson-stereo-depth",
       "url": "https://github.com/NVIDIA-AI-IOT/jetson-stereo-depth",
       "defaultBranch": "master",
-      "summary": "Jetson Stereo Depth Build your own HW-accelerated stereo camera from scratch with Nvidia Jetson. This repository contains: Stereo Pair intrinsic calibration Lens distortion correction VPI HW-accelerated remap() Depth calculation 3D Printable Hardware [x] HW-accelerated depth pipeline (capture->rectify->SGBM->depth calc.) in python [x] Reference disparity pipeline with OpenCV CPU implementation [x] Calibration notebooks to determine a) intrinsic parameters and lens distortion coeficients of camer",
+      "summary": "Jetson Stereo Depth Build your own HW-accelerated stereo camera from scratch with Nvidia Jetson. This repository contains: Stereo Pair intrinsic calibration rectify->SGBM->depth calc.) in python [x] Reference disparity pipeline with OpenCV CPU implementation [x] Calibration notebooks to determine a) intrinsic parameters and lens distortion coeficients of cameras b) rectification map between two sensors [x] Deployment code in C++ [ ] Assembly instructions for the hardware Getting started Install ",
       "stars": 101,
       "forks": 24,
       "language": "Python",
@@ -3044,7 +3044,7 @@
       "url": "https://github.com/NVIDIA-AI-IOT/deepstream_parallel_inference_app",
       "defaultBranch": "master",
       "description": "A project demonstrating how to use nvmetamux to run multiple models in parallel.",
-      "summary": "Parallel Multiple Models App ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ This sample has been moved to https://github.com/NVIDIA-AI-IOT/deepstreamreferenceapps/tree/master/deepstreamparallelinferenceapp Please refer to the new link. ----------------------------------------------------------------------------------------------------------------------------------------",
+      "summary": "Parallel Multiple Models App ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ This sample has been moved to Please refer to the new link. ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Introduction The parallel inferencing application constructs",
       "stars": 116,
       "forks": 23,
       "language": "C++",
@@ -3077,7 +3077,7 @@
       "homepage": "",
       "defaultBranch": "master",
       "description": "Easy to use neural networks for NVIDIA Jetson (and desktop too!)",
-      "summary": "JetNet What models or features are you interested in seeing in JetNet? Let us know! JetNet is a collection of models, datasets, and tools that make it easy to explore neural networks on NVIDIA Jetson (and desktop too!). It can easily be used and extended with Python. Check out the documentation to learn more and get started! It's easy to use JetNet comes with tools that allow you to easily build, profile and demo models. This helps you easily try out models to see what is right for your applicat",
+      "summary": "JetNet JetNet is a collection of models, datasets, and tools that make it easy to explore neural networks on NVIDIA Jetson (and desktop too!). It can easily be used and extended with Python. Check out the documentation to learn more and get started! It's easy to use JetNet comes with tools that allow you to easily build, profile and demo models. This helps you easily try out models to see what is right for your application. <img src=\" It's implementation agnostic JetNet has well defined interfac",
       "stars": 72,
       "forks": 12,
       "language": "Python",
@@ -3256,7 +3256,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "A distilled Segment Anything (SAM) model capable of running real-time with NVIDIA TensorRT",
-      "summary": "NanoSAM 👍 Usage - ⏱️ Performance - 🛠️ Setup - 🤸 Examples - 🏋️ Training - 🧐 Evaluation - 👏 Acknowledgment - 🔗 See also NanoSAM is a Segment Anything (SAM) model variant that is capable of running in 🔥 real-time 🔥 on NVIDIA Jetson Orin Platforms with NVIDIA TensorRT. --> --> NanoSAM is trained by distilling the MobileSAM image encoder on unlabeled images. For an introduction to knowledge distillation, we recommend checking out this tutorial. 👍 Usage Using NanoSAM from Python looks like t",
+      "summary": "NanoSAM 👍 Usage - ⏱️ Performance - 🛠️ Setup - 🤸 Examples - 🏋️ Training - 🧐 Evaluation - 👏 Acknowledgment - 🔗 See also NanoSAM is a Segment Anything (SAM) model variant that is capable of running in 🔥 real-time 🔥 on NVIDIA Jetson Orin Platforms with NVIDIA TensorRT. NanoSAM is trained by distilling the MobileSAM image encoder on unlabeled images. For an introduction to knowledge distillation, we recommend checking out this tutorial. 👍 Usage Using NanoSAM from Python looks like this Note",
       "stars": 905,
       "forks": 79,
       "language": "Python",
@@ -3369,7 +3369,7 @@
       "url": "https://github.com/NVIDIA-AI-IOT/jetson-copilot",
       "defaultBranch": "main",
       "description": "A reference application for a local AI assistant with LLM and RAG",
-      "summary": "Jetson Copilot Jetson Copilot is a reference application for a local AI assistant. It demonstrates two things; Running open-source LLMs (large language model) on device Augmenting the LLM to have access to your locally indexed knowledge (RAG, retrieval-augmented generation) [!IMPORTANT] This project will download and install additional third-party open source software projects. Review the license terms of these open source projects before use. | OSS | Repo URL | Usage | | --- | --- | ----- | |Ol",
+      "summary": "Jetson Copilot Jetson Copilot is a reference application for a local AI assistant. It demonstrates two things; Running open-source LLMs (large language model) on device Augmenting the LLM to have access to your locally indexed knowledge (RAG, retrieval-augmented generation) [!IMPORTANT] This project will download and install additional third-party open source software projects. Review the license terms of these open source projects before use. OSS Repo URL Usage --- --- ----- Ollama GitHub To ho",
       "stars": 127,
       "forks": 22,
       "language": "Python",
@@ -3434,7 +3434,7 @@
       "url": "https://github.com/isaac-sim/IsaacGymEnvs",
       "defaultBranch": "main",
       "description": "Isaac Gym Reinforcement Learning Environments",
-      "summary": "Isaac Gym Benchmark Environments Website | Technical Paper | Videos About this repository This repository contains example RL environments for the NVIDIA Isaac Gym high performance environments described in our NeurIPS 2021 Datasets and Benchmarks paper Installation Download the Isaac Gym Preview 4 release from the website, then follow the installation instructions in the documentation. We highly recommend using a conda environment to simplify set up. Ensure that Isaac Gym works on your system b",
+      "summary": "Isaac Gym Benchmark Environments Website Technical Paper Videos About this repository This repository contains example RL environments for the NVIDIA Isaac Gym high performance environments described in our NeurIPS 2021 Datasets and Benchmarks paper Installation Download the Isaac Gym Preview 4 release from the website, then follow the installation instructions in the documentation. We highly recommend using a conda environment to simplify set up. Ensure that Isaac Gym works on your system by ru",
       "stars": 2952,
       "forks": 512,
       "language": "Python",
@@ -3451,7 +3451,7 @@
       "url": "https://github.com/isaac-sim/OmniIsaacGymEnvs",
       "defaultBranch": "main",
       "description": "Reinforcement Learning Environments for Omniverse Isaac Gym",
-      "summary": "Omniverse Isaac Gym Reinforcement Learning Environments for Isaac Sim PLEASE NOTE: Version 4.0.0 will be the last release of OmniIsaacGymEnvs. Moving forward, OmniIsaacGymEnvs will be merging with IsaacLab (https://github.com/isaac-sim/IsaacLab). All future updates will be available as part of the IsaacLab repository. For tutorials on migrating to IsaacLab, please visit: https://isaac-sim.github.io/IsaacLab/source/migration/migratingfromomniisaacgymenvs.html. About this repository This repositor",
+      "summary": "Omniverse Isaac Gym Reinforcement Learning Environments for Isaac Sim PLEASE NOTE: Version 4.0.0 will be the last release of OmniIsaacGymEnvs. Moving forward, OmniIsaacGymEnvs will be merging with IsaacLab ( All future updates will be available as part of the IsaacLab repository. For tutorials on migrating to IsaacLab, please visit: About this repository This repository contains Reinforcement Learning examples that can be run with the latest release of Isaac Sim. RL examples are trained using PP",
       "stars": 1047,
       "forks": 235,
       "language": "Python",
@@ -3507,7 +3507,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "URDF Importer",
-      "summary": "⚠️ DEPRECATED REPOSITORY This repository is no longer maintained. Its content has moved to: https://github.com/isaac-sim/IsaacSim/tree/main/source/extensions/isaacsim.asset.importer.urdf",
+      "summary": "⚠️ DEPRECATED REPOSITORY This repository is no longer maintained. Its content has moved to:",
       "stars": 60,
       "forks": 4,
       "language": "C++",
@@ -3525,7 +3525,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "MJCF Importer Extension",
-      "summary": "⚠️ DEPRECATED REPOSITORY This repository is no longer maintained. Its content has moved to: https://github.com/isaac-sim/IsaacSim/tree/main/source/extensions/isaacsim.asset.importer.mjcf",
+      "summary": "⚠️ DEPRECATED REPOSITORY This repository is no longer maintained. Its content has moved to:",
       "stars": 18,
       "forks": 5,
       "language": "C++",
@@ -3848,7 +3848,7 @@
       "homepage": "",
       "defaultBranch": "master",
       "description": "Weakly-supervised object detection.",
-      "summary": "Wetectron Wetectron is a software system that implements state-of-the-art weakly-supervised object detection algorithms. Project CVPR'20, ECCV'20 | Paper CVPR'20, ECCV'20 Installation Check INSTALL.md for installation instructions. Partial labels The simulated partial labels (points and scribbles) of COCO can be found at Google-drive or Dropbox. Please check tools/vispartiallabels.ipynb for a visualization example. Model zoo Check MODELZOO.md for detailed instructions. Getting started Check GETT",
+      "summary": "Wetectron Wetectron is a software system that implements state-of-the-art weakly-supervised object detection algorithms. Project CVPR'20, ECCV'20 Paper CVPR'20, ECCV'20 Installation Check INSTALL.md for installation instructions. Partial labels The simulated partial labels (points and scribbles) of COCO can be found at Google-drive or Dropbox. Please check tools/vispartiallabels.ipynb for a visualization example. Model zoo Check MODELZOO.md for detailed instructions. Getting started Check GETTIN",
       "stars": 365,
       "forks": 47,
       "language": "Python",
@@ -3893,7 +3893,7 @@
       "homepage": "https://arxiv.org/pdf/1912.00416.pdf",
       "defaultBranch": "master",
       "description": "LatentFusion: End-to-End Differentiable Reconstruction and Rendering for Unseen Object Pose Estimation",
-      "summary": "LatentFusion [project page] [paper] Citing LatentFusion If you find the LatentFusion code or data useful, please consider citing: Setup Please start by installing Miniconda3 with Python 3.7 or above. wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x8664.sh bash Miniconda3-latest-Linux-x8664.sh Then create a Conda environment with our environment file: conda env create -n latentfusion -f environment.yml conda activate latentfusion Please make sure the project root is added to the",
+      "summary": "LatentFusion [project page] [paper] Citing LatentFusion If you find the LatentFusion code or data useful, please consider citing: Setup Please start by installing Miniconda3 with Python 3.7 or above. wget bash Miniconda3-latest-Linux-x8664.sh Then create a Conda environment with our environment file: conda env create -n latentfusion -f environment.yml conda activate latentfusion Please make sure the project root is added to the $PYTHONPATH. We provide a simple script for this: # Activates the Co",
       "stars": 226,
       "forks": 37,
       "language": "Python",
@@ -3958,7 +3958,7 @@
       "url": "https://github.com/NVlabs/storm",
       "defaultBranch": "main",
       "description": "Stochastic Tensor Optimization for Robot Motion - A GPU Robot Motion Toolkit",
-      "summary": "STORM Stochastic Tensor Optimization for Robot Motion - A GPU Robot Motion Toolkit This Package is no longer maintained. Use https://github.com/NVlabs/curobo instead. [Install Instructions] [Paper] [Website] This package contains code for reactive robot motion leveraging parallel compute on the GPU. The implemented control framework leverages MPPI to optimize over sampled actions and their costs. The costs are computed by rolling out the forward model from the current state with the sampled acti",
+      "summary": "STORM Stochastic Tensor Optimization for Robot Motion - A GPU Robot Motion Toolkit This Package is no longer maintained. Use instead. [Install Instructions] [Paper] [Website] This package contains code for reactive robot motion leveraging parallel compute on the GPU. The implemented control framework leverages MPPI to optimize over sampled actions and their costs. The costs are computed by rolling out the forward model from the current state with the sampled actions. Most files are documented wi",
       "stars": 253,
       "forks": 42,
       "language": "Python",
@@ -4017,7 +4017,7 @@
       "homepage": "https://cremebrule.github.io/oscar-web",
       "defaultBranch": "main",
       "description": "Data-Driven Operational Space Control for Adaptive and Robust Robot Manipulation",
-      "summary": "Note: This repo is deprecated and is not supported by NVIDIA and will not receive updates. OSCAR Project Page | Paper This repository contains the codebase used in OSCAR: Data-Driven Operational Space Control for Adaptive and Robust Robot Manipulation. More generally, this codebase is a modular framework built upon IsaacGym, and intended to support future robotics research leveraging large-scale training. Of note, this repo contains: High-quality controller implementations of OSC, IK, and Joint-",
+      "summary": "Note: This repo is deprecated and is not supported by NVIDIA and will not receive updates. OSCAR Project Page Paper This repository contains the codebase used in OSCAR: Data-Driven Operational Space Control for Adaptive and Robust Robot Manipulation. More generally, this codebase is a modular framework built upon IsaacGym, and intended to support future robotics research leveraging large-scale training. Of note, this repo contains: High-quality controller implementations of OSC, IK, and Joint-Ba",
       "stars": 139,
       "forks": 16,
       "language": "Python",
@@ -4064,7 +4064,7 @@
       "homepage": "https://nvlabs.github.io/GLAMR",
       "defaultBranch": "main",
       "description": "[CVPR 2022 Oral] Official PyTorch Implementation of \"GLAMR: Global Occlusion-Aware Human Mesh Recovery with Dynamic Cameras”.",
-      "summary": "GLAMR This repo contains the official PyTorch implementation of our paper: GLAMR: Global Occlusion-Aware Human Mesh Recovery with Dynamic Cameras Ye Yuan, Umar Iqbal, Pavlo Molchanov, Kris Kitani, Jan Kautz CVPR 2022 (Oral) website | paper | video Overview News [08/10/22]: Demos for multi-person videos are added (Thanks to Haofan Wang)! [08/01/22]: Demos for dynamic and static videos are released! Table of Content Installation Demo Dynamic Videos Static Videos Multi-Person Videos Datasets Motion",
+      "summary": "GLAMR This repo contains the official PyTorch implementation of our paper: GLAMR: Global Occlusion-Aware Human Mesh Recovery with Dynamic Cameras Ye Yuan, Umar Iqbal, Pavlo Molchanov, Kris Kitani, Jan Kautz CVPR 2022 (Oral) website paper video Overview News [08/10/22]: Demos for multi-person videos are added (Thanks to Haofan Wang)! [08/01/22]: Demos for dynamic and static videos are released! Table of Content Installation Demo Dynamic Videos Static Videos Multi-Person Videos Datasets Motion Inf",
       "stars": 389,
       "forks": 38,
       "language": "Python",
@@ -4088,7 +4088,7 @@
       "homepage": "https://b0ku1.github.io/acid/",
       "defaultBranch": "release",
       "description": "ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation",
-      "summary": "ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation Project Page | Paper This repository contains the codebase used in ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation, which will appear in RSS 2022 and is nominated for Best Student Paper Award. Specifically, the repo contains code for: PlushSim, the simulation environment used to generate all manipulation data. ACID model, the implicit visual dynamics model's model and trainin",
+      "summary": "ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation Project Page Paper This repository contains the codebase used in ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation, which will appear in RSS 2022 and is nominated for Best Student Paper Award. Specifically, the repo contains code for: PlushSim, the simulation environment used to generate all manipulation data. ACID model, the implicit visual dynamics model's model and training ",
       "stars": 75,
       "forks": 9,
       "language": "Python",
@@ -4150,7 +4150,7 @@
       "homepage": "https://robotic-view-transformer-2.github.io/",
       "defaultBranch": "master",
       "description": "Official Code for RVT-2 and RVT",
-      "summary": "RVT-2: Learning Precise Manipulation from Few Examples Ankit Goyal, Valts Blukis, Jie Xu, Yijie Guo, Yu-Wei Chao, Dieter Fox RSS 2024 RVT: Robotic View Transformer for 3D Object Manipulation Ankit Goyal, Jie Xu, Yijie Guo, Valts Blukis, Yu-Wei Chao, Dieter Fox CoRL 2023 (Oral) RVT-2 solving high precision tasks Single RVT model model solving multiple tasks --> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RVT-2 solving high precision tasks &nbsp; &nbsp; &nbsp; Single RVT solving multiple task",
+      "summary": "RVT-2: Learning Precise Manipulation from Few Examples Ankit Goyal, Valts Blukis, Jie Xu, Yijie Guo, Yu-Wei Chao, Dieter Fox RSS 2024 RVT: Robotic View Transformer for 3D Object Manipulation Ankit Goyal, Jie Xu, Yijie Guo, Valts Blukis, Yu-Wei Chao, Dieter Fox CoRL 2023 (Oral) RVT-2 solving high precision tasks Single RVT solving multiple tasks This is the official repository that reproduces the results for RVT-2 and RVT. The repository is backward compatible. So you just need to pull the latest",
       "stars": 408,
       "forks": 59,
       "language": "Jupyter Notebook",
@@ -4189,7 +4189,7 @@
       "homepage": "https://nvlabs.github.io/curobo",
       "defaultBranch": "main",
       "description": "CUDA Accelerated Robot Library",
-      "summary": "cuRobo CUDA Accelerated Robot Library Documentation | Paper [!NOTE] cuRoboV2 is a significant rewrite and the public API has changed from cuRobo v1. If you depend on the v1 API, pin to the v0.7.8 tag. cuRobo is a CUDA-accelerated library for robot motion generation, built on PyTorch, CUDA, and Warp. It provides GPU-parallel algorithms for forward/inverse kinematics, collision checking, trajectory optimization, geometric planning, GPU-native perception, and whole-body motion generation, scaling f",
+      "summary": "cuRobo CUDA Accelerated Robot Library Documentation Paper [!NOTE] cuRoboV2 is a significant rewrite and the public API has changed from cuRobo v1. If you depend on the v1 API, pin to the v0.7.8 tag. cuRobo is a CUDA-accelerated library for robot motion generation, built on PyTorch, CUDA, and Warp. It provides GPU-parallel algorithms for forward/inverse kinematics, collision checking, trajectory optimization, geometric planning, GPU-native perception, and whole-body motion generation, scaling fro",
       "stars": 1769,
       "forks": 329,
       "language": "Python",
@@ -4231,7 +4231,7 @@
       "homepage": "https://nvlabs.github.io/FoundationPose/",
       "defaultBranch": "main",
       "description": "[CVPR 2024 Highlight] FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects",
-      "summary": "FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects [[Paper]](https://arxiv.org/abs/2312.08344) [[Website]](https://nvlabs.github.io/FoundationPose/) This is the official implementation of our paper to be appeared in CVPR 2024 (Highlight) Contributors: Bowen Wen, Wei Yang, Jan Kautz, Stan Birchfield We present FoundationPose, a unified foundation model for 6D object pose estimation and tracking, supporting both model-based and model-free setups. Our approach can be instantly",
+      "summary": "FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects [[Paper]]( [[Website]]( This is the official implementation of our paper to be appeared in CVPR 2024 (Highlight) Contributors: Bowen Wen, Wei Yang, Jan Kautz, Stan Birchfield We present FoundationPose, a unified foundation model for 6D object pose estimation and tracking, supporting both model-based and model-free setups. Our approach can be instantly applied at test-time to a novel object without fine-tuning, as long as it",
       "stars": 3480,
       "forks": 520,
       "language": "Python",
@@ -4248,7 +4248,7 @@
       "homepage": "https://nvlabs.github.io/3DGM/",
       "defaultBranch": "main",
       "description": "Official PyTorch implementation of 3D Gaussian Mapping (3DGM)",
-      "summary": "3D Gaussian Mapping: Simultaneous 2D Segmentation and 3D Mapping with Self-Supervision Memorize What Matters: Emergent Scene Decomposition from Multitraverse, NeurIPS 2024 (Spotlight). Yiming Li, Zehong Wang, Yue Wang, Zhiding Yu, Zan Gojcic, Marco Pavone, Chen Feng, Jose M. Alvarez [[PDF]](https://arxiv.org/pdf/2405.17187) [[Project]](https://3d-gaussian-mapping.github.io/) Emerged 2D segmentation from nine traversals of the same location, collected on different dates: 11-19-2021, 11-22-2021, 1",
+      "summary": "3D Gaussian Mapping: Simultaneous 2D Segmentation and 3D Mapping with Self-Supervision Memorize What Matters: Emergent Scene Decomposition from Multitraverse, NeurIPS 2024 (Spotlight). Yiming Li, Zehong Wang, Yue Wang, Zhiding Yu, Zan Gojcic, Marco Pavone, Chen Feng, Jose M. Alvarez [[PDF]]( [[Project]]( Emerged 2D segmentation from nine traversals of the same location, collected on different dates: 11-19-2021, 11-22-2021, 11-30-2021, 12-01-2021, 12-06-2021, 12-07-2021, 12-14-2021, 12-15-2021, a",
       "stars": 87,
       "forks": 4,
       "language": null,
@@ -4348,7 +4348,7 @@
       "homepage": "https://nvlabs.github.io/object_centric_diffusion/",
       "defaultBranch": "main",
       "description": "SPOT: SE(3) Pose Trajectory Diffusion for Object-Centric Manipulation",
-      "summary": "SPOT: SE(3) Pose Trajectory Diffusion for Object-Centric Manipulation Cheng-Chun Hsu, Bowen Wen, Jie Xu, Yashraj Narang, Xiaolong Wang, Yuke Zhu, Joydeep Biswas, Stan Birchfield ICRA 2025 Project | Paper Abstract We introduce SPOT, an object-centric imitation learning framework. The key idea is to capture each task by an object-centric representation, specifically the SE(3) object pose trajectory relative to the target. This approach decouples embodiment actions from sensory inputs, facilitating",
+      "summary": "SPOT: SE(3) Pose Trajectory Diffusion for Object-Centric Manipulation Cheng-Chun Hsu, Bowen Wen, Jie Xu, Yashraj Narang, Xiaolong Wang, Yuke Zhu, Joydeep Biswas, Stan Birchfield ICRA 2025 Project Paper Abstract We introduce SPOT, an object-centric imitation learning framework. The key idea is to capture each task by an object-centric representation, specifically the SE(3) object pose trajectory relative to the target. This approach decouples embodiment actions from sensory inputs, facilitating l",
       "stars": 64,
       "forks": 9,
       "language": "Python",
@@ -4439,7 +4439,7 @@
       "url": "https://github.com/NVlabs/COMPASS",
       "defaultBranch": "main",
       "description": "Cross-embOdiment Mobility Policy via ResiduAl RL and Skill Synthesis",
-      "summary": "COMPASS: Cross-Embodiment Mobility Policy via Residual RL and Skill Synthesis [[Website]](https://nvlabs.github.io/COMPASS/) [[Documentation]](https://nvlabs.github.io/COMPASS/docs/) [[arXiv]](https://arxiv.org/abs/2502.16372) Overview This repository provides the official PyTorch implementation of COMPASS. COMPASS is a framework for cross-embodiment mobility that combines: Imitation Learning (IL) for strong baseline performance Residual Reinforcement Learning (RL) for embodiment-specific adapta",
+      "summary": "COMPASS: Cross-Embodiment Mobility Policy via Residual RL and Skill Synthesis [[Website]]( [[Documentation]]( [[arXiv]]( Overview This repository provides the official PyTorch implementation of COMPASS. COMPASS is a framework for cross-embodiment mobility that combines: Imitation Learning (IL) for strong baseline performance Residual Reinforcement Learning (RL) for embodiment-specific adaptation Policy distillation to create a unified, generalist policy Quick start Requires Docker + the NVIDIA C",
       "stars": 127,
       "forks": 15,
       "language": "Python",
@@ -4509,7 +4509,7 @@
       "homepage": "https://cutamp.github.io",
       "defaultBranch": "main",
       "description": "cuTAMP: Differentiable GPU-Parallelized Task and Motion Planning",
-      "summary": "cuTAMP: Differentiable GPU-Parallelized Task and Motion Planning 🌐 Project Website | 📝 Paper Differentiable GPU-Parallelized Task and Motion Planning William Shen 1,2 , Caelan Garrett 2 , Nishanth Kumar 1,2 , Ankit Goyal 2 , Tucker Hermans 2,3 , Leslie Pack Kaelbling 1 , Tomás Lozano-Pérez 1 , Fabio Ramos 2,4 1 MIT CSAIL, 2 NVIDIA Research, 3 University of Utah, 4 University of Sydney Robotics: Science and Systems (RSS), 2025 Table of Contents: Installation Getting Started Examples Tetris Pack",
+      "summary": "cuTAMP: Differentiable GPU-Parallelized Task and Motion Planning 🌐 Project Website 📝 Paper Differentiable GPU-Parallelized Task and Motion Planning William Shen 1,2 , Caelan Garrett 2 , Nishanth Kumar 1,2 , Ankit Goyal 2 , Tucker Hermans 2,3 , Leslie Pack Kaelbling 1 , Tomás Lozano-Pérez 1 , Fabio Ramos 2,4 1 MIT CSAIL, 2 NVIDIA Research, 3 University of Utah, 4 University of Sydney Robotics: Science and Systems (RSS), 2025 Table of Contents: Installation Getting Started Examples Tetris Packin",
       "stars": 129,
       "forks": 22,
       "language": "Python",
@@ -4534,7 +4534,7 @@
       "homepage": "https://graspgen.github.io/",
       "defaultBranch": "main",
       "description": "Official repo for GraspGen: A Diffusion-based Framework for 6-DOF Grasping",
-      "summary": "--> GraspGen: A Diffusion-based Framework for 6-DOF Grasping GraspGen is a modular framework for diffusion-based 6-DOF robotic grasp generation that scales across diverse settings: 1) embodiments - with 3 distinct gripper types (industrial pinch gripper, suction) 2) observability - robustness to partial vs. complete 3D point clouds and 3) complexity - grasping single-object vs. clutter. We also introduce a novel and performant on-generator training recipe for the grasp discriminator, which score",
+      "summary": "GraspGen: A Diffusion-based Framework for 6-DOF Grasping GraspGen is a modular framework for diffusion-based 6-DOF robotic grasp generation that scales across diverse settings: 1) embodiments - with 3 distinct gripper types (industrial pinch gripper, suction) 2) observability - robustness to partial vs. complete 3D point clouds and 3) complexity - grasping single-object vs. clutter. We also introduce a novel and performant on-generator training recipe for the grasp discriminator, which scores an",
       "stars": 546,
       "forks": 81,
       "language": "Python",
@@ -4673,7 +4673,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "NVIDIA Alpamayo 1 Nano is an open 10B reasoning VLA model for autonomous vehicles that pairs driving trajectories with Chain-of-Causation reasoning.",
-      "summary": "[!IMPORTANT] ## 🚀 Newer Versions of Alpamayo Are Available This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on newer Alpamayo versions. 👉 Visit the new Alpamayo hub: https://github.com/NVlabs/alpamayo-recipes There you will find the latest Alpamayo models, technical reports, tutorials, benchmarks, and ecosystem updates. Thank you for your support of Alpa",
+      "summary": "[!IMPORTANT] ## 🚀 Newer Versions of Alpamayo Are Available This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on newer Alpamayo versions. 👉 Visit the new Alpamayo hub: There you will find the latest Alpamayo models, technical reports, tutorials, benchmarks, and ecosystem updates. Thank you for your support of Alpamayo 1. We encourage all users to migrate t",
       "stars": 1988,
       "forks": 333,
       "language": "Python",
@@ -4723,7 +4723,7 @@
       "homepage": "https://graspgenx.github.io/",
       "defaultBranch": "main",
       "description": "Code Release for GraspGenX",
-      "summary": "--> GraspGenX: Cross-Embodiment Foundation Model for Grasp Generation GraspGenX is a cross-embodiment grasp generation framework that produces high-quality 6-DOF grasps for any robot gripper — including novel grippers not seen during training. Unlike GraspGen, which trains a separate model per gripper, GraspGenX trains a single model conditioned on a gripper representation derived from the gripper's swept volume. This enables generalization across grippers with different morphologies, kinematics",
+      "summary": "GraspGenX: Cross-Embodiment Foundation Model for Grasp Generation GraspGenX is a cross-embodiment grasp generation framework that produces high-quality 6-DOF grasps for any robot gripper — including novel grippers not seen during training. Unlike GraspGen, which trains a separate model per gripper, GraspGenX trains a single model conditioned on a gripper representation derived from the gripper's swept volume. This enables generalization across grippers with different morphologies, kinematics, an",
       "stars": 170,
       "forks": 21,
       "language": "Python",
@@ -4756,7 +4756,7 @@
       "homepage": "https://point-world.github.io/",
       "defaultBranch": "main",
       "description": "PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation",
-      "summary": "PointWorld Training and Evaluation Pipeline for \"PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation\". Wenlong Huang 1,† , Yu-Wei Chao 2 , Arsalan Mousavian 2 , Ming-Yu Liu 2 , Dieter Fox 2 , Kaichun Mo 2, , Li Fei-Fei 1, 1 Stanford University, 2 NVIDIA Equal advising &nbsp;|&nbsp; † Work done partly at NVIDIA PointWorld is a large pre-trained 3D world model that predicts full-scene 3D point flows from partially observable RGB-D captures and robot actions, also represented a",
+      "summary": "PointWorld Training and Evaluation Pipeline for \"PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation\". 1,† , 2 , 2 , 2 , 2 , 2, , 1, 1 Stanford University, 2 NVIDIA Equal advising † Work done partly at NVIDIA PointWorld is a large pre-trained 3D world model that predicts full-scene 3D point flows from partially observable RGB-D captures and robot actions, also represented as 3D point flows. If you find this work useful in your research, please cite using the following BibTeX",
       "stars": 499,
       "forks": 37,
       "language": "Python",
@@ -4809,7 +4809,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "Monocular whole-body 3D human pose estimation using the SOMA body model",
-      "summary": "GEM: A Generalist Model for Human Motion Monocular whole-body 3D human pose estimation using the SOMA body model --- 2D Keypoint Overlay &nbsp;|&nbsp; In-Camera Mesh &nbsp;|&nbsp; Global Mesh &nbsp;|&nbsp; Retargeted G1 Motion 📰 News [2025-06] 📢 Added ONNX/TensorRT accelerated demo (demosomaonnx.py) — see Demo docs [2025-06] 📢 Added humanoid robot retargeting to Unitree G1 (--retarget) [2025-05] 📢 The GEM codebase is released! 🔎 Overview GEM is a video-based 3D human pose estimation model d",
+      "summary": "GEM: A Generalist Model for Human Motion Monocular whole-body 3D human pose estimation using the SOMA body model --- 2D Keypoint Overlay In-Camera Mesh Global Mesh Retargeted G1 Motion 📰 News [2025-06] 📢 Added ONNX/TensorRT accelerated demo (demosomaonnx.py) — see Demo docs [2025-06] 📢 Added humanoid robot retargeting to Unitree G1 (--retarget) [2025-05] 📢 The GEM codebase is released! 🔎 Overview GEM is a video-based 3D human pose estimation model developed by NVIDIA. It recovers full-body ",
       "stars": 412,
       "forks": 35,
       "language": "Python",
@@ -5053,7 +5053,7 @@
       "homepage": "https://research.nvidia.com/labs/dir/cosmos-predict2/",
       "defaultBranch": "main",
       "description": "Cosmos-Predict2 is a collection of general-purpose world foundation models for Physical AI that can be fine-tuned into customized world models for downstream applications.",
-      "summary": "🚨 Update Notice The latest version of our Cosmos-Predict is now live! 👉 Cosmos-Predict2.5 We recommend all users migrate to the new version for improved performance, features, and continued support. Paper (coming soon!) | Website | Hugging Face | PyPI Cosmos-Predict2 is a key branch of the Cosmos World Foundation Models (WFMs) ecosystem for Physical AI, specializing in future state prediction through advanced world modeling. It offers two powerful capabilities: text-to-image generation for cre",
+      "summary": "🚨 Update Notice The latest version of our Cosmos-Predict is now live! 👉 Cosmos-Predict2.5 We recommend all users migrate to the new version for improved performance, features, and continued support. Paper (coming soon!) Website Hugging Face PyPI Cosmos-Predict2 is a key branch of the Cosmos World Foundation Models (WFMs) ecosystem for Physical AI, specializing in future state prediction through advanced world modeling. It offers two powerful capabilities: text-to-image generation for creating ",
       "stars": 793,
       "forks": 105,
       "language": "Python",
@@ -5456,7 +5456,7 @@
       "homepage": "https://github.com/triton-inference-server/server",
       "defaultBranch": "main",
       "description": "This repository contains tutorials and examples for Triton Inference Server",
-      "summary": "Triton Tutorials For users experiencing the \"Tensor in\" & \"Tensor out\" approach to Deep Learning Inference, getting started with Triton can lead to many questions. The goal of this repository is to familiarize users with Triton's features and provide guides and examples to ease migration. For a feature by feature explanation, refer to the Triton Inference Server documentation. Getting Started Checklist | Overview Video | Conceptual Guide: Deploying Models | | ------------ | --------------- | Qui",
+      "summary": "Triton Tutorials For users experiencing the \"Tensor in\" & \"Tensor out\" approach to Deep Learning Inference, getting started with Triton can lead to many questions. The goal of this repository is to familiarize users with Triton's features and provide guides and examples to ease migration. For a feature by feature explanation, refer to the Triton Inference Server documentation. Getting Started Checklist Overview Video Conceptual Guide: Deploying Models ------------ --------------- Quick Deploy Th",
       "stars": 858,
       "forks": 155,
       "language": "Python",
@@ -5489,7 +5489,7 @@
       "homepage": "",
       "defaultBranch": "main",
       "description": "Triton CLI is an open source command line interface that enables users to create, deploy, and profile models served by the Triton Inference Server.",
-      "summary": "Triton Command Line Interface (Triton CLI) [!NOTE] Triton CLI is currently in BETA. Its features and functionality are likely to change as we collect feedback. We're excited to hear any thoughts you have (especially if you find the tool useful) and what features you'd like to see! Triton CLI is an open source command line interface that enables users to create, deploy, and profile models served by the Triton Inference Server. Table of Contents | Pre-requisites | Installation | Quickstart | Servi",
+      "summary": "Triton Command Line Interface (Triton CLI) [!NOTE] Triton CLI is currently in BETA. Its features and functionality are likely to change as we collect feedback. We're excited to hear any thoughts you have (especially if you find the tool useful) and what features you'd like to see! Triton CLI is an open source command line interface that enables users to create, deploy, and profile models served by the Triton Inference Server. Table of Contents Pre-requisites Installation Quickstart Serving LLM M",
       "stars": 73,
       "forks": 7,
       "language": "Python",
@@ -5521,7 +5521,7 @@
       "repo": "nvidia-isaac/velodyne_lidar",
       "url": "https://github.com/nvidia-isaac/velodyne_lidar",
       "defaultBranch": "master",
-      "summary": "To build the Isaak SDK: Download Isaac SDK Nightly Release 05/28 from the following website: https://developer.nvidia.com/isaac/downloads Extract the release package in a local folder. Open the file WORKSPACE in a text editor and specify the Isaac SDK folder for \"ISAACSDKRELEASE\". Build Isaac SDK with the following command: bazel build ... Enjoy!",
+      "summary": "To build the Isaak SDK: Download Isaac SDK Nightly Release 05/28 from the following website: Extract the release package in a local folder. Open the file WORKSPACE in a text editor and specify the Isaac SDK folder for \"ISAACSDKRELEASE\". Build Isaac SDK with the following command: bazel build ... Enjoy!",
       "stars": 16,
       "forks": 13,
       "language": "C++",
@@ -5538,7 +5538,7 @@
       "url": "https://github.com/nvidia-isaac/sick_lidar_tim571",
       "defaultBranch": "master",
       "description": "Support for SICK TiM571 2D Lidar on Isaac SDK",
-      "summary": "sicklidartim571 Support for SICK TiM571 2D Lidar on Isaac SDK https://github.com/SickScan/sickscannvidiaisaac.git For more details on the 2D Lidar please visit https://www.sick.com/us/en/detection-and-ranging-solutions/2d-lidar-sensors/tim5xx/tim571-2050101/p/p412444",
+      "summary": "sicklidartim571 Support for SICK TiM571 2D Lidar on Isaac SDK For more details on the 2D Lidar please visit",
       "stars": 0,
       "forks": 1,
       "language": null,
@@ -5555,7 +5555,7 @@
       "url": "https://github.com/nvidia-isaac/econ_camera_steereocam",
       "defaultBranch": "master",
       "description": "Support for E-Con Systems Stereo Camera with IMU on Isaac SDK",
-      "summary": "econcamerasteereocam Support for E-Con Systems Stereo Camera with IMU on Isaac SDK https://www.e-consystems.com/nvidia-cameras/jetson-agx-xavier-cameras/stereo-camera.asp STEEReoCAM™ is a 2MP 3D MIPI Stereo camera for NVIDIA® Jetson Nano™/AGX Xavier™/TX2 developer kit with improved accuracy and depth range. Now available with ISSAC SDK support - https://github.com/econsystems/taraxl-isaac-package. This MIPI Stereo camera is based on 1/2.9\" OV2311 global shutter CMOS sensor from OmniVision. STEER",
+      "summary": "econcamerasteereocam Support for E-Con Systems Stereo Camera with IMU on Isaac SDK STEEReoCAM™ is a 2MP 3D MIPI Stereo camera for NVIDIA® Jetson Nano™/AGX Xavier™/TX2 developer kit with improved accuracy and depth range. Now available with ISSAC SDK support - This MIPI Stereo camera is based on 1/2.9\" OV2311 global shutter CMOS sensor from OmniVision. STEEReoCAM™ is ideal for applications such as depth sensing, robotics and autonomous guided vehicles, face recognition, gesture recognition, drone",
       "stars": 0,
       "forks": 1,
       "language": null,
@@ -5572,7 +5572,7 @@
       "url": "https://github.com/nvidia-isaac/lips_AE400",
       "defaultBranch": "master",
       "description": "Support for AE400 Stereo Camera from LIPS - on Isaac SDK",
-      "summary": "lipsAE400 Support for AE400 Stereo Camera from LIPS - on Isaac SDK LIPS has brought up their GigE Industrial Realsense technology on Isaac SDK. First RealSense RGB-D camera with GigE inteface + Industrial packaging that can be used in industrial settings. https://github.com/lips-hci/stereoae400 Details of the camera @ https://www.lips-hci.com/product?productid=29 https://www.youtube.com/watch?v=kyjbJSM6CjQ",
+      "summary": "lipsAE400 Support for AE400 Stereo Camera from LIPS - on Isaac SDK LIPS has brought up their GigE Industrial Realsense technology on Isaac SDK. First RealSense RGB-D camera with GigE inteface + Industrial packaging that can be used in industrial settings. Details of the camera @",
       "stars": 0,
       "forks": 2,
       "language": null,
@@ -5606,7 +5606,7 @@
       "url": "https://github.com/nvidia-isaac/sick_safetyscanners_isaac",
       "defaultBranch": "master",
       "description": "NVIDIA Isaac Integration Layer for SICK safety laser scanners https://www.sick.com/de/en/opto-electronic-protective-devices/safety-laser-scanners/c/g187225",
-      "summary": "sicksafetyscannersisaac NVIDIA Isaac SDK Integration Layer for SICK safety laser scanners https://www.sick.com/de/en/opto-electronic-protective-devices/safety-laser-scanners/c/g187225 Link --> https://github.com/SICKAG/sicksafetyscannersisaac",
+      "summary": "sicksafetyscannersisaac NVIDIA Isaac SDK Integration Layer for SICK safety laser scanners Link -->",
       "stars": 5,
       "forks": 2,
       "language": null,
@@ -5684,7 +5684,7 @@
       "homepage": "https://nvidia-isaac.github.io/cuVSLAM/",
       "defaultBranch": "main",
       "description": "cuVSLAM: CUDA-Accelerated Visual Odometry and Mapping",
-      "summary": "cuVSLAM: CUDA-Accelerated Visual Odometry and Mapping Latest release | ArXiv paper | Python API | C++ API | ROS2 Overview cuVSLAM is the library by NVIDIA, providing various Visual Tracking Camera modes and Simultaneous Localization and Mapping (SLAM) capabilities. Leveraging CUDA acceleration and a rich set of features, cuVSLAM delivers highly accurate, computationally efficient, real-time performance. cuVSLAM works out of the box. All internal algorithms use carefully engineered defaults or ad",
+      "summary": "cuVSLAM: CUDA-Accelerated Visual Odometry and Mapping Latest release ArXiv paper Python API C++ API ROS2 Overview cuVSLAM is the library by NVIDIA, providing various Visual Tracking Camera modes and Simultaneous Localization and Mapping (SLAM) capabilities. Leveraging CUDA acceleration and a rich set of features, cuVSLAM delivers highly accurate, computationally efficient, real-time performance. cuVSLAM works out of the box. All internal algorithms use carefully engineered defaults or adapt auto",
       "stars": 1752,
       "forks": 191,
       "language": "C++",
@@ -5806,7 +5806,7 @@
       "homepage": "https://nvidia-isaac.github.io/cumotion/",
       "defaultBranch": "main",
       "description": "cuMotion: GPU-Accelerated Motion Generation for Robotics",
-      "summary": "cuMotion: GPU-Accelerated Motion Generation for Robotics Documentation [ Getting Started | Tutorials | C++ API | Python API | Release Notes ] NVIDIA cuMotion is a high-performance motion generation library for robotics, focused mainly on manipulation. GPU acceleration is leveraged throughout where beneficial for performance. Capabilities include: Kinematics and inverse kinematics (IK) Collision-aware IK Collision-aware graph-based path planning Collision-aware trajectory optimization and end-to-",
+      "summary": "cuMotion: GPU-Accelerated Motion Generation for Robotics ] NVIDIA cuMotion is a high-performance motion generation library for robotics, focused mainly on manipulation. GPU acceleration is leveraged throughout where beneficial for performance. Capabilities include: Kinematics and inverse kinematics (IK) Collision-aware IK Collision-aware graph-based path planning Collision-aware trajectory optimization and end-to-end motion generation Reactive control via the mathematical framework of RMPflow Ti",
       "stars": 61,
       "forks": 10,
       "language": "Python",
@@ -5972,7 +5972,7 @@
       "homepage": "https://nvidia-holoscan.github.io/holohub/",
       "defaultBranch": "main",
       "description": "Central repository for the Holoscan Ecosystem",
-      "summary": "HoloHub – Learn About The Holoscan Ecosystem HoloHub is the entrypoint to the Holoscan Ecosystem: a community-driven collection of reference applications, operators, modules, tutorials, and benchmarks for real-time AI sensor processing. Visit https://nvidia-holoscan.github.io/holohub for a searchable catalog of all available Holoscan applications and components. This is a central repository for the NVIDIA Holoscan AI sensor processing community to share reference applications, operators, tutoria",
+      "summary": "HoloHub – Learn About The Holoscan Ecosystem HoloHub is the entrypoint to the Holoscan Ecosystem: a community-driven collection of reference applications, operators, modules, tutorials, and benchmarks for real-time AI sensor processing. Visit for a searchable catalog of all available Holoscan applications and components. This is a central repository for the NVIDIA Holoscan AI sensor processing community to share reference applications, operators, tutorials and benchmarks. We invite users and dev",
       "stars": 224,
       "forks": 158,
       "language": "C++",
@@ -6107,7 +6107,7 @@
       "homepage": "https://docs.rapids.ai/api/cuspatial/stable/",
       "defaultBranch": "branch-25.04",
       "description": "CUDA-accelerated GIS and spatiotemporal algorithms",
-      "summary": "[!IMPORTANT] The final release of this project was v25.04. See https://docs.rapids.ai/notices/rsn0045/ for details. &nbsp;cuSpatial - GPU-Accelerated Vector Geospatial Data Analysis Note cuSpatial depends on cuDF and RMM from RAPIDS. cuProj - GPU-accelerated Coordinate Reference System (CRS) Transformations cuProj is a new RAPIDS library housed within the cuSpatial repo that provides GPU-accelerated transformations of coordinates between coordinate reference systems (CRS). cuProj is available as",
+      "summary": "[!IMPORTANT] The final release of this project was v25.04. See for details. cuSpatial - GPU-Accelerated Vector Geospatial Data Analysis Note cuSpatial depends on cuDF and RMM from RAPIDS. cuProj - GPU-accelerated Coordinate Reference System (CRS) Transformations cuProj is a new RAPIDS library housed within the cuSpatial repo that provides GPU-accelerated transformations of coordinates between coordinate reference systems (CRS). cuProj is available as of release 23.10 with support for transformat",
       "stars": 703,
       "forks": 166,
       "language": "Cuda",
@@ -6125,7 +6125,7 @@
       "homepage": "",
       "defaultBranch": "branch-23.10",
       "description": "cuSignal - RAPIDS Signal Processing Library",
-      "summary": "&nbsp;cuSignal Deprecation Notice RAPIDS v23.08 is the last formal release for cuSignal. Starting in 2019, cuSignal strived to provide a simple to use and highly performant library for signal processing developers working in Python. With over 400,000 total Anaconda downloads, we built an incredible community together. We are pleased to announce that much of the cuSignal codebase is moving to CuPy and is highly aligned with CuPy's goal to GPU-accelerate the NumPy and SciPy ecosystems. By moving o",
+      "summary": "cuSignal Deprecation Notice RAPIDS v23.08 is the last formal release for cuSignal. Starting in 2019, cuSignal strived to provide a simple to use and highly performant library for signal processing developers working in Python. With over 400,000 total Anaconda downloads, we built an incredible community together. We are pleased to announce that much of the cuSignal codebase is moving to CuPy and is highly aligned with CuPy's goal to GPU-accelerate the NumPy and SciPy ecosystems. By moving our wor",
       "stars": 746,
       "forks": 135,
       "language": "Python",
@@ -6171,7 +6171,7 @@
       "homepage": "https://docs.nvidia.com/cudf/",
       "defaultBranch": "main",
       "description": "cuDF - GPU DataFrame Library ",
-      "summary": "&nbsp;cuDF - A GPU-accelerated DataFrame library for tabular data processing cuDF (pronounced \"KOO-dee-eff\") is an Apache 2.0 licensed, GPU-accelerated DataFrame library for tabular data processing. The cuDF library is one part of the RAPIDS GPU Accelerated Data Science suite of libraries. About cuDF is composed of multiple libraries including: libcudf: A CUDA C++ library with Apache Arrow compliant data structures and fundamental algorithms for tabular data. pylibcudf: A Python library providin",
+      "summary": "cuDF - A GPU-accelerated DataFrame library for tabular data processing cuDF (pronounced \"KOO-dee-eff\") is an Apache 2.0 licensed, GPU-accelerated DataFrame library for tabular data processing. The cuDF library is one part of the RAPIDS GPU Accelerated Data Science suite of libraries. About cuDF is composed of multiple libraries including: libcudf: A CUDA C++ library with Apache Arrow compliant data structures and fundamental algorithms for tabular data. pylibcudf: A Python library providing Cyth",
       "stars": 9728,
       "forks": 1089,
       "language": "C++",
@@ -6202,7 +6202,7 @@
       "homepage": "https://docs.rapids.ai/api/rmm/stable/",
       "defaultBranch": "main",
       "description": "RAPIDS Memory Manager",
-      "summary": "&nbsp;RMM: RAPIDS Memory Manager NOTE: For the latest stable README.md ensure you are on the main branch. Resources RMM Reference Documentation: Python and C++ API references, tutorials, and topic guides. RAPIDS Installation Guide: Instructions for installing RMM. GitHub Repository: Download the RMM source code. Issue Tracker: Report issues or request features. RAPIDS Community: Get help, contribute, and collaborate. Overview Achieving optimal performance in GPU-centric workflows frequently requ",
+      "summary": "RMM: RAPIDS Memory Manager NOTE: For the latest stable README.md ensure you are on the main branch. Resources RMM Reference Documentation: Python and C++ API references, tutorials, and topic guides. RAPIDS Installation Guide: Instructions for installing RMM. GitHub Repository: Download the RMM source code. Issue Tracker: Report issues or request features. RAPIDS Community: Get help, contribute, and collaborate. Overview Achieving optimal performance in GPU-centric workflows frequently requires c",
       "stars": 709,
       "forks": 254,
       "language": "C++",
@@ -6878,6 +6878,24 @@
       "score": 0.4
     },
     {
+      "source": "NVIDIA/cccl",
+      "target": "NVIDIA/cuda-samples",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
+      "source": "NVIDIA/CUDALibrarySamples",
+      "target": "NVIDIA/cuda-samples",
+      "type": "relatedTo",
+      "score": 0.8
+    },
+    {
+      "source": "NVIDIA/cuda-samples",
+      "target": "NVIDIA/cutlass",
+      "type": "relatedTo",
+      "score": 0.5
+    },
+    {
       "source": "NVIDIA/pix2pixHD",
       "target": "nvidia-cosmos/cosmos-transfer1",
       "type": "relatedTo",
@@ -6894,36 +6912,6 @@
       "target": "NVlabs/Eagle",
       "type": "relatedTo",
       "score": 0.4
-    },
-    {
-      "source": "NVIDIA/DALI",
-      "target": "nvidia-cosmos/cosmos-xenna",
-      "type": "relatedTo",
-      "score": 0.5
-    },
-    {
-      "source": "NVIDIA/DALI",
-      "target": "NVIDIA/nvImageCodec",
-      "type": "relatedTo",
-      "score": 0.45
-    },
-    {
-      "source": "NVIDIA/DALI",
-      "target": "NVIDIA/retinanet-examples",
-      "type": "relatedTo",
-      "score": 0.6
-    },
-    {
-      "source": "NVIDIA/DALI",
-      "target": "NVIDIA/video-sdk-samples",
-      "type": "relatedTo",
-      "score": 0.45
-    },
-    {
-      "source": "NVIDIA/DALI",
-      "target": "triton-inference-server/dali_backend",
-      "type": "relatedTo",
-      "score": 0.9
     },
     {
       "source": "NVlabs/Eagle",
@@ -6948,6 +6936,36 @@
       "target": "NVlabs/vla0",
       "type": "relatedTo",
       "score": 0.45
+    },
+    {
+      "source": "NVIDIA/CUDALibrarySamples",
+      "target": "NVIDIA/cccl",
+      "type": "relatedTo",
+      "score": 0.5
+    },
+    {
+      "source": "NVIDIA/cccl",
+      "target": "NVIDIA/cutlass",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
+      "source": "rapidsai/cugraph",
+      "target": "rapidsai/cusignal",
+      "type": "relatedTo",
+      "score": 0.5
+    },
+    {
+      "source": "rapidsai/cugraph",
+      "target": "rapidsai/cuspatial",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
+      "source": "rapidsai/cugraph",
+      "target": "rapidsai/rmm",
+      "type": "relatedTo",
+      "score": 0.6
     },
     {
       "source": "NVlabs/alpagym",
@@ -7010,6 +7028,54 @@
       "score": 0.7
     },
     {
+      "source": "rapidsai/cusignal",
+      "target": "rapidsai/rmm",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
+      "source": "rapidsai/cuspatial",
+      "target": "rapidsai/rmm",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
+      "source": "NVIDIA-AI-IOT/Lidar_AI_Solution",
+      "target": "NVIDIA-AI-IOT/cuPCL",
+      "type": "relatedTo",
+      "score": 0.7
+    },
+    {
+      "source": "NVIDIA-AI-IOT/cuPCL",
+      "target": "NVIDIA-AI-IOT/ros2_tao_pointpillars",
+      "type": "relatedTo",
+      "score": 0.5
+    },
+    {
+      "source": "NVIDIA-AI-IOT/cuPCL",
+      "target": "nvidia-isaac/nvblox",
+      "type": "relatedTo",
+      "score": 0.4
+    },
+    {
+      "source": "NVIDIA-AI-IOT/cuPCL",
+      "target": "nvidia-jetson",
+      "type": "relatedTo",
+      "score": 0.4
+    },
+    {
+      "source": "NVIDIA/CUDALibrarySamples",
+      "target": "NVIDIA/nvmath-python",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
+      "source": "NVIDIA/cutlass",
+      "target": "NVIDIA/nvmath-python",
+      "type": "relatedTo",
+      "score": 0.5
+    },
+    {
       "source": "NVIDIA-AI-IOT/deepstream_libraries",
       "target": "NVIDIA/video-sdk-samples",
       "type": "relatedTo",
@@ -7020,6 +7086,12 @@
       "target": "NVIDIA/video-sdk-samples",
       "type": "relatedTo",
       "score": 0.6
+    },
+    {
+      "source": "NVIDIA/DALI",
+      "target": "NVIDIA/video-sdk-samples",
+      "type": "relatedTo",
+      "score": 0.45
     },
     {
       "source": "NVIDIA/DeepStream",
@@ -7226,30 +7298,6 @@
       "score": 0.55
     },
     {
-      "source": "NVlabs/alpamayo",
-      "target": "NVlabs/alpamayo-coc-autolabeler",
-      "type": "relatedTo",
-      "score": 0.75
-    },
-    {
-      "source": "NVlabs/alpamayo-coc-autolabeler",
-      "target": "NVlabs/alpamayo-recipes",
-      "type": "relatedTo",
-      "score": 0.9
-    },
-    {
-      "source": "NVlabs/alpamayo-coc-autolabeler",
-      "target": "NVlabs/alpamayo1.5",
-      "type": "relatedTo",
-      "score": 0.75
-    },
-    {
-      "source": "NVlabs/alpamayo-coc-autolabeler",
-      "target": "NVlabs/alpamayo2",
-      "type": "relatedTo",
-      "score": 0.8
-    },
-    {
       "source": "NVIDIA-AI-IOT/jetson-device-skills",
       "target": "jetpack",
       "type": "relatedTo",
@@ -7274,28 +7322,40 @@
       "score": 0.65
     },
     {
-      "source": "nvidia-cosmos/cosmos-cookbook",
-      "target": "nvidia-cosmos/cosmos-xenna",
+      "source": "NVlabs/alpamayo",
+      "target": "NVlabs/alpamayo-coc-autolabeler",
       "type": "relatedTo",
-      "score": 0.65
+      "score": 0.75
     },
     {
-      "source": "nvidia-cosmos/cosmos-xenna",
-      "target": "nvidia-isaac/video_to_data",
+      "source": "NVlabs/alpamayo-coc-autolabeler",
+      "target": "NVlabs/alpamayo-recipes",
       "type": "relatedTo",
-      "score": 0.45
+      "score": 0.9
     },
     {
-      "source": "NVIDIA/cosmos",
-      "target": "nvidia-cosmos/cosmos-xenna",
+      "source": "NVlabs/alpamayo-coc-autolabeler",
+      "target": "NVlabs/alpamayo1.5",
       "type": "relatedTo",
-      "score": 0.85
+      "score": 0.75
+    },
+    {
+      "source": "NVlabs/alpamayo-coc-autolabeler",
+      "target": "NVlabs/alpamayo2",
+      "type": "relatedTo",
+      "score": 0.8
     },
     {
       "source": "isaac-sim/IsaacSim",
       "target": "nvidia-isaac/video_to_data",
       "type": "relatedTo",
       "score": 0.5
+    },
+    {
+      "source": "nvidia-cosmos/cosmos-xenna",
+      "target": "nvidia-isaac/video_to_data",
+      "type": "relatedTo",
+      "score": 0.45
     },
     {
       "source": "nvidia-isaac",
@@ -7308,6 +7368,24 @@
       "target": "nvidia-isaac/video_to_data",
       "type": "relatedTo",
       "score": 0.45
+    },
+    {
+      "source": "nvidia-cosmos/cosmos-cookbook",
+      "target": "nvidia-cosmos/cosmos-xenna",
+      "type": "relatedTo",
+      "score": 0.65
+    },
+    {
+      "source": "NVIDIA/cosmos",
+      "target": "nvidia-cosmos/cosmos-xenna",
+      "type": "relatedTo",
+      "score": 0.85
+    },
+    {
+      "source": "NVIDIA/DALI",
+      "target": "nvidia-cosmos/cosmos-xenna",
+      "type": "relatedTo",
+      "score": 0.5
     },
     {
       "source": "NVIDIA-AI-IOT/Lidar_AI_Solution",
@@ -8060,12 +8138,6 @@
       "score": 0.6
     },
     {
-      "source": "NVIDIA-AI-IOT/cuPCL",
-      "target": "nvidia-isaac/nvblox",
-      "type": "relatedTo",
-      "score": 0.4
-    },
-    {
       "source": "NVIDIA-ISAAC-ROS/isaac_ros_nvblox",
       "target": "nvidia-isaac/nvblox",
       "type": "relatedTo",
@@ -8184,6 +8256,12 @@
       "target": "nvidia-jetson",
       "type": "relatedTo",
       "score": 0.4
+    },
+    {
+      "source": "NVIDIA/DALI",
+      "target": "NVIDIA/retinanet-examples",
+      "type": "relatedTo",
+      "score": 0.6
     },
     {
       "source": "NVIDIA/object-detection-tensorrt-example",
@@ -8616,12 +8694,6 @@
       "target": "nvidia-jetson",
       "type": "relatedTo",
       "score": 0.4
-    },
-    {
-      "source": "NVIDIA-AI-IOT/cuPCL",
-      "target": "NVIDIA-AI-IOT/ros2_tao_pointpillars",
-      "type": "relatedTo",
-      "score": 0.5
     },
     {
       "source": "NVIDIA-AI-IOT/Lidar_AI_Solution",
@@ -9476,34 +9548,16 @@
       "score": 0.85
     },
     {
-      "source": "NVIDIA/cccl",
-      "target": "NVIDIA/cutlass",
+      "source": "NVIDIA/DALI",
+      "target": "NVIDIA/nvImageCodec",
       "type": "relatedTo",
-      "score": 0.55
+      "score": 0.45
     },
     {
-      "source": "NVIDIA/cuda-samples",
-      "target": "NVIDIA/cutlass",
+      "source": "NVIDIA/DALI",
+      "target": "triton-inference-server/dali_backend",
       "type": "relatedTo",
-      "score": 0.5
-    },
-    {
-      "source": "NVIDIA/cutlass",
-      "target": "NVIDIA/nvmath-python",
-      "type": "relatedTo",
-      "score": 0.5
-    },
-    {
-      "source": "NVIDIA/cccl",
-      "target": "NVIDIA/cuda-samples",
-      "type": "relatedTo",
-      "score": 0.55
-    },
-    {
-      "source": "NVIDIA/CUDALibrarySamples",
-      "target": "NVIDIA/cuda-samples",
-      "type": "relatedTo",
-      "score": 0.8
+      "score": 0.9
     },
     {
       "source": "NVIDIA-AI-IOT/jetnet",
@@ -9608,36 +9662,6 @@
       "score": 0.5
     },
     {
-      "source": "NVIDIA/CUDALibrarySamples",
-      "target": "NVIDIA/cccl",
-      "type": "relatedTo",
-      "score": 0.5
-    },
-    {
-      "source": "NVIDIA/CUDALibrarySamples",
-      "target": "NVIDIA/nvmath-python",
-      "type": "relatedTo",
-      "score": 0.55
-    },
-    {
-      "source": "rapidsai/cugraph",
-      "target": "rapidsai/cusignal",
-      "type": "relatedTo",
-      "score": 0.5
-    },
-    {
-      "source": "rapidsai/cugraph",
-      "target": "rapidsai/cuspatial",
-      "type": "relatedTo",
-      "score": 0.55
-    },
-    {
-      "source": "rapidsai/cugraph",
-      "target": "rapidsai/rmm",
-      "type": "relatedTo",
-      "score": 0.6
-    },
-    {
       "source": "NVIDIA-AI-IOT/deepstream_4.x_apps",
       "target": "NVIDIA-AI-IOT/deepstream_python_apps",
       "type": "relatedTo",
@@ -9714,12 +9738,6 @@
       "target": "NVIDIA/DeepStream",
       "type": "relatedTo",
       "score": 0.9
-    },
-    {
-      "source": "NVIDIA-AI-IOT/Lidar_AI_Solution",
-      "target": "NVIDIA-AI-IOT/cuPCL",
-      "type": "relatedTo",
-      "score": 0.7
     },
     {
       "source": "NVIDIA-AI-IOT/Lidar_AI_Solution",
@@ -9878,28 +9896,10 @@
       "score": 0.6
     },
     {
-      "source": "rapidsai/cusignal",
-      "target": "rapidsai/rmm",
-      "type": "relatedTo",
-      "score": 0.55
-    },
-    {
-      "source": "rapidsai/cuspatial",
-      "target": "rapidsai/rmm",
-      "type": "relatedTo",
-      "score": 0.55
-    },
-    {
       "source": "triton-inference-server/client",
       "target": "triton-inference-server/common",
       "type": "relatedTo",
       "score": 0.6
-    },
-    {
-      "source": "NVIDIA-AI-IOT/cuPCL",
-      "target": "nvidia-jetson",
-      "type": "relatedTo",
-      "score": 0.4
     },
     {
       "source": "NVIDIA-AI-IOT/tf_to_trt_image_classification",
@@ -10262,12 +10262,6 @@
       "score": 0.6
     },
     {
-      "source": "NVIDIA-AI-IOT/jetcard",
-      "target": "nvidia-jetson",
-      "type": "relatedTo",
-      "score": 0.7
-    },
-    {
       "source": "nvidia-holoscan/holoscan-cli",
       "target": "nvidia-holoscan/holoscan-sdk",
       "type": "relatedTo",
@@ -10310,6 +10304,12 @@
       "score": 0.75
     },
     {
+      "source": "NVIDIA-AI-IOT/jetcard",
+      "target": "nvidia-jetson",
+      "type": "relatedTo",
+      "score": 0.7
+    },
+    {
       "source": "NVIDIA/Audio2Face-3D-SDK",
       "target": "NVIDIA/Maya-ACE",
       "type": "relatedTo",
@@ -10332,66 +10332,6 @@
       "target": "NVIDIA/DeepStream",
       "type": "relatedTo",
       "score": 0.8
-    },
-    {
-      "source": "NVIDIA-AI-IOT/deepstream_dockers",
-      "target": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
-      "type": "relatedTo",
-      "score": 0.5
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
-      "target": "NVIDIA-AI-IOT/jetson-platform-services",
-      "type": "relatedTo",
-      "score": 0.65
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
-      "target": "nvidia-jetson",
-      "type": "relatedTo",
-      "score": 0.7
-    },
-    {
-      "source": "NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference",
-      "target": "NVIDIA-ISAAC-ROS/isaac_ros_object_detection",
-      "type": "relatedTo",
-      "score": 0.75
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
-      "target": "NVIDIA-AI-IOT/jetson-copilot",
-      "type": "relatedTo",
-      "score": 0.6
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
-      "target": "NVIDIA-AI-IOT/jetson-platform-services",
-      "type": "relatedTo",
-      "score": 0.55
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
-      "target": "NVIDIA-AI-IOT/whisper_trt",
-      "type": "relatedTo",
-      "score": 0.45
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
-      "target": "nvidia-jetson",
-      "type": "relatedTo",
-      "score": 0.7
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-multicamera-pipelines",
-      "target": "nvidia-jetson",
-      "type": "relatedTo",
-      "score": 0.65
-    },
-    {
-      "source": "NVIDIA-AI-IOT/jetson-multicamera-pipelines",
-      "target": "NVIDIA/DeepStream",
-      "type": "relatedTo",
-      "score": 0.7
     },
     {
       "source": "NVIDIA-AI-IOT/deepstream_4.x_apps",
@@ -10442,10 +10382,70 @@
       "score": 0.8
     },
     {
+      "source": "NVIDIA-AI-IOT/jetson-multicamera-pipelines",
+      "target": "NVIDIA/DeepStream",
+      "type": "relatedTo",
+      "score": 0.7
+    },
+    {
       "source": "NVIDIA-AI-IOT/ros2_deepstream",
       "target": "NVIDIA/DeepStream",
       "type": "relatedTo",
       "score": 0.75
+    },
+    {
+      "source": "NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference",
+      "target": "NVIDIA-ISAAC-ROS/isaac_ros_object_detection",
+      "type": "relatedTo",
+      "score": 0.75
+    },
+    {
+      "source": "NVIDIA-AI-IOT/deepstream_dockers",
+      "target": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
+      "type": "relatedTo",
+      "score": 0.5
+    },
+    {
+      "source": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
+      "target": "NVIDIA-AI-IOT/jetson-platform-services",
+      "type": "relatedTo",
+      "score": 0.65
+    },
+    {
+      "source": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
+      "target": "nvidia-jetson",
+      "type": "relatedTo",
+      "score": 0.7
+    },
+    {
+      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
+      "target": "NVIDIA-AI-IOT/jetson-copilot",
+      "type": "relatedTo",
+      "score": 0.6
+    },
+    {
+      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
+      "target": "NVIDIA-AI-IOT/jetson-platform-services",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
+      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
+      "target": "NVIDIA-AI-IOT/whisper_trt",
+      "type": "relatedTo",
+      "score": 0.45
+    },
+    {
+      "source": "NVIDIA-AI-IOT/jetson-ai-lab",
+      "target": "nvidia-jetson",
+      "type": "relatedTo",
+      "score": 0.7
+    },
+    {
+      "source": "NVIDIA-AI-IOT/jetson-multicamera-pipelines",
+      "target": "nvidia-jetson",
+      "type": "relatedTo",
+      "score": 0.65
     },
     {
       "source": "triton-inference-server/onnxruntime_backend",
@@ -10464,12 +10464,6 @@
       "target": "triton-inference-server/core",
       "type": "relatedTo",
       "score": 0.75
-    },
-    {
-      "source": "NVIDIA-AI-IOT/deepstream_libraries",
-      "target": "NVIDIA/nvImageCodec",
-      "type": "relatedTo",
-      "score": 0.6
     },
     {
       "source": "NVIDIA-AI-IOT/clip-distillation",
@@ -10578,6 +10572,12 @@
       "target": "nvidia-jetson",
       "type": "relatedTo",
       "score": 0.4
+    },
+    {
+      "source": "NVIDIA-AI-IOT/deepstream_libraries",
+      "target": "NVIDIA/nvImageCodec",
+      "type": "relatedTo",
+      "score": 0.6
     },
     {
       "source": "NVIDIA-AI-IOT/deepstream_triton_model_deploy",
@@ -11012,18 +11012,6 @@
       "score": 0.5
     },
     {
-      "source": "NVlabs/alpagym",
-      "target": "nvidia-cosmos/cosmos-rl",
-      "type": "relatedTo",
-      "score": 0.75
-    },
-    {
-      "source": "NVlabs/DRAIL",
-      "target": "nvidia-cosmos/cosmos-rl",
-      "type": "relatedTo",
-      "score": 0.4
-    },
-    {
       "source": "NVlabs/GRAIL",
       "target": "nvidia-isaac/WBC-AGILE",
       "type": "relatedTo",
@@ -11046,6 +11034,18 @@
       "target": "NVlabs/ProtoMotions",
       "type": "relatedTo",
       "score": 0.55
+    },
+    {
+      "source": "NVlabs/alpagym",
+      "target": "nvidia-cosmos/cosmos-rl",
+      "type": "relatedTo",
+      "score": 0.75
+    },
+    {
+      "source": "NVlabs/DRAIL",
+      "target": "nvidia-cosmos/cosmos-rl",
+      "type": "relatedTo",
+      "score": 0.4
     },
     {
       "source": "NVlabs/ACID",
@@ -11210,6 +11210,12 @@
       "score": 0.5
     },
     {
+      "source": "isaac-sim/IsaacSim",
+      "target": "isaac-sim/Sim-to-Real-SO-101-Workshop",
+      "type": "relatedTo",
+      "score": 0.55
+    },
+    {
       "source": "NVlabs/collab-sim",
       "target": "isaac-sim/IsaacSim",
       "type": "relatedTo",
@@ -11218,12 +11224,6 @@
     {
       "source": "NVIDIA/IsaacTeleop",
       "target": "NVlabs/collab-sim",
-      "type": "relatedTo",
-      "score": 0.55
-    },
-    {
-      "source": "isaac-sim/IsaacSim",
-      "target": "isaac-sim/Sim-to-Real-SO-101-Workshop",
       "type": "relatedTo",
       "score": 0.55
     },
