@@ -2,10 +2,13 @@ import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import cytoscape, { Core, ElementDefinition, NodeSingular, StylesheetJson } from "cytoscape";
 import fcose from "cytoscape-fcose";
 import { data, domainById, nodesById } from "./data";
+import { downloadContextFile } from "./exportContext";
 import { Panel } from "./Panel";
 import { initTernlight, isTernlightReady, searchProjects } from "./semanticSearch";
 
 cytoscape.use(fcose);
+
+const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
 function themeVar(name: string, fallback: string): string {
   return getComputedStyle(document.body).getPropertyValue(name).trim() || fallback;
@@ -236,6 +239,7 @@ export function App() {
       wheelSensitivity: 0.8,
       minZoom: 0.05,
       maxZoom: 6,
+      autoungrabify: isTouchDevice,
     });
     cyRef.current = cy;
 
@@ -429,6 +433,12 @@ export function App() {
           </button>
           <button title="Reset view" onClick={resetView}>
             ⟳
+          </button>
+          <button
+            title="Download all-project context for an AI agent"
+            onClick={() => downloadContextFile(data)}
+          >
+            ⬇
           </button>
         </div>
       </div>
