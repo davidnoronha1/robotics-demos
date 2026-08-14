@@ -375,6 +375,7 @@ export function App() {
     const cy = cyRef.current;
     if (!cy) return;
     cy.batch(() => {
+      cy.elements().removeClass("hover-fade hover-active");
       if (!selectedId) {
         cy.elements().forEach((ele) => {
           ele.removeData("hlDist");
