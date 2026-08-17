@@ -1,24 +1,5 @@
 import { DataFile } from "./data";
 
-function formatRelations(nodeId: string, edges: DataFile["edges"]): string[] {
-  return edges
-    .filter((e) => e.source === nodeId || e.target === nodeId)
-    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
-    .map((e) => {
-      const otherId = e.source === nodeId ? e.target : e.source;
-      const verb =
-        e.type === "dependsOn"
-          ? e.source === nodeId
-            ? "depends on"
-            : "dependency of"
-          : e.type === "partOf"
-            ? "part of"
-            : "related to";
-      const scoreStr = e.score != null ? ` (score ${e.score})` : "";
-      return `- ${verb} \`${otherId}\`${scoreStr}`;
-    });
-}
-
 export function buildContextMarkdown(data: DataFile): string {
   const lines: string[] = [];
 
@@ -27,9 +8,7 @@ export function buildContextMarkdown(data: DataFile): string {
   lines.push(
     `Generated from ${data.source ?? "the NVIDIA robotics graph"}${
       data.generatedAt ? ` on ${data.generatedAt}` : ""
-    }. ${data.nodes.length} projects, ${data.edges.length} relations across ${
-      data.domains.length
-    } domains.`,
+    }. ${data.nodes.length} projects across ${data.domains.length} domains.`,
   );
   lines.push("");
 
@@ -60,13 +39,6 @@ export function buildContextMarkdown(data: DataFile): string {
       const summary = node.summary || node.description;
       if (summary) {
         lines.push(summary);
-        lines.push("");
-      }
-
-      const relations = formatRelations(node.id, data.edges);
-      if (relations.length > 0) {
-        lines.push("**Relations:**");
-        lines.push(...relations);
         lines.push("");
       }
 
