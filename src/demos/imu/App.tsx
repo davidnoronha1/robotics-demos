@@ -410,7 +410,7 @@ export function App() {
       if (canvas) cubeCtxRefs.current[info.key] = setupCanvas(canvas, CUBE_CANVAS_W, CUBE_CANVAS_H);
     }
 
-    const url = "https://robotics-demos.pages.dev/demos/imu/";
+    const url = "https://robotics.neswk.workers.dev/demos/imu/";
     qrHostRef.current?.appendChild(
       buildQrAffordance({ url, text: "Scan to try this on your phone — real sensors beat any simulation." }),
     );

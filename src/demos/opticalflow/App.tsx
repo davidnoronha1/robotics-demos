@@ -262,7 +262,7 @@ export function App() {
     if (qrHostRef.current) {
       qrHostRef.current.appendChild(
         buildQrAffordance({
-          url: "https://robotics-demos.pages.dev/demos/opticalflow/",
+          url: "https://robotics.neswk.workers.dev/demos/opticalflow/",
           text: "Scan to try this on your phone — point it at a textured surface.",
         }),
       );
