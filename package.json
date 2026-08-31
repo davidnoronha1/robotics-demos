@@ -45,5 +45,6 @@
     "marked": "^18.0.9",
     "ml-matrix": "^6.14.0",
     "qrcode-generator": "^2.0.4"
-  }
+  },
+  "license": "Apache-2.0"
 }
