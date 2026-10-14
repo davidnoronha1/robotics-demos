@@ -1,0 +1,686 @@
+[
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_nitros_bridge",
+    "label": "isaac_ros_nitros_bridge",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_nitros_bridge",
+    "description": "NITROS-accelerated ROS bridge",
+    "summary": "Isaac ROS NITROS Bridge Use Isaac ROS packages in your ROS 1 Noetic with NITROS-enabled performance. --- Overview The Isaac ROS NITROS Bridge brings accelerated computing to versions of ROS where it is not supported, by improving the performance of bridging between ROS versions. Isaac ROS provides accelerated computing ROS packages for robotics development in ROS 2 with NITROS; this is enabled wit",
+    "readmeSnippet": "# Isaac ROS NITROS Bridge Use Isaac ROS packages in your ROS 1 Noetic with NITROS-enabled performance. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nitros_bridge/isaac_ros_nitros_bridge_overview.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nitros_bridge/isaac_ros_nitros_bridge_overview.png/\" width=\"800px\"/></a></div> --- ## Overview The [Isaac ROS NITROS Bridge](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros_bridge) brings accelerated computing to versions of ROS where it is not supported, by improving the performance of bridging between ROS versions. Isaac ROS provides accelerated computing ROS packages for robotics development in ROS 2 with NITROS; this is enabled with the addition of type adaptation "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_manipulation",
+    "label": "isaac_ros_manipulation",
+    "domain": "robotic-arms",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_manipulation",
+    "description": "Arm manipulation workflows",
+    "summary": "Isaac ROS Manipulation This repository contains the integrated Isaac for Manipulation launch files. Setup and Documentation Visit Isaac for Manipulation to learn how to use this repository.",
+    "readmeSnippet": "# Isaac ROS Manipulation This repository contains the integrated Isaac for Manipulation launch files. ## Setup and Documentation Visit [Isaac for Manipulation](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_for_manipulation/index.html) to learn how to use this repository. "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_perceptor",
+    "label": "isaac_perceptor",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_perceptor",
+    "description": "Perception workflows",
+    "summary": "Isaac Perceptor This repository contains the integrated Isaac Perceptor launch files. Setup and Documentation Visit Isaac Perceptor to learn how to use this repository. Performance Sample Graph Input Size Nova Carter ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    "readmeSnippet": "# Isaac Perceptor This repository contains the integrated Isaac Perceptor launch files. ## Setup and Documentation Visit [Isaac Perceptor](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/index.html) to learn how to use this repository. ## Performance | Sample Graph<br/><br/>                                                                                                                                                                                                                                                                    | Input Size<br/><br/>                | Nova Carter<br/><br/>                                                                                                                                                                                                                   | |------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_cumotion",
+    "label": "isaac_ros_cumotion",
+    "domain": "robotic-arms",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_cumotion",
+    "description": "NVIDIA-accelerated packages for arm motion planning and control",
+    "summary": "Isaac ROS cuMotion NVIDIA accelerated packages for arm motion planning and control Overview Isaac ROS cuMotion provides CUDA-accelerated manipulation capabilities for robots in ROS 2. It integrates cuMotion into MoveIt 2 to generate smooth, collision-free trajectories, and also exposes cuMotion inverse kinematics and trajectory generation capabilities through ROS 2 actions/services. Support is pro",
+    "readmeSnippet": "# Isaac ROS cuMotion NVIDIA accelerated packages for arm motion planning and control <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_cumotion/cumotion_ur10_demo.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_cumotion/cumotion_ur10_demo.gif/\" width=\"600px\"/></a></div> ## Overview Isaac ROS cuMotion provides CUDA-accelerated manipulation capabilities for robots in ROS 2. It integrates [cuMotion](https://nvidia-isaac-ros.github.io/concepts/manipulation/index.html#concept-cumotion) into MoveIt 2 to generate smooth, collision-free trajectories, and also exposes cuMotion inverse kinematics and trajectory generation capabilities through ROS 2 actions/services. Support is provided for segmenting and filtering "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_examples",
+    "label": "isaac_ros_examples",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_examples",
+    "description": "Examples of using Isaac ROS GEMs together",
+    "summary": "Isaac ROS Examples This repository contains example launch files and scripts to support Isaac ROS package quickstarts. Visit the Isaac ROS Package Index for a list of packages that include quickstart examples.",
+    "readmeSnippet": "# Isaac ROS Examples This repository contains example launch files and scripts to support Isaac ROS package quickstarts. Visit the [Isaac ROS Package Index](https://nvidia-isaac-ros.github.io/repositories_and_packages/index.html) for a list of packages that include quickstart examples. "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_jetson",
+    "label": "isaac_ros_jetson",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_jetson",
+    "description": "Jetson support packages and tooling",
+    "summary": "Isaac ROS Jetson Isaac ROS Jetson Overview Isaac ROS Jetson simplifies the process of monitoring and managing NVIDIA Jetson, empowering developers to optimize performance, ensure system stability, and streamline development workflows for ROS 2. What is jetson-stats? jetsonstats is a comprehensive utility tool specifically designed for NVIDIA Jetson, including the Jetson Nano, Jetson TX1, TX2, Xavi",
+    "readmeSnippet": "# Isaac ROS Jetson Isaac ROS Jetson ## Overview Isaac ROS Jetson simplifies the process of monitoring and managing NVIDIA Jetson, empowering developers to optimize performance, ensure system stability, and streamline development workflows for ROS 2. ## What is `jetson-stats`? [jetson_stats](https://rnext.it/jetson_stats) is a comprehensive utility tool specifically designed for NVIDIA Jetson, including the Jetson Nano, Jetson TX1, TX2, Xavier, Orin, and Thor series. It provides a variety of functionalities to monitor and manage the Jetson device’s performance, temperature, power usage, and more. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_jetson/jetson_stats.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/i"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/nova_developer_kit",
+    "label": "nova_developer_kit",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/nova_developer_kit",
+    "description": "Packages for Nova Developer Kit support",
+    "summary": "Nova Orin Developer Kit This meta-repository contains the packages required to run reference workflows on Nova Orin Developer Kit. Setup and Documentation Visit the Nova Orin Developer Kit to learn how to use this repository.",
+    "readmeSnippet": "# Nova Orin Developer Kit This meta-repository contains the packages required to run reference workflows on [Nova Orin Developer Kit](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/isaac/containers/nova_developer_kit_bringup). <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/robots/nova_developer_kit/nova_orin_devkit_sm.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/robots/nova_developer_kit/nova_orin_devkit_sm.png/\" width=\"auto\"/></a></div> ## Setup and Documentation Visit the [Nova Orin Developer Kit](https://nvidia-isaac-ros.github.io/robots/nova_developer_kit/index.html) to learn how to use this repository. "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_data_tools",
+    "label": "isaac_ros_data_tools",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_data_tools",
+    "description": "Utilities for visualizing and inspecting rosbags",
+    "summary": "Isaac ROS Data Tools Tools for inspecting and validating data sent through graphs containing Isaac ROS nodes. --- Latest Update 2026-04-30: Compatibility and integration updates for the Isaac ROS 4.4.0 release",
+    "readmeSnippet": "# Isaac ROS Data Tools Tools for inspecting and validating data sent through graphs containing Isaac ROS nodes. --- ## Latest Update 2026-04-30: Compatibility and integration updates for the Isaac ROS 4.4.0 release "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_mapping_and_localization",
+    "label": "isaac_ros_mapping_and_localization",
+    "domain": "slam-mapping",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_mapping_and_localization",
+    "description": "NVIDIA-accelerated visual-only mapping and global localization",
+    "summary": "Isaac ROS Mapping And Localization Documentation Please visit the Isaac ROS Documentation to learn how to use this repository. ---",
+    "readmeSnippet": "# Isaac ROS Mapping And Localization ## Documentation Please visit the [Isaac ROS Documentation](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_mapping_and_localization/index.html) to learn how to use this repository. --- "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/ros2_framework_perf",
+    "label": "ros2_framework_perf",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/ros2_framework_perf",
+    "description": "Measure performance of message flows through ROS 2",
+    "summary": "ros2frameworkperf This package provides a benchmarking framework for measuring message processing performance of ROS 2 application graphs. It launches configurable EmitterNode instances within a composable node container to simulate application workloads and measure performance metrics. This package is inspired by the ros2performance package from iRobot. In this framework, we use launch files with",
+    "readmeSnippet": "# ros2_framework_perf This package provides a benchmarking framework for measuring message processing performance of ROS 2 application graphs. It launches configurable EmitterNode instances within a composable node container to simulate application workloads and measure performance metrics. This package is inspired by the [ros2_performance](https://github.com/irobot-ros/ros2-performance) package from iRobot. In this framework, we use launch files with composable nodes instead which facilitates measuring more complex pipelines including multi-process flows. Our measurements also include the end-to-end message journey include the executor latencies, middleware transport time, and more from initial publish through new messages published as a result to the final subscriber callback invocation. ## Key Features - Launches multiple `EmitterNode` instances based on YAML configuration - Manages node lifecycle transitions (configure, activate, deactivate, shutdown) - Collects message publish"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/greenwave_monitor",
+    "label": "greenwave_monitor",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/greenwave_monitor",
+    "description": "ROS 2 Topic Monitoring",
+    "summary": "Greenwave Monitor Greenwave monitor is a tool for runtime monitoring of ROS 2 topics. It provides the following features: A node similar to a C++ based ros2 topic hz. i.e. subscribes to topics to determine the frame rate and latency. Compared to ros2 topic hz the greenwave node is more performant, publishes Diagnostics, and offers services to manage topics and expected frequencies. A terminal base",
+    "readmeSnippet": "# Greenwave Monitor Greenwave monitor is a tool for runtime monitoring of ROS 2 topics. ![Greenwave Monitor](docs/images/greenwave_r2s_dashboard.png) It provides the following features: 1. A node similar to a C++ based ros2 topic hz. i.e. subscribes to topics to determine the frame rate and latency. Compared to ros2 topic hz the greenwave node is more performant, publishes Diagnostics, and offers services to manage topics and expected frequencies. 2. A terminal based dashboard that displays the topic rates, latency, and status, and allows you to add/remove topics and set expected frequencies. 3. A header only C++ library so you can calculate and publish compatible diagnostics directly from your own nodes for reduced overhead. This diagram shows an overview of the architecture: ![architecture](docs/images/greenwave_diagram.png) For implementation details and inline integration guidance, see [`docs/DESIGN_AND_IMPLEMENTATION.md`](docs/DESIGN_AND_IMPLEMENTATION.md). ## Compatibil"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/r2s_gw",
+    "label": "r2s_gw",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/r2s_gw",
+    "description": "Fork of r2s to work with greenwave_monitor",
+    "summary": "r2sgw Note: This is a fork of r2s designed to work with the Greenwave Monitor system. It has been renamed to r2sgw to allow users to install it alongside the standard r2s package. r2sgw is a Text User Interface (TUI) for interacting with various aspects of a ROS 2 system, with enhanced integration for Greenwave Monitor diagnostics. r2sgw is written in Python and utilizes Textual for building the U",
+    "readmeSnippet": "# r2s_gw **Note: This is a fork of [r2s](https://github.com/mjcarroll/r2s) designed to work with the Greenwave Monitor system. It has been renamed to r2s_gw to allow users to install it alongside the standard r2s package.** r2s_gw is a _Text User Interface_ (TUI) for interacting with various aspects of a ROS 2 system, with enhanced integration for [Greenwave Monitor](https://github.com/NVIDIA-ISAAC-ROS/greenwave_monitor) diagnostics. r2s_gw is written in Python and utilizes [Textual](https://github.com/textualize/textual/) for building the UI. ![Alt Text](doc/r2s.gif) ## Dependencies r2s_gw depends on the [Greenwave Monitor](https://github.com/NVIDIA-ISAAC-ROS/greenwave_monitor) package. Make sure greenwave_monitor is installed first. ## Installation This package is distributed separately from Greenwave Monitor to keep dependencies minimal. ### Install from source with colcon (recommended for ROS users): ```bash cd ros_ws/src git clone https://github.com/NVIDIA-ISAAC-ROS/r2s_"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac-ros-cli",
+    "label": "isaac-ros-cli",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac-ros-cli",
+    "description": " A command-line interface for managing Isaac ROS development environments.",
+    "summary": "Isaac ROS CLI A command-line interface for managing Isaac ROS development environments. Installation Usage Rebuilding Debian Package To build a new local copy:",
+    "readmeSnippet": "# Isaac ROS CLI A command-line interface for managing Isaac ROS development environments. ## Installation ```bash sudo apt-get install isaac-ros-cli ``` ## Usage ```bash # Show help isaac-ros --help # Initialize environment (pick a mode) sudo isaac-ros init <docker|venv|baremetal> # Show configured mode and current activation state isaac-ros status isaac-ros status --output json # Activate environment isaac-ros activate # Override config keys for one invocation (see config/config.yaml for available keys) isaac-ros activate --config docker.run.container_name=foo isaac-ros activate --config docker.run.container_name=foo -c docker.run.platform=x86_64 ``` ## Rebuilding Debian Package To build a new local copy: ```bash make build ``` "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/sensor_mounting_rig",
+    "label": "sensor_mounting_rig",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/sensor_mounting_rig",
+    "description": "URDF and other files associated with hardware mounting of sensors onto Jetson Developer Kits",
+    "summary": "Sensor Mounting Rig Overview Sensor Mounting Rig provides URDF and other files associated with hardware mounting of sensors onto the Jetson Developer Kits. Please see the guide for details. --- Latest Update 2026-04-30: Compatibility and integration updates for the Isaac ROS 4.4.0 release",
+    "readmeSnippet": "# Sensor Mounting Rig ## Overview Sensor Mounting Rig provides URDF and other files associated with hardware mounting of sensors onto the Jetson Developer Kits. Please see [the guide](https://nvidia-isaac-ros.github.io/robots/sensor_mounting_rig/index.html) for details. --- ## Latest Update 2026-04-30: Compatibility and integration updates for the Isaac ROS 4.4.0 release "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_sipl_camera",
+    "label": "isaac_ros_sipl_camera",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_sipl_camera",
+    "description": "NVIDIA-accelerated ROS 2 camera drivers on Jetson via Nvidia Sensor Input Processing Library (SIPL) cameras framework",
+    "summary": "Isaac ROS SIPL Camera ROS 2 camera driver nodes for NVIDIA SIPL cameras with zero-copy GPU-accelerated image publishing through NITROS. --- Overview Isaac ROS SIPL Camera provides ROS 2 camera driver nodes for NVIDIA SIPL (Sensor Input Processing Library) cameras with zero-copy GPU-accelerated image publishing through NITROS. SIPL is NVIDIA’s modular camera framework for Jetson, providing a unifie",
+    "readmeSnippet": "# Isaac ROS SIPL Camera ROS 2 camera driver nodes for NVIDIA SIPL cameras with zero-copy GPU-accelerated image publishing through NITROS. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_sipl_camera/eagle_stereo_rectify_foxglove_visual.jpg/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_sipl_camera/eagle_stereo_rectify_foxglove_visual.jpg/\" width=\"800px\"/></a></div> --- ## Overview Isaac ROS SIPL Camera provides ROS 2 camera driver nodes for NVIDIA SIPL (Sensor Input Processing Library) cameras with zero-copy GPU-accelerated image publishing through NITROS. SIPL is NVIDIA’s modular camera framework for Jetson, providing a unified API and driver model that exposes hardware accelerated ISP for continuous ima"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_teleop",
+    "label": "isaac_ros_teleop",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_teleop",
+    "description": "Teleoperation Solutions using XR headsets.",
+    "summary": "Isaac ROS Teleop NVIDIA-accelerated teleoperation solutions for robot data collection. Overview Isaac ROS Teleop contains a ROS 2 package for robot data collection. isaacrosteleop relies on Isaac Teleop, a framework for high-fidelity ego-centric and robot data collection. Isaac Teleop is designed to address the data bottleneck in robot learning by streamlining device integration, allowing for high",
+    "readmeSnippet": "# Isaac ROS Teleop NVIDIA-accelerated teleoperation solutions for robot data collection. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_physical_ai/isaac_ros_unitree_g1_teleop_bringup/unitree-g1-teleop-hero.gif/\"><img alt=\"Isaac ROS Teleop with Unitree G1\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_physical_ai/isaac_ros_unitree_g1_teleop_bringup/unitree-g1-teleop-hero.gif/\" width=\"520px\"/></a></div> ## Overview Isaac ROS Teleop contains a ROS 2 package for robot data collection. `isaac_ros_teleop` relies on [Isaac Teleop](https://github.com/NVIDIA/IsaacTeleop), a framework for high-fidelity ego-centric and robot data collection. `Isaac Teleop` is designed to address the data bottleneck in robot learning by streamlining "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_physical_ai",
+    "label": "isaac_ros_physical_ai",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_physical_ai",
+    "description": "Application-level bringup packages for deploying whole-body control and teleoperation on humanoid robots",
+    "summary": "Isaac ROS Physical AI Application-level bringup packages for deploying whole-body control and teleoperation on humanoid robots. Overview Isaac ROS Physical AI provides application-level bringup packages for deploying whole-body control and teleoperation on humanoid robots. The current release supports the Unitree G1 with: AGILE locomotion: Whole-body control policy for balance and walking Bimanual",
+    "readmeSnippet": "# Isaac ROS Physical AI Application-level bringup packages for deploying whole-body control and teleoperation on humanoid robots. ## Overview Isaac ROS Physical AI provides application-level bringup packages for deploying whole-body control and teleoperation on humanoid robots. The current release supports the Unitree G1 with: - **AGILE locomotion**: Whole-body control policy for balance and walking - **Bimanual inverse kinematics**: Real-time IK for both arms using cuMotion - **Finger control**: Hand tracking from an XR headset - **XR teleoperation**: End-effector and locomotion control using an XR headset with   [Isaac Teleop](https://nvidia.github.io/IsaacTeleop) Both MuJoCo simulation and real hardware are supported. For a fine-tuned GR00T policy deployed end-to-end — teleoperate, record, convert to LeRobot, fine-tune GR00T N, export via LEAPP, deploy — see the [Isaac for Physical AI reference workflow](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_for_physica"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_deploy",
+    "label": "isaac_ros_deploy",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_deploy",
+    "description": "Deploy neural network policies trained in NVIDIA Isaac Lab on real and simulated robots",
+    "summary": "Isaac ROS Deploy ROS 2 packages for deploying neural network policies trained in NVIDIA Isaac Lab on real and simulated robots. Overview Isaac ROS Deploy provides ROS 2 packages for deploying neural network policies trained in NVIDIA Isaac Lab on real and simulated robots. It loads exported ONNX models, runs inference at control-loop rates, and applies safety constraints to the outputs. The deploy",
+    "readmeSnippet": "# Isaac ROS Deploy ROS 2 packages for deploying neural network policies trained in NVIDIA Isaac Lab on real and simulated robots. ## Overview Isaac ROS Deploy provides ROS 2 packages for deploying neural network policies trained in NVIDIA Isaac Lab on real and simulated robots. It loads exported ONNX models, runs inference at control-loop rates, and applies safety constraints to the outputs. The deployment pipeline has three stages: 1. **Export**: Uses LEAPP to export policies from a Python training setup. LEAPP generates    a graph of neural network models (e.g., ONNX) together with a YAML metadata file    describing the topology and expected format of model inputs/outputs. 2. **Runtime**: Isaac ROS Deploy loads the exported LEAPP graph and metadata and runs    inference. Using the metadata it can automatically connect the inference graph to the    right ROS topics and hardware interfaces. 3. **Safety**: A safety controller wraps the runtime output to ensure safe operation. It   "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_robots",
+    "label": "isaac_ros_robots",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_robots",
+    "description": "Support packages for robots",
+    "summary": "Isaac ROS Robots ROS 2 packages for supported humanoid robots, including robot descriptions, ROS 2 control plugins, and hardware bridge packages. Overview Isaac ROS Robots contains ROS 2 packages for supported humanoid robots, such as the Unitree G1, including robot descriptions, ROS 2 control plugins, and hardware bridge packages for deploying to real robots. --- Documentation Please visit the Is",
+    "readmeSnippet": "# Isaac ROS Robots ROS 2 packages for supported humanoid robots, including robot descriptions, ROS 2 control plugins, and hardware bridge packages. ## Overview Isaac ROS Robots contains ROS 2 packages for supported humanoid robots, such as the Unitree G1, including robot descriptions, ROS 2 control plugins, and hardware bridge packages for deploying to real robots. --- ## Documentation Please visit the [Isaac ROS Documentation](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_robots/index.html) to learn how to use this repository. --- ## Packages * [`unitree_g1_bridge`](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_robots/unitree_g1_bridge/index.html)   * [Overview](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_robots/unitree_g1_bridge/index.html#overview)   * [Quickstart](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_robots/unitree_g1_bridge/index.html#quickstart)   * [Troubleshoo"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_learned_policies",
+    "label": "isaac_ros_learned_policies",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_learned_policies",
+    "description": "ROS 2 packages providing learned policies for humanoid robot control",
+    "summary": "Isaac ROS Learned Policies Learned policy packages for humanoid robot locomotion and manipulation. --- Latest Update 2026-04-30: Initial release",
+    "readmeSnippet": "# Isaac ROS Learned Policies Learned policy packages for humanoid robot locomotion and manipulation. --- ## Latest Update 2026-04-30: Initial release "
+  },
+  {
+    "id": "NVIDIA-Omniverse/IsaacSim-dockerfiles",
+    "label": "IsaacSim-dockerfiles",
+    "domain": "simulation",
+    "repo": "NVIDIA-Omniverse/IsaacSim-dockerfiles",
+    "description": "Isaac Sim Dockerfiles",
+    "summary": "Isaac Sim Dockerfiles (Deprecated) ⚠️ This repository is deprecated and will be made read-only; it is kept for reference only. For current and officially supported Docker workflows for Isaac Sim, please use the Docker tooling in the main Isaac Sim repository: Introduction This repository contains Dockerfiles for building an Isaac Sim container. Pre-Requisites Before getting started, ensure that th",
+    "readmeSnippet": "# Isaac Sim Dockerfiles (Deprecated) > ⚠️ This repository is deprecated and will be made read-only; it is kept for reference only.   > For current and officially supported Docker workflows for Isaac Sim, please use the Docker tooling in the main Isaac Sim repository: https://github.com/isaac-sim/IsaacSim/tree/main/tools/docker ## Introduction This repository contains Dockerfiles for building an Isaac Sim container. ### Pre-Requisites Before getting started, ensure that the system has the latest [NVIDIA Driver](https://www.nvidia.com/en-us/drivers/unix/) and the [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker) installed. Use your [NGC Account](https://docs.nvidia.com/ngc/ngc-overview/index.html#registering-activating-ngc-account) to get access to the [Isaac Sim Container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/isaac-sim) and generate your [NGC API Key](https://docs.nvidia.com/ngc/ngc-overview/index.html#generating-api-key). ## Build Clone this r"
+  },
+  {
+    "id": "NVIDIA-Omniverse/ovrtx",
+    "label": "ovrtx",
+    "domain": "simulation",
+    "repo": "NVIDIA-Omniverse/ovrtx",
+    "description": "A C and Python library for physically accurate, real-time, sensor simulation and visualization using NVIDIA Omniverse RTX",
+    "summary": "NVIDIA ovrtx ovrtx is a C and Python library for embedding Omniverse RTX sensor simulation and visualization directly into applications. ovrtx is best suited for developers looking to build applications, tools or workflows that need real-time, physically accurate camera, lidar, radar, and other sensor simulation for Physical AI, targeting robotics learning, synthetic data generation, and industria",
+    "readmeSnippet": " # NVIDIA ovrtx [![Documentation](https://img.shields.io/badge/docs-ovrtx-blue)](https://nvidia-omniverse.github.io/ovrtx) [![License](https://img.shields.io/badge/license-NVIDIA%20Proprietary-red)](LICENSE) [![GitHub last commit](https://img.shields.io/github/last-commit/NVIDIA-Omniverse/ovrtx)](https://github.com/NVIDIA-Omniverse/ovrtx) [![Docs build](https://github.com/NVIDIA-Omniverse/ovrtx/actions/workflows/docs.yml/badge.svg)](https://github.com/NVIDIA-Omniverse/ovrtx/actions/workflows/docs.yml) **ovrtx** is a C and Python library for embedding Omniverse RTX sensor simulation and visualization directly into applications.  **ovrtx** is best suited for developers looking to build applications, tools or workflows that need real-time, physically accurate camera, lidar, radar, and other sensor simulation for [Physical AI](https://www.nvidia.com/en-us/glossary/generative-physical-ai/), targeting robotics learning, synthetic data generation, and industrial and design workflows. Sta"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-trashformers",
+    "label": "jetson-trashformers",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson-trashformers",
+    "description": "Autonomous humanoid that picks up and throws away trash",
+    "summary": "What is this project about? Our project uses neural networks to train the Robotis BioloidGP to detect trash and throw it away in trash cans, effectively keeping the office environment clean. The current stage of the model allows for detection of white cups (as trash) in various backgrounds, as well as trashcan symbols. The purpose of this project is to provide a use-case example for developers who",
+    "readmeSnippet": "<p align=\"center\">   <img src=\"https://github.com/NVIDIA-Jetson/jetson-trashformers/blob/master/images/trashformers_logo.png\" /> </p> ### What is this project about? Our project uses neural networks to train the [Robotis BioloidGP](http://en.robotis.com/index/product.php?cate_code=121510) to detect trash and throw it away in trash cans, effectively keeping the office environment clean. The current stage of the model allows for detection of white cups (as trash) in various backgrounds, as well as trashcan symbols. The purpose of this project is to provide a use-case example for developers who may wish to use the Jetson™ platform.  **The code in this repository has only been tested on the NVIDIA Jetson TX2.** ### How can I run this project? ``` git clone https://github.com/NVIDIA-Jetson/jetson-trashformers.git cd jetson-trashformers make sh runDetect.sh ``` The first three commands clone and compile the program. The last command runs a script which starts the program. **This program c"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/Formula1Epoch",
+    "label": "Formula1Epoch",
+    "domain": "autonomous-cars",
+    "repo": "NVIDIA-AI-IOT/Formula1Epoch",
+    "description": "An autonomous R.C. racecar which detects people.",
+    "summary": "Repository for the Formula 1 Epoch, or F1Epoch, Team. The Problem Emergency Applications The F1Epoch RACECAR Robots, Epoch and RaceX, are deployable in a wide variety of situations that can affect an office environment, from a fire to an earthquake to a furious storm. Meant to replace a fire marshal, these robots will make multiple head count assessments of the building. In essence, it will try to",
+    "readmeSnippet": "[![logo.png](https://s2.postimg.org/fwiu26nmh/Copy_of_electron.png)](https://postimg.org/image/sb5m2if4l/) Repository for the Formula 1 Epoch, or F1Epoch, Team. ## The Problem ### Emergency Applications The F1Epoch [RACECAR](http://www.jetsonhacks.com/2015/10/06/mit-racecar-walkthrough-nvidia-jetson-tk1/) Robots, **Epoch** and **RaceX**, are deployable in a wide variety of situations that can affect an office environment, from a fire to an earthquake to a furious storm. Meant to replace a fire marshal, these robots will make multiple head count assessments of the building. In essence, it will try to count humans who are still and based on sensors and a timestamp, send a report of the location of the person spotted. ### The Principle Task Explained The RACECARs are meant to use the principles of deep learning and a few neural networks to drive around given a map of a building and scan for bodies of people. Using an IMU, each person's location relative to the starting point is save"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/Electron",
+    "label": "Electron",
+    "domain": "simulation",
+    "repo": "NVIDIA-AI-IOT/Electron",
+    "description": "An autonomous deep learning indoor delivery robot made with Jetson",
+    "summary": "The code in this repository has only been tested on the NVIDIA Jetson TX2. For installation instructions please look to installation guide in the wiki here The project overview This is the GitHub repo for Electron, an indoor delivery robot. The goal of the robot is to deliver items to cubicles in an office building, be it office supplies or food. The robot must be able to autonomously drive around",
+    "readmeSnippet": "<p align=\"center\">   <img src=\"https://github.com/NVIDIA-Jetson/turtlebot3/blob/master/images/electron.png\"> </p> **The code in this repository has only been tested on the NVIDIA Jetson TX2. For installation instructions please look to installation guide in the wiki [here](https://github.com/NVIDIA-Jetson/Electron/wiki/Installation)** # The project overview This is the GitHub repo for Electron, an indoor delivery robot. The goal of the robot is to deliver items to cubicles in an office building, be it office supplies or food. The robot must be able to autonomously drive around a building while successfully retrieving and delivering these items constantly upon user request. We do this using ROS, deep learning, and various sensors. ## Hardware Expectations   * Turtlebot   * RPLidar A1   * Jetson TX2   * Logitech C920 Webcam   * USB Hub (optional) <p align=\"center\">   <img src=\"http://i.imgur.com/8u2dQ3u.jpg\"> </p> ## Navigating on Turtlebot In order to move around a building autonom"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/turtlebot3",
+    "label": "turtlebot3",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/turtlebot3",
+    "description": "Autonomous delivery robot with turtlebot3 and Jetson TX2",
+    "summary": "Hardware Setup The Turtlebot3 hardware is all open source, and you can find the STL files for the base plates of the burger and waffle on their wiki. You can 3D print extra base plates and modify your Turtlebot3 however you would like. Below is an example of a 3 level mod of the TB3 Burger. It comes with 8 base plates, and I 3D printed another one to create a 3 level mod with 3 plates on each leve",
+    "readmeSnippet": "<p align=\"center\">   <img src=\"https://github.com/NVIDIA-Jetson/turtlebot3/blob/master/images/electron.png\"> </p> ### Hardware Setup The Turtlebot3 hardware is all open source, and you can find the STL files for the base plates of the burger and waffle on their    wiki. You can 3D print extra base plates and modify your Turtlebot3 however you would like.  <p align=\"center\">   <img src=\"https://github.com/NVIDIA-Jetson/turtlebot3/blob/master/images/3dprint.png\" width=\"500\"> </p> Below is an example of a 3 level mod of the TB3 Burger. It comes with 8 base plates, and I 3D printed another one to create a 3 level mod with 3 plates on each level. This mod is more stable than the 4 level robot, and also allows for more room to add additional sensors. <p align=\"center\">   <img src=\"https://github.com/NVIDIA-Jetson/turtlebot3/blob/master/images/3levelmodburger.png\" width=\"500\"> </p> I put the entire development board with the Jetson on the 2nd level of the waffle, but on the burger there "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/redtail",
+    "label": "redtail",
+    "domain": "autonomous-cars",
+    "repo": "NVIDIA-AI-IOT/redtail",
+    "description": "Perception and AI components for autonomous mobile robotics.",
+    "summary": "NVIDIA Redtail project Autonomous visual navigation components for drones and ground vehicles using deep learning. Refer to wiki for more information on how to get started. This project contains deep neural networks, computer vision and control code, hardware instructions and other artifacts that allow users to build a drone or a ground vehicle which can autonomously navigate through highly unstru",
+    "readmeSnippet": "# NVIDIA Redtail project Autonomous visual navigation components for drones and ground vehicles using deep learning. Refer to [wiki](https://github.com/NVIDIA-Jetson/redtail/wiki) for more information on how to get started. This project contains deep neural networks, computer vision and control code, hardware instructions and other artifacts that allow users to build a drone or a ground vehicle which can autonomously navigate through highly unstructured environments like forest trails, sidewalks, etc. Our TrailNet DNN for visual navigation is running on NVIDIA's Jetson embedded platform. Our [arXiv paper](https://arxiv.org/abs/1705.02550) describes TrailNet and other runtime modules in detail. The project's deep neural networks (DNNs) can be trained from scratch using publicly available data. A few [pre-trained DNNs](../master/models/pretrained/) are also available as a part of this project. In case you want to train TrailNet DNN from scratch, follow the steps on [this page](../../w"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/tf_to_trt_image_classification",
+    "label": "tf_to_trt_image_classification",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/tf_to_trt_image_classification",
+    "description": "Image classification with NVIDIA TensorRT from TensorFlow models.",
+    "summary": "TensorFlow->TensorRT Image Classification === This contains examples, scripts and code related to image classification using TensorFlow models (from here) converted to TensorRT. Converting TensorFlow models to TensorRT offers significant performance gains on the Jetson TX2 as seen below. Models Setup Download models and create frozen graphs Convert frozen graph to TensorRT engine Execute TensorRT ",
+    "readmeSnippet": "TensorFlow->TensorRT Image Classification === <p align=\"center\"> <img src=\"data/landing_graphic.jpg\" alt=\"landing graphic\" height=\"150px\"/> </p> This contains examples, scripts and code related to image classification using TensorFlow models (from [here](https://github.com/tensorflow/models/tree/master/research/slim#Pretrained)) converted to TensorRT.  Converting TensorFlow models to TensorRT offers significant performance gains on the Jetson TX2 as seen [below](#models). * [Models](#models) * [Setup](#install) * [Download models and create frozen graphs](#download) * [Convert frozen graph to TensorRT engine](#convert) * [Execute TensorRT engine](#execute) * [Benchmark all models](#benchmark) <a name=\"models\"></a> ## Models The table below shows various details related to pretrained models ported from the TensorFlow  slim model zoo.   | <sub>Model</sub> | <sub>Input Size</sub> | <sub>TensorRT (TX2 / Half)</sub> | <sub>TensorRT (TX2 / Float)</sub> | <sub>TensorFlow (TX2 / Float)</"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/tf_trt_models",
+    "label": "tf_trt_models",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/tf_trt_models",
+    "description": "TensorFlow models accelerated with NVIDIA TensorRT",
+    "summary": "TensorFlow/TensorRT Models on Jetson ==================================== This repository contains scripts and documentation to use TensorFlow image classification and object detection models on NVIDIA Jetson. The models are sourced from the TensorFlow models repository and optimized using TensorRT. Setup Image Classification Models Download pretrained model Build TensorRT / Jetson compatible grap",
+    "readmeSnippet": "TensorFlow/TensorRT Models on Jetson ==================================== <p align=\"center\"> <img src=\"data/landing_graphic.jpg\" alt=\"landing graphic\" height=\"300px\"/> </p> This repository contains scripts and documentation to use TensorFlow image classification and object detection models on NVIDIA Jetson.  The models are sourced from the [TensorFlow models repository](https://github.com/tensorflow/models) and optimized using TensorRT. * [Setup](#setup) * [Image Classification](#ic)   * [Models](#ic_models)   * [Download pretrained model](#ic_download)   * [Build TensorRT / Jetson compatible graph](#ic_build)   * [Optimize with TensorRT](#ic_trt)   * [Jupyter Notebook Sample](#ic_notebook)   * [Train for custom task](#ic_train) * [Object Detection](#od)   * [Models](#od_models)   * [Download pretrained model](#od_download)   * [Build TensorRT / Jetson compatible graph](#od_build)   * [Optimize with TensorRT](#od_trt)   * [Jupyter Notebook Sample](#od_notebook)   * [Train for custom"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_reference_apps",
+    "label": "deepstream_reference_apps",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_reference_apps",
+    "description": "Samples for TensorRT/Deepstream for Tesla & Jetson",
+    "summary": "This repository has ceased updates, please refer to for latest DeepStream reference applications. Reference Apps using DeepStream 9.0 This repository contains the reference applications for video analytics tasks using TensorRT and DeepSTream SDK 9.0. Getting Started ## We currently provide three different reference applications: Preferably clone this project in /opt/nvidia/deepstream/deepstream/so",
+    "readmeSnippet": "# This repository has ceased updates, please refer to https://github.com/NVIDIA/deepstream for latest DeepStream reference applications. # Reference Apps using DeepStream 9.0 This repository contains the reference applications for video analytics tasks using TensorRT and DeepSTream SDK 9.0. ## Getting Started ## We currently provide three different reference applications: Preferably clone this project in `/opt/nvidia/deepstream/deepstream/sources/apps/sample_apps/` To clone the project in the above directory, sudo permission may be required. For further details, please see each project's README. ### Anomaly Detection : [README](anomaly/README.md) ###   The project contains auxiliary dsdirection plugin to show the capability of DeepstreamSDK in anomaly detection.   ![sample anomaly output](anomaly/.opticalflow.png) ### Runtime Source Addition Deletion: [README](runtime_source_add_delete/README.md) ###   The project demonstrates addition and deletion of video sources in a live Dee"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/argus_camera",
+    "label": "argus_camera",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/argus_camera",
+    "description": "Simple Python / C++ interface to CSI camera connected to NVIDIA Jetson.",
+    "summary": "Argus Camera interface for Jetson ================================= This project provides a simple Python / C++ interface to CSI cameras on the Jetson using the Tegra Multimedia API and the LibArgus. All images are returned in RGBA format for easy processing. Please note that this project experimental and is provided as a convenience for prototyping. This may not work for all CSI cameras, but has ",
+    "readmeSnippet": "Argus Camera interface for Jetson ================================= This project provides a simple Python / C++ interface to CSI cameras on the Jetson using the Tegra Multimedia API and the LibArgus.  All images are returned in RGBA format for easy processing. Please note that this project experimental and is provided as a convenience for prototyping.  This may not work for all CSI cameras, but has been tested for those in the table below.   Cameras ------- | Camera Model         | Sensor Modes | Frame Rates | |----------------------|--------------|-------------| | Jetson DevKit Camera |  TBD         |  TBD        | Setup ----- Ensure that you have flashed your Jetson to include the Tegra Multimedia API. Then, simply clone this repository and enter the following into a terminal. ```bash sudo apt-get install cmake python-pip swig cd argus_camera mkdir build cd build cmake .. make -j4 sudo make install cd .. sudo python setup.py install ``` If you are using Python 3 you replace t"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/Foresee-Navigation",
+    "label": "Foresee-Navigation",
+    "domain": "autonomous-cars",
+    "repo": "NVIDIA-AI-IOT/Foresee-Navigation",
+    "description": "Semantic-Segmentation based autonomous indoor navigation for mobile robots",
+    "summary": "Foresee Navigation Semantic-Segmentation based autonomous indoor navigation for mobile robots. The Problem The principle sensor for autonomously navigating robots is the LiDAR. However, low-cost 2D LiDARs cannot detect many man-made obstacles such as mesh-like railings, glass walls, or descending staircases, and 3D LiDARs that can detect some of these are prohibitively expensive. This project is a",
+    "readmeSnippet": "# Foresee Navigation Semantic-Segmentation based autonomous indoor navigation for mobile robots. ## The Problem The principle sensor for autonomously navigating robots is the LiDAR. However, low-cost 2D LiDARs cannot detect many man-made obstacles such as mesh-like railings, glass walls, or descending staircases, and 3D LiDARs that can detect some of these are prohibitively expensive. This project is a proof-of-concept showing that Deep Learning can provide a solution for detecting such obstacles. ## Video Demo [![Video Demo](https://i.imgur.com/AyZCMec.jpg)](https://www.youtube.com/watch?v=s1mhek5CAnw) ## Our Approach The basis of our strategy is to integrate detected obstacle locations into proven tools for autonomous navigation from the Robot Operating System. The process begins by segmenting the floor using DeepLab with ResNet V2 50. To learn about how this works in more detail, see [`this`](https://github.com/NVIDIA-Jetson/Foresee-Navigation/tree/master/ros_workspace/src/d"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/redaction_with_deepstream",
+    "label": "redaction_with_deepstream",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/redaction_with_deepstream",
+    "description": "An example of using DeepStream SDK for redaction",
+    "summary": "------------------------------------------------------ This sample application is no longer maintained ------------------------------------------------------ An example of using DeepStream SDK for redaction # The example shows how to use DeepStream SDK 7.0 for redacting faces and license plates in video streams. The example uses ResNet-10 to detect faces and license plates in the scene on a frame ",
+    "readmeSnippet": "# ------------------------------------------------------ # This sample application is no longer maintained # ------------------------------------------------------ # An example of using DeepStream SDK for redaction # <p align=\"center\">   <img src=\"images/redaction_teaser_graphics.png\"> </p> The example shows how to use DeepStream SDK 7.0 for redacting faces and license plates in video streams. The example uses ResNet-10 to detect faces and license plates in the scene on a frame by frame basis. The detected faces and license plates are then automatically redacted. The image composited with the resulting frames can be displayed on screen or be encoded to an MP4 file by the choice of user. The example runs on both NVIDIA dGPUs as well as NVIDIA jetson platforms. The example demonstrates the use of the following plugins of the DeepStream SDK – nvv4l2decoder, nvvideoconvert, nvinfer and nvdsosd. Note that the networks in the examples are trained with limited datasets. These networks sh"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_360_d_smart_parking_application",
+    "label": "deepstream_360_d_smart_parking_application",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_360_d_smart_parking_application",
+    "description": "Describes the full end to end smart parking application that is available with DeepStream 5.0",
+    "summary": "------------------------------------------------------ This sample application is no longer maintained ------------------------------------------------------ DeepStream 5.0 - 360 Degree Smart Parking Application This document describes the full end to end smart parking application that is available with DeepStream 5.0. The above architecture provides a reference to build distributed and scalable D",
+    "readmeSnippet": "# ------------------------------------------------------ # This sample application is no longer maintained # ------------------------------------------------------ # DeepStream 5.0 - 360 Degree Smart Parking Application    ![Architecture](readme-images/architecture.png?raw=true \"Architecture\") This document describes the full end to end smart parking application that is available with DeepStream 5.0. The above architecture provides a reference to build distributed and scalable DeepStream applications. ## Introduction The perception capabilities of a DeepStream application can now seamlessly be augmented with data analytics capabilities to build complete solutions, offering rich data dashboards for actionable insights. This bridging of DeepStream’s perception capabilities with data analytics frameworks is particularly useful for applications requiring long term trend analytics, global situational awareness, and forensic analysis. This also allows leveraging major Internet of Thin"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetbot",
+    "label": "jetbot",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetbot",
+    "description": "An educational AI robot based on NVIDIA Jetson Nano.",
+    "summary": "JetBot Looking for a quick way to get started with JetBot? Many third party kits are now available! JetBot is an open-source robot platform for AI learning and experimentation. The original NVIDIA JetBot reference design is an NVIDIA-designed open-source robot based on NVIDIA Jetson Nano that is Affordable - Less than $150 add-on to Jetson Nano Educational - Tutorials from basic motion to AI based",
+    "readmeSnippet": "# JetBot <!--[<img src=\"https://img.shields.io/discord/553852754058280961.svg\">](https://discord.gg/Ady6NtF) --> > Looking for a quick way to get started with JetBot?  Many third party kits are [now available](https://jetbot.org/master/third_party_kits.html)! <img src=\"../..//wiki/images/jetson-jetbot-illustration_1600x1260.png\" height=\"256\"> JetBot is an open-source robot platform for AI learning and experimentation. The original NVIDIA JetBot reference design is an NVIDIA-designed open-source robot based on NVIDIA Jetson Nano that is * **Affordable** - Less than $150 add-on to Jetson Nano * **Educational** - Tutorials from basic motion to AI based collision avoidance * **Fun!** - Interactively programmed from your web browser Building and using JetBot gives the hands on experience needed to create entirely new AI projects. The broader JetBot ecosystem also includes compatible third party kits such as SparkFun JetBot, Waveshare JetBot, and other community or vendor variants. To"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetracer",
+    "label": "jetracer",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetracer",
+    "description": "An autonomous AI racecar using NVIDIA Jetson Nano",
+    "summary": "JetRacer 6/01/2021 - JetPack 4.5.1 based image is updated. It is pre-configured for JetRacer. Detail here. JetRacer is an autonomous AI racecar using NVIDIA Jetson Nano. With JetRacer you will Go fast - Optimize for high framerates to move at high speeds Have fun - Follow examples and program interactively from your web browser By building and experimenting with JetRacer you will create fast AI pi",
+    "readmeSnippet": "# JetRacer > 6/01/2021 - JetPack 4.5.1 based image is updated. It is pre-configured for JetRacer. Detail [here](https://github.com/NVIDIA-AI-IOT/jetracer/blob/master/docs/software_setup.md#latest-release--but-not-yet-fully-verified--). <img src=\"https://user-images.githubusercontent.com/4212806/67442981-ce459e00-f5b7-11e9-9c8a-14ab360decb8.gif\" height=256> JetRacer is an autonomous AI racecar using NVIDIA Jetson Nano.  With JetRacer you will * Go fast - Optimize for high framerates to move at high speeds * Have fun - Follow examples and program interactively from your web browser By building and experimenting with JetRacer you will create fast AI pipelines and push the boundaries of speed. To get started, follow the [setup](#setup) below. ## Cars There are two different JetRacer cars that you can build.  They differ primarily in size and speed.  Which one to pick depends on your use case |  Latrax Rally | Tamiya TT02 | |--------------|---------------| | <img src=\"https://user"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetcam",
+    "label": "jetcam",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetcam",
+    "description": "Easy to use Python camera interface for NVIDIA Jetson",
+    "summary": "JetCam JetCam is an easy to use Python camera interface for NVIDIA Jetson. Works with various USB and CSI cameras using Jetson's Accelerated GStreamer Plugins Easily read images as numpy arrays with image = camera.read() Set the camera to running = True to attach callbacks to new frames JetCam makes it easy to prototype AI projects in Python, especially within the Jupyter Lab programming environme",
+    "readmeSnippet": "# JetCam JetCam is an easy to use Python camera interface for NVIDIA Jetson. *  Works with various USB and CSI cameras using Jetson's [Accelerated GStreamer Plugins](https://developer.download.nvidia.com/embedded/L4T/r32_Release_v1.0/Docs/Accelerated_GStreamer_User_Guide.pdf?uIzwdFeQNE8N-vV776ZCUUEbiJxYagieFEqUoYFM9XSf9tbslxWqFKnVHu8erbZZS20A7ADAIgmSQJvXZTb0LkuGl9GoD5HJz4263HcmYWZW0t2OeFSJKZOfuWZ-lF51Pva2DSDtu2QPs-junm7BhMB_9AMQRwExuDb5zIhf_o8PIbA4KKo) *  Easily read images as ``numpy`` arrays with ``image = camera.read()`` *  Set the camera to ``running = True`` to attach callbacks to new frames JetCam makes it easy to prototype AI projects in Python, especially within the Jupyter Lab programming environment installed in [JetCard](http://github.com/NVIDIA-AI-IOT/jetcard). If you find an issue, please [let us know](../..//issues)! ## Setup ```bash git clone https://github.com/NVIDIA-AI-IOT/jetcam cd jetcam sudo python3 setup.py install ``` > JetCam is tested against a system co"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetcard",
+    "label": "jetcard",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetcard",
+    "description": "An SD card image for web programming AI projects with NVIDIA Jetson Nano",
+    "summary": "JetCard JetCard is a system configuration that makes it easy to get started with AI. It comes pre-loaded with A Jupyter Lab server that starts on boot for easy web programming A script to display the Jetson's IP address (and other stats) The popular deep learning frameworks PyTorch and TensorFlow After configuring your system using JetCard, you can get started prototyping AI projects from your web",
+    "readmeSnippet": "# JetCard JetCard is a system configuration that makes it easy to get started with AI.  It comes pre-loaded with * A Jupyter Lab server that starts on boot for easy web programming * A script to display the Jetson's IP address (and other stats) * The popular deep learning frameworks PyTorch and TensorFlow After configuring your system using JetCard, you can get started prototyping AI projects from your web browser in Python. If you find an issue, please [let us know](../..//issues)! ## Setup Follow the steps below to download JetCard directly or create it from scratch. ### Option 1 - Download JetCard directly 1. Download a JetCard SD card image listed in below table onto a Windows, Linux or Mac *desktop machine* 2. Insert a 32GB+ SD card into the desktop machine 3. Using [Etcher](https://www.balena.io/etcher/) select the downloaded zip file and flash it onto the SD card 4. Remove the SD card from the desktop machinem the desktop machine You may now insert the SD card into the"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/torch2trt",
+    "label": "torch2trt",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/torch2trt",
+    "description": "An easy to use PyTorch to TensorRT converter",
+    "summary": "torch2trt What models are you using, or hoping to use, with TensorRT? Feel free to join the discussion here. =7.0), call the following, This enables you to run the QAT example located here. How does it work? This converter works by attaching conversion functions (like convertReLU) to the original PyTorch functional calls (like torch.nn.ReLU.forward). The sample input data is passed through the net",
+    "readmeSnippet": "# torch2trt > What models are you using, or hoping to use, with TensorRT?  Feel free to join the discussion [here](https://github.com/NVIDIA-AI-IOT/torch2trt/discussions/531).   <a href=\"https://nvidia-ai-iot.github.io/torch2trt\"><img src=\"https://img.shields.io/badge/-Documentation-brightgreen\"/></a> torch2trt is a PyTorch to TensorRT converter which utilizes the  TensorRT Python API.  The converter is * Easy to use - Convert modules with a single function call ``torch2trt`` * Easy to extend - Write your own layer converter in Python and register it with ``@tensorrt_converter`` If you find an issue, please [let us know](../..//issues)! > Please note, this converter has limited coverage of TensorRT / PyTorch.  We created it primarily > to easily optimize the models used in the [JetBot](https://github.com/NVIDIA-AI-IOT/jetbot) project.  If you find the converter helpful with other models, please [let us know](../..//issues). ## Usage Below are some usage examples, for more check"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/trt_pose",
+    "label": "trt_pose",
+    "domain": "pose-and-vision",
+    "repo": "NVIDIA-AI-IOT/trt_pose",
+    "description": "Real-time pose estimation accelerated with NVIDIA TensorRT",
+    "summary": "trtpose Want to detect hand poses? Check out the new trtposehand project for real-time hand pose and gesture recognition! trtpose is aimed at enabling real-time pose estimation on NVIDIA Jetson. You may find it useful for other NVIDIA platforms as well. Currently the project includes Pre-trained models for human pose estimation capable of running in real time on Jetson Nano. This makes it easy to ",
+    "readmeSnippet": "# trt_pose > Want to detect hand poses?  Check out the new [trt_pose_hand](http://github.com/NVIDIA-AI-IOT/trt_pose_hand) project for real-time hand pose and gesture recognition! <img src=\"https://user-images.githubusercontent.com/4212806/67125332-71a64580-f1a9-11e9-8ee1-e759a38de215.gif\" height=256/> trt_pose is aimed at enabling real-time pose estimation on NVIDIA Jetson.  You may find it useful for other NVIDIA platforms as well.  Currently the project includes - Pre-trained models for human pose estimation capable of running in real time on Jetson Nano.  This makes it easy to detect features like ``left_eye``, ``left_elbow``, ``right_ankle``, etc. - Training scripts to train on any keypoint task data in [MSCOCO](https://cocodataset.org/#home) format.  This means you can experiment with training trt_pose for keypoint detection tasks other than human pose. To get started, follow the instructions below.  If you run into any issues please [let us know](../../issues). ## Getting "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_4.x_apps",
+    "label": "deepstream_4.x_apps",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_4.x_apps",
+    "description": "deepstream 4.x samples to deploy TLT training models",
+    "summary": "FasterRCNN, SSD, and MaskRCNN samples with Deepstream SDK This repository provides 3 DeepStream sample apps based on NVIDIA DeepStream SDK. FasterRCNN sample This sample shows how to use FasterRCNN model trained with NVIDIA Transfer Learning Toolkit(TLT) SDK to do inference with DeepStream SDK. SSD sample This sample shows how to use the SSD model trained with NVIDIA Transfer Learning Toolkit(TLT)",
+    "readmeSnippet": " # FasterRCNN, SSD, and MaskRCNN samples with Deepstream SDK This repository provides 3 DeepStream sample apps based on [NVIDIA DeepStream SDK](https://developer.nvidia.com/deepstream-sdk). * **FasterRCNN sample** This sample shows how to use FasterRCNN model trained with [NVIDIA Transfer Learning Toolkit(TLT) SDK](https://developer.nvidia.com/transfer-learning-toolkit) to do inference with DeepStream SDK. * **SSD sample** This sample shows how to use the SSD model trained with [NVIDIA Transfer Learning Toolkit(TLT) SDK](https://developer.nvidia.com/transfer-learning-toolkit) to do inference with DeepStream SDK. * **MaskRCNN sample** This sample shows how to use the model trained with the [popular open sourced MaskRCNN implementation in GitHub](https://github.com/matterport/Mask_RCNN) to do inference with DeepStream SDK. These DeepStream samples support both NVIDIA Tesla and Tegra platform. The complete pipeline for these sample apps is: > filesrc->h264parse->nvv4l2decoder->streamm"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_python_apps",
+    "label": "deepstream_python_apps",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_python_apps",
+    "description": "DeepStream SDK Python bindings and sample applications",
+    "summary": "DeepStream Python Apps This repository contains Python bindings and sample applications for the DeepStream SDK. SDK version supported: 9.0 This release only supports Ubuntu 24.04 for DeepStreamSDK 9.0 with Python 3.12 and gst-python 1.24.1! Since DeepStream Python bindings are deprecated, there will be no more wheel files released from DeepStream 9.0 onwards. Please build wheels using instructions",
+    "readmeSnippet": "# DeepStream Python Apps This repository contains Python bindings and sample applications for the [DeepStream SDK](https://developer.nvidia.com/deepstream-sdk).   SDK version supported: 9.0 <b>This release only supports Ubuntu 24.04 for DeepStreamSDK 9.0 with Python 3.12 and [gst-python](3rdparty/gst-python/) 1.24.1!</b> <b>Since DeepStream Python bindings are deprecated, there will be no more wheel files released from DeepStream 9.0 onwards. Please build wheels using instructions provided in bindings README. Users are recommended to use PyServiceMaker instead.</b> The bindings sources along with build instructions are available under [bindings](bindings)! PyDS 1.2.0+ for DeepStream 7.1+ uses an updated build system for PyPA to support pip 24.2+, which deprecated setup.py command line. We include one [guide](bindings/BINDINGSGUIDE.md) for contributing to bindings and another [guide](bindings/CUSTOMUSERMETAGUIDE.md) for advanced use-cases such as writing bindings for custom data str"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson_benchmarks",
+    "label": "jetson_benchmarks",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson_benchmarks",
+    "description": "Jetson Benchmark",
+    "summary": "Benchmarks Targeted for Jetson (Using GPU+2DLA) The script will run following Benchmarks: Names : Input Image Resolution Inception V4 : 299x299 ResNet-50 : 224x224 OpenPose : 256x456 VGG-19 : 224x224 YOLO-V3 : 608x608 Super Resolution : 481x321 Unet : 256x256 For benchmark results on all NVIDIA Jetson Products; please have a look at NVIDIA jetsonbenchmark webpage Following scripts are included: In",
+    "readmeSnippet": "# Benchmarks Targeted for Jetson (Using GPU+2DLA) The script will run following Benchmarks: - Names : Input Image Resolution <br /> - Inception V4 : 299x299 <br /> - ResNet-50 : 224x224 <br /> - OpenPose : 256x456<br /> - VGG-19  : 224x224<br /> - YOLO-V3 : 608x608<br /> - Super Resolution  : 481x321<br /> - Unet : 256x256 <br /> For benchmark results on all NVIDIA Jetson Products; please have a look at [NVIDIA jetson_benchmark webpage](https://developer.nvidia.com/embedded/jetson-benchmarks) Following scripts are included: 1. Installation requirements for running benchmark script (install_requirements.sh) 2. CSV files containing parameters (benchmark_csv folder) 3. Download Model (utils/download_models.py) 4. Running Benchmark Script (benchmarks.py) ### Version Dependencies: - JetPack 4.4+ <br /> - TensorRT 7+ <br /> ### Set up instructions ``` git clone https://github.com/NVIDIA-AI-IOT/jetson_benchmarks.git``` <br /> ``` cd jetson_benchmarks ``` <br /> ``` mkdir models ``` # Op"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_tao_apps",
+    "label": "deepstream_tao_apps",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_tao_apps",
+    "description": "Sample apps to demonstrate how to deploy models trained with TAO on DeepStream",
+    "summary": "This repository has ceased updates, please refer to for latest DeepStream TAO sample applications. Integrate TAO model with DeepStream SDK Integrate TAO model with DeepStream SDK Description Prerequisites Download Download Source Code with SSH or HTTPS Download Models Triton Inference Server Build Build Sample Application Run Information for Customization TAO Models Label Files DeepStream configur",
+    "readmeSnippet": "# This repository has ceased updates, please refer to https://github.com/NVIDIA/deepstream for latest DeepStream TAO sample applications. # Integrate TAO model with DeepStream SDK - [Integrate TAO model with DeepStream SDK](#integrate-tao-model-with-deepstream-sdk)   - [Description](#description)   - [Prerequisites](#prerequisites)   - [Download](#download)     - [1. Download Source Code with SSH or HTTPS](#1-download-source-code-with-ssh-or-https)     - [2. Download Models](#2-download-models)   - [Triton Inference Server](#triton-inference-server)   - [Build](#build)     - [Build Sample Application](#build-sample-application)   - [Run](#run)   - [Information for Customization](#information-for-customization)     - [TAO Models](#tao-models)     - [Label Files](#label-files)     - [DeepStream configuration file](#deepstream-configuration-file)     - [Model Outputs](#model-outputs)       - [1. CitySemSegFormer](#1-citysemsegformer)       - [2. PoseClassification](#2-poseclassification"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
+    "label": "jetson-cloudnative-demo",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson-cloudnative-demo",
+    "description": "Multi-container demo for Jetson Xavier NX and Jetson AGX Xavier",
+    "summary": "Cloud-Native Demo on Jetson The NVIDIA Jetson platform supports cloud-native technologies and workflows such as containerization and orchestration. This support enables application development, deployment and management at scale, which is essential to deliver AI at the edge to millions of devices. This demo is built around example AI applications for a service robot use case. It was created specif",
+    "readmeSnippet": "# Cloud-Native Demo on Jetson\r ![Cloud-Native Demo](docs/demo.jpg)\r The NVIDIA Jetson platform supports cloud-native technologies and workflows such as containerization and orchestration. This support enables application development, deployment and management at scale, which is essential to deliver AI at the edge to millions of devices. \r \r This demo is built around example AI applications for a service robot use case. It was created specifically to showcase the capabilities of Jetson Xavier NX. (The complete demo will also run on Jetson AGX Xavier, but not other Jetsons, as some parts leverage Tensor cores not present in other Jetsons.)\r \r Service robots are autonomous robots that need to interact with people in retail, hospitality, healthcare, warehouse, and other settings.  For example, consider a customer service robot in a retail setting, interacting with customers and providing helpful answers to customer queries. Such a robot will need to perform the following tasks:\r \r -   Iden"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/face-mask-detection",
+    "label": "face-mask-detection",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/face-mask-detection",
+    "description": "Face Mask Detection using NVIDIA Transfer Learning Toolkit (TLT) and DeepStream for COVID-19",
+    "summary": "------------------------------------------------------ This sample application is no longer maintained ------------------------------------------------------ facemaskdetection NVIDIA Developer Blog The project shows, tutorial for NVIDIA's Transfer Learning Toolkit (TLT) + DeepStream (DS) SDK ie training and inference flow for detecting faces with mask and without mask on Jetson Platform. By the en",
+    "readmeSnippet": "# ------------------------------------------------------ # This sample application is no longer maintained # ------------------------------------------------------ # face_mask_detection [NVIDIA Developer Blog](https://developer.nvidia.com/blog/implementing-a-real-time-ai-based-face-mask-detector-application-for-covid-19/) The project shows, tutorial for NVIDIA's Transfer Learning Toolkit (TLT) + DeepStream (DS) SDK ie training and inference flow for detecting faces with mask and without mask on Jetson Platform. By the end of this project; you will be able to build DeepStream app on Jetson platform to detect faces with mask and without mask.  ![alt text](images/face-mask-detect-output.png \"Output from Face Mask Detection Application\") ### What this project includes - Transfer Learning Toolkit (TLT) scripts: \t- Dataset processing script to convert it in KITTI format  \t- Specification files for configuring tlt-train, tlt-prune, tlt-evalute - DeepStream (DS) scripts: \t- deepstream-ap"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/yolo_deepstream",
+    "label": "yolo_deepstream",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/yolo_deepstream",
+    "description": "yolo model qat and deploy with deepstream&tensorrt",
+    "summary": "Yolo DeepStream Description This repo have 4 parts: 1) yolov7qat In yolov7qat, We use TensorRT's pytorch quntization tool to Finetune training QAT yolov7 from the pre-trained weight. Finally we get the same performance of PTQ in TensorRT on Jetson OrinX. And the accuracy(mAP) of the model only dropped a little. 2) tensorrtyolov7 In tensorrtyolov7, We provide a standalone c++ yolov7-app sample here",
+    "readmeSnippet": "# Yolo DeepStream ##  Description This repo have 4 parts: ### 1) yolov7_qat In [yolov7_qat](yolov7_qat), We use [TensorRT's pytorch quntization tool](https://github.com/NVIDIA/TensorRT/tree/main/tools/pytorch-quantization) to Finetune training QAT yolov7 from the pre-trained weight.  Finally we get the same performance of PTQ in TensorRT on Jetson OrinX. And the accuracy(mAP) of the model only dropped a little. ### 2) tensorrt_yolov7 In [tensorrt_yolov7](tensorrt_yolov7), We provide a standalone c++ yolov7-app sample here. You can use trtexec to convert FP32 onnx models or QAT-int8 models exported from repo [yolov7_qat](yolov7_qat) to trt-engines. And set the trt-engine as yolov7-app's input. It can do detections on images/videos. Or test mAP on COCO dataset. ### 3) deepstream_yolo In [deepstream_yolo](deepstream_yolo), This sample shows how to integrate YOLO models with customized output layer parsing for detected objects with DeepStreamSDK. ### 4) tensorrt_yolov4 In [tensorrt_yo"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_triton_model_deploy",
+    "label": "deepstream_triton_model_deploy",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_triton_model_deploy",
+    "description": "How to deploy open source models using DeepStream and Triton Inference Server",
+    "summary": "------------------------------------------------------ This sample application is no longer maintained ------------------------------------------------------ Deploying an open source model using NVIDIA DeepStream and Triton Inference Server This repository contains contains the the code and configuration files required to deploy sample open source models video analytics using Triton Inference Serv",
+    "readmeSnippet": "# ------------------------------------------------------ # This sample application is no longer maintained # ------------------------------------------------------ # Deploying an open source model using NVIDIA DeepStream and Triton Inference Server This repository contains contains the the code and configuration files required to deploy sample open source models video analytics using Triton Inference Server and DeepStream SDK 5.0. ## Getting Started ## ### Prerequisites: ### [DeepStream SDK 5.0](https://developer.nvidia.com/deepstream-sdk) or use docker image  (nvcr.io/nvidia/deepstream:5.0.1-20.09-triton) for x86 and (nvcr.io/nvidia/deepstream-l4t:5.0-20.07-samples) for NVIDIA Jetson. The following models have been deployed on DeepStream using Triton Inference Server. For further details, please see each project's README. ### TensorFlow Faster RCNN Inception V2 : [README](faster_rcnn_inception_v2/README.md) ###   The project shows how to deploy [TensorFlow Faster RCNN Inceptio"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream-occupancy-analytics",
+    "label": "deepstream-occupancy-analytics",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream-occupancy-analytics",
+    "description": "This is a sample application for counting people entering/leaving in a building using NVIDIA Deepstream SDK, Transfer Learning Toolkit (TLT), and pre-trained models. This application can be used to build real-time occupancy analytics applications for smart buildings, hospitals, retail, etc. The application is based on deepstream-test5 sample application.",
+    "summary": "People count application With Deepstream SDK and Transfer Learning Toolkit Description Prerequisites Getting Started Build Run Output References Description This is a sample application for counting people entering/leaving in a building using NVIDIA Deepstream SDK, Transfer Learning Toolkit (TLT) and pre-trained models. This application can be used to build real-time occupancy analytics applicatio",
+    "readmeSnippet": "**People count application With Deepstream SDK and Transfer Learning Toolkit** * [Description](#description) * [Prerequisites](#prerequisites) * [Getting Started](#GettingStarted) * [Build](#build) * [Run](#run) * [Output](#output) * [References](#references) <p align=\"center\">   <img src=\"images/test.png\"> </p> ## Description    This is a sample application for counting people entering/leaving in a building using NVIDIA Deepstream SDK, Transfer Learning Toolkit (TLT) and pre-trained models. This application can be used to build real-time occupancy analytics application for smart buildings, hospitals, retail, etc. The application is based on deepstream-test5 sample application.    It takes streaming video as input, counts the number of people crossing a tripwire and sends the live data to the cloud. In this application, you will learn:   - How to use PeopleNet model from NGC   - How to use NvDsAnalytics plugin to draw line and count people crossing the line   - How to send the ana"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/ros2_torch_trt",
+    "label": "ros2_torch_trt",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/ros2_torch_trt",
+    "description": "ROS 2 packages for PyTorch and TensorRT for real-time classification and object detection on Jetson Platforms",
+    "summary": "ROS2 Real Time Classification and Detection This repository contains ROS2 packages for carrying out real time classification and detection for images using PyTorch. It also contains packages which use TensorRT to perform faster inference via torch2trt. For Object Classification users can select from a variety of pretrained models. For Object Detection, the MobileNetV1 SSD model is used. These mode",
+    "readmeSnippet": "# ROS2 Real Time Classification and Detection This repository contains ROS2 packages for carrying out real time classification and detection for images using PyTorch. It also contains packages which use TensorRT to perform faster inference via `torch2trt`. For Object Classification users can select from a variety of pretrained models. For Object Detection, the MobileNetV1 SSD model is used.  These models are converted to their TRT formats for faster inference using `torch2trt` The packages have been tested on NVIDIA Jetson Xavier AGX with Ubuntu 18.04, ROS Eloquent and PyTorch version 1.6.0   ### Package Dependencies: - Use either `image_tools`: https://github.com/ros2/demos/tree/eloquent/image_tools or `usb_camera`: https://github.com/klintan/ros2_usb_camera for obtaining the live stream of images from the webcam (if using `usb_camera` link, make sure the name of this package is `usb_camera_driver`, rename the folder if needed.) - `vision_msgs`: https://github.com/Kukanani/vis"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/ros2_trt_pose",
+    "label": "ros2_trt_pose",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/ros2_trt_pose",
+    "description": "ROS 2 package for \"trt_pose\": real-time human pose estimation on NVIDIA Jetson Platform  ",
+    "summary": "ros2trtpose NVIDIA Developer Blog In this repository, we build ros2 wrapper for trtpose for real-time pose estimation on NVIDIA Jetson. Package outputs: Pose message Pose detection image message Visualization markers Launch file for RViz Requirements: ROS 2 Eloquent: Docker Support Install Instructions trtpose Dependencies for trtpose [Install trtpose] ( Build: Clone repository under ros2 workspac",
+    "readmeSnippet": "# ros2_trt_pose [NVIDIA Developer Blog](https://developer.nvidia.com/blog/implementing-robotics-applications-with-ros-2-and-ai-on-jetson-platform-2/) In this repository, we build ros2 wrapper for [trt_pose](https://github.com/NVIDIA-AI-IOT/trt_pose) for real-time pose estimation on NVIDIA Jetson. ## Package outputs: - Pose message - Pose detection image message - Visualization markers - Launch file for RViz ![alt text](images/detected_output.png \"Output from ros2_trt_pose\") ## Requirements: - ROS 2 Eloquent: <br/>     - [Docker Support](https://github.com/NVIDIA-AI-IOT/ros2_trt_pose/blob/main/docker/README.md) <br/>     - [Install Instructions](https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Development-Setup/) <br/> - trt_pose     - [Dependencies for trt_pose](https://github.com/NVIDIA-AI-IOT/trt_pose#step-1---install-dependencies) <br/>     - [Install trt_pose] (https://github.com/NVIDIA-AI-IOT/trt_pose#step-2---install-trt_pose) <br/> ## Build: - Clone repository und"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/ros2_jetson_stats",
+    "label": "ros2_jetson_stats",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/ros2_jetson_stats",
+    "description": "ROS 2 package for monitoring and controlling NVIDIA Jetson Platform resources",
+    "summary": "ROS 2 jetsonstats NVIDIA Developer Blog ROS2 wrapper for Jetson Stats (jtop) This repository takes inspiration from ROS-jtop and creates package for ros2 (currently tested on eloquent) Pre-requisite ROS2 Eloquent Install Guide Set up Install Jetson Stats: Clone repo in ros2 workspace Build Usage The basic usage consists of creating diagnosticsmsgs and services for control fan mode/speed, setting u",
+    "readmeSnippet": "# ROS 2 jetson_stats [NVIDIA Developer Blog](https://developer.nvidia.com/blog/implementing-robotics-applications-with-ros-2-and-ai-on-jetson-platform-2/) ## ROS2 wrapper for Jetson Stats (jtop) This repository takes inspiration from [ROS-jtop](https://github.com/rbonghi/ros_jetson_stats) and creates package for ros2 (currently tested on eloquent) ## Pre-requisite ROS2 Eloquent [Install Guide](https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Development-Setup/) ## Set up 1. Install Jetson Stats: <br/> ```sudo -H pip install -U jetson-stats``` 2. Clone repo in ros2 workspace ``` cd dev_ws/src``` <br/> ``` git clone https://github.com/NVIDIA-AI-IOT/ros2_jetson_stats.git``` <br/> 3. Build ``` sudo rosdep install --from-paths ros2_jtop --ignore-src --rosdistro eloquent -y ``` <br/> ``` colcon build ``` <br/> ``` . install/setup.bash ```<br/> ### Usage The basic usage consists of creating `diagnostics_msgs` and services for control fan mode/speed, setting up `jetson_clocks`, "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/ros2_deepstream",
+    "label": "ros2_deepstream",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/ros2_deepstream",
+    "description": "ROS 2 package for NVIDIA DeepStream applications on Jetson Platforms ",
+    "summary": "------------------------------------------------------ This sample application is no longer maintained ------------------------------------------------------ DeepStreamROS2 ROS2 nodes for DeepStream applications. NVIDIA Developer Blog This work is based on sample applications from the DeepStream Python Apps project. The packages have been tested on NVIDIA Jetson AGX Xavier with Ubuntu 18.04, ROS E",
+    "readmeSnippet": "# ------------------------------------------------------ # This sample application is no longer maintained # ------------------------------------------------------ # DeepStream_ROS2 ROS2 nodes for DeepStream applications. [NVIDIA Developer Blog](https://developer.nvidia.com/blog/implementing-robotics-applications-with-ros-2-and-ai-on-jetson-platform-2/) This work is based on sample applications from the [DeepStream Python Apps](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps) project. The packages have been tested on NVIDIA Jetson AGX Xavier with Ubuntu 18.04, ROS Eloquent, DeepStream SDK 5.0 (or later) and TensorRT. The project accesses some files in the DeepStream 5.0 root location (/opt/nvidia/deepstream/deepstream/samples/). This project includes ROS2 publisher nodes which take a single/multiple video streams as input from webcam or from file: 1. **single_stream** node: This performs 2 inference tasks on a single video input: - **Object Detection:** Detects 4 classes"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_pose_estimation",
+    "label": "deepstream_pose_estimation",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_pose_estimation",
+    "description": "This is a DeepStream application to demonstrate a human pose estimation pipeline.",
+    "summary": "------------------------------------------------------ This sample application is no longer maintained ------------------------------------------------------ DeepStream Human Pose Estimation Human pose estimation is the computer vision task of estimating the configuration (‘the pose’) of the human body by localizing certain key points on a body within a video or a photo. The following application ",
+    "readmeSnippet": "# ------------------------------------------------------ # This sample application is no longer maintained # ------------------------------------------------------ # DeepStream Human Pose Estimation Human pose estimation is the computer vision task of estimating the configuration (‘the pose’) of the human body by localizing certain key points on a body within a video or a photo. The following application serves as a reference to deploy custom pose estimation models with DeepStream 5.0 using the [TRTPose](https://github.com/NVIDIA-AI-IOT/trt_pose) project as an example.  A detailed deep-dive NVIDIA Developer blog is available [here](https://developer.nvidia.com/blog/creating-a-human-pose-estimation-application-with-deepstream-sdk/?ncid=so-link-52952-vt24&sfdcid=EM08#cid=em08_so-link_en-us). <!--<img src=\"images/input.gif\" width=\"300\"/> <img src=\"images/auxillary.png\" width=\"100\"/> <img src=\"images/output.gif\" width=\"300\"/>--> <table>   <tr>     <td>Input Video Source</td>      <td><"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/trt_pose_hand",
+    "label": "trt_pose_hand",
+    "domain": "pose-and-vision",
+    "repo": "NVIDIA-AI-IOT/trt_pose_hand",
+    "description": "Real-time hand pose estimation and gesture classification using TensorRT",
+    "summary": "Hand Pose Estimation And Classification This project is an extention of TRT Pose for Hand Pose Detection. The project includes Pretrained models for hand pose estimation capable of running in real time on Jetson Xavier NX. Scripts for applications of Hand Pose Estimation Hand gesture recoginition (hand pose classification) Cursor control Mini-Paint type of application Pretrained model for gesture ",
+    "readmeSnippet": "# Hand Pose Estimation And Classification This project is an extention of TRT Pose for Hand Pose Detection. The project includes  - Pretrained models for hand pose estimation capable of running in real time on Jetson Xavier NX. - Scripts for applications of Hand Pose Estimation   -  Hand gesture recoginition (hand pose classification)       -  Cursor control       -  Mini-Paint type of application     - Pretrained model for gesture recoginition  ## Getting Started  ### Step 1 - Install trt_pose and it's dependencies  Make sure to follow all the instructions from trt_pose and install all it's depenedencies.  Follow step 1 and step 2 from https://github.com/NVIDIA-AI-IOT/trt_pose.  ### Step 2 - Install dependecies for hand pose             pip install traitlets       ### Step 3 - Download model wieght | Model | Weight | |-------|---------| | hand_pose_resnet18_baseline_att_224x224_A | [download model](https://drive.google.com/file/d/1NCVo0FiooWccDzY7hCc5MAKaoUpts3mo/view?usp=sha"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/cuPCL",
+    "label": "cuPCL",
+    "domain": "slam-mapping",
+    "repo": "NVIDIA-AI-IOT/cuPCL",
+    "description": "A project demonstrating how to use the libs of cuPCL.",
+    "summary": "cuPCL lib for Filter implemented by CUDA Sample code showing the lib usage and checking the perf and accuracy by comparing its output with PCL's A point clound: sample.pcd which has 119978 points NOTE: Now it supports two kinds of filters: PassThrough and VoxelGrid. cuSegmentation This package provides: lib for Segmentation implemented by CUDA Sample code showing the lib usage and checking the per",
+    "readmeSnippet": "# cuPCL <a><img src=\"https://img.shields.io/badge/-Documentation-bright\"/></a> cuPCL has some libraries used to process points cloud with CUDA and some samples for their usage. There are several subfolders in the project and every subfolder has: 1. lib implemented by CUDA 2. Sample code showing the lib usage and checking the perf and accuracy by comparing its output with PCL's To get started, follow the instructions below. **Xavier, Orin, and Linux x86 are supported(For Jetpack 4.x, Jetpack 5.x, and Linux x86_64 library, please check the respective branch).** If you run into any issues please [let us know](../../issues). ## Getting Started To get started, follow these steps. ### Step 1 - Install Dependencies Install PCL (Eigen included) ``` $sudo apt-get update $sudo apt-get install libpcl-dev ``` ### Step 2 - Build Enter any subfolder and then ``` make ``` ### Step 3 - Run 1. Please boost CPU and GPU firstly ``` sudo nvpmodel -m 0 sudo jetson_clocks ``` 2. Usage: ``"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/isaac_ros_apriltag",
+    "label": "isaac_ros_apriltag",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/isaac_ros_apriltag",
+    "description": "CUDA-accelerated Apriltag detection",
+    "summary": "isaacrosapriltag --- WARNING Isaac ROS Apriltag has moved to NVIDIA-ISAAC-ROS (2021-10-20). Please visit here to find new development and file issues. --- Overview This ROS2 node uses the NVIDIA GPU-accelerated AprilTags library to detect AprilTags in images and publishes their poses, IDs, and additional metadata. This has been tested on ROS2 (Foxy) and should build and run on x8664 and aarch64 (J",
+    "readmeSnippet": "# `isaac_ros_apriltag` --- **WARNING** Isaac ROS Apriltag has moved to [NVIDIA-ISAAC-ROS](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag) (2021-10-20). Please visit [here](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag) to find new development and file issues. --- ## Overview This ROS2 node uses the NVIDIA GPU-accelerated AprilTags library to detect AprilTags in images and publishes their poses, IDs, and additional metadata. This has been tested on ROS2 (Foxy) and should build and run on x86_64 and aarch64 (Jetson). It is modeled after and comparable to the ROS2 node for [CPU AprilTags detection](https://github.com/christianrauch/apriltag_ros.git). For more information on the Isaac GEM that this node is based off of, see the latest Isaac SDK documentation [here](https://docs.nvidia.com/isaac/isaac/packages/fiducials/doc/apriltags.html). For more information on AprilTags themselves, including the paper and the reference CPU implementation, click [here](https://apri"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/ros2_jetson",
+    "label": "ros2_jetson",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/ros2_jetson",
+    "description": "",
+    "summary": "ros2jetson This repository provides ROS/ROS2 related work on NVIDIA Jetson under one roof: ROS/ROS2 packages developed and publicly available on NVIDIA-AI-IOT Libraries targeted towards ROS on Jetson platform such as cuda-pcl Docker Containers and related updates Blogs and talks by NVIDIA",
+    "readmeSnippet": "# ros2_jetson This repository provides ROS/ROS2 related work on NVIDIA Jetson under one roof: - ROS/ROS2 packages developed and publicly available on NVIDIA-AI-IOT - Libraries targeted towards ROS on Jetson platform such as cuda-pcl  - Docker Containers and related updates - Blogs and talks by NVIDIA  "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_lpr_app",
+    "label": "deepstream_lpr_app",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_lpr_app",
+    "description": "Sample app code for LPR deployment on DeepStream",
+    "summary": "------------------------------------------------------------------------------------------------------------------------------------------------------- The sample has been moved to Please refer to the new link. -------------------------------------------------------------------------------------------------------------------------------------------------------- Sample For Car License Recognization",
+    "readmeSnippet": "------------------------------------------------------------------------------------------------------------------------------------------------------- The sample has been moved to https://github.com/NVIDIA-AI-IOT/deepstream_tao_apps/tree/master/apps/tao_others/deepstream_lpr_app Please refer to the new link.  -------------------------------------------------------------------------------------------------------------------------------------------------------- # Sample For Car License Recognization  - [Description](#description)  - [Performance](#performance)  - [Prerequisition](#prerequisition)  - [Download](#download)  - [Prepare Triton Server](#prepare-triton-server)  - [Build and Run](#build-and-run)  - [Notice](#notice) --- ## Description This sample is to show how to use graded models for detection and classification with DeepStream SDK version not less than 5.0.1. The models in this sample are all TAO3.0 models. `PGIE(car detection) -> SGIE(car license plate detection) -> "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/Deepstream-Dewarper-App",
+    "label": "Deepstream-Dewarper-App",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/Deepstream-Dewarper-App",
+    "description": "This project demonstrate how to infer and track from a 360 videos by using the dewarper plugin. ",
+    "summary": "------------------------------------------------------ This sample application is no longer maintained ------------------------------------------------------ Deepstream Dewarper App This project demonstrate how to infer and track from a 360 videos by using the dewarper plugin. Dewarping 360 videos helps to have better inference and tracking accuracy. This can be seen in the image above where the m",
+    "readmeSnippet": "# ------------------------------------------------------ # This sample application is no longer maintained # ------------------------------------------------------ # Deepstream Dewarper App ![](images/fisheye_panini.JPG) ![](images/dewarp_with_inference.JPG) This project demonstrate how to infer and track from a 360 videos by using the dewarper plugin.  Dewarping 360 videos helps to have better inference and tracking accuracy. This can be seen in the image above where the ml model struggles to infer in the original image but does much better in the dewarped surfaces.  It also includes a dynamic library libnvdsgst_dewarper.so which has more projection types than the libnvdsgst_dewarper.so file in the DeepStream 5.1  ## Prequisites: Please follow instructions in the apps/sample_apps/deepstream-app/README on how to install the prequisites for Deepstream SDK, the DeepStream SDK itself and the apps. - You must have the following development packages installed    GStreamer-1.0    GSt"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/tao-toolkit-triton-apps",
+    "label": "tao-toolkit-triton-apps",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/tao-toolkit-triton-apps",
+    "description": "Sample app code for deploying TAO Toolkit trained models to Triton",
+    "summary": "TAO Toolkit Triton Apps Quick Start Instructions Pre-requisites Install python dependencies Instantiate the Triton Server with sample models downloaded from NGC Running the client samples Configuring the TAO Toolkit client DetectNetv2 Configuring the DetectNetv2 model entry in the model repository Configuring the Post-processor Classification Configuring the Classification model entry in the model",
+    "readmeSnippet": "# TAO Toolkit Triton Apps - [Quick Start Instructions](#quick-start-instructions)   - [Pre-requisites](#pre-requisites)   - [Install python dependencies](#install-python-dependencies)   - [Instantiate the Triton Server with sample models downloaded from NGC](#instantiate-the-triton-server-with-sample-models-downloaded-from-ngc)   - [Running the client samples](#running-the-client-samples) - [Configuring the TAO Toolkit client](docs/configuring_the_client.md#configuring-the-client-samples)   - [DetectNet_v2](docs/configuring_the_client.md#detectnet-v2)     - [Configuring the DetectNet_v2 model entry in the model repository](docs/configuring_the_client.md#configuring-the-detectnet-v2-model-entry-in-the-model-repository)     - [Configuring the Post-processor](docs/configuring_the_client.md#configuring-the-post-processor)   - [Classification](docs/configuring_the_client.md#classification)     - [Configuring the Classification model entry in the model repository](docs/configuring_the_clien"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/my-jetson-nano-baseboard",
+    "label": "my-jetson-nano-baseboard",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/my-jetson-nano-baseboard",
+    "description": "An open source Jetson Nano baseboard and tools to design your own.",
+    "summary": "My Jetson Nano Baseboard This basic baseboard gives the user the foundation and the flexibility to design their own baseboard for the Jetson Nano. It also repurposes some of the Jetson Nano’s interface signals for simple beginner projects. This baseboard, as designed, contains: A 5V, 4A DC barrel jack 4 USB 2.0 connectors An HDMI connector A UART-to-USB bridge A debug USB A 40-pin GPIO A servo hea",
+    "readmeSnippet": "# My Jetson Nano Baseboard <img src =\"/assets/images/MyJetsonNanoBaseboardRender.png\" alt=\"Render of My Jetson Nano Baseboard\" width=\"250\"/> <img src =\"/assets/images/A00_front.jpg\" alt=\"Picture of My Jetson Nano Baseboard\" width=\"250\"/> This basic baseboard gives the user the foundation and the flexibility to design their own baseboard for the Jetson Nano. It also repurposes some of the Jetson Nano’s interface signals for simple beginner projects. This baseboard, as designed, contains: * A 5V, 4A DC barrel jack * 4 USB 2.0 connectors * An HDMI connector * A UART-to-USB bridge * A debug USB * A 40-pin GPIO * A servo header * Three user-interactive buttons (power, reset, and force recovery) * A flex connector for an OLED display Use these files to kickstart your own application-specific baseboard or implement some quick and easy projects! ## Quick Start You only need a computer to get started right now! For a more in-depth setup guide, check out `docs/setup.md`. 1.\tInstall the ap"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-multicamera-pipelines",
+    "label": "jetson-multicamera-pipelines",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson-multicamera-pipelines",
+    "description": "",
+    "summary": "Jetson Multicamera Pipelines Easy-to-use realtime CV/AI pipelines for Nvidia Jetson Platform. This project: Builds a typical multi-camera pipeline, i.e. N×(capture)->preprocess->batch->DNN-> > ->encode->file I/O + display. Uses gstreamer and deepstream under-the-hood. Gives programatic acces to configure the pipeline in python via jetmulticam package. Utilizes Nvidia HW accleration for minimal CPU",
+    "readmeSnippet": "# Jetson Multicamera Pipelines Easy-to-use realtime CV/AI pipelines for Nvidia Jetson Platform. This project: - Builds a typical multi-camera pipeline, i.e. `N×(capture)->preprocess->batch->DNN-> <<your application logic here>> ->encode->file I/O + display`. Uses `gstreamer` and `deepstream`  under-the-hood. - Gives programatic acces to configure the pipeline in python via `jetmulticam` package. - Utilizes Nvidia HW accleration for minimal CPU usage. For example, you can perform object detection in real-time on 6 camera streams using as little as `16.5%` CPU. See benchmarks below for details. ## Demos You can easily build your custom logic in python by accessing image data (via `np.array`), as well object detection results. See examples of person following below: #### DashCamNet _(DLA0)_ + PeopleNet _(DLA1)_ on 3 camera streams. We have 3 intependent cameras with ~270° field of view. Red Boxes correspond to DashCamNet detections, green ones to PeopleNet. The PeopleNet detections ar"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-stereo-depth",
+    "label": "jetson-stereo-depth",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson-stereo-depth",
+    "description": "",
+    "summary": "Jetson Stereo Depth Build your own HW-accelerated stereo camera from scratch with Nvidia Jetson. This repository contains: Stereo Pair intrinsic calibration rectify->SGBM->depth calc.) in python [x] Reference disparity pipeline with OpenCV CPU implementation [x] Calibration notebooks to determine a) intrinsic parameters and lens distortion coeficients of cameras b) rectification map between two se",
+    "readmeSnippet": "# Jetson Stereo Depth Build your own HW-accelerated stereo camera from scratch with Nvidia Jetson. ![demo gif](docs/output_disp_rgb_hstack.gif) <!-- https://user-images.githubusercontent.com/26127866/146460871-049c93b7-6757-4c77-8cde-2b619fa015ce.mp4 --> ## This repository contains: 1. Stereo Pair intrinsic calibration <img width=\"1105\" alt=\"image\" src=\"https://user-images.githubusercontent.com/26127866/193732403-dbaafe7f-dfee-4ac6-9f64-755a82845b7e.png\"> 2. Lens distortion correction <img width=\"1105\" alt=\"image\" src=\"https://user-images.githubusercontent.com/26127866/193732667-b34883ee-1501-4f8a-b81a-78f1eec8f984.png\"> 3. VPI HW-accelerated `remap()` <img width=\"1105\" alt=\"image\" src=\"https://user-images.githubusercontent.com/26127866/193731814-ff3d1252-8945-443c-8a10-2ceeb8275d60.png\"> 4. Depth calculation ![demo gif](docs/output_disp_rgb_hstack.gif) 5. 3D Printable Hardware ![IMG_4761](https://user-images.githubusercontent.com/26127866/145352427-23b812aa-ef7f-4419-975a-5bb9d"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/Nav2-with-Isaac-ROS-GEMs",
+    "label": "Nav2-with-Isaac-ROS-GEMs",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/Nav2-with-Isaac-ROS-GEMs",
+    "description": "",
+    "summary": "Nav2-with-Isaac-ROS-GEMs Through this project, we show how NVIDIA Isaac Sim and Isaac ROS GEMs can be used with the Nav2 navigation stack for robotic navigation. We focus on a real-world problem where robots are damaged due to collision with forklift tines in warehouses. This is because robot sensors (lidar) can detect the body of a forklift, but not the forks which are very close to the ground. T",
+    "readmeSnippet": "# Nav2-with-Isaac-ROS-GEMs Through this project, we show how [NVIDIA Isaac Sim](https://developer.nvidia.com/isaac-sim) and [Isaac ROS GEMs](https://developer.nvidia.com/isaac-ros-gems) can be used with the [Nav2 navigation stack](https://navigation.ros.org/) for robotic navigation. <p align=\"center\" width=\"100%\"> <img src=\"images/workflow.png\"  height=\"75%\" width=\"75%\"> </p> We focus on a real-world problem where robots are damaged due to collision with forklift tines in warehouses. This is because robot sensors (lidar) can detect the body of a forklift, but not the forks which are very close to the ground. There is a need to use other sensors in this scenario that can detect the forks. In this project, we use two RGB cameras on the robot, from which disparity is calculated using the [Isaac ROS Stereo GEM](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline). <p align=\"center\" width=\"100%\"> <img src=\"images/new_warehouse_avoidance_gif.gif\"  height=\"75%\" width=\"75%\"> </p> "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson_dla_tutorial",
+    "label": "jetson_dla_tutorial",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/jetson_dla_tutorial",
+    "description": "A tutorial for getting started with the Deep Learning Accelerator (DLA) on NVIDIA Jetson",
+    "summary": "Getting started with the Deep Learning Accelerator on NVIDIA Jetson Orin In this tutorial, we’ll develop a neural network that utilizes the Deep Learning Accelerator (DLA) on Jetson Orin. In case you’re unfamiliar, the DLA is an application specific integrated circuit on Jetson Xavier and Orin that is capable of running common deep learning inference operations, such as convolutions. This dedicate",
+    "readmeSnippet": "<!--  SPDX-FileCopyrightText: Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved. SPDX-License-Identifier: MIT  --> # Getting started with the Deep Learning Accelerator on NVIDIA Jetson Orin In this tutorial, we’ll develop a neural network that utilizes the Deep Learning Accelerator (DLA) on Jetson Orin.  In case you’re unfamiliar, the DLA is an application specific integrated circuit on Jetson Xavier and Orin that is capable of running common deep learning inference operations, such as convolutions.  This dedicated hardware is power efficient, and allows you to offload work from the GPU, freeing it for other tasks.  If you’re interested in better utilizing the full capabilities of your Jetson platform, this tutorial is for you. To demonstrate how to use the DLA, we’ll run through the entire modeling process; from designing and training an architecture in PyTorch, to calibrating the model for INT8 precision, to profiling and validating the model.  We hope this w"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/ros2_tao_pointpillars",
+    "label": "ros2_tao_pointpillars",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/ros2_tao_pointpillars",
+    "description": "ROS2 node for 3D object detection using TAO-PointPillars.",
+    "summary": "ROS2 node for TAO-PointPillars This is a ROS2 node for 3D object detection in point clouds using TAO-PointPillars for inference with TensorRT. Node details: Input: Takes point cloud data in PointCloud2 format on the topic /pointcloud. Each point in the data must contain 4 features - (x, y, z) position coordinates and intensity. ROS2 bags for testing the node, provided by Zvision, can be found here",
+    "readmeSnippet": "# ROS2 node for TAO-PointPillars This is a ROS2 node for 3D object detection in point clouds using [TAO-PointPillars](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/pointpillarnet) for inference with TensorRT. <p align=\"middle\"> <img src=\"images/feature_gif.gif\"  height=\"75%\" width=\"75%\"> </p> Node details: - Input: Takes point cloud data in [PointCloud2](http://docs.ros.org/en/lunar/api/sensor_msgs/html/msg/PointCloud2.html) format on the topic `/point_cloud`. Each point in the data must contain 4 features - (x, y, z) position coordinates and intensity. ROS2 bags for testing the node, provided by Zvision, can be found [here](https://github.com/ZVISION-lidar/zvision_ugv_data). - Output: Outputs inference results in [Detection3DArray](http://docs.ros.org/en/lunar/api/vision_msgs/html/msg/Detection3DArray.html) format on the topic `/bbox`. This contains the class ID, score and 3D bounding box information of detected objects. - Inference model: You can train a model on you"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_parallel_inference_app",
+    "label": "deepstream_parallel_inference_app",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_parallel_inference_app",
+    "description": "A project demonstrating how to use nvmetamux to run multiple models in parallel.",
+    "summary": "Parallel Multiple Models App ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ This sample has been moved to Please refer to the new link. ----------------------------------------------------------------------------------------------------------------------------------------",
+    "readmeSnippet": "# Parallel Multiple Models App ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ This sample has been moved to https://github.com/NVIDIA-AI-IOT/deepstream_reference_apps/tree/master/deepstream_parallel_inference_app Please refer to the new link. ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ## Introduction The parallel inferencing application constructs the parallel inferencing branches pipeline as the following graph, so that the multiple models can run in parallel in one piepline. ![Pipeline_Diagram](common.png) ## Main Features * Support multiple models inference with [nvinfer](https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvinfer.html)(TensorRT) or [nvinferserver](https://docs.nvidia.com/metropo"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_dockers",
+    "label": "deepstream_dockers",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_dockers",
+    "description": "A project demonstrating how to make DeepStream docker images.",
+    "summary": "DeepStream 9.0 Open Source Dockerfiles Guide The documentation here is intended to help customers build the Open Source DeepStream Dockerfiles. This information is useful for both x86 systems with dGPU setup and NVIDIA Jetson Thor only devices. Improvements from previous releases. (A) Building Jetson Thor dockers on x86 Linux PCs (cross-compile on x86). (B) Dockerfiles into different directories b",
+    "readmeSnippet": "# DeepStream 9.0 Open Source Dockerfiles Guide The documentation here is intended to help customers build the Open Source DeepStream Dockerfiles. This information is useful for both x86 systems with dGPU setup and NVIDIA Jetson Thor only devices. Improvements from previous releases.    (A) Building Jetson Thor dockers on x86 Linux PCs (cross-compile on x86).   (B) Dockerfiles into different directories based on platform (Jetson or x86).   (C) Build setup files to put all of the files in correct location for the various build x86 and x86 crosss-compile (for Jetson).   NOTE: Jetson Thor support only. Also x86 uses CUDA 13.1 and Jetson Thor uses Cuda 13. ## 1 Additional Installation to use all DeepStreamSDK Features within the docker container. Since DS 6.3, deepStream docker containers do NOT package libraries necessary for certain multimedia operations like audio data parsing, CPU decode, and CPU encode. This change could affect processing certain video streams/files like mp4 tha"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetnet",
+    "label": "jetnet",
+    "domain": "simulation",
+    "repo": "NVIDIA-AI-IOT/jetnet",
+    "description": "Easy to use neural networks for NVIDIA Jetson (and desktop too!)",
+    "summary": "JetNet JetNet is a collection of models, datasets, and tools that make it easy to explore neural networks on NVIDIA Jetson (and desktop too!). It can easily be used and extended with Python. Check out the documentation to learn more and get started! It's easy to use JetNet comes with tools that allow you to easily build, profile and demo models. This helps you easily try out models to see what is ",
+    "readmeSnippet": "# JetNet <a href=\"https://nvidia-ai-iot.github.io/jetnet\"><img src=\"https://img.shields.io/badge/-Documentation-brightgreen\"/></a> > What models or features are you interested in seeing in JetNet?  [Let us know](https://github.com/NVIDIA-AI-IOT/jetnet/discussions/5)! <img src=\"https://user-images.githubusercontent.com/4212806/191136464-8f3c05fc-9e70-4678-9402-6d4d8232661b.gif\" height=\"25%\" width=\"25%\"/><img src=\"https://user-images.githubusercontent.com/4212806/191136616-06ce3640-7e35-45a3-8b2e-7f7a5b9b7f28.gif\" height=\"25%\" width=\"25%\"/><img src=\"https://user-images.githubusercontent.com/4212806/191136450-4b2d55c1-c3c7-47d6-996e-11c62448747b.gif\" height=\"25%\" width=\"25%\"/><img src=\"https://user-images.githubusercontent.com/4212806/191137124-7dae37a3-a659-4e3e-8373-9a1c44b57e48.gif\" height=\"25%\" width=\"25%\"/><img src=\"https://user-images.githubusercontent.com/4212806/191136896-e42ab4d9-3a2f-4553-a1c7-49c59fc7e7a2.gif\" height=\"25%\" width=\"25%\"/> <img src=\"https://user-images.githubuse"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream-retail-analytics",
+    "label": "deepstream-retail-analytics",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream-retail-analytics",
+    "description": "A DeepStream sample application demonstrating end-to-end retail video analytics for brick-and-mortar retail.",
+    "summary": "Description This is a sample application to perform real-time Intelligent Video Analytics (IVA) in a brick and mortar retail environment using NVIDIA DeepStream, TAO, and pre-trained models. DeepStream is used to run DL inference on a video feed inside a store to detect and track customers, and identify whether the detected persons are carrying shopping baskets. The inference output of this Comput",
+    "readmeSnippet": "# Description This is a sample application to perform real-time Intelligent Video Analytics (IVA) in a brick and mortar retail environment using NVIDIA DeepStream, TAO, and pre-trained models. DeepStream is used to run DL inference on a video feed inside a store to detect and track customers, and identify whether the detected persons are carrying shopping baskets. The inference output of this Computer Vision (CV) pipeline is streamed, using Kafka, to a Time-Series Database (TSDB) for archival and further processing. A Django app serves a REST-ful API to query insights based on the inference data. We also demonstrate a sample front-end dashboard to quickly visualize the various Key Performance Indicators (KPIs) available through the Django app. This application is based on deepstream-test4 and deepstream-test5 sample applications included with DeepStream. The architecture diagram below shows how all the components are connected. ![](./media/output.gif) What is this DeepStream pipeli"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/tensorrt_plugin_generator",
+    "label": "tensorrt_plugin_generator",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/tensorrt_plugin_generator",
+    "description": "A simple tool that can generate TensorRT plugin code quickly.",
+    "summary": "TPG: TensorRT Plugin Generator TPG: TensorRT Plugin Generator Installation 1.1 Install from source code 1.2 install from pypi Usage 2.1 Generate plugin yaml for Unsupported Operators 2.2 Complete the yaml config 2.3 Generate Plugin Codes From the plugin yaml 2.4 Finish The Plugin Inference Kennel Best Practice TPG is a tool that can quickly generate the plugin code(NOT INCLUDE THE INFERENCE KERNEL",
+    "readmeSnippet": "# TPG: TensorRT Plugin Generator - [TPG: TensorRT Plugin Generator](#tpg-tensorrt-plugin-generator)   - [1. Installation](#1-installation)     - [1.1 Install from source code](#11-install-from-source-code)     - [1.2 install from pypi](#12-install-from-pypi)   - [2. Usage](#2-usage)     - [2.1 Generate plugin yaml for Unsupported Operators](#21-generate-plugin-yaml-for-unsupported-operators)     - [2.2 Complete the yaml config](#22-complete-the-yaml-config)     - [2.3 Generate Plugin Codes From the plugin yaml](#23-generate-plugin-codes-from-the-plugin-yaml)     - [2.4 Finish The Plugin Inference Kennel](#24-finish-the-plugin-inference-kennel)   - [3. Best Practice](#3-best-practice) TPG is a tool that can quickly generate the plugin code(**NOT INCLUDE THE INFERENCE KERNEL IMPLEMENTATION**) for TensorRT unsupported operators. the user only need to focus on the plugin kernel implementation and doesn't need to worry about how does TensorRT plugin works or how to use the plugin API. ## "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/Lidar_AI_Solution",
+    "label": "Lidar_AI_Solution",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/Lidar_AI_Solution",
+    "description": "A project demonstrating Lidar related AI solutions, including three GPU accelerated Lidar/camera DL networks (PointPillars, CenterPoint, BEVFusion) and the related libs (cuPCL, 3D SparseConvolution, YUV2RGB, cuOSD,).",
+    "summary": "Lidar AI Solution This is a highly optimized solution for self-driving 3D-lidar repository. It does a great job of speeding up sparse convolution/CenterPoint/BEVFusion/OSD/Conversion. Pipeline overview GetStart For each specific task please refer to the readme in the sub-folder. 3D Sparse Convolution A tiny inference engine for 3d sparse convolutional networks using int8/fp16. Tiny Engine: Tiny Li",
+    "readmeSnippet": "<h1 style=\"text-align: center\">Lidar AI Solution</h1> This is a highly optimized solution for self-driving 3D-lidar repository. It does a great job of speeding up sparse convolution/CenterPoint/BEVFusion/OSD/Conversion. ![title](assets/title.png) ## Pipeline overview ![pipeline](assets/pipeline.png) ## GetStart ``` $ git clone --recursive https://github.com/NVIDIA-AI-IOT/Lidar_AI_Solution $ cd Lidar_AI_Solution ``` - For each specific task please refer to the readme in the sub-folder. ## 3D Sparse Convolution A tiny inference engine for [3d sparse convolutional networks](https://github.com/tianweiy/CenterPoint/blob/master/det3d/models/backbones/scn.py) using int8/fp16. - **Tiny Engine:** Tiny Lidar-Backbone inference engine independent of TensorRT. - **Flexible:** Build execution graph from ONNX. - **Easy To Use:** Simple interface and onnx export solution. - **High Fidelity:** Low accuracy drop on nuScenes validation. - **Low Memory:** 422MB@SCN FP16, 426MB@SCN INT8. - **Compact:*"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/sdg_pallet_model",
+    "label": "sdg_pallet_model",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/sdg_pallet_model",
+    "description": "A pallet model trained with SDG optimized for NVIDIA Jetson.",
+    "summary": "SDG Pallet Model This repository contains code for performing optimized TensorRT inference with a pre-trained pallet detection model that was trained using synthetic data with NVIDIA Omniverse Replicator. The model takes as input a monocular RGB image, and outputs the pallet box estimates. The box esimates are defined for each pallet side face. So a single pallet may have multiple box estimates. I",
+    "readmeSnippet": "# SDG Pallet Model <img src=\"images/test_image_1_output.jpg\" height=\"256\"/> This repository contains code for performing optimized TensorRT inference with a pre-trained  pallet detection model that was trained using synthetic data with [NVIDIA Omniverse Replicator](https://developer.nvidia.com/omniverse/replicator).    The model takes as input a monocular RGB image, and outputs the pallet box estimates.  The box esimates are defined for each pallet side face.  So a single pallet may have multiple box estimates.  If you have any questions, please feel free to reach out by opening an issue! ## Instructions ### Step 1 - Install dependencies Assumes you've already set up your system with OpenCV, PyTorch and numpy. Install einops for some utility functions. ```bash pip3 install einops ``` Install [torch2trt](https://github.com/NVIDIA-AI-IOT/torch2trt).  This is used for the ``TRTModule`` class which simplifies engine inference. ```bash git clone https://github.com/NVIDIA-AI-IOT/to"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/clip-distillation",
+    "label": "clip-distillation",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/clip-distillation",
+    "description": "Zero-label image classification via OpenCLIP knowledge distillation",
+    "summary": "CLIP Knowledge Distillation This repository contains code and instructions that enable you to create your own customized image classification models with zero-labeled data, by performing knowledge distillation of OpenCLIP models. Even if you don't need an image classifier directly, you may find this project helpful as inspiration for how you can use knowledge distillation to optimized models for i",
+    "readmeSnippet": "# CLIP Knowledge Distillation <img src=\"assets/overview.png\" height=\"320\"/> This repository contains code and instructions that enable you to create your own customized image classification models with zero-labeled data, by performing knowledge distillation of OpenCLIP models. Even if you don't need an image classifier directly, you may find this project helpful as inspiration for how you can use knowledge distillation to optimized models for inference, or as an example of how to train models with quantization aware training and structured sparsity for inference on NVIDIA Jetson.  This project includes, 1. Scripts to search and download relevant data from the LAION database to use for distillation 2. Scripts to distil any OpenCLIP model to any Pytorch image models (timm) CNN model.     - Supports Quantization Aware Training (QAT) for downstream INT8 inference     - Supports training to enforce 2:4 structured sparsity with the ASP library 3. Scripts to run inference with NVIDIA Te"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-intro-to-distillation",
+    "label": "jetson-intro-to-distillation",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/jetson-intro-to-distillation",
+    "description": "A tutorial introducing knowledge distillation as an optimization technique for deployment on NVIDIA Jetson",
+    "summary": "Jetson Introduction to Knowledge Distillation This repository contains tutorial that is an introduction to the subject of knowledge distillation, which can be a helpful tool to use when deploying large models to the edge. In this tutorial, we explore knowledge distillation by transfering the knowledge from the OpenCLIP vision-language model into a ResNet18 model for the purpose of classification o",
+    "readmeSnippet": "# Jetson Introduction to Knowledge Distillation <img src=\"assets/landing_graphic.jpg\" height=\"320\"/> This repository contains tutorial that is an introduction to the subject of knowledge distillation, which can be a helpful tool to use when deploying large models to the edge. In this tutorial, we explore knowledge distillation by transfering the knowledge from the OpenCLIP vision-language model into a ResNet18 model for the purpose of classification on the STL10 dataset.  We'll explore how the data used for distillation, the methods used for distillation, and model architecture impact the final accuracy.  We'll also discuss how you can profile and optimize models for final real-time deployment on NVIDIA Jetson Orin Nano. This tutorial can help you learn how to take large existing models, and transfer knoweldge for use with architectures that are better suited for edge deployment because they have lower memory consumption, higher throughput, or better architecture support (ie: run"
+  }
+]

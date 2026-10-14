@@ -169,9 +169,9 @@ export function expandQuery(text: string): string {
 
 // Dot product for L2-normalized vectors (equivalent to Cosine Similarity)
 function cosineSimilarity(a: number[], b: number[]): number {
+  if (!a || !b || a.length !== b.length) return 0;
   let dot = 0;
-  const len = Math.min(a.length, b.length);
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i < a.length; i++) {
     const valA = a[i];
     const valB = b[i];
     if (valA !== undefined && valB !== undefined) {
@@ -212,18 +212,14 @@ export interface SemanticEdge {
   score: number;
 }
 
-const SEMANTIC_TOP_K = 4;
-// Sanity floor only (observed best-match scores range ~0.37-1.0) — not tuned
-// as a quality cutoff. A per-node absolute cutoff here would strand any
-// project whose embedding just sits in a sparser part of the space (e.g.
-// niche/deprecated repos), even though it still has a clear best match.
-// Every node keeps its top-K neighbors regardless of how weak the best one is.
-const SEMANTIC_MIN_SCORE = 0.3;
+const SEMANTIC_TOP_K = 2;
+// Floor cutoff for high-confidence semantic connectivity (Nemotron-3-embed-1b)
+const SEMANTIC_MIN_SCORE = 0.48;
 
 let cachedSemanticEdges: SemanticEdge[] | null = null;
 
 /**
- * Derives a graph purely from Ternlight embedding similarity: each node's
+ * Derives a graph purely from embedding similarity: each node's
  * top-K nearest neighbors above a similarity floor, deduped by unordered
  * pair (higher score wins when both sides qualify). Computed once and
  * cached — offers an alternative to the hand-curated manifest edges so you
@@ -261,13 +257,15 @@ export function getSemanticEdges(): SemanticEdge[] {
 }
 
 /**
- * Perform hybrid semantic search using Ternlight embeddings + domain concept expansion.
+ * Perform hybrid semantic search using domain concept expansion + tiered lexical/fuzzy matching.
  */
 export function searchProjects(query: string, maxResults = 12): NodeMatch[] {
   const qClean = query.trim().toLowerCase();
   if (!qClean) return [];
 
   const expanded = expandQuery(qClean);
+  const queryWords = new Set(tokenize(qClean));
+  const expansionTerms = tokenize(expanded).filter((t) => !queryWords.has(t) && t.length > 2);
 
   let qVec: number[] | null = null;
   if (embedFn) {
@@ -284,8 +282,8 @@ export function searchProjects(query: string, maxResults = 12): NodeMatch[] {
     let score = 0;
     const targetVec = embeddings[node.id];
 
-    if (qVec && targetVec) {
-      // 1. Semantic Cosine Similarity
+    if (qVec && targetVec && qVec.length === targetVec.length) {
+      // 1. Semantic Cosine Similarity (when vector dimensions match)
       score = cosineSimilarity(qVec, targetVec);
     }
 
@@ -303,6 +301,17 @@ export function searchProjects(query: string, maxResults = 12): NodeMatch[] {
     }
 
     score += Math.max(labelScore, descScore, topicsScore);
+
+    // 3. Domain concept expansion boost (e.g. "aruco" boosts "apriltag" & fiducial markers)
+    if (expansionTerms.length > 0) {
+      let expBoost = 0;
+      for (const term of expansionTerms) {
+        if (labelLower.includes(term)) expBoost += 0.25;
+        else if (topicsLower.some((t) => t.includes(term))) expBoost += 0.2;
+        else if (descLower.includes(term) || summaryLower.includes(term)) expBoost += 0.1;
+      }
+      score += Math.min(expBoost, 0.35);
+    }
 
     // Include nodes with a positive score threshold
     if (score > 0.05) {

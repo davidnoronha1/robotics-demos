@@ -1,0 +1,668 @@
+[
+  {
+    "id": "NVlabs/vla-perf",
+    "label": "vla-perf",
+    "domain": "foundation-models",
+    "repo": "NVlabs/vla-perf",
+    "description": "A performance analysis tool for VLA models",
+    "summary": "VLA-Perf: Performance Modeling for Vision-Language-Action Models in Robotics This repository provides analytical performance modeling tools for Vision-Language-Action (VLA) models — the emerging class of foundation models that combine vision encoders, language model backbones, and action prediction heads to control robots directly from images and language instructions. 📄 Paper: How Fast Can I Run",
+    "readmeSnippet": "# VLA-Perf: Performance Modeling for Vision-Language-Action Models in Robotics This repository provides analytical performance modeling tools for **Vision-Language-Action (VLA)** models — the emerging class of foundation models that combine vision encoders, language model backbones, and action prediction heads to control robots directly from images and language instructions.  📄 Paper: [How Fast Can I Run My VLA? Demystifying VLA Inference Performance with VLA-Perf](https://arxiv.org/pdf/2602.18397) <p align=\"center\">   <img src=\"files/Overview-VLA-Perf.png\" width=\"90%\"> </p> VLA-Perf models the **inference latency** of VLA architectures across: - **Hardware platforms**: Data center GPUs (A100, H100, B100), edge GPUs (RTX 4090), and embedded devices (NVIDIA Jetson family) - **Network conditions**: WiFi 5/6/6E/7, 4G/5G cellular, Ethernet (1G–400G), and cloud links - **Deployment scenarios**: On-device, edge-server, cloud, and device-server collaboration (split inference) - **Archite"
+  },
+  {
+    "id": "NVlabs/PointWorld",
+    "label": "PointWorld",
+    "domain": "simulation",
+    "repo": "NVlabs/PointWorld",
+    "description": "PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation",
+    "summary": "PointWorld Training and Evaluation Pipeline for \"PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation\". 1,† , 2 , 2 , 2 , 2 , 2, , 1, 1 Stanford University, 2 NVIDIA Equal advising † Work done partly at NVIDIA PointWorld is a large pre-trained 3D world model that predicts full-scene 3D point flows from partially observable RGB-D captures and robot actions, also represented as 3",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. SPDX-License-Identifier: Apache-2.0 --> <h1 align=\"center\">PointWorld</h1> <p align=\"center\"> Training and Evaluation Pipeline for \"PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation\". </p> <p align=\"center\">   <a href=\"https://github.com/NVlabs/PointWorld\"><img src=\"https://img.shields.io/badge/Code-NVlabs%2FPointWorld-0969da.svg\" alt=\"Code Repository\"></a>   <a href=\"https://point-world.github.io/\"><img src=\"https://img.shields.io/badge/Project-Website-2ea44f.svg\" alt=\"Project Website\"></a>   <a href=\"https://arxiv.org/pdf/2601.03782\"><img src=\"https://img.shields.io/badge/Paper-PDF-1f6feb.svg\" alt=\"Paper PDF\"></a>   <a href=\"https://arxiv.org/abs/2601.03782\"><img src=\"https://img.shields.io/badge/arXiv-2601.03782-b31b1b.svg\" alt=\"arXiv\"></a>   <a href=\"https://youtu.be/XPOsCwrYdk0\"><img src=\"https://img.shields.io/badge/Video-YouTube-red.svg\" alt=\"Video\"></a"
+  },
+  {
+    "id": "NVlabs/alpamayo1.5",
+    "label": "alpamayo1.5",
+    "domain": "autonomous-cars",
+    "repo": "NVlabs/alpamayo1.5",
+    "description": "NVIDIA Alpamayo 1.5 Nano is an open 10B reasoning VLA model for autonomous vehicles with reinforcement-learning enhanced reasoning, navigation guidance, and visual question answering.",
+    "summary": "🏔️ Alpamayo 1.5 Supercharging Autonomous Driving with Interactive, Steerable Reasoning Updates [May 2026] SFT and RL post-training scripts are available in Alpamayo Recipes: Alpamayo 1.5 SFT and Alpamayo 1.x RL post-training. 📖 Please read the HuggingFace Model Card first! The model card contains comprehensive details on model architecture, inputs/outputs, licensing, and tested hardware configur",
+    "readmeSnippet": "<div align=\"center\"> # 🏔️ Alpamayo 1.5 ### Supercharging Autonomous Driving with Interactive, Steerable Reasoning [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Model-Alpamayo--1.5--10B-blue)](https://huggingface.co/nvidia/Alpamayo-1.5-10B) [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](./LICENSE) </div> ## Updates - [May 2026] SFT and RL post-training scripts are available in [Alpamayo Recipes](https://github.com/NVlabs/alpamayo-recipes): [Alpamayo 1.5 SFT](https://github.com/NVlabs/alpamayo-recipes/tree/main/recipes/alpamayo1_5_sft) and [Alpamayo 1.x RL post-training](https://github.com/NVlabs/alpamayo-recipes/tree/main/recipes/alpamayo1_x_rl). **📖 Please read the [HuggingFace Model Card](https://huggingface.co/nvidia/Alpamayo-1.5-10B) first!** The model card contains comprehensive details on model architecture, inputs/outputs, licensing, and tested hardware configurations. This GitHub README focuses on setup, usage, and frequently ask"
+  },
+  {
+    "id": "NVlabs/GEM-X",
+    "label": "GEM-X",
+    "domain": "simulation",
+    "repo": "NVlabs/GEM-X",
+    "description": "Monocular whole-body 3D human pose estimation using the SOMA body model",
+    "summary": "GEM: A Generalist Model for Human Motion Monocular whole-body 3D human pose estimation using the SOMA body model --- 2D Keypoint Overlay In-Camera Mesh Global Mesh Retargeted G1 Motion 📰 News [2025-06] 📢 Added ONNX/TensorRT accelerated demo (demosomaonnx.py) — see Demo docs [2025-06] 📢 Added humanoid robot retargeting to Unitree G1 (--retarget) [2025-05] 📢 The GEM codebase is released! 🔎 Over",
+    "readmeSnippet": "<h1 align=\"center\">GEM: A Generalist Model for Human Motion</h1> <p align=\"center\">   <em>Monocular whole-body 3D human pose estimation using the SOMA body model</em> </p> <p align=\"center\">   <a href=\"https://research.nvidia.com/labs/dair/gem/\"><img src=\"https://img.shields.io/badge/Project-Page-0099cc\"></a>   <a href=\"https://arxiv.org/abs/2505.01425\"><img src=\"https://img.shields.io/badge/arXiv-2505.01425-b31b1b.svg\"></a>   <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/License-Apache_2.0-green\"></a>   <a href=\"https://www.python.org/\"><img src=\"https://img.shields.io/badge/Python-3.10%2B-blue\"></a>   <a href=\"https://pytorch.org/\"><img src=\"https://img.shields.io/badge/PyTorch-2.10%2B-ee4c2c\"></a>   <a href=\"https://developer.nvidia.com/cuda/toolkit\"><img src=\"https://img.shields.io/badge/CUDA-12.6%2B-76b900\"></a> </p> --- <p align=\"center\">   <img src=\"assets/demo_2d_keypoints.gif\" width=\"30%\" alt=\"2D Keypoint Overlay\">   <img src=\"assets/demo_incam_mesh.gif\" width=\""
+  },
+  {
+    "id": "NVlabs/GR00T-VisualSim2Real",
+    "label": "GR00T-VisualSim2Real",
+    "domain": "foundation-models",
+    "repo": "NVlabs/GR00T-VisualSim2Real",
+    "description": "GR00T-VisualSim2Real: Open-source sim-to-real framework for humanoid visual loco-manipulation. Train in simulation, deploy zero-shot on real robots with RGB + proprioception for tasks like pick-and-place and door opening.",
+    "summary": "GR00T-VisualSim2Real VIRAL Visual Sim-to-Real at Scale for Humanoid Loco-Manipulation DoorMan Opening the Sim-to-Real Door for Humanoid Pixel-to-Action Policy Transfer Overview This repository contains the application code for VIRAL (Visual Sim-to-Real for Humanoid Loco-Manipulation) and DoorMan. The system enables humanoid robots (e.g., Unitree G1) to perform complex tasks like opening heavy door",
+    "readmeSnippet": "<div align=\"center\"> # GR00T-VisualSim2Real <table>   <tr>     <td align=\"center\" valign=\"top\" width=\"50%\">       <p><b>VIRAL</b><br><br><b>Visual Sim-to-Real at Scale for<br>Humanoid Loco-Manipulation</b></p>       <a href=\"https://arxiv.org/abs/2511.15200\"><img src=\"https://img.shields.io/badge/arXiv-2511.15200-b31b1b.svg\" alt=\"VIRAL Paper\"></a>       <a href=\"https://viral-humanoid.github.io/\"><img src=\"https://img.shields.io/badge/Project-Page-blue.svg\" alt=\"VIRAL Project Page\"></a>       <a href=\"https://github.com/NVlabs/GR00T-VisualSim2Real/tree/main\"><img src=\"https://img.shields.io/badge/Code-viral-lightgrey.svg\" alt=\"VIRAL Code\"></a>       <br><br>       <img src=\"./media/viral-teaser.gif\" width=\"100%\">     </td>     <td align=\"center\" valign=\"top\" width=\"50%\">       <p><b>DoorMan</b><br><br><b>Opening the Sim-to-Real Door for<br>Humanoid Pixel-to-Action Policy Transfer</b></p>       <a href=\"https://arxiv.org/abs/2512.01061\"><img src=\"https://img.shields.io/badge/arXiv-25"
+  },
+  {
+    "id": "NVlabs/alpamayo-recipes",
+    "label": "alpamayo-recipes",
+    "domain": "autonomous-cars",
+    "repo": "NVlabs/alpamayo-recipes",
+    "description": "Developer Hub for NVIDIA Alpamayo, containing ready-to-use recipes for fine-tuning, reinforcement-learning post-training, quantization, and deployment.",
+    "summary": "NVIDIA Alpamayo Developer Hub Open platform for reasoning-based autonomous driving. Vision Language Action models, closed-loop simulation, reinforcement learning, reasoning-based auto-labeling, and open driving datasets for transparent driving. --- What's New NVIDIA Alpamayo 2 Super is an open 34B reasoning Vision Language Action model for end-to-end autonomous driving, built on the NVIDIA Cosmos ",
+    "readmeSnippet": "# NVIDIA Alpamayo Developer Hub **Open platform for reasoning-based autonomous driving.** Vision Language Action models, closed-loop simulation, reinforcement learning, reasoning-based auto-labeling, and open driving datasets for transparent driving. <div align=\"center\"> [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0) [![arXiv](https://img.shields.io/badge/arXiv-2511.00088-b31b1b.svg)](https://arxiv.org/abs/2511.00088) [![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Models-yellow)](https://huggingface.co/nvidia) [![NVIDIA Forum](https://img.shields.io/badge/NVIDIA%20Forum-Alpamayo-76B900.svg)](https://forums.developer.nvidia.com/c/autonomous-vehicles/alpamayo/766) [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md) [![Challenges](https://img.shields.io/badge/🏆%20Challenges-2026-orange.svg)](#participate-in-challenges) </div"
+  },
+  {
+    "id": "NVlabs/alpagym",
+    "label": "alpagym",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/alpagym",
+    "description": "AlpaGym is a reinforcement-learning framework for end-to-end autonomous-driving policies.",
+    "summary": "AlpaGym AlpaGym is a reinforcement-learning framework for end-to-end autonomous-driving policies. It runs a policy in closed loop inside a simulator, scores the resulting drives, and trains on them — so the policy learns from the consequences of its own steering rather than from logged ground truth alone. It stands on two systems: AlpaSim provides the closed-loop simulator (the environment), and C",
+    "readmeSnippet": "# AlpaGym AlpaGym is a reinforcement-learning framework for end-to-end autonomous-driving policies. It runs a policy in closed loop inside a simulator, scores the resulting drives, and trains on them — so the policy learns from the consequences of its own steering rather than from logged ground truth alone. It stands on two systems: [AlpaSim](https://github.com/NVlabs/alpasim) provides the closed-loop simulator (the environment), and [Cosmos-RL](https://github.com/nvidia-cosmos/cosmos-rl) provides distributed rollout and training orchestration (the trainer). AlpaGym is the harness that wires them to a driving policy and keeps the interfaces small enough to swap any one piece. AlpaGym is in early but active development. It currently supports the [Alpamayo 1.5](https://github.com/NVlabs/alpamayo1.5) model with 10b parameters. Current work focuses on throughput and scaling, and on supporting more models and training algorithms. ## Table of Contents - [Support](#support) - [Quick Star"
+  },
+  {
+    "id": "NVlabs/alpamayo-coc-autolabeler",
+    "label": "alpamayo-coc-autolabeler",
+    "domain": "autonomous-cars",
+    "repo": "NVlabs/alpamayo-coc-autolabeler",
+    "description": "NVIDIA CoC Autolabeler is an open autolabeling pipeline for autonomous vehicles that generates Chain-of-Causation reasoning labels and meta-actions from raw driving clips.",
+    "summary": "Chain-of-Causation (CoC) Autolabeling Pipeline This repository provides an autolabeling pipeline for autonomous-driving scenarios. It derives meta-actions, which are high-level categorical descriptions of ego motion, and chain-of-causation labels, which connect causal factors in the scene to the ego vehicle's intended behavior. Support 📣 Usage questions and discussion: please join us on the Alpam",
+    "readmeSnippet": "# Chain-of-Causation (CoC) Autolabeling Pipeline This repository provides an autolabeling pipeline for autonomous-driving scenarios. It derives meta-actions, which are high-level categorical descriptions of ego motion, and chain-of-causation labels, which connect causal factors in the scene to the ego vehicle's intended behavior. ## Support 📣 **Usage questions and discussion**: please join us on the [Alpamayo NV Developer Forum](https://forums.developer.nvidia.com/c/autonomous-vehicles/alpamayo/766). 🐛 **Code-level bugs, documentation issues, and feature requests**: file a [GitHub issue](../../issues/new/choose) using the appropriate template (Bug report, Documentation request, or Feature request). The relevant NVIDIA responder is auto-assigned via the `assignees:` field on the template. 🚨 **Security vulnerabilities**: please use [NVIDIA's Vulnerability Disclosure Program](https://app.intigriti.com/programs/nvidia/nvidiavdp/detail). Do not file security issues publicly here. #"
+  },
+  {
+    "id": "NVlabs/alpamayo2",
+    "label": "alpamayo2",
+    "domain": "autonomous-cars",
+    "repo": "NVlabs/alpamayo2",
+    "description": "NVIDIA Alpamayo 2 Super is an open 34B multi-task foundation model designed to supercharge autonomous vehicle development.",
+    "summary": "Alpamayo 2 Super 34B Multi-Task Autonomous Vehicle Foundation Model Alpamayo 2 Super is a 34-billion parameter foundation model designed to tackle multiple autonomous vehicle (AV) development tasks. It combines a 32B VLM backbone with a 2B diffusion expert. The released inference path uses the trained VLM backbone to generate Chain-of-Causation text, then samples future trajectories through the tr",
+    "readmeSnippet": "<div align=\"center\"> # Alpamayo 2 Super ### 34B Multi-Task Autonomous Vehicle Foundation Model [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Model-Alpamayo2--Super-blue)](https://huggingface.co/nvidia/Alpamayo2-Super) [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](./LICENSE) </div> Alpamayo 2 Super is a 34-billion parameter foundation model designed to tackle multiple autonomous vehicle (AV) development tasks. It combines a 32B VLM backbone with a 2B diffusion expert. The released inference path uses the trained VLM backbone to generate Chain-of-Causation text, then samples future trajectories through the trained action expert. The CLI, notebook, and importable APIs in this repository run the real expert model. <p align=\"center\">   <img src=\"./alpamayo2super_arch.png\" alt=\"NVIDIA Alpamayo 2 Super\"> </p> ## Table of Contents - [Prerequisites](#prerequisites) - [Setup](#setup) - [Model And Data Access](#model-and-data-access) - [CLI Infere"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-predict1",
+    "label": "cosmos-predict1",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-predict1",
+    "description": "Cosmos-Predict1 is a collection of general-purpose world foundation models for Physical AI that can be fine-tuned into customized world models for downstream applications.",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Predict1, Cosmos 3 delivers significantly stronger world prediction capabilities, producing more accurate, coherent, and physically grounded future-state predictions across a wide range of environments and embodiments. Beyond improving prediction quality, Cos",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/NVIDIA/Cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Predict1, Cosmos 3 delivers significantly stronger world prediction capabilities, producing more accurate, coherent, and physically grounded future-state predictions across a wide range of environments and embodiments. > > Beyond improving prediction quality, Cosmos 3 unifies capabilities that previously required multiple specialized models. A single Cosmos 3 model can reason, predict future world states, transfer across domains and modalities, and generate actions and policies for embodied agents within one unified architecture. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Visit the new Cosmos home: https://github.com/NVIDIA/Cosmos > > "
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-transfer1",
+    "label": "cosmos-transfer1",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-transfer1",
+    "description": "Cosmos-Transfer1 is a world-to-world transfer model designed to bridge the perceptual divide between simulated and real-world environments.",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Transfer1, Cosmos 3 delivers significantly stronger transfer capabilities, enabling higher-fidelity transformation, adaptation, and simulation across diverse domains, sensors, environments, and embodiments. Beyond improving transfer quality, Cosmos 3 unifies ",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/NVIDIA/Cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Transfer1, Cosmos 3 delivers significantly stronger transfer capabilities, enabling higher-fidelity transformation, adaptation, and simulation across diverse domains, sensors, environments, and embodiments. > > Beyond improving transfer quality, Cosmos 3 unifies capabilities that previously required multiple specialized models. A single Cosmos 3 model can reason, predict future world states, transfer across domains and modalities, and generate actions and policies for embodied agents within one unified architecture. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Visit the new Cosmos home: https://github.com/NVIDIA/Cosmos > > There you will"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-reason1",
+    "label": "cosmos-reason1",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-reason1",
+    "description": "Cosmos-Reason1 models understand the physical common sense and generate appropriate embodied decisions in natural language through long chain-of-thought reasoning processes.",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Reason1, Cosmos 3 delivers substantially stronger physical reasoning capabilities while extending beyond reasoning to support world prediction, simulation, transfer, and action generation within a single unified model. Rather than relying on separate models f",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/NVIDIA/Cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Reason1, Cosmos 3 delivers substantially stronger physical reasoning capabilities while extending beyond reasoning to support world prediction, simulation, transfer, and action generation within a single unified model. > > Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understand the world, reason about physical interactions, predict future outcomes, transform observations across domains, and generate actions for embodied agents. This unified architecture enables stronger performance across a broad range of Physical AI applications, including robotics, autonomous vehicles, and smart spaces. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, feature"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-xenna",
+    "label": "cosmos-xenna",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-xenna",
+    "description": "Python library for building and running distributed data pipelines using Ray",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Xenna, Cosmos 3 unifies reasoning, world prediction, simulation, transfer, and action generation within a single model family and ecosystem. Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 mod",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/nvidia/cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Xenna, Cosmos 3 unifies reasoning, world prediction, simulation, transfer, and action generation within a single model family and ecosystem. > > Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understand the world, reason about physical interactions, predict future outcomes, transform observations across domains, and generate actions for embodied agents. This unified architecture enables stronger performance across a broad range of Physical AI applications, including robotics, autonomous vehicles, and smart spaces. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Vi"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-rl",
+    "label": "cosmos-rl",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-rl",
+    "description": "Cosmos-RL is a flexible and scalable Reinforcement Learning framework specialized for Physical AI applications.",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-RL, Cosmos 3 unifies reasoning, world prediction, simulation, transfer, and action generation within a single model family and ecosystem. Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model ",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/nvidia/cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-RL, Cosmos 3 unifies reasoning, world prediction, simulation, transfer, and action generation within a single model family and ecosystem. > > Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understand the world, reason about physical interactions, predict future outcomes, transform observations across domains, and generate actions for embodied agents. This unified architecture enables stronger performance across a broad range of Physical AI applications, including robotics, autonomous vehicles, and smart spaces. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Visit"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-predict2",
+    "label": "cosmos-predict2",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-predict2",
+    "description": "Cosmos-Predict2 is a collection of general-purpose world foundation models for Physical AI that can be fine-tuned into customized world models for downstream applications.",
+    "summary": "🚨 Update Notice The latest version of our Cosmos-Predict is now live! 👉 Cosmos-Predict2.5 We recommend all users migrate to the new version for improved performance, features, and continued support. Paper (coming soon!) Website Hugging Face PyPI Cosmos-Predict2 is a key branch of the Cosmos World Foundation Models (WFMs) ecosystem for Physical AI, specializing in future state prediction through ",
+    "readmeSnippet": "<p align=\"center\">     <img src=\"assets/nvidia-cosmos-header.png\" alt=\"NVIDIA Cosmos Header\"> </p> <h1 align=\"center\"> > 🚨 **Update Notice**   > > The latest version of our Cosmos-Predict is now live! > > 👉 [**Cosmos-Predict2.5**](https://github.com/nvidia-cosmos/cosmos-predict2.5) We recommend all users migrate to the new version for improved performance, features, and continued support. </h1> ### Paper (coming soon!) | [Website](https://research.nvidia.com/labs/dir/cosmos-predict2/) | [Hugging Face](https://huggingface.co/collections/nvidia/cosmos-predict2-68028efc052239369a0f2959) | [PyPI](https://pypi.org/project/cosmos-predict2/) Cosmos-Predict2 is a key branch of the [Cosmos World Foundation Models](https://www.nvidia.com/en-us/ai/cosmos) (WFMs) ecosystem for Physical AI, specializing in future state prediction through advanced world modeling. It offers two powerful capabilities: text-to-image generation for creating high-quality images from text descriptions, and video-to"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-dependencies",
+    "label": "cosmos-dependencies",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-dependencies",
+    "description": "",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos Dependencies, Cosmos 3 provides the latest home for models, technical reports, tutorials, benchmarks, and ecosystem updates. Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understan",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/nvidia/cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos Dependencies, Cosmos 3 provides the latest home for models, technical reports, tutorials, benchmarks, and ecosystem updates. > > Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understand the world, reason about physical interactions, predict future outcomes, transform observations across domains, and generate actions for embodied agents. This unified architecture enables stronger performance across a broad range of Physical AI applications, including robotics, autonomous vehicles, and smart spaces. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Visit the new Cosm"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-cookbook",
+    "label": "cosmos-cookbook",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-cookbook",
+    "description": "Post-training scripts and samples for NVIDIA Cosmos ecosystem",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with the Cosmos Cookbook, Cosmos 3 provides the latest home for models, technical reports, tutorials, benchmarks, and ecosystem updates. Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understan",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/nvidia/cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with the Cosmos Cookbook, Cosmos 3 provides the latest home for models, technical reports, tutorials, benchmarks, and ecosystem updates. > > Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understand the world, reason about physical interactions, predict future outcomes, transform observations across domains, and generate actions for embodied agents. This unified architecture enables stronger performance across a broad range of Physical AI applications, including robotics, autonomous vehicles, and smart spaces. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Visit the new Cosm"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-reason2",
+    "label": "cosmos-reason2",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-reason2",
+    "description": "Cosmos-Reason2 models understand the physical common sense and generate appropriate embodied decisions in natural language through long chain-of-thought reasoning processes.",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Reason2, Cosmos 3 delivers substantially stronger physical reasoning capabilities while extending beyond reasoning to support world prediction, simulation, transfer, and action generation within a single unified model. Rather than relying on separate models f",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/NVIDIA/Cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Reason2, Cosmos 3 delivers substantially stronger physical reasoning capabilities while extending beyond reasoning to support world prediction, simulation, transfer, and action generation within a single unified model. > > Rather than relying on separate models for reasoning, prediction, transfer, and policy learning, a single Cosmos 3 model can understand the world, reason about physical interactions, predict future outcomes, transform observations across domains, and generate actions for embodied agents. This unified architecture enables stronger performance across a broad range of Physical AI applications, including robotics, autonomous vehicles, and smart spaces. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, feature"
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-predict2.5",
+    "label": "cosmos-predict2.5",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-predict2.5",
+    "description": "Cosmos-Predict2.5, the latest version of the Cosmos World Foundation Models (WFMs) family, specialized for simulating and predicting the future state of the world in the form of video.",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Predict2.5, Cosmos 3 delivers significantly stronger world prediction capabilities, producing more accurate, coherent, and physically grounded future-state predictions across a wide range of environments and embodiments. Beyond improving prediction quality, C",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/NVIDIA/Cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Predict2.5, Cosmos 3 delivers significantly stronger world prediction capabilities, producing more accurate, coherent, and physically grounded future-state predictions across a wide range of environments and embodiments. > > Beyond improving prediction quality, Cosmos 3 unifies capabilities that previously required multiple specialized models. A single Cosmos 3 model can reason, predict future world states, transfer across domains and modalities, and generate actions and policies for embodied agents within one unified architecture. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Visit the new Cosmos home: https://github.com/NVIDIA/Cosmos > "
+  },
+  {
+    "id": "nvidia-cosmos/cosmos-transfer2.5",
+    "label": "cosmos-transfer2.5",
+    "domain": "foundation-models",
+    "repo": "nvidia-cosmos/cosmos-transfer2.5",
+    "description": "Cosmos-Transfer2.5, built on top of Cosmos-Predict2.5, produces high-quality world simulations conditioned on multiple spatial control inputs.",
+    "summary": "[!IMPORTANT] ## 🚀 Cosmos 3 Has Arrived Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Transfer2.5, Cosmos 3 delivers significantly stronger transfer capabilities, enabling higher-fidelity transformation, adaptation, and simulation across diverse domains, sensors, environments, and embodiments. Beyond improving transfer quality, Cosmos 3 unifie",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Cosmos 3 Has Arrived](https://github.com/NVIDIA/Cosmos) > > Cosmos 3 is NVIDIA's next-generation foundation model platform for Physical AI. Compared with Cosmos-Transfer2.5, Cosmos 3 delivers significantly stronger transfer capabilities, enabling higher-fidelity transformation, adaptation, and simulation across diverse domains, sensors, environments, and embodiments. > > Beyond improving transfer quality, Cosmos 3 unifies capabilities that previously required multiple specialized models. A single Cosmos 3 model can reason, predict future world states, transfer across domains and modalities, and generate actions and policies for embodied agents within one unified architecture. > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on Cosmos 3. > > 👉 Visit the new Cosmos home: https://github.com/NVIDIA/Cosmos > > There you wi"
+  },
+  {
+    "id": "triton-inference-server/server",
+    "label": "server",
+    "domain": "inference",
+    "repo": "triton-inference-server/server",
+    "description": "The Triton Inference Server provides an optimized cloud and edge inferencing solution. ",
+    "summary": "[!WARNING] You are currently on the main branch which tracks under-development progress towards the next release. The current release is version 2.71.0 and corresponds to the 26.07 container release on NVIDIA GPU Cloud (NGC). Triton Inference Server Triton Inference Server is an open source inference serving software that streamlines AI inferencing. Triton enables teams to deploy any AI model from",
+    "readmeSnippet": "<!-- # Copyright 2018-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/common",
+    "label": "common",
+    "domain": "inference",
+    "repo": "triton-inference-server/common",
+    "description": "Common source, scripts and utilities shared across all Triton repositories.",
+    "summary": "Triton Inference Server Common Common source, scripts and utilities shared across all Triton repositories. This repo is not typically built directly but is instead included in the build of other repos. To build directly first install the required dependencies. Use cmake 3.17 or later to build and install in a local directory.",
+    "readmeSnippet": "<!-- # Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # PURPOSE ARE DIS"
+  },
+  {
+    "id": "triton-inference-server/backend",
+    "label": "backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/backend",
+    "description": "Common source, scripts and utilities for creating Triton backends.",
+    "summary": "Triton Inference Server Backend A Triton backend is the implementation that executes a model. A backend can be a wrapper around a deep-learning framework, like PyTorch, TensorFlow, TensorRT or ONNX Runtime. Or a backend can be custom C/C++ logic performing any operation (for example, image pre-processing). This repo contains documentation on Triton backends and also source, scripts and utilities f",
+    "readmeSnippet": "<!-- # Copyright 2021-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/onnxruntime_backend",
+    "label": "onnxruntime_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/onnxruntime_backend",
+    "description": "The Triton backend for the ONNX Runtime.",
+    "summary": "ONNX Runtime Backend The Triton backend for the ONNX Runtime. You can learn more about Triton backends in the backend repo. Ask questions or report problems on the issues page. Use a recent cmake to build and install in a local directory. Typically you will want to build an appropriate ONNX Runtime implementation as part of the build. You do this by specifying a ONNX Runtime version and a Triton c",
+    "readmeSnippet": "<!-- # Copyright (c) 2020-2026, NVIDIA CORPORATION. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # PURPOSE AR"
+  },
+  {
+    "id": "triton-inference-server/python_backend",
+    "label": "python_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/python_backend",
+    "description": "Triton backend that enables pre-process, post-processing and other logic to be implemented in Python.",
+    "summary": "Python Backend The Triton backend for Python. The goal of Python backend is to let you serve models written in Python by Triton Inference Server without having to write any C++ code. User Documentation Python Backend User Documentation Quick Start Building from Source Usage autocompleteconfig initialize execute Default Mode Error Handling Request Cancellation Handling Decoupled mode Use Cases Asyn",
+    "readmeSnippet": "<!-- # Copyright 2020-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/model_analyzer",
+    "label": "model_analyzer",
+    "domain": "inference",
+    "repo": "triton-inference-server/model_analyzer",
+    "description": "Triton Model Analyzer is a CLI tool to help with better understanding of the compute and memory requirements of the Triton Inference Server models.",
+    "summary": "Triton Model Analyzer Triton Model Analyzer is a CLI tool which can help you find a more optimal configuration, on a given piece of hardware, for single, multiple, ensemble, or BLS models running on a Triton Inference Server. Model Analyzer will also generate reports to help you better understand the trade-offs of the different configurations along with their compute and memory requirements. Featu",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2020-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. SPDX-License-Identifier: Apache-2.0 --> [![License](https://img.shields.io/badge/License-Apache_2.0-lightgrey.svg)](https://opensource.org/licenses/Apache-2.0) # Triton Model Analyzer Triton Model Analyzer is a CLI tool which can help you find a more optimal configuration, on a given piece of hardware, for single, multiple, ensemble, or BLS models running on a [Triton Inference Server](https://github.com/triton-inference-server/server/). Model Analyzer will also generate reports to help you better understand the trade-offs of the different configurations along with their compute and memory requirements. <br><br> # Features ### Search Modes - [Optuna Search](docs/config_search.md#optuna-search-mode) **_-ALPHA RELEASE-_** allows you to search for every parameter that can be specified in the model configuration, using a hyperparameter optimization framework. Please see the [Op"
+  },
+  {
+    "id": "triton-inference-server/dali_backend",
+    "label": "dali_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/dali_backend",
+    "description": "The Triton backend that allows running GPU-accelerated data pre-processing pipelines implemented in DALI's python API.",
+    "summary": "DALI TRITON Backend This repository contains code for DALI Backend for Triton Inference Server. NVIDIA DALI (R), the Data Loading Library, is a collection of highly optimized building blocks, and an execution engine, to accelerate the pre-processing of the input data for deep learning applications. DALI provides both the performance and the flexibility to accelerate different data pipelines as one",
+    "readmeSnippet": "# DALI TRITON Backend <!----> This repository contains code for DALI Backend for Triton Inference Server. ![alt text](dali.png) **NVIDIA DALI (R)**, the Data Loading Library, is a collection of highly optimized building blocks, and an execution engine, to accelerate the pre-processing of the input data for deep learning applications. DALI provides both the performance and the flexibility to accelerate different data pipelines as one library. This library can then be easily integrated into different deep learning training and inference applications, regardless of used deep learning framework. To find out more about DALI please refer to our [main page](https://developer.nvidia.com/DALI). [Getting started](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/examples/getting_started) and [Tutorials](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/examples/index.html) will guide you through your first steps and [Supported operations](https://docs.nvidia.com/deeplearning"
+  },
+  {
+    "id": "triton-inference-server/tensorflow_backend",
+    "label": "tensorflow_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/tensorflow_backend",
+    "description": "The Triton backend for TensorFlow.",
+    "summary": "TensorFlow Backend The Triton backend for TensorFlow. You can learn more about backends in the backend repo. Ask questions or report problems in the main Triton issues page. Frequently Asked Questions Full documentation is included below but these shortcuts can help you get started in the right direction. Where can I ask general questions about Triton and Triton backends? Be sure to read all the i",
+    "readmeSnippet": "<!-- # Copyright 2020-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/core",
+    "label": "core",
+    "domain": "inference",
+    "repo": "triton-inference-server/core",
+    "description": "The core library and APIs implementing the Triton Inference Server. ",
+    "summary": "Triton Inference Server Core This repository holds the source code and headers for the library that implements the core functionality of Triton. The core library can be built as described below and used directly via its C API. To be useful the core library must be paired with one or more backends. You can learn more about backends in the backend repo. Typically you do not build or use the core lib",
+    "readmeSnippet": "<!-- # Copyright 2020-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/pytorch_backend",
+    "label": "pytorch_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/pytorch_backend",
+    "description": "The Triton backend for the PyTorch TorchScript models.",
+    "summary": "PyTorch (LibTorch) Backend The Triton backend for PyTorch is designed to run TorchScript models using the PyTorch C++ API. All models created in PyTorch using the python API must be traced/scripted to produce a TorchScript model. You can learn more about Triton backends in the Triton Backend repository. Ask questions or report problems using Triton Server issues. Be sure to read all the informatio",
+    "readmeSnippet": "<!-- # Copyright 2020-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/fil_backend",
+    "label": "fil_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/fil_backend",
+    "description": "FIL backend for the Triton Inference Server",
+    "summary": "Triton Inference Server FIL Backend Triton is a machine learning inference server for easy and highly optimized deployment of models trained in almost any major framework. This backend specifically facilitates use of tree models in Triton (including models trained with XGBoost, LightGBM, Scikit-Learn, and cuML). If you want to deploy a tree-based model for optimized real-time or batched inference ",
+    "readmeSnippet": "<!-- # Copyright (c) 2020-2022, NVIDIA CORPORATION. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # PURPOSE AR"
+  },
+  {
+    "id": "triton-inference-server/tensorrt_backend",
+    "label": "tensorrt_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/tensorrt_backend",
+    "description": "The Triton backend for TensorRT.",
+    "summary": "TensorRT Backend The Triton backend for TensorRT. You can learn more about Triton backends in the backend repo. Ask questions or report problems on the issues page. This backend is designed to run a serialized TensorRT engine models using the TensorRT C++ API. Where can I ask general questions about Triton and Triton backends? Be sure to read all the information below as well as the general Triton",
+    "readmeSnippet": "<!-- # Copyright 2021-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/client",
+    "label": "client",
+    "domain": "inference",
+    "repo": "triton-inference-server/client",
+    "description": "Triton Python, C++ and Java client libraries, and GRPC-generated client examples for go, java and scala.",
+    "summary": "Triton Client Libraries and Examples To simplify communication with Triton, the Triton project provides several client libraries and examples of how to use those libraries. Ask questions or report problems in the main Triton issues page. The provided client libraries are: C++ and Python APIs that make it easy to communicate with Triton from your C++ or Python application. Using these libraries you",
+    "readmeSnippet": "<!-- # Copyright 2021-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/model_navigator",
+    "label": "model_navigator",
+    "domain": "inference",
+    "repo": "triton-inference-server/model_navigator",
+    "description": "Triton Model Navigator is an inference toolkit designed for optimizing and deploying Deep Learning models with a focus on NVIDIA GPUs.",
+    "summary": "Triton Model Navigator Welcome to Triton Model Navigator, an inference toolkit designed for optimizing and deploying Deep Learning models with a focus on NVIDIA GPUs. The Triton Model Navigator streamlines the process of moving models and pipelines implemented in PyTorch, TensorFlow, and/or ONNX to TensorRT. The Triton Model Navigator automates several critical steps, including model export, conve",
+    "readmeSnippet": "<!-- Copyright (c) 2021-2025, NVIDIA CORPORATION. All rights reserved. Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. --> # Triton Model Navigator Welcome to [Triton Model Navigator](https://github.com/triton-inference-server/model_navigator), an inference toolkit designed for optimizing and deploying Deep Learning models with a focus on NVIDIA GPUs. The Triton Model Navigator streamlines the process of moving models and pipelines implemented in [PyTorch](https://pytorch.org), [TensorFlow](https://www.tensorflow.or"
+  },
+  {
+    "id": "triton-inference-server/pytriton",
+    "label": "pytriton",
+    "domain": "inference",
+    "repo": "triton-inference-server/pytriton",
+    "description": "PyTriton is a Flask/FastAPI-like interface that simplifies Triton's deployment in Python environments.",
+    "summary": "PyTriton Welcome to PyTriton, a Flask/FastAPI-like framework designed to streamline the use of NVIDIA's Triton Inference Server within Python environments. PyTriton enables serving Machine Learning models with ease, supporting direct deployment from Python. For comprehensive guidance on how to deploy your models, optimize performance, and explore the API, delve into the extensive resources found i",
+    "readmeSnippet": "<!-- Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved. Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. --> # PyTriton Welcome to PyTriton, a Flask/FastAPI-like framework designed to streamline the use of NVIDIA's [Triton Inference Server](https://github.com/triton-inference-server) within Python environments. PyTriton enables serving Machine Learning models with ease, supporting direct deployment from Python. For comprehensive guidance on how to deploy your models, optimize performance,"
+  },
+  {
+    "id": "triton-inference-server/tutorials",
+    "label": "tutorials",
+    "domain": "inference",
+    "repo": "triton-inference-server/tutorials",
+    "description": "This repository contains tutorials and examples for Triton Inference Server",
+    "summary": "Triton Tutorials For users experiencing the \"Tensor in\" & \"Tensor out\" approach to Deep Learning Inference, getting started with Triton can lead to many questions. The goal of this repository is to familiarize users with Triton's features and provide guides and examples to ease migration. For a feature by feature explanation, refer to the Triton Inference Server documentation. Getting Started Chec",
+    "readmeSnippet": "<!-- # Copyright (c) 2022-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR"
+  },
+  {
+    "id": "triton-inference-server/tensorrtllm_backend",
+    "label": "tensorrtllm_backend",
+    "domain": "inference",
+    "repo": "triton-inference-server/tensorrtllm_backend",
+    "description": "The Triton TensorRT-LLM Backend",
+    "summary": "TensorRT-LLM Backend The Triton backend for TensorRT-LLM. You can learn more about Triton backends in the backend repo. The goal of TensorRT-LLM Backend is to let you serve TensorRT-LLM models with Triton Inference Server. The inflightbatcherllm directory contains the C++ implementation of the backend supporting inflight batching, paged attention and more. [!NOTE] Please note that the Triton backe",
+    "readmeSnippet": "<!-- # Copyright 2024-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # P"
+  },
+  {
+    "id": "triton-inference-server/triton_cli",
+    "label": "triton_cli",
+    "domain": "inference",
+    "repo": "triton-inference-server/triton_cli",
+    "description": "Triton CLI is an open source command line interface that enables users to create, deploy, and profile models served by the Triton Inference Server.",
+    "summary": "Triton Command Line Interface (Triton CLI) [!NOTE] Triton CLI is currently in BETA. Its features and functionality are likely to change as we collect feedback. We're excited to hear any thoughts you have (especially if you find the tool useful) and what features you'd like to see! Triton CLI is an open source command line interface that enables users to create, deploy, and profile models served by",
+    "readmeSnippet": "<!-- # Copyright 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #  * Redistributions of source code must retain the above copyright #    notice, this list of conditions and the following disclaimer. #  * Redistributions in binary form must reproduce the above copyright #    notice, this list of conditions and the following disclaimer in the #    documentation and/or other materials provided with the distribution. #  * Neither the name of NVIDIA CORPORATION nor the names of its #    contributors may be used to endorse or promote products derived #    from this software without specific prior written permission. # # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR # PURPOS"
+  },
+  {
+    "id": "nvidia-isaac/kaya-robot",
+    "label": "kaya-robot",
+    "domain": "jetson-hardware",
+    "repo": "nvidia-isaac/kaya-robot",
+    "description": "An open-source robot powered by NVIDIA's Isaac SDK and the Jetson Nano",
+    "summary": "kaya-robot Kaya is an open-source robot powered by NVIDIA's Isaac SDK and the Jetson Nano. This repository contains 3D-printable and editable CAD files in the cad-files folder (STL, STEP, IGES), as well as a complete bill of materials and assembly instructions for NVIDIA Kaya in the doc folder. Kaya is intended to provide an accessible starting point for robotics development, and a number of sampl",
+    "readmeSnippet": "# kaya-robot Kaya is an open-source robot powered by NVIDIA's Isaac SDK and the Jetson Nano.  This repository contains 3D-printable and editable CAD files in the `cad-files` folder (STL, STEP, IGES), as well as a complete bill of materials and assembly instructions for [NVIDIA Kaya](doc/assemble_kaya.md) in the `doc` folder. ![image](doc/images/kaya_robot.jpg) Kaya is intended to provide an accessible starting point for robotics development, and a number of sample apps for Kaya come packaged with the Isaac SDK. For more information on Kaya and the Isaac SDK, see the [NVIDIA Isaac SDK Documentation](https://docs.nvidia.com/isaac/isaac/doc/index.html). You can also join NVIDIA's developer community to ask questions and share your projects on the [Isaac SDK Forums](https://devtalk.nvidia.com/default/board/375/sdk/)! "
+  },
+  {
+    "id": "nvidia-isaac/velodyne_lidar",
+    "label": "velodyne_lidar",
+    "domain": "jetson-hardware",
+    "repo": "nvidia-isaac/velodyne_lidar",
+    "description": "",
+    "summary": "To build the Isaak SDK: Download Isaac SDK Nightly Release 05/28 from the following website: Extract the release package in a local folder. Open the file WORKSPACE in a text editor and specify the Isaac SDK folder for \"ISAACSDKRELEASE\". Build Isaac SDK with the following command: bazel build ... Enjoy!",
+    "readmeSnippet": "To build the Isaak SDK: 1. Download Isaac SDK Nightly Release 05/28 from the following website:        https://developer.nvidia.com/isaac/downloads 2. Extract the release package in a local folder. 3. Open the file WORKSPACE in a text editor and specify the Isaac SDK folder for    \"ISAAC_SDK_RELEASE\". 4. Build Isaac SDK with the following command:    bazel build ... 5. Enjoy!"
+  },
+  {
+    "id": "nvidia-isaac/sick_lidar_tim571",
+    "label": "sick_lidar_tim571",
+    "domain": "jetson-hardware",
+    "repo": "nvidia-isaac/sick_lidar_tim571",
+    "description": "Support for SICK TiM571 2D Lidar on Isaac SDK",
+    "summary": "sicklidartim571 Support for SICK TiM571 2D Lidar on Isaac SDK For more details on the 2D Lidar please visit",
+    "readmeSnippet": "# sick_lidar_tim571 Support for SICK TiM571 2D Lidar on Isaac SDK https://github.com/SickScan/sick_scan_nvidia_isaac.git For more details on the 2D Lidar please visit  https://www.sick.com/us/en/detection-and-ranging-solutions/2d-lidar-sensors/tim5xx/tim571-2050101/p/p412444 "
+  },
+  {
+    "id": "nvidia-isaac/econ_camera_steereocam",
+    "label": "econ_camera_steereocam",
+    "domain": "jetson-hardware",
+    "repo": "nvidia-isaac/econ_camera_steereocam",
+    "description": "Support for E-Con Systems Stereo Camera with IMU on Isaac SDK",
+    "summary": "econcamerasteereocam Support for E-Con Systems Stereo Camera with IMU on Isaac SDK STEEReoCAM™ is a 2MP 3D MIPI Stereo camera for NVIDIA® Jetson Nano™/AGX Xavier™/TX2 developer kit with improved accuracy and depth range. Now available with ISSAC SDK support - This MIPI Stereo camera is based on 1/2.9\" OV2311 global shutter CMOS sensor from OmniVision. STEEReoCAM™ is ideal for applications such as ",
+    "readmeSnippet": "# econ_camera_steereocam Support for E-Con Systems Stereo Camera with IMU on Isaac SDK https://www.e-consystems.com/nvidia-cameras/jetson-agx-xavier-cameras/stereo-camera.asp STEEReoCAM™ is a 2MP 3D MIPI Stereo camera for NVIDIA® Jetson Nano™/AGX Xavier™/TX2 developer kit with improved accuracy and depth range.  Now available with ISSAC SDK support - https://github.com/econsystems/taraxl-isaac-package.  This MIPI Stereo camera is based on 1/2.9\" OV2311 global shutter CMOS sensor from OmniVision.  STEEReoCAM™ is ideal for applications such as depth sensing, robotics and autonomous guided vehicles, face recognition, gesture recognition, drones, 3D video recording, 3D measurements, embedded vision, surgical robotics, and so on. "
+  },
+  {
+    "id": "nvidia-isaac/lips_AE400",
+    "label": "lips_AE400",
+    "domain": "jetson-hardware",
+    "repo": "nvidia-isaac/lips_AE400",
+    "description": "Support for AE400 Stereo Camera from LIPS - on Isaac SDK",
+    "summary": "lipsAE400 Support for AE400 Stereo Camera from LIPS - on Isaac SDK LIPS has brought up their GigE Industrial Realsense technology on Isaac SDK. First RealSense RGB-D camera with GigE inteface + Industrial packaging that can be used in industrial settings. Details of the camera @",
+    "readmeSnippet": "# lips_AE400 Support for AE400 Stereo Camera from LIPS - on Isaac SDK LIPS has brought up their GigE Industrial Realsense technology on Isaac SDK. First RealSense RGB-D camera with GigE inteface + Industrial packaging that can be used in industrial settings. https://github.com/lips-hci/stereo_ae400 Details of the camera @ https://www.lips-hci.com/product?product_id=29 https://www.youtube.com/watch?v=kyjbJSM6CjQ "
+  },
+  {
+    "id": "nvidia-isaac/laikago_lidar_mount",
+    "label": "laikago_lidar_mount",
+    "domain": "jetson-hardware",
+    "repo": "nvidia-isaac/laikago_lidar_mount",
+    "description": "Velodyne Lidar Mount on Quadruped Laikago",
+    "summary": "laikagolidarmount Laikago is a quadruped robot designed by Unitree Robotics. This repository contains 3D-printable mesh files for Velodyne VLP-16 lidar mounting on the robot. With the lidar, the Laikago can be used as a fully autonomous machine with Isaac SDK. For the complete project, see the Isaac SDK document",
+    "readmeSnippet": "# laikago_lidar_mount Laikago is a quadruped robot designed by [Unitree Robotics](http://www.unitree.cc/). This repository contains 3D-printable mesh files for Velodyne VLP-16 lidar mounting on the robot. With the lidar, the Laikago can be used as a fully autonomous machine with [Isaac SDK](https://developer.nvidia.com/isaac-sdk). For the complete project, see the [Isaac SDK document](https://docs.nvidia.com/isaac/isaac/doc/index.html) ![image](doc/laikago_photo.jpg) ![image](doc/laikago_vlp16.jpg) "
+  },
+  {
+    "id": "nvidia-isaac/sick_safetyscanners_isaac",
+    "label": "sick_safetyscanners_isaac",
+    "domain": "jetson-hardware",
+    "repo": "nvidia-isaac/sick_safetyscanners_isaac",
+    "description": "NVIDIA Isaac Integration Layer for SICK safety laser scanners https://www.sick.com/de/en/opto-electronic-protective-devices/safety-laser-scanners/c/g187225",
+    "summary": "sicksafetyscannersisaac NVIDIA Isaac SDK Integration Layer for SICK safety laser scanners Link -->",
+    "readmeSnippet": "# sick_safetyscanners_isaac NVIDIA Isaac SDK Integration Layer for SICK safety laser scanners https://www.sick.com/de/en/opto-electronic-protective-devices/safety-laser-scanners/c/g187225 Link --> https://github.com/SICKAG/sick_safetyscanners_isaac "
+  },
+  {
+    "id": "nvidia-isaac/nvblox",
+    "label": "nvblox",
+    "domain": "slam-mapping",
+    "repo": "nvidia-isaac/nvblox",
+    "description": "A GPU-accelerated TSDF and ESDF library for robots equipped with RGB-D cameras.",
+    "summary": "nvblox nvblox is a library for real-time 3D reconstruction, designed for robotic applications. With nvblox you can build, manipulate, and query reconstructions on the GPU. The library is highly optimized for runtime performance, taking full advantage of CUDA and NVIDIA hardware. Depending on your use-case, you may interact with nvblox through either Python, C++, or ROS2. To get started with nvblox",
+    "readmeSnippet": "# `nvblox` `nvblox` is a library for real-time 3D reconstruction, designed for robotic applications. With `nvblox` you can build, manipulate, and query reconstructions on the GPU. The library is highly optimized for runtime performance, taking full advantage of `CUDA` and `NVIDIA` hardware. Depending on your use-case, you may interact with `nvblox` through either [Python](https://nvidia-isaac.github.io/nvblox), [C++](https://nvidia-isaac.github.io/nvblox), or [ROS2](https://nvidia-isaac-ros.github.io/concepts/scene_reconstruction/nvblox/index.html). To get started with `nvblox`, see our [documentation site](https://nvidia-isaac.github.io/nvblox) <p align=\"center\">   <img src=\"docs/images/nvblox_texture_mapping_replica.gif\" alt=\"3D reconstruction\" width=\"400\"/>   <img src=\"docs/images/warehouse_multicam_navigation.gif\" alt=\"Multi-cam navigation\" width=\"400\"/> </p> <p align=\"center\">   <img src=\"docs/images/desk_radio_x2_600px.gif\" alt=\"Foundation features\" width=\"400\"/>   <img src"
+  },
+  {
+    "id": "nvidia-isaac/isaac_mission_dispatch",
+    "label": "isaac_mission_dispatch",
+    "domain": "isaac_ros",
+    "repo": "nvidia-isaac/isaac_mission_dispatch",
+    "description": "VDA5050-compatible cloud service for fleet mission dispatch",
+    "summary": "Isaac Mission Dispatch Overview Isaac Mission Dispatch is a cloud service that enables the communication between edge robots and other cloud services responsible for managing a fleet of robots. The communication between Mission Dispatch and robots is designed per VDA5050 protocol and uses MQTT, as MQTT is the industry standard for a highly efficient, scalable protocol for connecting devices over t",
+    "readmeSnippet": "# Isaac Mission Dispatch ## Overview Isaac Mission Dispatch is a cloud service that enables the communication between edge robots and other cloud services responsible for managing a fleet of robots. The communication between Mission Dispatch and robots is designed per [VDA5050 protocol](https://github.com/VDA5050/VDA5050/blob/main/VDA5050_EN.md) and uses [MQTT](https://mqtt.org/), as MQTT is the industry standard for a highly efficient, scalable protocol for connecting devices over the internet. VDA 5050 is an open standard for communication between fleets of AGVs/AMRs and a central fleet service.  <div align=\"center\"><img src=\"docs/resources/MD.png\" width=\"650px\"/></div> <div><i align = \"center\">Diagram highlighting this package. Mission Dispatch and Client in green. This simplified diagram of a fleet management system on the left is connected to a robot running ROS 2 on the right. References are provided to database and MQTT services. Mission Dispatch needs to be integrated with th"
+  },
+  {
+    "id": "nvidia-isaac/ota-file-service",
+    "label": "ota-file-service",
+    "domain": "simulation",
+    "repo": "nvidia-isaac/ota-file-service",
+    "description": "A cloud service to backup and deploy files on robots",
+    "summary": "OTA File Service Overview OTA File Service enables users to upload files to the cloud and deploy files to robots. This repo includes a cloud service with APIs to upload, deploy and manage files and a daemon running on the robot to download files and report deployment states. Components S3 Storage All files are stored in a S3 storage. Cloud Service The cloud service provides APIs to upload, deploy ",
+    "readmeSnippet": "# OTA File Service ## Overview OTA File Service enables users to upload files to the cloud and deploy files to robots. This repo includes a cloud service with APIs to upload, deploy and manage files and a daemon running on the robot to download files and report deployment states.   ## Components ### S3 Storage All files are stored in a S3 storage.  ### Cloud Service The cloud service provides APIs to upload, deploy and manage files. The server communicates with the daemon running on the robot through MQTT. By default, the cloud server sends file deployment jobs on topic `ota/<robot_id>/deploy` and receives job states on topic `ota/<robot_id>/state`. If the robot daemon is offline, the cloud server will keep incompleted jobs and retry when the robot is back online. ### Daemon A daemon running on the robot to process file deployment jobs and report states through MQTT. By default, the daemon receives file deployment jobs on topic `ota/<robot_id>/deploy` and sends job states on topic `"
+  },
+  {
+    "id": "nvidia-isaac/cuVSLAM",
+    "label": "cuVSLAM",
+    "domain": "slam-mapping",
+    "repo": "nvidia-isaac/cuVSLAM",
+    "description": "cuVSLAM: CUDA-Accelerated Visual Odometry and Mapping",
+    "summary": "cuVSLAM: CUDA-Accelerated Visual Odometry and Mapping Latest release ArXiv paper Python API C++ API ROS2 Overview cuVSLAM is the library by NVIDIA, providing various Visual Tracking Camera modes and Simultaneous Localization and Mapping (SLAM) capabilities. Leveraging CUDA acceleration and a rich set of features, cuVSLAM delivers highly accurate, computationally efficient, real-time performance. c",
+    "readmeSnippet": "# cuVSLAM: CUDA-Accelerated Visual Odometry and Mapping ![Demo](examples/assets/tutorial_multicamera_edex.gif) ### [Latest release](https://github.com/nvidia-isaac/cuVSLAM/releases/latest) | [ArXiv paper](https://www.arxiv.org/abs/2506.04359) | [Python API](https://nvidia-isaac.github.io/cuVSLAM/python/) | [C++ API](https://nvidia-isaac.github.io/cuVSLAM/cpp/) | [ROS2](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam) ## Overview cuVSLAM is the library by NVIDIA, providing various Visual Tracking Camera modes and Simultaneous Localization and Mapping (SLAM) capabilities. Leveraging CUDA acceleration and a rich set of features, cuVSLAM delivers highly accurate, computationally efficient, real-time performance. **cuVSLAM works out of the box.** All internal algorithms use carefully engineered defaults or adapt automatically to the environment and motion profile — no parameter tuning is required or expected. To get started, provide two things: accurate camera calibration (i"
+  },
+  {
+    "id": "nvidia-isaac/SWAGGER",
+    "label": "SWAGGER",
+    "domain": "isaac_ros",
+    "repo": "nvidia-isaac/SWAGGER",
+    "description": "SWAGGER: Sparse WAypoint Graph Generation for Efficient Routing",
+    "summary": "SWAGGER: Sparse WAypoint Graph Generation for Efficient Routing A Python package that generates sparse waypoint graphs from occupancy grid maps for route planning. See algorithm overview for an introduction of the method. Table of Contents Algorithm Overview System Requirements Installation Set up the Environment Install Package Usage Data Prepration Command Line Interface Evaluation REST API Tuto",
+    "readmeSnippet": "# SWAGGER: Sparse WAypoint Graph Generation for Efficient Routing [![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://docs.python.org/3/whatsnew/3.12.html) [![Linux platform](https://img.shields.io/badge/ubuntu-24.04-red)](https://releases.ubuntu.com/24.04/) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://pre-commit.com/) A Python package that generates sparse waypoint graphs from occupancy grid maps for route planning. <img src=\"docs/images/generation_in_action.gif\" alt=\"Graph Generation in Action\" height=\"300\"/> See [algorithm overview](docs/algorithm.md) for an introduction of the method. ## Table of Contents - [Algorithm Overview](docs/algorithm.md) - [System Requirements](#system-requirements) - [Installation](#installation)   - [Set up the Environment](#set-up-the-environment)   - [Install Package](#install-package) - [Usage](#usage)   - [Data Prepration](#data-preparation)   - [Command"
+  },
+  {
+    "id": "nvidia-isaac/isaac_mission_control",
+    "label": "isaac_mission_control",
+    "domain": "isaac_ros",
+    "repo": "nvidia-isaac/isaac_mission_control",
+    "description": "VDA5050 lightweight fleet manager for use with NVIDIA Isaac Cloud Services",
+    "summary": "Isaac Mission Control Overview Mission Control is a lightweight fleet manager. It coordinates Isaac Cloud Services and orchestrates them together. Missions are submitted to Mission Control, which will assemble a behavior tree of tasks to execute. It uses an occupancy grid map, a CSR (compressed sparse row) graph of that map provided by SWAGGER, optimal routes through that space provided by cuOpt, ",
+    "readmeSnippet": "# Isaac Mission Control ## Overview Mission Control is a lightweight fleet manager.  It coordinates Isaac Cloud Services and orchestrates them together. Missions are submitted to Mission Control, which will assemble a behavior tree of tasks to execute. It uses an occupancy grid map, a CSR (compressed sparse row) graph of that map provided by SWAGGER, optimal routes through that space provided by cuOpt, then leverages Mission Dispatch to execute that behavior tree using VDA5050 with Mission Client. Internally at NVIDIA it is used as a development tool for a small AMR fleet to automate nightly testing of Isaac, delivery missions, and more. ## Prequisite and Related Services - [Mission Dispatch](https://github.com/nvidia-isaac/isaac_mission_dispatch) - [Mission Client](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_cloud_control/isaac_ros_mission_client/index.html) - [SWAGGER](https://github.com/nvidia-isaac/SWAGGER) -- Waypoint Graph Generator - Container requ"
+  },
+  {
+    "id": "nvidia-isaac/pyCuSFM",
+    "label": "pyCuSFM",
+    "domain": "slam-mapping",
+    "repo": "nvidia-isaac/pyCuSFM",
+    "description": "Python wrapper for the NVIDIA cuSFM library",
+    "summary": "PyCuSFM: Cuda Accelerated Structure from Motion Overview This repository provides the official python implementation of cuSFM, a novel CUDA-accelerated Structure-from-Motion framework for reconstructing 3D environmental models from images. Key features include: CUDA-accelerated feature extraction, matching, and graph optimization for superior speed and scalability Precise and robust camera pose es",
+    "readmeSnippet": "# PyCuSFM: Cuda Accelerated Structure from Motion [![platform](https://img.shields.io/badge/Platform-ubuntu--24.04-FCC624.svg?logo=ubuntu)](https://ubuntu.com/blog/tag/ubuntu-24-04-lts) [![arXiv](https://img.shields.io/badge/Arxiv-2510.15271-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.15271) ## Overview This repository provides the official python implementation of [cuSFM](https://arxiv.org/abs/2510.15271), a novel CUDA-accelerated Structure-from-Motion framework for reconstructing 3D environmental models from images. Key features include: - CUDA-accelerated feature extraction, matching, and graph optimization for superior speed and scalability - Precise and robust camera pose estimation - Accurate and consistent 3D environment reconstruction with COLMAP-compatible outputs - Support for any number and type of camera inputs - Reliable extrinsic calibration for multi-camera setups - Localization mode for integrating new data into pre-built maps ![cusfm_png](docs/images/cusfm."
+  },
+  {
+    "id": "nvidia-isaac/WBC-AGILE",
+    "label": "WBC-AGILE",
+    "domain": "robotic-arms",
+    "repo": "nvidia-isaac/WBC-AGILE",
+    "description": "A Comprehensive Workflow for Humanoid Loco-Manipulation Learning",
+    "summary": "AGILE: A Generic Isaac-Lab based Engine for humanoid loco-manipulation learning Overview AGILE provides a comprehensive reinforcement learning framework for training whole-body control policies with validated sim-to-real transfer capabilities. Built on NVIDIA Isaac Lab, this toolkit enables researchers and practitioners to develop loco-manipulation behaviors for humanoid robots. Paper Documentatio",
+    "readmeSnippet": "# **AGILE**: **A** **G**eneric **I**saac-**L**ab based **E**ngine for humanoid loco-manipulation learning ## Overview **AGILE** provides a comprehensive reinforcement learning framework for training whole-body control policies with validated sim-to-real transfer capabilities. Built on NVIDIA Isaac Lab, this toolkit enables researchers and practitioners to develop loco-manipulation behaviors for humanoid robots. **[Paper](https://arxiv.org/abs/2603.20147)** **[Documentation](https://nvidia-isaac.github.io/WBC-AGILE/)** <table align=\"center\">   <tr>     <th colspan=\"2\">Booster T1 – Stand-Up</th>     <th colspan=\"2\">Booster T1 – Velocity Tracking</th>   </tr>   <tr>     <td align=\"center\"><img src=\"docs/videos/booster_t1_stand_up_sim2sim.gif\" width=\"240\"><br><em>Sim</em></td>     <td align=\"center\"><img src=\"docs/videos/booster_t1_stand_up_sim2real.gif\" width=\"240\"><br><em>Real</em></td>     <td align=\"center\"><img src=\"docs/videos/booster_t1_vel_sim2sim.gif\" width=\"240\"><br><em>Sim<"
+  },
+  {
+    "id": "nvidia-isaac/nvblox_mindmap",
+    "label": "nvblox_mindmap",
+    "domain": "slam-mapping",
+    "repo": "nvidia-isaac/nvblox_mindmap",
+    "description": "mindmap: Spatial Memory in Deep Feature Maps for 3D Action Policies",
+    "summary": "mindmap: Spatial Memory in Deep Feature Maps for 3D Action Policies Humanoid robot performing the Drill in Box spatial memory task in IsaacLab simulation. Deep feature map (colored by PCA) that enables spatial memory for the mindmap 3D action policy. What is mindmap? mindmap is a 3D diffusion policy that generates robot trajectories based on semantic 3D reconstruction of the environment. Unlike tr",
+    "readmeSnippet": "# mindmap: Spatial Memory in Deep Feature Maps for 3D Action Policies [![Isaac Sim](https://img.shields.io/badge/IsaacSim-4.5.0-silver.svg)](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/index.html) [![Isaac Lab](https://img.shields.io/badge/IsaacLab-2.1.0-maroon.svg)](https://isaac-sim.github.io/IsaacLab/v2.1.0/index.html) [![nvblox](https://img.shields.io/badge/nvblox-public-darkgreen.svg)](https://github.com/nvidia-isaac/nvblox/tree/public) [![pytorch](https://img.shields.io/badge/pytorch-2.4-darkorange.svg)](https://docs.pytorch.org/docs/2.4/) [![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3.10/) [![Linux platform](https://img.shields.io/badge/platform-linux--64-purple.svg)](https://releases.ubuntu.com/22.04/) [![License](https://img.shields.io/badge/license-NVIDIA-yellow.svg)](LICENSE.md) <table>   <tr>     <td align=\"center\">       <img src=\"docs/images/teaser_isaaclab.jpg\" height=\"400px\"/><br/>       Humanoid robot performing the <cod"
+  },
+  {
+    "id": "nvidia-isaac/cumotion",
+    "label": "cumotion",
+    "domain": "robotic-arms",
+    "repo": "nvidia-isaac/cumotion",
+    "description": "cuMotion: GPU-Accelerated Motion Generation for Robotics",
+    "summary": "cuMotion: GPU-Accelerated Motion Generation for Robotics ] NVIDIA cuMotion is a high-performance motion generation library for robotics, focused mainly on manipulation. GPU acceleration is leveraged throughout where beneficial for performance. Capabilities include: Kinematics and inverse kinematics (IK) Collision-aware IK Collision-aware graph-based path planning Collision-aware trajectory optimiz",
+    "readmeSnippet": "<p align=\"left\"> <img src=\"https://media.githubusercontent.com/media/nvidia-isaac/cumotion/084b9bd853dd8c5bea2ac5839cf09e94e19f9dd9/_static/images/m48-robot-manufacturing-256px-grn.png\" width=\"192\" /></p> # cuMotion: GPU-Accelerated Motion Generation for Robotics <h4>     <a href=\"https://nvidia-isaac.github.io/cumotion/\">Documentation</a> [     <a href=\"https://nvidia-isaac.github.io/cumotion/getting_started.html\">Getting Started</a> |     <a href=\"https://nvidia-isaac.github.io/cumotion/tutorials.html\">Tutorials</a> |     <a href=\"https://nvidia-isaac.github.io/cumotion/api/cpp_api.html\">C++ API</a> |     <a href=\"https://nvidia-isaac.github.io/cumotion/api/python_api.html\">Python API</a> |     <a href=\"https://nvidia-isaac.github.io/cumotion/release_notes.html\">Release Notes</a> ] </h4> NVIDIA cuMotion is a high-performance motion generation library for robotics, focused mainly on manipulation. GPU acceleration is leveraged throughout where beneficial for performance. Capabiliti"
+  },
+  {
+    "id": "nvidia-isaac/video_to_data",
+    "label": "video_to_data",
+    "domain": "simulation",
+    "repo": "nvidia-isaac/video_to_data",
+    "description": "Nvidia Isaac Video to Data Pipeline ",
+    "summary": "Video to Data (V2D) An end-to-end pipeline that converts human demonstration videos into simulation-ready assets and physics-grounded robot training data. Documentation · Robotic Grounding Project Page · Robotic Grounding Tech Report --- Contents Overview Demos Packages Prerequisites Quickstart Video Ingestion Agent Reconstruction Robotic Grounding Design philosophy Contributing --- Overview Video",
+    "readmeSnippet": "# Video to Data (V2D) > An end-to-end pipeline that converts human demonstration videos into simulation-ready assets and physics-grounded robot training data. **[Documentation](https://nvidia-isaac.github.io/video_to_data/)** · **[Robotic Grounding Project Page](https://nvidia-isaac.github.io/video_to_data/chord/)** · **[Robotic Grounding Tech Report](https://nvidia-isaac.github.io/video_to_data/chord/chord.pdf)** ![Video to Data pipeline — from human demonstration video through ingestion, reconstruction, and robotic grounding in Isaac Lab to a physics-grounded policy, dataset, and real-robot deployment](docs/figures/v2d_overview.png) --- ## Contents - [Overview](#overview) - [Demos](#demos) - [Packages](#packages) - [Prerequisites](#prerequisites) - [Quickstart](#quickstart)   - [Video Ingestion Agent](#video-ingestion-agent-video--queryable-action-database)   - [Reconstruction](#reconstruction-video--reconstructed-trajectory-and-simulation-assets)   - [Robotic Grounding](#robot"
+  },
+  {
+    "id": "nvidia-isaac/cuNLS",
+    "label": "cuNLS",
+    "domain": "slam-mapping",
+    "repo": "nvidia-isaac/cuNLS",
+    "description": "Nvidia Isaac CUDA-Accelerated Nonlinear Least Square Solver ",
+    "summary": "GPU-Accelerated Nonlinear Least-Squares Solver CUDA/C++ &ensp;·&ensp; Gauss-Newton &ensp;·&ensp; Factor Graph &ensp;·&ensp; Manifold Optimization &ensp;·&ensp; Sparse Linear Algebra --- cuNLS is a CUDA/C++ library for solving nonlinear least-squares problems on the GPU. It is built around batched factor evaluation, sparse Jacobian assembly, and sparse linear solvers — designed for large-scale geom",
+    "readmeSnippet": "<p align=\"center\">   <img src=\"docs/sphinx/_static/cuNLS_logo_light.png\" alt=\"cuNLS logo\" width=\"420\"> </p> <h3 align=\"center\">GPU-Accelerated Nonlinear Least-Squares Solver</h3> <p align=\"center\">   <code>CUDA/C++</code>&ensp;·&ensp;<code>Gauss-Newton</code>&ensp;·&ensp;<code>Factor Graph</code>&ensp;·&ensp;<code>Manifold Optimization</code>&ensp;·&ensp;<code>Sparse Linear Algebra</code> </p> --- **cuNLS** is a CUDA/C++ library for solving nonlinear least-squares problems on the GPU. It is built around batched factor evaluation, sparse Jacobian assembly, and sparse linear solvers — designed for large-scale geometric estimation workloads such as bundle adjustment, pose graph optimization, and ICP-style alignment. cuNLS solves optimization problems of the form: $$x^* = \\arg\\min_x \\sum_i \\rho_i\\!\\left(\\left\\|f_i(x)\\right\\|^2_{\\Sigma_i}\\right)$$ where $x$ is the optimization variable (often on a manifold), $f_i(x)$ are residual functions, $\\rho_i(\\cdot)$ are optional robust loss fu"
+  },
+  {
+    "id": "nvidia-isaac/leapp",
+    "label": "leapp",
+    "domain": "foundation-models",
+    "repo": "nvidia-isaac/leapp",
+    "description": "library to quickly export and deploy entire inference pipelines",
+    "summary": "LEAPP — Lightweight Export Annotations for Policy Pipelines LEAPP is a Python package for tracing and exporting multi-step PyTorch computational graphs. Annotate your existing code with lightweight markers, and LEAPP captures the graph structure, exports each stage as an individual model, and generates a deployment-ready YAML specification. LEAPP is designed for pipelines that chain multiple PyTor",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. SPDX-License-Identifier: Apache-2.0 --> # LEAPP — Lightweight Export Annotations for Policy Pipelines LEAPP is a Python package for tracing and exporting multi-step PyTorch computational graphs. Annotate your existing code with lightweight markers, and LEAPP captures the graph structure, exports each stage as an individual model, and generates a deployment-ready YAML specification. LEAPP is designed for pipelines that chain multiple PyTorch models or processing stages together — where you need to export the whole pipeline, not just a single model. It traces real execution of your code, records which tensors flow between stages, exports each stage independently, and writes a YAML that describes how to wire everything back together at inference time. ## Installation ```bash pip install leapp ``` LEAPP requires Python 3.10+ and PyTorch 2.6.0+. ## Quick example ```python import tor"
+  },
+  {
+    "id": "nvidia-isaac/gr00t-leapp-export",
+    "label": "gr00t-leapp-export",
+    "domain": "foundation-models",
+    "repo": "nvidia-isaac/gr00t-leapp-export",
+    "description": "Adds export scripts to the gr00t official gr00t repo.",
+    "summary": "GR00T LEAPP Export Fork This project is currently not accepting contributions. This repository is a fork of the original NVIDIA Isaac GR00T repository, modified to support LEAPP export workflows. The two main workflows in this fork are: Export a GR00T policy with LEAPP. Posttrain GR00T on custom robot data before export or deployment. For the full upstream model documentation, architecture details",
+    "readmeSnippet": "# GR00T LEAPP Export Fork ## This project is currently not accepting contributions. This repository is a fork of the original [NVIDIA Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T) repository, modified to support LEAPP export workflows. The two main workflows in this fork are: - Export a GR00T policy with LEAPP. - Posttrain GR00T on custom robot data before export or deployment. For the full upstream model documentation, architecture details, datasets, and benchmark notes, see the original [Isaac GR00T README](https://github.com/NVIDIA/Isaac-GR00T). ## Installation ### Hardware Requirements Inference and export require a CUDA-capable GPU. Posttraining is more demanding; use one or more GPUs with at least 40 GB VRAM when possible. This repo follows the upstream GR00T platform split: - dGPU: CUDA 12.8 with Python 3.10. - Jetson Orin: CUDA 12.6 with Python 3.10. - Jetson Thor and DGX Spark: CUDA 13.0 with Python 3.12. Platform-specific setup scripts and Dockerfiles live un"
+  },
+  {
+    "id": "nvidia-holoscan/holoscan-perf-tools",
+    "label": "holoscan-perf-tools",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holoscan-perf-tools",
+    "description": "Clara Holoscan performance tools",
+    "summary": "Holoscan Performance Tools This repository is now archived and deprecated in favor of Holohub benchmarks This repository contains a collection of tools meant to help measure performance of the NVIDIA Holoscan SDK and platforms. Note that this repository was tested on Clara AGX devices only. Each subdirectory contains a different tool; see the README file in each subdirectory for information about ",
+    "readmeSnippet": "# Holoscan Performance Tools **This repository is now archived and deprecated in favor of [Holohub benchmarks](https://github.com/nvidia-holoscan/holohub/tree/main/benchmarks)** This repository contains a collection of tools meant to help measure performance of the NVIDIA Holoscan SDK and platforms. Note that this repository was tested on [Clara AGX devices only](https://github.com/nvidia-holoscan/holoscan-docs/blob/main/devkits/clara-agx/clara_agx_user_guide.md). Each subdirectory contains a different tool; see the README file in each subdirectory for information about that tool. "
+  },
+  {
+    "id": "nvidia-holoscan/meta-tegra-holoscan",
+    "label": "meta-tegra-holoscan",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/meta-tegra-holoscan",
+    "description": "OpenEmbedded/Yocto layer for NVIDIA Holoscan",
+    "summary": "OpenEmbedded/Yocto layer for NVIDIA Holoscan This layer adds OpenEmbedded recipes and sample build configurations to build BSPs for NVIDIA Holoscan Developer Kits that feature support for discrete GPUs (dGPU), AJA Video Systems I/O boards, and the NVIDIA Holoscan SDK. These BSPs are built on a developer's host machine and are then flashed onto a Holoscan Developer Kit using provided scripts. This ",
+    "readmeSnippet": "# OpenEmbedded/Yocto layer for NVIDIA Holoscan This layer adds OpenEmbedded recipes and sample build configurations to build BSPs for NVIDIA Holoscan Developer Kits that feature support for discrete GPUs (dGPU), AJA Video Systems I/O boards, and the NVIDIA Holoscan SDK. These BSPs are built on a developer's host machine and are then flashed onto a Holoscan Developer Kit using provided scripts. This is an add-on layer to the [meta-tegra](https://github.com/OE4T/meta-tegra) BSP layer with additions to enable the discrete GPU (dGPU) and other hardware drivers and toolkits that are used by the NVIDIA Holoscan SDK. ## Supported Boards * NVIDIA IGX Orin Developer Kit (igx-orin-devkit) ## System Requirements Building a BSP for NVIDIA Holoscan requires a significant amount of system resources. Available disk space is the only strict requirement that must be met, with **a minimum of 300GB of free disk space required for a build** using the default configuration as described in this docume"
+  },
+  {
+    "id": "nvidia-holoscan/holoscan-sdk",
+    "label": "holoscan-sdk",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holoscan-sdk",
+    "description": "The AI sensor processing SDK for low latency streaming workflows",
+    "summary": "Holoscan SDK The Holoscan SDK is part of NVIDIA Holoscan, the AI sensor processing platform that combines hardware systems for low-latency sensor and network connectivity, optimized libraries for data processing and AI, and core microservices to run streaming, imaging, and other applications, from embedded to edge to cloud. It can be used to build streaming AI pipelines for a variety of domains, i",
+    "readmeSnippet": "# Holoscan SDK The **Holoscan SDK** is part of [NVIDIA Holoscan](https://developer.nvidia.com/holoscan-sdk), the AI sensor processing platform that combines hardware systems for low-latency sensor and network connectivity, optimized libraries for data processing and AI, and core microservices to run streaming, imaging, and other applications, from embedded to edge to cloud. It can be used to build streaming AI pipelines for a variety of domains, including Medical Devices, High Performance Computing at the Edge, Industrial Inspection and more. ## Table of Contents - [Getting Started](#getting-started) - [Obtaining the Holoscan SDK](#obtaining-the-holoscan-sdk) - [AI Coding Assistants](#ai-coding-assistants) - [Troubleshooting and Feedback](#troubleshooting-and-feedback) - [Additional Notes](#additional-notes) ## Getting Started Visit the Holoscan User Guide to get started with the Holoscan SDK: <https://docs.nvidia.com/holoscan/sdk-user-guide/getting_started.html> The Holoscan Use"
+  },
+  {
+    "id": "nvidia-holoscan/holohub",
+    "label": "holohub",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holohub",
+    "description": "Central repository for the Holoscan Ecosystem",
+    "summary": "HoloHub – Learn About The Holoscan Ecosystem HoloHub is the entrypoint to the Holoscan Ecosystem: a community-driven collection of reference applications, operators, modules, tutorials, and benchmarks for real-time AI sensor processing. Visit for a searchable catalog of all available Holoscan applications and components. This is a central repository for the NVIDIA Holoscan AI sensor processing com",
+    "readmeSnippet": "# HoloHub – Learn About The Holoscan Ecosystem [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/nvidia-holoscan/holohub/main.svg)](https://results.pre-commit.ci/latest/github/nvidia-holoscan/holohub/main) ![Metadata](https://img.shields.io/github/actions/workflow/status/nvidia-holoscan/holohub/check_metadata.yml?branch=main&label=Metadata) **HoloHub is the entrypoint to the Holoscan Ecosystem:** a community-driven collection of reference applications, operators, modules, tutorials, and benchmarks for real-time AI sensor processing. Visit [https://nvidia-holoscan.github.io/holohub](https://nvidia-holoscan.github.io/holohub) for a searchable catalog of all available Holoscan applications and components. This is a central repository for the NVIDIA Holoscan AI sensor processing community to share reference applications, operators, tutorials and benchmarks. We invite users and developers of the Holoscan platform to reuse and contribute to this repository. ## Table of"
+  },
+  {
+    "id": "nvidia-holoscan/holoscan-docs",
+    "label": "holoscan-docs",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holoscan-docs",
+    "description": "Documentation for the Holoscan Platform",
+    "summary": "Holoscan Docs This repository hosts documentation for the Holoscan plaform.",
+    "readmeSnippet": "# Holoscan Docs This repository hosts documentation for the [Holoscan plaform](https://www.nvidia.com/en-us/clara/medical-devices/). "
+  },
+  {
+    "id": "nvidia-holoscan/holoscan-test-suite",
+    "label": "holoscan-test-suite",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holoscan-test-suite",
+    "description": "Software to support V&V testing on IGX systems",
+    "summary": "holoscan-test-suite provides a very simple web server that runs test scripts and publishes the results as HTML back to the calling browser. holoscan-test-suite-controls leverages tools in holoscan-test-suite to provide an interactive web UI to enable various runtime behaviors on demand. This is useful in the context of, say, EMR or thermal characterization: you can start with a quiet system, measu",
+    "readmeSnippet": " holoscan-test-suite provides a very simple web server that runs test scripts and publishes the results as HTML back to the calling browser. holoscan-test-suite-controls leverages tools in holoscan-test-suite to provide an interactive web UI to enable various runtime behaviors on demand.  This is useful in the context of, say, EMR or thermal characterization: you can start with a quiet system, measure RF emissions, then gradually turn on features, and easily observe the differences with specific functionality running. Requirements for this interface include: - Provide device and configuration identification sufficient for complete   reproduction of the configuration under test. - Provide a record of when the test was run. - Provide evidence of test execution with a summary of pass/fail status. - Provide a record of the stdout/stderr generated by tests for debugging. - Provide proper configuration for use with Yocto and Bitbake. holoscan-test-suite works by configuring a simple pyth"
+  },
+  {
+    "id": "nvidia-holoscan/holoscan-sensor-bridge",
+    "label": "holoscan-sensor-bridge",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holoscan-sensor-bridge",
+    "description": "NVIDIA Holoscan Sensor Bridge - Bring Your Own Sensor (BYOS) over Ethernet",
+    "summary": "Holoscan Sensor Bridge Introduction Holoscan Sensor Bridge provides a FPGA based interface for low-latency sensor data processing using GPUs. Peripheral device data is acquired by the FPGA and sent via UDP to the host system where ConnectX devices can write that UDP data directly into GPU memory. This software package supports integrating that equipment into Holoscan pipelines and provides several",
+    "readmeSnippet": "# Holoscan Sensor Bridge ## Introduction Holoscan Sensor Bridge provides a FPGA based interface for low-latency sensor data processing using GPUs. Peripheral device data is acquired by the FPGA and sent via UDP to the host system where ConnectX devices can write that UDP data directly into GPU memory. This software package supports integrating that equipment into Holoscan pipelines and provides several examples showing video processing and inference using an IMX274 camera with [Lattice Holoscan Sensor Bridge device](https://www.latticesemi.com/products/developmentboardsandkits/certuspro-nx-sensor-to-ethernet-bridge-board) or an IMX477 camera with [Microchip Holoscan Sensor Bridge](https://www.microchip.com/en-us/products/fpgas-and-plds/boards-and-kits/ethernet-sensor-bridge). ## Setup Holoscan sensor bridge software comes with an [extensive user guide](https://docs.nvidia.com/holoscan/sensor-bridge/index.html), including instructions for setup on [NVIDIA IGX](https://www.nvidia.com"
+  },
+  {
+    "id": "nvidia-holoscan/holoscan-federated-analytics",
+    "label": "holoscan-federated-analytics",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holoscan-federated-analytics",
+    "description": "Federated Analytics with Holoscan",
+    "summary": "Welcome to NVIDIA Holoscan Federated Analytics! This is a repository for all the resources related to Holoscan Federated Analytics. Federated Analytics is an approach to user data analytics that combines information from distributed datasets without gathering it at a central location. NVIDIA Holoscan is normally deployed on a fleet of IGX devices. A goal of Holoscan Federated Analytics is to provi",
+    "readmeSnippet": "# Welcome to NVIDIA Holoscan Federated Analytics! This is a repository for all the resources related to Holoscan Federated Analytics. Federated Analytics is an approach to user data analytics that combines information from distributed datasets without gathering it at a central location. [NVIDIA Holoscan](https://developer.nvidia.com/holoscan-sdk) is normally deployed on a fleet of IGX devices. A goal of Holoscan Federated Analytics is to provide Holoscan customers a feature where Holoscan customers can capture and analyze specific metrics for Holoscan applications deployed on a fleet of IGX devices. This will be demonstrated with a sample end-to-end Holoscan federated analytics application. The Holoscan Federate Analytics is using [NVIDIA FLARE](https://developer.nvidia.com/flare). NVIDIA FLARE supports federated statistics where FLARE provides built-in federated statistics operators (controller and executors) that can generate global statistics based on local client side statistic"
+  },
+  {
+    "id": "nvidia-holoscan/holoscan-cli",
+    "label": "holoscan-cli",
+    "domain": "holoscan",
+    "repo": "nvidia-holoscan/holoscan-cli",
+    "description": "Command-line tool for discovering, building, running, and testing Holoscan-based projects.",
+    "summary": "Holoscan CLI Command-line tool for discovering, building, running, testing, and linting HoloHub-style Holoscan source projects. Published as the holoscan-cli PyPI package and installs the holoscan console script. Overview The CLI presents a single command surface for the source-project development lifecycle: Project lifecycle: build, run, test, install, package Container: build-container, run-cont",
+    "readmeSnippet": "[![Code Check](https://github.com/nvidia-holoscan/holoscan-cli/actions/workflows/main.yaml/badge.svg)](https://github.com/nvidia-holoscan/holoscan-cli/actions/workflows/main.yaml) [![Coverage Status](https://coveralls.io/repos/github/nvidia-holoscan/holoscan-cli/badge.svg)](https://coveralls.io/github/nvidia-holoscan/holoscan-cli) # Holoscan CLI Command-line tool for discovering, building, running, testing, and linting HoloHub-style Holoscan source projects. Published as the [`holoscan-cli`](https://pypi.org/project/holoscan-cli/) PyPI package and installs the `holoscan` console script. ## Overview The CLI presents a single command surface for the source-project development lifecycle: - **Project lifecycle:** `build`, `run`, `test`, `install`, `package` - **Container:** `build-container`, `run-container` - **Discovery / diagnostics:** `list`, `modes`, `status`, `env-info`, `env-check`, `autocompletion_list`, `version` - **Workspace:** `lint`, `setup`, `clear-cache`, `create` Run "
+  },
+  {
+    "id": "NVIDIA/cuopt-examples",
+    "label": "cuopt-examples",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/cuopt-examples",
+    "description": "NVIDIA cuOpt examples for decision optimization",
+    "summary": "cuOpt Examples NVIDIA® cuOpt™ is an open-source GPU-accelerated engine for solving complex decision optimization problems, such as Mixed Integer Programming, Linear Programming, and Vehicle Routing problems. This repository contains a collection of examples demonstrating the use of NVIDIA cuOpt via service APIs, SDK, and Integration with other OSS optimization packages. This repository is under Ap",
+    "readmeSnippet": "# cuOpt Examples NVIDIA® cuOpt™ is an open-source GPU-accelerated engine for solving complex decision optimization problems, such as Mixed Integer Programming, Linear Programming, and  Vehicle Routing problems. This repository contains a collection of examples demonstrating the use of NVIDIA cuOpt via service APIs, SDK, and Integration with other OSS optimization packages.  This repository is under [Apache 2.0 License](LICENSE.md) [cuOpt Docs](https://docs.nvidia.com/cuopt/) ## Quick Start with Docker The easiest way to get started with these examples is using cuOpt docker image. ### Prerequisites - [Docker](https://docs.nvidia.com/ai-enterprise/deployment/vmware/latest/docker.html) - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-the-nvidia-container-toolkit) - NVIDIA GPU with appropriate drivers ## Requirements For detailed system requirements, please refer to the [NVIDIA cuOpt System Requirem"
+  },
+  {
+    "id": "rapidsai/cuspatial",
+    "label": "cuspatial",
+    "domain": "gpu-compute",
+    "repo": "rapidsai/cuspatial",
+    "description": "CUDA-accelerated GIS and spatiotemporal algorithms",
+    "summary": "[!IMPORTANT] The final release of this project was v25.04. See for details. cuSpatial - GPU-Accelerated Vector Geospatial Data Analysis Note cuSpatial depends on cuDF and RMM from RAPIDS. cuProj - GPU-accelerated Coordinate Reference System (CRS) Transformations cuProj is a new RAPIDS library housed within the cuSpatial repo that provides GPU-accelerated transformations of coordinates between coor",
+    "readmeSnippet": "> [!IMPORTANT]   > The final release of this project was `v25.04`. > See https://docs.rapids.ai/notices/rsn0045/ for details. # <div align=\"left\"><img src=\"https://rapids.ai/assets/images/rapids_logo.png\" width=\"90px\"/>&nbsp;cuSpatial - GPU-Accelerated Vector Geospatial Data Analysis</div> > **Note** > > cuSpatial depends on [cuDF](https://github.com/rapidsai/cudf) and [RMM](https://github.com/rapidsai/rmm) from [RAPIDS](https://rapids.ai/). ## cuProj - GPU-accelerated Coordinate Reference System (CRS) Transformations cuProj is a new RAPIDS library housed within the cuSpatial repo that provides GPU-accelerated transformations of coordinates between coordinate reference systems (CRS). cuProj is available as of release 23.10 with support for transformations of WGS84 coordinates to and from Universal Transverse Mercator (UTM) :globe_with_meridians:. To learn more about cuProj, see the [Python cuProj README](python/cuproj/README.md) or the [c++ libcuproj README](cpp/cuproj/README.md). "
+  },
+  {
+    "id": "rapidsai/cusignal",
+    "label": "cusignal",
+    "domain": "gpu-compute",
+    "repo": "rapidsai/cusignal",
+    "description": "cuSignal - RAPIDS Signal Processing Library",
+    "summary": "cuSignal Deprecation Notice RAPIDS v23.08 is the last formal release for cuSignal. Starting in 2019, cuSignal strived to provide a simple to use and highly performant library for signal processing developers working in Python. With over 400,000 total Anaconda downloads, we built an incredible community together. We are pleased to announce that much of the cuSignal codebase is moving to CuPy and is",
+    "readmeSnippet": "# <div align=\"left\"><img src=\"https://rapids.ai/assets/images/rapids_logo.png\" width=\"90px\"/>&nbsp;cuSignal</div> # Deprecation Notice RAPIDS v23.08 is the last formal release for cuSignal. Starting in 2019, cuSignal strived to provide a simple to use and highly performant library for signal processing developers working in Python. With over 400,000 total Anaconda downloads, we built an incredible community together. We are pleased to announce that much of the cuSignal codebase is moving to [CuPy](https://cupy.dev) and is highly aligned with CuPy's goal to GPU-accelerate the NumPy and SciPy ecosystems. By moving our work to CuPy, we allow developers to use a single library for signal processing (and more!) while also reducing software dependencies. To continue your journey with GPUs, Python, and Signal Processing, please: - [Download CuPy](https://docs.cupy.dev/en/stable/install.html) - Visit `cupyx.scipy.signal` [source code](https://github.com/cupy/cupy/tree/main/cupyx/scipy/signal"
+  },
+  {
+    "id": "rapidsai/cugraph",
+    "label": "cugraph",
+    "domain": "gpu-compute",
+    "repo": "rapidsai/cugraph",
+    "description": "cuGraph - RAPIDS Graph Analytics Library",
+    "summary": "RAPIDS cuGraph is a repo that represents a collection of packages focused on GPU-accelerated graph analytics. cuGraph supports the creation and manipulation of graphs followed by the execution of scalable fast graph algorithms. ----- Table of contents Installation Getting cuGraph Packages Building from Source Contributing to cuGraph General Latest News Current list of algorithms Blogs and Presenta",
+    "readmeSnippet": "<h1 align=\"center\"; style=\"font-style: italic\";>\r   <br>\r   <img src=\"img/cugraph_logo_2.png\" alt=\"cuGraph\" width=\"500\">\r </h1>\r \r <div align=\"center\">\r \r <a href=\"https://github.com/rapidsai/cugraph/blob/main/LICENSE\">\r     <img src=\"https://img.shields.io/badge/License-Apache%202.0-blue.svg\" alt=\"License\"></a>\r <img alt=\"GitHub tag (latest by date)\" src=\"https://img.shields.io/github/v/tag/rapidsai/cugraph\">\r \r <a href=\"https://github.com/rapidsai/cugraph/stargazers\">\r     <img src=\"https://img.shields.io/github/stars/rapidsai/cugraph\"></a>\r <img alt=\"Conda\" src=\"https://img.shields.io/conda/dn/rapidsai/cugraph\">\r <img alt=\"GitHub last commit\" src=\"https://img.shields.io/github/last-commit/rapidsai/cugraph\">\r \r <img alt=\"Conda\" src=\"https://img.shields.io/conda/pn/rapidsai/cugraph\" />\r \r <a href=\"https://rapids.ai/\"><img src=\"img/rapids_logo.png\" alt=\"RAPIDS\" width=\"125\"></a>\r \r </div>\r \r <br>\r \r [RAPIDS](https://rapids.ai) cuGraph is a repo that represents a collection of packages f"
+  },
+  {
+    "id": "NVIDIA/cudf",
+    "label": "cudf",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/cudf",
+    "description": "cuDF - GPU DataFrame Library ",
+    "summary": "cuDF - A GPU-accelerated DataFrame library for tabular data processing cuDF (pronounced \"KOO-dee-eff\") is an Apache 2.0 licensed, GPU-accelerated DataFrame library for tabular data processing. The cuDF library is one part of the RAPIDS GPU Accelerated Data Science suite of libraries. About cuDF is composed of multiple libraries including: libcudf: A CUDA C++ library with Apache Arrow compliant dat",
+    "readmeSnippet": "# <div align=\"left\"><img src=\"img/rapids_logo.png\" width=\"90px\"/>&nbsp;cuDF - A GPU-accelerated DataFrame library for tabular data processing</div> cuDF (pronounced \"KOO-dee-eff\") is an [Apache 2.0 licensed](LICENSE), GPU-accelerated DataFrame library for tabular data processing. The cuDF library is one part of the [RAPIDS](https://rapids.ai/) GPU Accelerated Data Science suite of libraries. ## About cuDF is composed of multiple libraries including: * [libcudf](https://docs.rapids.ai/api/libcudf/stable/): A CUDA C++ library with [Apache Arrow](https://arrow.apache.org/) compliant data structures and fundamental algorithms for tabular data. * [pylibcudf](https://docs.rapids.ai/api/cudf/stable/pylibcudf/): A Python library providing [Cython](https://cython.org/) bindings for libcudf. * [cudf](https://docs.rapids.ai/api/cudf/stable/cudf/): A Python library providing     - A DataFrame library mirroring the [pandas](https://pandas.pydata.org/) API     - A zero-code change accelerator, ["
+  },
+  {
+    "id": "rapidsai/rmm",
+    "label": "rmm",
+    "domain": "gpu-compute",
+    "repo": "rapidsai/rmm",
+    "description": "RAPIDS Memory Manager",
+    "summary": "RMM: RAPIDS Memory Manager NOTE: For the latest stable README.md ensure you are on the main branch. Resources RMM Reference Documentation: Python and C++ API references, tutorials, and topic guides. RAPIDS Installation Guide: Instructions for installing RMM. GitHub Repository: Download the RMM source code. Issue Tracker: Report issues or request features. RAPIDS Community: Get help, contribute, an",
+    "readmeSnippet": "# <div align=\"left\"><img src=\"img/rapids_logo.png\" width=\"90px\"/>&nbsp;RMM: RAPIDS Memory Manager</div> **NOTE:** For the latest stable [README.md](https://github.com/rapidsai/rmm/blob/main/README.md) ensure you are on the `main` branch. ## Resources - [RMM Reference Documentation](https://docs.rapids.ai/api/rmm/stable/): Python and C++ API references, tutorials, and topic guides. - [RAPIDS Installation Guide](https://docs.rapids.ai/install/): Instructions for installing RMM. - [GitHub Repository](https://github.com/rapidsai/rmm): Download the RMM source code. - [Issue Tracker](https://github.com/rapidsai/rmm/issues): Report issues or request features. - [RAPIDS Community](https://rapids.ai/learn-more/#get-involved): Get help, contribute, and collaborate. ## Overview Achieving optimal performance in GPU-centric workflows frequently requires customizing how host and device memory are allocated. For example, using \"pinned\" host memory for asynchronous host <-> device memory transfer"
+  }
+]

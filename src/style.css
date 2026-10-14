@@ -4,6 +4,8 @@
    redefines --black/--white/--gray or body/link/heading rules; it only
    adds the widgets this site needs that the source site didn't have. */
 
+@import "katex/dist/katex.min.css";
+
 /* -- Homepage demo list -- */
 
 /* The vendor stylesheet's `body > article { padding-top: 2em }` no longer
@@ -74,14 +76,7 @@ input[type="range"] {
 }
 
 .control-panel {
-  margin-top: 1em;
-  padding: 1em;
-  border: 1px solid var(--white-darker);
-  border-radius: 4px;
-}
-
-.control-panel .tabs {
-  margin-top: 0;
+  margin-top: 1.5em;
 }
 
 .imu-panel-body {
@@ -131,9 +126,45 @@ input[type="range"] {
 
 .tabs {
   display: flex;
-  gap: 0.5em;
+  gap: 1.25em;
   margin-top: 1.5em;
+  border-bottom: 1px solid var(--white-darker);
+  padding: 0;
   flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.tabs button,
+.tabs .tab-item {
+  background: transparent;
+  color: var(--gray);
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  margin-bottom: -1px;
+  padding: 0.5em 0.2em;
+  font-size: 0.88em;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tabs button:hover,
+.tabs .tab-item:hover {
+  color: var(--black);
+  background: transparent;
+  border-bottom-color: var(--gray);
+}
+
+.tabs button.active,
+.tabs .tab-item.active {
+  color: var(--black);
+  font-weight: 600;
+  background: transparent;
+  border-color: transparent;
+  border-bottom: 2px solid var(--black);
+  box-shadow: none;
 }
 
 /* -- Time-series plot -- */

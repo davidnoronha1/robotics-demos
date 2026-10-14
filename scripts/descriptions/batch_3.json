@@ -1,0 +1,686 @@
+[
+  {
+    "id": "NVIDIA-AI-IOT/jetson-ai-lab",
+    "label": "jetson-ai-lab",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson-ai-lab",
+    "description": "GitHub repo for Jetson AI Lab",
+    "summary": "Jetson AI Lab www.jetson-ai-lab.com The NVIDIA Jetson AI Lab is your guide to running generative AI models entirely on-device with NVIDIA Jetson. Explore optimized tutorials, benchmarks, and hands-on examples for LLMs, VLMs, image generation, speech recognition, and more. About Jetson AI Lab pairs a modern Astro frontend with a content-driven workflow, enabling new tutorials, models, and community",
+    "readmeSnippet": "# Jetson AI Lab [![Deploy to GitHub Pages](https://github.com/NVIDIA-AI-IOT/jetson-ai-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/NVIDIA-AI-IOT/jetson-ai-lab/actions/workflows/ci.yml) **[www.jetson-ai-lab.com](https://www.jetson-ai-lab.com)** The NVIDIA Jetson AI Lab is your guide to running generative AI models entirely on-device with NVIDIA Jetson. Explore optimized tutorials, benchmarks, and hands-on examples for LLMs, VLMs, image generation, speech recognition, and more. ## About Jetson AI Lab pairs a modern Astro frontend with a content-driven workflow, enabling new tutorials, models, and community projects to be published without touching layout code. ### Key Features - Optimized showcase for flagship models: Llama 4, Gemma 3, Qwen, SDXL, Whisper, and more - Curated tutorials, benchmarks, and community resources with consistent styling - Local-first architecture: everything runs on Jetson hardware with no cloud dependency - Content authored in Markdown/JSON"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/synthetic_data_generation_training_workflow",
+    "label": "synthetic_data_generation_training_workflow",
+    "domain": "simulation",
+    "repo": "NVIDIA-AI-IOT/synthetic_data_generation_training_workflow",
+    "description": "Workflow for generating synthetic data and training CV models. ",
+    "summary": "Synthetic Data Generation and Training with Sim Ready Assets This project provides a workflow for Training Computer Vision models with Synthetic Data. We will use Isaac Sim with Omniverse Replicator to generate data for our use case and objects of interest. To ensure seamless compatibility with model training, the data generated is in the KITTI format. These steps can be followed on a Cloud/remote",
+    "readmeSnippet": "# Synthetic Data Generation and Training with Sim Ready Assets This project provides a workflow for Training Computer Vision models with Synthetic Data. We will use Isaac Sim with Omniverse Replicator to generate data for our use case and objects of interest. To ensure seamless compatibility with model training, the data generated is in the KITTI format.  These steps can be followed on a Cloud/remote GPU instance or locally ## How to use this repository - [Guide](local/README.md) for running the workflow locally - [Guide](cloud/README.md) for running on a cloud/remote instance ## Workflow Components: * Generating Data: Use Isaac Sim to generate data * Training: We will use TAO toolkit, however users can train a model in a framework of their choice with data generated ### SDG  - Using the `palletjack` assets from the Warehouse Sim Ready Asset collection  - Carry out Domain Randomization in the scene with Replicator:     - Various attributes of the scene like lighting, textures, obj"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/nanosam",
+    "label": "nanosam",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/nanosam",
+    "description": "A distilled Segment Anything (SAM) model capable of running real-time with NVIDIA TensorRT",
+    "summary": "NanoSAM 👍 Usage - ⏱️ Performance - 🛠️ Setup - 🤸 Examples - 🏋️ Training - 🧐 Evaluation - 👏 Acknowledgment - 🔗 See also NanoSAM is a Segment Anything (SAM) model variant that is capable of running in 🔥 real-time 🔥 on NVIDIA Jetson Orin Platforms with NVIDIA TensorRT. NanoSAM is trained by distilling the MobileSAM image encoder on unlabeled images. For an introduction to knowledge distillati",
+    "readmeSnippet": "<h1 align=\"center\"><span>NanoSAM</span></h1> <p align=\"center\"><a href=\"#usage\"/>👍 Usage</a> - <a href=\"#performance\"/>⏱️ Performance</a> - <a href=\"#setup\">🛠️ Setup</a> - <a href=\"#examples\">🤸 Examples</a> - <a href=\"#training\">🏋️ Training</a> <br>- <a href=\"#evaluation\">🧐 Evaluation</a> - <a href=\"#acknowledgement\">👏 Acknowledgment</a> - <a href=\"#see-also\">🔗 See also</a></p> NanoSAM is a [Segment Anything (SAM)](https://github.com/facebookresearch/segment-anything) model variant that is capable of running in 🔥 ***real-time*** 🔥 on [NVIDIA Jetson Orin Platforms](https://store.nvidia.com/en-us/jetson/store) with [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt).   <!-- <img src=\"assets/tshirt_gif_compressed_v2.gif\" height=\"20%\" width=\"20%\"/>   --> <p align=\"center\"><img src=\"assets/basic_usage_out.jpg\" height=\"256px\"/></p> <!--<img src=\"assets/mouse_gif_compressed.gif\"  height=\"50%\" width=\"50%\"/> --> > NanoSAM is trained by distilling the [MobileSAM](https://github"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/nanoowl",
+    "label": "nanoowl",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/nanoowl",
+    "description": "A project that optimizes OWL-ViT for real-time inference with NVIDIA TensorRT.",
+    "summary": "NanoOWL 👍 Usage - ⏱️ Performance - 🛠️ Setup - 🤸 Examples - 👏 Acknowledgment - 🔗 See also NanoOWL is a project that optimizes OWL-ViT to run 🔥 real-time 🔥 on NVIDIA Jetson Orin Platforms with NVIDIA TensorRT. NanoOWL also introduces a new \"tree detection\" pipeline that combines OWL-ViT and CLIP to enable nested detection and classification of anything, at any level, simply by providing text.",
+    "readmeSnippet": "<h1 align=\"center\">NanoOWL</h1> <p align=\"center\"><a href=\"#usage\"/>👍 Usage</a> - <a href=\"#performance\"/>⏱️ Performance</a> - <a href=\"#setup\">🛠️ Setup</a> - <a href=\"#examples\">🤸 Examples</a> <br> - <a href=\"#acknowledgement\">👏 Acknowledgment</a> - <a href=\"#see-also\">🔗 See also</a></p> NanoOWL is a project that optimizes [OWL-ViT](https://huggingface.co/docs/transformers/model_doc/owlvit) to run 🔥 ***real-time*** 🔥 on [NVIDIA Jetson Orin Platforms](https://store.nvidia.com/en-us/jetson/store) with [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt).  NanoOWL also introduces a new \"tree detection\" pipeline that combines OWL-ViT and CLIP to enable nested detection and classification of anything, at any level, simply by providing text. <p align=\"center\"> <img src=\"assets/jetson_person_2x.gif\" height=\"50%\" width=\"50%\"/></p> > Interested in detecting object masks as well?  Try combining NanoOWL with > [NanoSAM](https://github.com/NVIDIA-AI-IOT/nanosam) for zero-shot open-"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/deepstream_libraries",
+    "label": "deepstream_libraries",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/deepstream_libraries",
+    "description": " DeepStream Libraries offer CVCUDA, NvImageCodec, and PyNvVideoCodec modules as Python APIs for seamless integration into custom frameworks. ",
+    "summary": "DeepStream Libraries DeepStream Libraries provide CVCUDA, NvImageCodec, and PyNvVideoCodec modules as Python APIs to easily integrate into custom frameworks. Developers can build complete Python applications with fully accelerated components leveraging intuitive Python APIs. Most of the DeepStream Libraries building blocks and their Python APIs are available today as standalone packages. DeepStrea",
+    "readmeSnippet": "# DeepStream Libraries DeepStream Libraries provide [CVCUDA](https://github.com/CVCUDA/CV-CUDA), [NvImageCodec](https://github.com/NVIDIA/nvImageCodec), and [PyNvVideoCodec](https://pypi.org/project/PyNvVideoCodec/) modules as Python APIs to easily integrate into custom frameworks. Developers can build complete Python applications with fully accelerated components leveraging intuitive Python APIs. Most of the DeepStream Libraries building blocks and their Python APIs are available today as standalone packages. DeepStream Libraries provide a way for Python developers to install these packages with a single installer. All these packages are built against the same CUDA version and validated with the specified driver version. Reference applications are provided to demonstrate the usage of Python APIs. ## System Requirements - **Operating System:**   - [Ubuntu 24.04](https://releases.ubuntu.com/noble/) - **Python:**   - Python >=3.12,<3.15 (Should be pre-installed with Ubuntu 24.04) - "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/whisper_trt",
+    "label": "whisper_trt",
+    "domain": "inference",
+    "repo": "NVIDIA-AI-IOT/whisper_trt",
+    "description": "A project that optimizes Whisper for low latency inference using NVIDIA TensorRT",
+    "summary": "WhisperTRT This project optimizes OpenAI Whisper with NVIDIA TensorRT. When executing the base.en model on NVIDIA Jetson Orin Nano, WhisperTRT runs 3x faster while consuming only 60% the memory compared with PyTorch. WhisperTRT roughly mimics the API of the original Whisper model, making it easy to use. Check out the performance and usage details below! Performance All benchmarks are generated by ",
+    "readmeSnippet": "# WhisperTRT This project optimizes [OpenAI Whisper](https://github.com/openai/whisper) with [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt#:~:text=NVIDIA%20TensorRT%2DLLM%20is%20an,on%20the%20NVIDIA%20AI%20platform.). When executing the ``base.en`` model on NVIDIA Jetson Orin Nano, WhisperTRT runs **~3x faster** while consuming only **~60%** the memory compared with PyTorch.   WhisperTRT roughly mimics the API of the original Whisper model, making it easy to use.   Check out the [performance](#performance) and [usage](#usage) details below! ## Performance All benchmarks are generated by calling ``profile_backends.py``, processing a 20 second audio clip. ### Execution Time Execution time in seconds to transcribe 20 seconds of speech on Jetson Orin Nano. See [profile_backends.py](profile_backends.py) for details. |     | whisper | faster_whisper | whisper_trt | |-------|---------|--------------------|--------| | tiny.en | 1.74 sec | 0.85 sec | **0.64 sec** | | base.e"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-platform-services",
+    "label": "jetson-platform-services",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson-platform-services",
+    "description": "A collection of reference AI microservices and workflows for Jetson Platform Services",
+    "summary": "Jetson Platform Services Jetson Platform Services has several reference AI Services and workflows to build powerful AI applications at the edge such as a VLM alert system and Zero Shot Detection. The AI services and workflows are provided as prebuilt containers with docker compose files hosted on NGC. For comprehensive documentation about Jetson Platform Services, the AI services and workflows, vi",
+    "readmeSnippet": "# Jetson Platform Services Jetson Platform Services has several reference AI Services and workflows to build powerful AI applications at the edge such as a VLM alert system and Zero Shot Detection. The AI services and workflows are provided as prebuilt containers with docker compose files hosted on NGC. For comprehensive documentation about Jetson Platform Services, the AI services and workflows, view [the documentation here](https://docs.nvidia.com/jetson/jps) to get started. The linked documentation has all the instructions to setup your Jetson, install Jetson Platform Services and run the AI Services and workflows.  This repository contains the source code for the reference AI services, workflows and notebooks associated with Jetson Platform Services. **This repository is only needed if you want to customize and rebuild the AI Service containers or run the Jupyter notebook examples.** If you are only looking to run the prebuilt services and workflows, then follow [the documentatio"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-copilot",
+    "label": "jetson-copilot",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA-AI-IOT/jetson-copilot",
+    "description": "A reference application for a local AI assistant with LLM and RAG",
+    "summary": "Jetson Copilot Jetson Copilot is a reference application for a local AI assistant. It demonstrates two things; Running open-source LLMs (large language model) on device Augmenting the LLM to have access to your locally indexed knowledge (RAG, retrieval-augmented generation) [!IMPORTANT] This project will download and install additional third-party open source software projects. Review the license ",
+    "readmeSnippet": "# Jetson Copilot ![](./JC-Banner_1280x480.png) Jetson Copilot is a reference application for a ***local*** AI assistant. It demonstrates two things; - Running open-source LLMs (large language model) on device - Augmenting the LLM to have access to your locally indexed knowledge (**RAG**, retrieval-augmented generation) > [!IMPORTANT] >  > This project will download and install additional third-party open source software projects. Review the license terms of these open source projects before use. >  > | OSS | Repo URL | Usage | > | --- | --- | ----- | > |[Ollama](https://www.ollama.com/)|[GitHub](https://github.com/ollama/ollama)|To host and run LLMs locally, including embedding models for building index from documents | > | [LlamaIndex](https://www.llamaindex.ai/) | [GitHub](https://github.com/run-llama/llama_index) | Data framework for LLM, used mainly to realize RAG pipeline. | > | [Streamlit](https://streamlit.io/) | [GitHub](https://github.com/streamlit/streamlit) | Python lib"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/ros2_nanollm",
+    "label": "ros2_nanollm",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-AI-IOT/ros2_nanollm",
+    "description": "ROS2 nodes for LLM, VLM, VLA",
+    "summary": "ros2nanollm ROS2 nodes for LLM, VLM, VLA NanoLLM optimizes many different models to run on the NVIDIA Jetson Orin. This project provides a ROS 2 package for scene description using NanoLLM. Setup Run through these setup steps to get your Docker engine configured. Set up your ROS development environment by following the instructions here. Install the NanoLLM Docker Container by following the instal",
+    "readmeSnippet": "# ros2_nanollm ROS2 nodes for LLM, VLM, VLA [NanoLLM](https://github.com/dusty-nv/NanoLLM/tree/main) optimizes many different models to run on the NVIDIA Jetson Orin. This project provides a ROS 2 package for scene description using NanoLLM.  <p align=\"center\">   <img src=\"assets/sample.gif\" width=\"65%\"> </p> ## Setup  1. Run through these [setup steps](https://github.com/dusty-nv/jetson-containers/blob/master/docs/setup.md) to get your Docker engine configured. 2. Set up your ROS development environment by following the instructions [here](https://docs.ros.org/en/humble/Installation.html). 3. Install the NanoLLM Docker Container by following the installation instructions [here](https://dusty-nv.github.io/NanoLLM/install.html). ### Dev Mode By default, the `ros2_nanollm` package is built into the container and installed under `/ros2_workspace` (which is an environment automatically sourced on container startup).  But if you would like to edit this package interactively, you can "
+  },
+  {
+    "id": "NVIDIA-AI-IOT/DeepStream_Coding_Agent",
+    "label": "DeepStream_Coding_Agent",
+    "domain": "deepstream",
+    "repo": "NVIDIA-AI-IOT/DeepStream_Coding_Agent",
+    "description": "A project showcasing how to leverage AI coding assistants (Cursor, Claude Code, etc.) for accelerated NVIDIA DeepStream SDK application development using a curated agentic skill and structured prompts.",
+    "summary": "DeepStream Coding Agent A project showcasing how to leverage AI coding assistants (Cursor, Claude Code, etc.) for accelerated NVIDIA DeepStream SDK application development using a curated agentic skill and structured prompts. Disclaimer: Code generated with AI coding assistants is intended as a development starting point. All generated code must undergo your full software development lifecycle (SD",
+    "readmeSnippet": "# DeepStream Coding Agent A project showcasing how to leverage **AI coding assistants** (Cursor, Claude Code, etc.) for accelerated [NVIDIA DeepStream SDK](https://developer.nvidia.com/deepstream-sdk) application development using a curated agentic skill and structured prompts. > **Disclaimer:** Code generated with AI coding assistants is intended as a development starting point. All generated code must undergo your full software development lifecycle (SDLC) — including code review, testing, and security validation — before production use. --- ## Prerequisites ### For code generation (using the skill and prompts) - **AI coding assistant** that supports agentic skills (e.g., Cursor, Claude Code) No GPU, SDK, or special hardware is required — the skill and example prompts work on any system. ### For running the generated code The following are required on the target execution environment: - **NVIDIA DeepStream SDK 9.0** — installed locally or available via [NVIDIA NGC container"
+  },
+  {
+    "id": "NVIDIA-AI-IOT/jetson-device-skills",
+    "label": "jetson-device-skills",
+    "domain": "simulation",
+    "repo": "NVIDIA-AI-IOT/jetson-device-skills",
+    "description": "Foundational Agent Skills for NVIDIA Jetson Device",
+    "summary": "jetson-device-skills Description jetson-device-skills is a catalog of Agent Skills for working with a live NVIDIA Jetson device after it has booted. The skills are intended to be present on the Jetson and provide agent-readable instructions plus small helper scripts for diagnostics, memory auditing, runtime selection, model serving, benchmarking, packaging guidance, and related Jetson device workf",
+    "readmeSnippet": "# jetson-device-skills ## Description `jetson-device-skills` is a catalog of [Agent Skills](https://agentskills.io/) for working with a live NVIDIA Jetson device after it has booted. The skills are intended to be present on the Jetson and provide agent-readable instructions plus small helper scripts for diagnostics, memory auditing, runtime selection, model serving, benchmarking, packaging guidance, and related Jetson device workflows. This repository is device-side. Skills here run on the Jetson, inspect the Jetson, or provide commands that an agent should execute on the Jetson. BSP customization before flashing belongs in the sibling [`jetson-bsp-skills`](https://github.com/NVIDIA-AI-IOT/jetson-bsp-skills) repository. This project is currently not accepting contributions. ## Included Skills - `jetson-diagnostic` captures a read-only device health snapshot, including Jetson identity, memory, GPU, thermal, power, storage, services, and top processes. - `jetson-memory-audit` measu"
+  },
+  {
+    "id": "isaac-sim/IsaacGymEnvs",
+    "label": "IsaacGymEnvs",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacGymEnvs",
+    "description": "Isaac Gym Reinforcement Learning Environments",
+    "summary": "Isaac Gym Benchmark Environments Website Technical Paper Videos About this repository This repository contains example RL environments for the NVIDIA Isaac Gym high performance environments described in our NeurIPS 2021 Datasets and Benchmarks paper Installation Download the Isaac Gym Preview 4 release from the website, then follow the installation instructions in the documentation. We highly reco",
+    "readmeSnippet": "# Isaac Gym Benchmark Environments [Website](https://developer.nvidia.com/isaac-gym) | [Technical Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://sites.google.com/view/isaacgym-nvidia) ### About this repository This repository contains example RL environments for the NVIDIA Isaac Gym high performance environments described [in our NeurIPS 2021 Datasets and Benchmarks paper](https://openreview.net/forum?id=fgFBtYgJQX_) ### Installation Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym), then follow the installation instructions in the documentation. We highly recommend using a conda environment  to simplify set up. Ensure that Isaac Gym works on your system by running one of the examples from the `python/examples`  directory, like `joint_monkey.py`. Follow troubleshooting steps described in the Isaac Gym Preview 4 install instructions if you have any trouble running the samples. Once Isaac Gym is installed and samples"
+  },
+  {
+    "id": "isaac-sim/OmniIsaacGymEnvs",
+    "label": "OmniIsaacGymEnvs",
+    "domain": "simulation",
+    "repo": "isaac-sim/OmniIsaacGymEnvs",
+    "description": "Reinforcement Learning Environments for Omniverse Isaac Gym",
+    "summary": "Omniverse Isaac Gym Reinforcement Learning Environments for Isaac Sim PLEASE NOTE: Version 4.0.0 will be the last release of OmniIsaacGymEnvs. Moving forward, OmniIsaacGymEnvs will be merging with IsaacLab ( All future updates will be available as part of the IsaacLab repository. For tutorials on migrating to IsaacLab, please visit: About this repository This repository contains Reinforcement Lear",
+    "readmeSnippet": "# Omniverse Isaac Gym Reinforcement Learning Environments for Isaac Sim *PLEASE NOTE: Version 4.0.0 will be the last release of OmniIsaacGymEnvs. Moving forward, OmniIsaacGymEnvs will be merging with IsaacLab (https://github.com/isaac-sim/IsaacLab). All future updates will be available as part of the IsaacLab repository.* For tutorials on migrating to IsaacLab, please visit: https://isaac-sim.github.io/IsaacLab/source/migration/migrating_from_omniisaacgymenvs.html. ## About this repository This repository contains Reinforcement Learning examples that can be run with the latest release of [Isaac Sim](https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/overview.html). RL examples are trained using PPO from [rl_games](https://github.com/Denys88/rl_games) library and examples are built on top of Isaac Sim's `omni.isaac.core` and `omni.isaac.gym` frameworks. Please see [release notes](docs/release_notes.md) for the latest updates. <img src=\"https://user-images.githubuserconten"
+  },
+  {
+    "id": "isaac-sim/IsaacLab",
+    "label": "IsaacLab",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacLab",
+    "description": "Unified framework for robot learning built on NVIDIA Isaac Sim",
+    "summary": "--- Isaac Lab 3.0.0 Beta 2 This is the stable release branch for Isaac Lab 3.0.0 Beta 2 and supports Isaac Sim 6.0.0 and 6.0.1. Use the v3.0.0-beta2.patch1 tag for a reproducible release checkout. Active feature development continues on the develop branch. Isaac Lab is a GPU-accelerated, open-source framework designed to unify and simplify robotics research workflows, such as reinforcement learnin",
+    "readmeSnippet": "![Isaac Lab](docs/source/_static/isaaclab.jpg) --- # Isaac Lab 3.0.0 Beta 2 [![IsaacSim](https://img.shields.io/badge/IsaacSim-6.0.1-silver.svg)](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html) [![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://docs.python.org/3/whatsnew/3.12.html) [![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/22.04/) [![Windows platform](https://img.shields.io/badge/platform-windows--64-orange.svg)](https://www.microsoft.com/en-us/) [![pre-commit](https://img.shields.io/github/actions/workflow/status/isaac-sim/IsaacLab/pre-commit.yaml?logo=pre-commit&logoColor=white&label=pre-commit&color=brightgreen)](https://github.com/isaac-sim/IsaacLab/actions/workflows/pre-commit.yaml) [![docs status](https://img.shields.io/github/actions/workflow/status/isaac-sim/IsaacLab/docs.yaml?label=docs&color=brightgreen)](https://github.com/isaac-sim/IsaacLab/actions/workflows/docs.yaml) [!["
+  },
+  {
+    "id": "isaac-sim/IsaacSim-ros_workspaces",
+    "label": "IsaacSim-ros_workspaces",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacSim-ros_workspaces",
+    "description": "Isaac Sim ROS Workspaces",
+    "summary": "Isaac Sim ROS & ROS2 Workspaces This repository contains two workspaces: humblews (ROS2 Humble) and jazzyws (ROS2 Jazzy). Click here for usage and installation instructions with Isaac Sim When cloning this repository, both workspaces are downloaded. Depending on which ROS distro you are using, follow the setup instructions for building your specific workspace.",
+    "readmeSnippet": "# Isaac Sim ROS & ROS2 Workspaces This repository contains two workspaces: `humble_ws` (ROS2 Humble) and `jazzy_ws` (ROS2 Jazzy).  [Click here for usage and installation instructions with Isaac Sim](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html) When cloning this repository, both workspaces are downloaded. Depending on which ROS distro you are using, follow the [setup instructions](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_ros.html#setting-up-workspaces) for building your specific workspace."
+  },
+  {
+    "id": "isaac-sim/urdf-importer-extension",
+    "label": "urdf-importer-extension",
+    "domain": "simulation",
+    "repo": "isaac-sim/urdf-importer-extension",
+    "description": "URDF Importer",
+    "summary": "⚠️ DEPRECATED REPOSITORY This repository is no longer maintained. Its content has moved to:",
+    "readmeSnippet": "⚠️ **DEPRECATED REPOSITORY** This repository is no longer maintained. Its content has moved to: https://github.com/isaac-sim/IsaacSim/tree/main/source/extensions/isaacsim.asset.importer.urdf "
+  },
+  {
+    "id": "isaac-sim/mjcf-importer-extension",
+    "label": "mjcf-importer-extension",
+    "domain": "simulation",
+    "repo": "isaac-sim/mjcf-importer-extension",
+    "description": "MJCF Importer Extension",
+    "summary": "⚠️ DEPRECATED REPOSITORY This repository is no longer maintained. Its content has moved to:",
+    "readmeSnippet": "⚠️ **DEPRECATED REPOSITORY** This repository is no longer maintained. Its content has moved to: https://github.com/isaac-sim/IsaacSim/tree/main/source/extensions/isaacsim.asset.importer.mjcf "
+  },
+  {
+    "id": "isaac-sim/IsaacAutomator",
+    "label": "IsaacAutomator",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacAutomator",
+    "description": "Isaac Workstation in the Clouds  ☁️",
+    "summary": "Isaac Automator (v4) Isaac Automator allows quick deployment of Isaac Sim, Isaac Lab, and Isaac Lab Arena to public clouds (AWS, GCP, Azure, and Alibaba Cloud are currently supported). The result is a fully configured deployed Isaac Workstation — a remote desktop cloud VM that you can use to develop and test robotic applications within minutes and on a budget. Isaac Automator supports a variety of",
+    "readmeSnippet": "![Isaac Automator](src/banner.png) # Isaac Automator (v4) Isaac Automator allows quick deployment of Isaac Sim, Isaac Lab, and Isaac Lab Arena to public clouds (AWS, GCP, Azure, and Alibaba Cloud are currently supported). The result is a fully configured deployed Isaac Workstation — a remote desktop cloud VM that you can use to develop and test robotic applications within minutes and on a budget. Isaac Automator supports a variety of GPU instances and stop/start functionality to save on cloud costs and provides tools to aid your workflow (uploading and downloading data, autorun, deployment management, etc.). - [TLDR ;)](#tldr-) - [Using with AI Agents](#using-with-ai-agents) - [Installation](#installation)   - [Installing Docker](#installing-docker)   - [Building the Container](#building-the-container)     - [Linux/macOS](#linuxmacos)     - [Windows](#windows) - [Usage](#usage)   - [Running Isaac Automator](#running-isaac-automator)     - [Linux/macOS](#linuxmacos-1)     - [Windows"
+  },
+  {
+    "id": "isaac-sim/IsaacLabExtensionTemplate",
+    "label": "IsaacLabExtensionTemplate",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacLabExtensionTemplate",
+    "description": "External extenstion template based on Isaac Lab",
+    "summary": "🚨 Deprecation Notice This repository is no longer maintained. Since keeping this repo up-to-date with the continuous updates in Isaac Lab became difficult, we have migrated the project template generator directly into the Isaac Lab repository. 👉 Please follow the steps in the Isaac Lab docs to set up your own project: How to create your own Isaac Lab project If you would like to contribute to th",
+    "readmeSnippet": "# 🚨 Deprecation Notice This repository is no longer maintained. Since keeping this repo up-to-date with the continuous updates in Isaac Lab became difficult, we have migrated the project template generator directly into the [Isaac Lab](https://github.com/isaac-sim/IsaacLab) repository. 👉 Please follow the steps in the Isaac Lab docs to set up your own project: [How to create your own Isaac Lab project](https://isaac-sim.github.io/IsaacLab/main/source/overview/own-project/index.html) If you would like to contribute to the extension template, please follow the [contribution guidelines](https://isaac-sim.github.io/IsaacLab/main/source/refs/contributing.html) in the Isaac Lab repository directly.   --- # Template for Isaac Lab Projects [![IsaacSim](https://img.shields.io/badge/IsaacSim-4.5.0-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html) [![Isaac Lab](https://img.shields.io/badge/IsaacLab-2.1.0-silver)](https://isaac-sim.github.io/IsaacLab) [![Python]"
+  },
+  {
+    "id": "isaac-sim/IsaacSimZMQ",
+    "label": "IsaacSimZMQ",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacSimZMQ",
+    "description": "Isaac SIM extension for communication with external application via ZMQ",
+    "summary": "Isaac Sim ZMQ Bridge A reference bridge implementation for bidirectional communication between NVIDIA Isaac Sim and external applications using ZeroMQ and Protobuf. Table of Contents Overview Features Requirements Installation Usage Client (Isaac Sim) Server (Python) Examples Headless / Python Standalone Mode Architecture Client Implementation Server Implementation Serialization Development Troubl",
+    "readmeSnippet": "# Isaac Sim ZMQ Bridge [![IsaacSim](https://img.shields.io/badge/IsaacSim-6.0.1-silver.svg)](https://docs.isaacsim.omniverse.nvidia.com) [![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://docs.python.org/3/whatsnew/3.11.html) [![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/24.04/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) A reference bridge implementation for bidirectional communication between NVIDIA Isaac Sim and external applications using [ZeroMQ](https://zeromq.org/) and [Protobuf](https://protobuf.dev/). ![Architecture of the client-server](/exts/isaacsim.zmq.bridge.examples/data/arch.png) ## Table of Contents - [Overview](#overview) - [Features](#features) - [Requirements](#requirements) - [Installation](#installation) - [Usage](#usage)   - [Client (Isaac Sim)](#client-isaac-sim)   - [Server (Python)](#server-python)   - [Exampl"
+  },
+  {
+    "id": "isaac-sim/isaacsim-app-template",
+    "label": "isaacsim-app-template",
+    "domain": "simulation",
+    "repo": "isaac-sim/isaacsim-app-template",
+    "description": "Isaac Sim App Template",
+    "summary": "Isaac Sim App Template ## :warning: Version 5.1.0 is the final release of this project. Next release onwards it will be integrated into the open-source Isaac Sim repository. :memo: Feature Branch Information This repository is based on a Feature Branch of the Omniverse Kit SDK. Feature Branches are regularly updated and best suited for testing and prototyping. For stable, production-oriented devel",
+    "readmeSnippet": "# Isaac Sim App Template <p align=\"center\">   <img src=\"readme-assets/kit_app_template_banner.png\" width=100% /> </p> <br> > ## :warning: Version 5.1.0 is the final release of this project. Next release onwards it will be integrated into the open-source [Isaac Sim repository](https://github.com/isaac-sim/IsaacSim). <br> ## :memo: Feature Branch Information **This repository is based on a Feature Branch of the Omniverse Kit SDK.** Feature Branches are regularly updated and best suited for testing and prototyping. For stable, production-oriented development, please use the [Production Branch of the Kit SDK on NVIDIA GPU Cloud (NGC)](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/omniverse/collections/production_branch_december_2024). [Omniverse Release Information](https://docs.omniverse.nvidia.com/dev-overview/latest/omniverse-releases.html#) ## Overview This repository provides [Isaac Sim](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html) applications pre-built a"
+  },
+  {
+    "id": "isaac-sim/isaac-xr-teleop-sample-client-apple",
+    "label": "isaac-xr-teleop-sample-client-apple",
+    "domain": "simulation",
+    "repo": "isaac-sim/isaac-xr-teleop-sample-client-apple",
+    "description": "",
+    "summary": "Isaac XR Teleop Sample Client The Isaac XR Teleop Sample Client is a sample app for Apple Vision Pro which enables immersive streaming and teleoperation of Isaac Sim and Isaac Lab simulations using CloudXR. This README will walk you through building and installing the Isaac XR Teleop Sample Client. These instructions are intended to be followed as a subsection of the Isaac Lab documentation: Setti",
+    "readmeSnippet": "# Isaac XR Teleop Sample Client The Isaac XR Teleop Sample Client is a sample app for Apple Vision Pro which enables immersive streaming and teleoperation of Isaac Sim and Isaac Lab simulations using CloudXR. This README will walk you through building and installing the Isaac XR Teleop Sample Client. These instructions are intended to be followed as a subsection of the Isaac Lab documentation: [Setting Up CloudXR Teleoperation](https://isaac-sim.github.io/IsaacLab/main/source/how-to/cloudxr_teleoperation.html) ## Requirements In order to build and install the Isaac XR Teleop Sample Client, please review the following system requirements: * Apple Vision Pro with visionOS 26 or later * Apple Silicon based Mac with macOS Sequoia 15.6 or later * A Wifi network in which both devices are IP-reachable from one another You need to manually download and install Xcode. The project requires Xcode 26 and VisionOS 26.0 (SDK+simulator).   Note: we recommend using a dedicated Wifi router, as"
+  },
+  {
+    "id": "isaac-sim/IsaacLabTutorial",
+    "label": "IsaacLabTutorial",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacLabTutorial",
+    "description": "Tutorial project for the accompanying doc",
+    "summary": "Template for Isaac Lab Projects Overview This repository is a tutorial repository, designed to go hand in hand with the Getting Started walkthrough found in the Isaac Lab docs. Each branch of the repository represents another stage of the walkthrough, with the main branch being the \"final state\" of the tutorial project. It allows you to develop in an isolated environment, outside of the core Isaac",
+    "readmeSnippet": "# Template for Isaac Lab Projects ## Overview This repository is a tutorial repository, designed to go hand in hand with the Getting Started walkthrough found in the Isaac Lab [docs](https://isaac-sim.github.io/IsaacLab). Each branch of the repository  represents another stage of the walkthrough, with the main branch being the \"final state\" of the tutorial project. It allows you to develop in an isolated environment, outside of the core Isaac Lab repository. **Key Features:** - `Isolation` Work outside the core Isaac Lab repository, ensuring that your development efforts remain self-contained. - `Flexibility` This template is set up to allow your code to be run as an extension in Omniverse. **Keywords:** extension, template, isaaclab ## Installation - Install Isaac Lab by following the [installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html).   We recommend using the conda installation as it simplifies calling Python scripts from the t"
+  },
+  {
+    "id": "isaac-sim/IsaacLabEvalTasks",
+    "label": "IsaacLabEvalTasks",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacLabEvalTasks",
+    "description": "Benchmarking GR00T N1 policy in Isaac Lab",
+    "summary": "Isaac Lab Evaluation Tasks 📝 Overview This repository introduces two new industrial manipulation tasks designed in Isaac Lab, enabling simulating and evaluating manipulation policies (e.g. Isaac GR00T N1) using a humanoid robot. The tasks are designed to simulate realistic industrial scenarios, including Nut Pouring and Exhaust Pipe Sorting. It also provides benchmarking scripts for closed-loop e",
+    "readmeSnippet": "# Isaac Lab Evaluation Tasks [![Isaac Sim](https://img.shields.io/badge/IsaacSim-5.0.0-silver.svg)](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html) [![Isaac Lab](https://img.shields.io/badge/IsaacLab-2.2.0-green.svg)](https://isaac-sim.github.io/IsaacLab/main/index.html) [![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://docs.python.org/3/whatsnew/3.11.html) [![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/20.04/) [![pre-commit](https://img.shields.io/github/actions/workflow/status/isaac-sim/IsaacLab/pre-commit.yaml?logo=pre-commit&logoColor=white&label=pre-commit&color=brightgreen)](https://github.com/isaac-sim/IsaacLab/actions/workflows/pre-commit.yaml) [![License](https://img.shields.io/badge/license-Apache--2.0-yellow.svg)](https://opensource.org/license/apache-2-0) ##  📝 Overview This repository introduces two new industrial manipulation tasks designed in [Isaac Lab](https://isaac-sim."
+  },
+  {
+    "id": "isaac-sim/IsaacSim",
+    "label": "IsaacSim",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacSim",
+    "description": "NVIDIA Isaac Sim™ is an open-source application on NVIDIA Omniverse for developing, simulating, and testing AI-driven robots in realistic virtual environments.",
+    "summary": "--- Isaac Sim NVIDIA Isaac Sim™ is a simulation platform built on NVIDIA Omniverse, designed to develop, test, train, and deploy AI-powered robots in realistic virtual environments. It supports importing robotic systems from common formats such as URDF, MJCF, and CAD. The simulator leverages high-fidelity, GPU-accelerated physics engines to simulate accurate dynamics and support multi-sensor RTX r",
+    "readmeSnippet": "![Isaac Sim](docs/readme/hero_shot_compressed.png) --- # Isaac Sim [![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://docs.python.org/3/whatsnew/3.12.html) [![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/22.04/) [![Linux aarch64 platform](https://img.shields.io/badge/platform-linux--aarch64-orange.svg)](https://docs.nvidia.com/dgx/dgx-os-7-user-guide/introduction.html) [![Windows platform](https://img.shields.io/badge/platform-windows--64-orange.svg)](https://www.microsoft.com/en-us/) [![License](https://img.shields.io/badge/license-Apache--2.0-yellow.svg)](LICENSE) NVIDIA Isaac Sim™ is a simulation platform built on NVIDIA Omniverse, designed to develop, test, train, and deploy AI-powered robots in realistic virtual environments. It supports importing robotic systems from common formats such as URDF, MJCF, and CAD. The simulator leverages high-fidelity, GPU-accelerated physics engines to simulate accura"
+  },
+  {
+    "id": "isaac-sim/isaac-launchable",
+    "label": "isaac-launchable",
+    "domain": "simulation",
+    "repo": "isaac-sim/isaac-launchable",
+    "description": "This repo is used to create a pre-configured Isaac Sim and Isaac Lab environment using the NVIDIA Brev's Launchable feature. Learners get access to a VSCode instance, a Kit App Streaming client, Isaac Sim, and Isaac Lab.",
+    "summary": "Isaac Launchable Isaac Launchable offers a simplified approach to trying Isaac Lab and Isaac Sim in a web browser. Through this project, users can interact with Isaac Sim and Isaac Lab purely from a web browser, with one tab running Visual Studio Code for development and command execution, and another tab providing the streamed user interface for Isaac Sim. Launchables are provided by NVIDIA Brev,",
+    "readmeSnippet": "![Example usage of Isaac Launchable](images/IsaacLaunchableDemo_GitHub_wide.gif) # Isaac Launchable Isaac Launchable offers a simplified approach to trying [Isaac Lab](https://isaac-sim.github.io/IsaacLab/main/index.html) and [Isaac Sim](https://github.com/isaac-sim/IsaacSim) in a web browser. Through this project, users can interact with Isaac Sim and Isaac Lab purely from a web browser, with one tab running Visual Studio Code for development and command execution, and another tab providing the streamed user interface for Isaac Sim. Launchables are provided by [NVIDIA Brev](https://developer.nvidia.com/brev), using this repo as a template. Launchables are preconfigured, fully optimized compute and software environments. They allow users to start projects without extensive setup or configuration. Isaac Lab is built upon Isaac Sim, the NVIDIA simulation framework for robotics. Isaac Sim can both be launched alone, or from the context of Isaac Lab to enable robot learning. ## What "
+  },
+  {
+    "id": "isaac-sim/IsaacLab-Arena",
+    "label": "IsaacLab-Arena",
+    "domain": "simulation",
+    "repo": "isaac-sim/IsaacLab-Arena",
+    "description": "Isaac Lab - Arena is a robotics simulation framework that enhances NVIDIA Isaac Lab by providing a composable, scalable system for creating diverse simulation environments and evaluating robot learning policies. The framework enables developers to rapidly prototype and test robotic tasks with various robot embodiments, objects, and environments.",
+    "summary": "Isaac Lab-Arena Composable Environment Creation and Policy Evaluation for Robotics Simulation Documentation · NVIDIA Blog Post · Report a Bug · Discussions --- [!WARNING] Alpha Software — Not an Early Access or General Availability Release. Isaac Lab-Arena v0.2.x is an early code release intended to give the community a practical starting point to experiment, provide feedback, and influence future",
+    "readmeSnippet": "<div align=\"center\"> # Isaac Lab-Arena ### Composable Environment Creation and Policy Evaluation for Robotics Simulation [![Alpha](https://img.shields.io/badge/status-alpha-e8912d.svg)](#%EF%B8%8F-project-status) [![Version](https://img.shields.io/badge/version-0.2.x-blue.svg)](https://github.com/isaac-sim/IsaacLab-Arena/tree/main) [![IsaacSim](https://img.shields.io/badge/IsaacSim-6.0.0-silver.svg)](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html) [![IsaacLab](https://img.shields.io/badge/IsaacLab-3.0.0-silver.svg)](https://github.com/isaac-sim/IsaacLab) [![Python](https://img.shields.io/badge/python-≥3.12-blue.svg)](https://docs.python.org/3/whatsnew/3.12.html) [![Linux](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/22.04/) [![License](https://img.shields.io/badge/license-Apache--2.0-yellow.svg)](LICENSE.md) [Documentation](https://isaac-sim.github.io/IsaacLab-Arena/release/0.2.0/index.html) · [NVIDIA Blog Post](https://deve"
+  },
+  {
+    "id": "isaac-sim/isaac-teleop-device-plugins",
+    "label": "isaac-teleop-device-plugins",
+    "domain": "simulation",
+    "repo": "isaac-sim/isaac-teleop-device-plugins",
+    "description": "",
+    "summary": "## :warning: This repository is archived and no longer maintained. XR teleoperation device plugins are now developed in Isaac Teleop, the unified framework for sim & real robot teleoperation. Please use that repository going forward. IsaacSim XR Teleop Device Plugins — Hand Tracking (Manus example) This repository provides a Linux-only plugin framework that bridges the Isaac Sim Hand Tracking C AP",
+    "readmeSnippet": "> ## :warning: This repository is archived and no longer maintained. XR teleoperation device plugins are now developed in [Isaac Teleop](https://github.com/NVIDIA/IsaacTeleop), the unified framework for sim & real robot teleoperation. Please use that repository going forward. <br> ## IsaacSim XR Teleop Device Plugins — Hand Tracking (Manus example) This repository provides a Linux-only plugin framework that bridges the Isaac Sim Hand Tracking C API to vendor SDKs. It includes: - A shared library implementing the Isaac Sim Hand Tracking C API - An example Manus-backed plugin that streams glove data through that API ### Components - **Core C API library**: `IsaacSimHandTrackerCAPI` (shared library) - **Manus example plugin**: `IsaacSimManusHandTracking` (shared library) - **CLI**: `ManusHandTrackerPrinter` (prints tracked data) All targets use modern CMake and C++20. ## Prerequisites - **Linux** (x86_64) - **CMake** ≥ 3.22 (Ubuntu 22.04 default is supported) - **GCC/Clang** with C+"
+  },
+  {
+    "id": "isaac-sim/Sim-to-Real-SO-101-Workshop",
+    "label": "Sim-to-Real-SO-101-Workshop",
+    "domain": "robotic-arms",
+    "repo": "isaac-sim/Sim-to-Real-SO-101-Workshop",
+    "description": "This code supports learning content to demonstrate an end-to-end Physical AI workflow with the SO-101 robot, Isaac Lab, and Isaac GR00T.",
+    "summary": "Train an SO-101 Robot From Sim-to-Real With NVIDIA Isaac Welcome to this workshop on sim-to-real transfer for the SO-101 robot! This repository contains the assets and code to accompany this learning content. The rest of this README will help you setup the environment and ensure everything is installed correctly. You can also use this repo as a basis for trying out your own tasks. Requirements Thi",
+    "readmeSnippet": "# Train an SO-101 Robot From Sim-to-Real With NVIDIA Isaac ![SO-101 Vial to Rack Task](images/so101_banner.png) Welcome to this workshop on sim-to-real transfer for the SO-101 robot! This repository contains the assets and code to accompany this [learning content](https://docs.nvidia.com/learning/physical-ai/sim-to-real-so-101/latest/index.html). The rest of this README will help you setup the environment and ensure everything is installed correctly. You can also use this repo as a basis for trying out your own tasks. ## Requirements This content was tested on the following GPUs: - NVIDIA RTX 6000 Pro (Blackwell) - NVIDIA RTX 5090 (Blackwell) - NVIDIA RTX 6000 (Ada) OS and Software tested: - Ubuntu Linux >22.04 - Docker - CUDA Toolkit - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) ## Installation 1. Create directory and clone this repo ```bash mkdir ~/sim2real cd ~/sim2real git clone https://github.c"
+  },
+  {
+    "id": "NVlabs/geomapnet",
+    "label": "geomapnet",
+    "domain": "slam-mapping",
+    "repo": "NVlabs/geomapnet",
+    "description": "Geometry-Aware Learning of Maps for Camera Localization (CVPR2018)",
+    "summary": "Geometry-Aware Learning of Maps for Camera Localization This is the PyTorch implementation of our CVPR 2018 paper \"Geometry-Aware Learning of Maps for Camera Localization\" - CVPR 2018 (Spotlight). Samarth Brahmbhatt, Jinwei Gu, Kihwan Kim, James Hays, and Jan Kautz A four-minute video summary (click below for the video) Citation If you find this code useful for your research, please cite our paper",
+    "readmeSnippet": "[![License CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC4.0-blue.svg)](https://raw.githubusercontent.com/NVIDIA/FastPhotoStyle/master/LICENSE.md) ![Python 2.7](https://img.shields.io/badge/python-2.7-green.svg) # Geometry-Aware Learning of Maps for Camera Localization  This is the PyTorch implementation of our CVPR 2018 paper \"[Geometry-Aware Learning of Maps for Camera Localization](https://arxiv.org/abs/1712.03342)\" - CVPR 2018 (Spotlight). [Samarth Brahmbhatt](https://samarth-robo.github.io/), [Jinwei Gu](http://www.gujinwei.org/), [Kihwan Kim](https://www.cc.gatech.edu/~kihwan23/), [James Hays](https://www.cc.gatech.edu/~hays/), and [Jan Kautz](http://jankautz.com/) ### A four-minute video summary (click below for the video) [![mapnet](./figures/mapnet.png)](https://www.youtube.com/watch?v=X6mF_IbOb4A) ## Citation If you find this code useful for your research, please cite our paper ``` @inproceedings{mapnet2018,   title={Geometry-Aware Learning of Maps for Camera "
+  },
+  {
+    "id": "NVlabs/learningrigidity",
+    "label": "learningrigidity",
+    "domain": "slam-mapping",
+    "repo": "NVlabs/learningrigidity",
+    "description": "Learning Rigidity in Dynamic Scenes with a Moving Camera for 3D Motion Field Estimation (ECCV 2018)",
+    "summary": "Learning Rigidity in Dynamic Scenes with a Moving Camera for 3D Motion Field Estimation (ECCV 2018) License ### Copyright (c) 2018 NVIDIA Corp. All Rights Reserved. This work is licensed under the Creative Commons Attribution NonCommercial ShareAlike 4.0 License. Project page ### NVIDIA Research project page Paper ### ArXiv (PDF) Video (Youtube) Project members ### Zhaoyang Lv, Georgia Institute o",
+    "readmeSnippet": "# Learning Rigidity in Dynamic Scenes with a Moving Camera for 3D Motion Field Estimation (ECCV 2018) ![alt text](https://research.nvidia.com/sites/default/files/publications/learning-rigidity_0.png) ### License ### Copyright (c) 2018 NVIDIA Corp.  All Rights Reserved. This work is licensed under the [Creative Commons Attribution NonCommercial ShareAlike 4.0 License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). ### Project page ### [NVIDIA Research project page](https://research.nvidia.com/publication/2018-09_Learning-Rigidity-in) ### Paper ###  * [ArXiv (PDF)](https://arxiv.org/pdf/1804.04259.pdf)    * [Video (Youtube)](https://www.youtube.com/watch?v=MnTHkOCY790) ### Project members ### * [Zhaoyang Lv](https://www.cc.gatech.edu/~zlv30/), Georgia Institute of Technology * [Kihwan Kim](https://research.nvidia.com/person/kihwan-kim), NVIDIA * [Alejandro Troccoli](https://research.nvidia.com/person/alejandro-troccoli), NVIDIA * [Deqing Sun](https://research.nvidia"
+  },
+  {
+    "id": "NVlabs/Deep_Object_Pose",
+    "label": "Deep_Object_Pose",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/Deep_Object_Pose",
+    "description": "Deep Object Pose Estimation (DOPE) – ROS inference (CoRL 2018)",
+    "summary": "Deep Object Pose Estimation This is the official repository for NVIDIA's Deep Object Pose Estimation, which performs detection and 6-DoF pose estimation of known objects from an RGB camera. For full details, see our CoRL 2018 paper and video. Contents This repository contains complete code for training, inference, numerical evaluation of results, and synthetic data generation. We also provide a RO",
+    "readmeSnippet": "[![License CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) ![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg) # Deep Object Pose Estimation This is the official repository for NVIDIA's Deep Object Pose Estimation, which performs detection and 6-DoF pose estimation of **known objects** from an RGB camera.  For full details, see our [CoRL 2018 paper](https://arxiv.org/abs/1809.10790) and [video](https://youtu.be/yVGViBqWtBI). ![DOPE Objects](dope_objects.png) ## Contents This repository contains complete code for [training](train), [inference](inference), numerical [evaluation](evaluate) of results, and synthetic [data generation](data_generation).  We also provide a [ROS1 Noetic package](ros1) that performs inference on images from a USB camera. Hardware-accelerated ROS2 inference can be done with the external [NVIDIA Isaac ROS DOPE](https://github.com/NVIDIA-ISAAC-ROS"
+  },
+  {
+    "id": "NVlabs/FLAT",
+    "label": "FLAT",
+    "domain": "simulation",
+    "repo": "NVlabs/FLAT",
+    "description": "Flexible, Large, Augmentable, ToF dataset - a dataset for Time of Flight cameras and deep learning",
+    "summary": "Flexible Large Augmentable Time-of-flight (FLAT) Dataset This repository provides access to the FLAT dataset and some proposed baseline methods for time-of-flight (ToF) artifacts removal. The FLAT dataset includes synthetic measurements of several scenes that allow generaring raw measurements for different ToF cameras, such as Kinect 2, including motion blur, multi-path interference (MPI), and sho",
+    "readmeSnippet": "# Flexible Large Augmentable Time-of-flight (FLAT) Dataset This repository provides access to the FLAT dataset and some proposed baseline methods for time-of-flight (ToF) artifacts removal. The FLAT dataset includes synthetic measurements of several scenes that allow generaring raw measurements for different ToF cameras, such as Kinect 2, including motion blur, multi-path interference (MPI), and shot noise. This repository also provides a joint physics-and-learning-based method that reduces these artifacts. For details of the dataset and the methods, please refer to the [project page](https://research.nvidia.com/publication/2018-09_Tackling-3D-ToF). If you use this code in your work, please kindly cite the following paper: ``` @InProceedings{Guo_2018_ECCV, author = {Guo, Qi and Frosio, Iuri and Gallo, Orazio and Zickler, Todd and Kautz, Jan}, title = {Tackling 3D ToF Artifacts Through Learning and the FLAT Dataset}, booktitle = {The European Conference on Computer Vision (ECCV)}, mon"
+  },
+  {
+    "id": "NVlabs/6dof-graspnet",
+    "label": "6dof-graspnet",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/6dof-graspnet",
+    "description": "Implementation of 6-DoF GraspNet with tensorflow and python. This repo has been tested with python 2.7 and tensorflow 1.12.",
+    "summary": "6-DoF GraspNet: Variational Grasp Generation for Object Manipulation Implementation of 6-DoF GraspNet with tensorflow and python. This repo has been tested with python 2.7 and tensorflow 1.12. License The source code is released under MIT License and the trained weights are released under CC-BY-NC-SA 2.0. Installation This code has been tested with tenorflow 1.12, CUDA 10.0, and CUDNN 7.1.2 on Ubu",
+    "readmeSnippet": "# 6-DoF GraspNet: Variational Grasp Generation for Object Manipulation Implementation of [6-DoF GraspNet](https://arxiv.org/abs/1905.10520) with tensorflow and python. This repo has been tested with python 2.7 and tensorflow 1.12. # License The source code is released under [MIT License](LICENSE) and the trained weights are released under [CC-BY-NC-SA 2.0](TRAINED_MODEL_LICENSE). ## Installation This code has been tested with tenorflow 1.12, CUDA 10.0, and CUDNN 7.1.2 on Ubuntu 16.04. 1) Tensorflow installation: In case you want to install tensorflow 1.12 you can use the command bellow: ```shell wget https://storage.googleapis.com/tf-performance/tf_binary/tensorflow-1.12.0.a6d8ffa.AVX2.CUDA10-cp27-cp27mu-linux_x86_64.whl pip install tensorflow-1.12.0.a6d8ffa.AVX2.CUDA10-cp27-cp27mu-linux_x86_64.whl rm tensorflow-1.12.0.a6d8ffa.AVX2.CUDA10-cp27-cp27mu-linux_x86_64.whl ``` 2) Clone this repository: `git lfs clone https://github.com/NvLabs/6dof-graspnet`. Note the `lfs` in the command "
+  },
+  {
+    "id": "NVlabs/wetectron",
+    "label": "wetectron",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/wetectron",
+    "description": "Weakly-supervised object detection.",
+    "summary": "Wetectron Wetectron is a software system that implements state-of-the-art weakly-supervised object detection algorithms. Project CVPR'20, ECCV'20 Paper CVPR'20, ECCV'20 Installation Check INSTALL.md for installation instructions. Partial labels The simulated partial labels (points and scribbles) of COCO can be found at Google-drive or Dropbox. Please check tools/vispartiallabels.ipynb for a visual",
+    "readmeSnippet": "# Wetectron Wetectron is a software system that implements state-of-the-art weakly-supervised object detection algorithms. ![Wetectron](docs/teaser.png)  ### Project [CVPR'20](https://jason718.github.io/project/wsod/main.html), [ECCV'20](https://jason718.github.io/project/ufoo/main.html) | Paper [CVPR'20](https://arxiv.org/pdf/2004.04725.pdf), [ECCV'20](http://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123640290.pdf)  ## Installation Check [INSTALL.md](docs/INSTALL.md) for installation instructions. ## Partial labels The simulated partial labels (points and scribbles) of COCO can be found at [Google-drive](https://drive.google.com/drive/u/2/folders/1DYKIOrM0X3o_kdA-p932XYcIzku2fKAM) or [Dropbox](https://www.dropbox.com/sh/tq2gasoik98sfyc/AADdK9zPne9_v2QkauO2kpTZa?dl=0).  Please check `tools/vis_partial_labels.ipynb` for a visualization example. ## Model zoo Check [MODEL_ZOO.md](docs/MODEL_ZOO.md) for detailed instructions. ## Getting started Check [GETTING_STARTED](doc"
+  },
+  {
+    "id": "NVlabs/DREAM",
+    "label": "DREAM",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/DREAM",
+    "description": "DREAM: Deep Robot-to-Camera Extrinsics for Articulated Manipulators (ICRA 2020)",
+    "summary": "DREAM: Deep Robot-to-Camera Extrinsics for Articulated Manipulators This is the official implementation of \"Camera-to-robot pose estimation from a single image\" (ICRA 2020). The DREAM system uses a robot-specific deep neural network to detect keypoints (typically joint locations) in the RGB image of a robot manipulator. Using these keypoint locations along with the robot forward kinematics, the ca",
+    "readmeSnippet": "# DREAM: Deep Robot-to-Camera Extrinsics for Articulated Manipulators This is the official implementation of [\"Camera-to-robot pose estimation from a single image\"](https://arxiv.org/abs/1911.09231) (ICRA 2020).  The DREAM system uses a robot-specific deep neural network to detect keypoints (typically joint locations) in the RGB image of a robot manipulator. Using these keypoint locations along with the robot forward kinematics, the camera pose with respect to the robot is estimated using a perspective-n-point (PnP) algorithm.  For more details, please see our [paper](https://arxiv.org/abs/1911.09231) and [video](https://youtu.be/O1qAFboFQ8A). ![DREAM in operation](dream-franka.png) ## **Installation** We have tested on Ubuntu 16.04 and 18.04 with an NVIDIA GeForce RTX 2080 and Titan X, with both Python 2.7 and Python 3.6.  The code may work on other systems. Install the DREAM package and its dependencies using `pip`: ``` pip install . -r requirements.txt ``` Download the pre-t"
+  },
+  {
+    "id": "NVlabs/latentfusion",
+    "label": "latentfusion",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/latentfusion",
+    "description": "LatentFusion: End-to-End Differentiable Reconstruction and Rendering for Unseen Object Pose Estimation",
+    "summary": "LatentFusion [project page] [paper] Citing LatentFusion If you find the LatentFusion code or data useful, please consider citing: Setup Please start by installing Miniconda3 with Python 3.7 or above. wget bash Miniconda3-latest-Linux-x8664.sh Then create a Conda environment with our environment file: conda env create -n latentfusion -f environment.yml conda activate latentfusion Please make sure t",
+    "readmeSnippet": "# LatentFusion  * [[project page](https://keunhong.com/publications/latentfusion/)]  * [[paper](https://arxiv.org/abs/1912.00416)] ## Citing LatentFusion If you find the LatentFusion code or data useful, please consider citing: ```bibtex @inproceedings{park2019latentfusion,   title={LatentFusion: End-to-End Differentiable Reconstruction and Rendering for Unseen Object Pose Estimation},   author={Park, Keunhong and Mousavian, Arsalan and Xiang, Yu and Fox, Dieter},   booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},   year={2020} } ``` ## Setup Please start by installing [Miniconda3](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html) with Python 3.7 or above.     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh     bash Miniconda3-latest-Linux-x86_64.sh Then create a Conda environment with our environment file:     conda env create -n latentfusion -f environment.yml     conda activate latent"
+  },
+  {
+    "id": "NVlabs/acronym",
+    "label": "acronym",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/acronym",
+    "description": "This repository contains a sample of the grasping dataset and tools to visualize grasps, generate random scenes, and render observations. The two sample files are in the HDF5 format.",
+    "summary": "ACRONYM is a dataset of 17.7M simulated parallel-jaw grasps of 8872 objects. It was generated using NVIDIA FleX. This repository contains a sample of the grasping dataset and tools to visualize grasps, generate random scenes, and render observations. For using the full ACRONYM dataset, see instructions below. License The source code is released under MIT License. The dataset is released under CC B",
+    "readmeSnippet": "[ACRONYM](https://sites.google.com/view/graspdataset) is a dataset of 17.7M simulated parallel-jaw grasps of 8872 objects. It was generated using [NVIDIA FleX](https://developer.nvidia.com/flex). This repository contains a sample of the grasping dataset and tools to visualize grasps, generate random scenes, and render observations. For using the full ACRONYM dataset, see instructions [below](#using-the-full-acronym-dataset). # License The source code is released under [MIT License](LICENSE). The dataset is released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode). # Requirements * Python3 * `python -m pip install -r requirements.txt` # Installation * `python -m pip install -e .` # Use Cases ### Visualize Grasps ``` usage: acronym_visualize_grasps.py [-h] [--num_grasps NUM_GRASPS] input [input ...] Visualize grasps from the dataset. positional arguments:   input                 HDF5 or JSON Grasp file(s). optional arguments:   -h, --help          "
+  },
+  {
+    "id": "NVlabs/DefGraspSim",
+    "label": "DefGraspSim",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/DefGraspSim",
+    "description": "This package provides a framework to automatically perform grasp tests on an arbitrary object model of choice.",
+    "summary": "Deformable Object Grasping This module provides a framework to automatically perform grasp tests on an arbitrary object model of choice. The details of these grasp tests can be found in our paper \"What Makes a Good Grasp on a Deformable Object?\". (link to pre-print to be added). For a full example walkthrough, see examples/example.md. There are four different grasp evaluations to choose from (see ",
+    "readmeSnippet": "# Deformable Object Grasping This module provides a framework to automatically perform grasp tests on an arbitrary object model of choice. The details of these grasp tests can be found in our paper \"What Makes a Good Grasp on a Deformable Object?\". (link to pre-print to be added). For a full example walkthrough, see `examples/example.md`. There are four different grasp evaluations to choose from ([see Grasp Evaluations section](#types-of-grasp-evaluations)). The user should prepare a mesh of their object of choice as well as an h5 file of all candidate grasps ([see User Inputs section](#user-inputs)). Results of the grasp evaluation are saved in a particular format depending on the evaluation run ([see File Structure section](#results-file-structure-of-h5-datasets)) <img src=\"readme_content/banana_reorient.gif\" width=\"500\"/> Example execution of a reorient test on a banana starting from when the desired squeezing force is achieved (x10 speedup). # Requirements * [Isaac Gym](https:/"
+  },
+  {
+    "id": "NVlabs/contact_graspnet",
+    "label": "contact_graspnet",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/contact_graspnet",
+    "description": "Efficient 6-DoF Grasp Generation in Cluttered Scenes",
+    "summary": "Contact-GraspNet Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes Martin Sundermeyer, Arsalan Mousavian, Rudolph Triebel, Dieter Fox ICRA 2021 paper, project page, video Installation This code has been tested with python 3.7, tensorflow 2.2, CUDA 11.1 Create the conda env Troubleshooting Recompile pointnet2 tfops: Hardware Training: 1x Nvidia GPU >= 24GB VRAM, >=64GB RAM Infe",
+    "readmeSnippet": "# Contact-GraspNet   ### Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes    Martin Sundermeyer, Arsalan Mousavian, Rudolph Triebel, Dieter Fox   ICRA 2021     [paper](https://arxiv.org/abs/2103.14127), [project page](https://research.nvidia.com/publication/2021-03_Contact-GraspNet%3A--Efficient), [video](http://www.youtube.com/watch?v=qRLKYSLXElM) <p align=\"center\">   <img src=\"examples/2.gif\" width=\"640\" title=\"UOIS + Contact-GraspNet\"/> </p> ## Installation This code has been tested with python 3.7, tensorflow 2.2, CUDA 11.1 Create the conda env ``` conda env create -f contact_graspnet_env.yml ``` ### Troubleshooting - Recompile pointnet2 tf_ops: ```shell sh compile_pointnet_tfops.sh ``` ### Hardware Training: 1x Nvidia GPU >= 24GB VRAM, >=64GB RAM   Inference: 1x Nvidia GPU >= 8GB VRAM (might work with less) ## Download Models and Data ### Model Download trained models from [here](https://drive.google.com/drive/folders/1tBHKf60K8DLM5arm-Chyf7jxkzOr5z"
+  },
+  {
+    "id": "NVlabs/storm",
+    "label": "storm",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/storm",
+    "description": "Stochastic Tensor Optimization for Robot Motion - A GPU Robot Motion Toolkit",
+    "summary": "STORM Stochastic Tensor Optimization for Robot Motion - A GPU Robot Motion Toolkit This Package is no longer maintained. Use instead. [Install Instructions] [Paper] [Website] This package contains code for reactive robot motion leveraging parallel compute on the GPU. The implemented control framework leverages MPPI to optimize over sampled actions and their costs. The costs are computed by rolling",
+    "readmeSnippet": "# STORM **Stochastic Tensor Optimization for Robot Motion** - *A GPU Robot Motion Toolkit* #### This Package is no longer maintained. Use https://github.com/NVlabs/curobo instead. [[Install Instructions](install_instructions.md)] [[Paper](https://arxiv.org/abs/2104.13542)] [[Website](https://sites.google.com/view/manipulation-mpc/home)] This package contains code for reactive robot motion leveraging parallel compute on the GPU. The implemented control framework leverages MPPI to optimize over sampled actions and their costs. The costs are computed by rolling out the forward model from the current state with the sampled actions. Most files are documented with sphinx. Once you clone this repo, go into docs folder and run `sh generate_docs.sh` to generate documentation. **To run on a real Franka Panda, you can use this low-level control wrapper:** [franka_motion_control](https://github.com/mohakbhardwaj/franka_motion_control) from [Mohak Bhardwaj](https://github.com/mohakbhardwaj). <p"
+  },
+  {
+    "id": "NVlabs/DIODE",
+    "label": "DIODE",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/DIODE",
+    "description": "Official PyTorch implementation of Data-free Knowledge Distillation for Object Detection, WACV 2021.",
+    "summary": "Introduction This repository is the official PyTorch implementation of Data-free Knowledge Distillation for Object Detection, WACV 2021. Data-free Knowledge Distillation for Object Detection Akshay Chawla, Hongxu Yin, Pavlo Molchanov and Jose Alvarez NVIDIA Abstract: We present DeepInversion for Object Detection (DIODE) to enable data-free knowledge distillation for neural networks trained on the ",
+    "readmeSnippet": "## Introduction This repository is the official PyTorch implementation of Data-free Knowledge Distillation for Object Detection, WACV 2021. **Data-free Knowledge Distillation for Object Detection**<br> Akshay Chawla, Hongxu Yin, Pavlo Molchanov and Jose Alvarez<br> NVIDIA **Abstract:** We present DeepInversion for Object Detection (DIODE) to enable data-free knowledge distillation for neural networks trained on the object detection task. From a data-free perspective, DIODE synthesizes images given only an off-the-shelf pre-trained detection network and without any prior domain knowledge, generator network, or pre-computed activations. DIODE relies on two key components—first, an extensive set of differentiable augmentations to improve image fidelity and distillation effectiveness. Second, a novel automated bounding box and category sampling scheme for image synthesis enabling generating a large number of images with a diverse set of spatial and category objects. The resulting images"
+  },
+  {
+    "id": "NVlabs/AL-MDN",
+    "label": "AL-MDN",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/AL-MDN",
+    "description": "Official pytorch implementation of Active Learning for deep object detection via probabilistic modeling (ICCV 2021)",
+    "summary": "Active Learning for Deep Object Detection via Probabilistic Modeling This repository is the official PyTorch implementation of Active Learning for Deep Object Detection via Probabilistic Modeling, ICCV 2021. The proposed method is implemented based on the SSD pytorch. Our approach relies on mixture density networks to estimate, in a single forward pass of a single model, both localization and clas",
+    "readmeSnippet": "# Active Learning for Deep Object Detection via Probabilistic Modeling This repository is the official PyTorch implementation of [Active Learning for Deep Object Detection via Probabilistic Modeling](https://openaccess.thecvf.com/content/ICCV2021/html/Choi_Active_Learning_for_Deep_Object_Detection_via_Probabilistic_Modeling_ICCV_2021_paper.html), ICCV 2021. The proposed method is implemented based on the [SSD pytorch](https://github.com/amdegroot/ssd.pytorch). <p align=\"center\"><img src=\"https://github.com/NVlabs/AL-MDN/blob/main/img/teaser.PNG\" width=\"95%\" height=\"95%\"> Our approach relies on mixture density networks to estimate, in a single forward pass of a single model, both localization and classification uncertainties, and leverages them in the scoring function for active learning. <p align=\"center\"><img src=\"https://github.com/NVlabs/AL-MDN/blob/main/img/AL_accuracy_multimodel.jpg\" width=\"40%\" height=\"40%\" /> <img src=\"https://github.com/NVlabs/AL-MDN/blob/main/img/AL_cost_"
+  },
+  {
+    "id": "NVlabs/oscar",
+    "label": "oscar",
+    "domain": "simulation",
+    "repo": "NVlabs/oscar",
+    "description": "Data-Driven Operational Space Control for Adaptive and Robust Robot Manipulation",
+    "summary": "Note: This repo is deprecated and is not supported by NVIDIA and will not receive updates. OSCAR Project Page Paper This repository contains the codebase used in OSCAR: Data-Driven Operational Space Control for Adaptive and Robust Robot Manipulation. More generally, this codebase is a modular framework built upon IsaacGym, and intended to support future robotics research leveraging large-scale tra",
+    "readmeSnippet": "### Note: This repo is **deprecated** and is not supported by NVIDIA and will not receive updates. [![NVIDIA Source Code License](https://img.shields.io/badge/license-NSCL-blue.svg)](https://github.com/NVlabs/oscar/blob/master/LICENSE.txt) ![Python 3.7](https://img.shields.io/badge/python-3.7-green.svg) # OSCAR <div align=\"center\">   <img src=\"./resources/main_fig.png\" height=\"400\"> </div> ### [Project Page](https://cremebrule.github.io/oscar-web) | [Paper](https://arxiv.org/abs/2110.00704) This repository contains the codebase used in [**OSCAR: Data-Driven Operational Space Control for Adaptive and Robust Robot Manipulation**](https://cremebrule.github.io/oscar-web). More generally, this codebase is a modular framework built upon [IsaacGym](https://developer.nvidia.com/isaac-gym), and intended to support future robotics research leveraging large-scale training. Of note, this repo contains: - High-quality controller implementations of OSC, IK, and Joint-Based controllers that ha"
+  },
+  {
+    "id": "NVlabs/CenterPose",
+    "label": "CenterPose",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/CenterPose",
+    "description": "Single-Stage Keypoint-based Category-level Object Pose Estimation from an RGB Image (ICRA 2022)",
+    "summary": "CenterPose Overview This repository is the official implementation of the paper Single-Stage Keypoint-based Category-level Object Pose Estimation from an RGB Image by Lin et al., ICRA 2022 (full citation below). For videos, please visit the CenterPose project site. In this work, we propose a single-stage, keypoint-based approach for category-level object pose estimation, which operates on unknown ",
+    "readmeSnippet": "# CenterPose ![](readme/fig1.png) ## Overview This repository is the official implementation of the paper [Single-Stage Keypoint-based Category-level Object Pose Estimation from an RGB Image](https://arxiv.org/abs/2109.06161) by Lin et al., ICRA 2022 (full citation below).  For videos, please visit the [CenterPose project site](https://sites.google.com/view/centerpose).  In this work, we propose a single-stage, keypoint-based approach for category-level object pose  estimation, which operates on unknown object instances within a known  category using a single RGB image input. The proposed network performs  2D  object detection,  detects 2D  keypoints,  estimates  6-DoF  pose,  and regresses relative 3D bounding cuboid dimensions.  These quantities are estimated in a sequential fashion, leveraging the recent idea of convGRU for propagating information from easier tasks to those that are more difficult.  We favor simplicity in our design choices: generic cuboid vertex coordinates, a "
+  },
+  {
+    "id": "NVlabs/GLAMR",
+    "label": "GLAMR",
+    "domain": "simulation",
+    "repo": "NVlabs/GLAMR",
+    "description": "[CVPR 2022 Oral] Official PyTorch Implementation of \"GLAMR: Global Occlusion-Aware Human Mesh Recovery with Dynamic Cameras”.",
+    "summary": "GLAMR This repo contains the official PyTorch implementation of our paper: GLAMR: Global Occlusion-Aware Human Mesh Recovery with Dynamic Cameras Ye Yuan, Umar Iqbal, Pavlo Molchanov, Kris Kitani, Jan Kautz CVPR 2022 (Oral) website paper video Overview News [08/10/22]: Demos for multi-person videos are added (Thanks to Haofan Wang)! [08/01/22]: Demos for dynamic and static videos are released! Tab",
+    "readmeSnippet": "# GLAMR <img src=\"docs/glamr_teaser.gif\" width=\"100%\"> This repo contains the official PyTorch implementation of our paper:    GLAMR: Global Occlusion-Aware Human Mesh Recovery with Dynamic Cameras   [Ye Yuan](https://www.ye-yuan.com/), [Umar Iqbal](http://www.umariqbal.info/), [Pavlo Molchanov](https://research.nvidia.com/person/pavlo-molchanov/), [Kris Kitani](http://www.cs.cmu.edu/~kkitani/), [Jan Kautz](https://jankautz.com/)   **CVPR 2022 (Oral)**   [website](https://nvlabs.github.io/GLAMR) | [paper](https://arxiv.org/abs/2112.01524) | [video](https://youtu.be/wpObDXcYueo) # Overview <img src=\"docs/glamr_overview.png\" width=\"100%\"> # News - **[08/10/22]**: [Demos](#multi-person-videos) for multi-person videos are added (Thanks to [Haofan Wang](https://haofanwang.github.io/))! - **[08/01/22]**: [Demos](#demo) for dynamic and static videos are released! # Table of Content - [Installation](#installation) - [Demo](#demo)     - [Dynamic Videos](#dynamic-videos)     - [Static Videos"
+  },
+  {
+    "id": "NVlabs/ACID",
+    "label": "ACID",
+    "domain": "simulation",
+    "repo": "NVlabs/ACID",
+    "description": "ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation",
+    "summary": "ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation Project Page Paper This repository contains the codebase used in ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation, which will appear in RSS 2022 and is nominated for Best Student Paper Award. Specifically, the repo contains code for: PlushSim, the simulation environment used to ",
+    "readmeSnippet": "[![NVIDIA Source Code License](https://img.shields.io/badge/license-NSCL-blue.svg)](https://github.com/NVlabs/ACID/blob/master/LICENSE) ![Python 3.7](https://img.shields.io/badge/python-3.7-green.svg) # ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation ### [Project Page](https://b0ku1.github.io/acid/) | [Paper](https://arxiv.org/abs/2203.06856) <div style=\"text-align: center\"> <img src=\"_media/model_figure.png\" width=\"600\"/> </div> This repository contains the codebase used in [**ACID: Action-Conditional Implicit Visual Dynamics for Deformable Object Manipulation**](https://b0ku1.github.io/acid/), which will appear in [RSS 2022](https://roboticsconference.org/program/papers/) and is nominated for Best Student Paper Award. Specifically, the repo contains code for: * [**PlushSim**](./PlushSim/), the simulation environment used to generate all manipulation data. * [**ACID model**](./ACID/), the implicit visual dynamics model's model and training code"
+  },
+  {
+    "id": "NVlabs/handover-sim",
+    "label": "handover-sim",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/handover-sim",
+    "description": "A simulation environment and benchmark for human-to-robot object handovers",
+    "summary": "Handover-Sim Handover-Sim is a Python-based simulation environment and benchmark for human-to-robot object handovers. The environment and benchmark were initially described in an ICRA 2022 paper: HandoverSim: A Simulation Framework and Benchmark for Human-to-Robot Object Handovers Yu-Wei Chao, Chris Paxton, Yu Xiang, Wei Yang, Balakumar Sundaralingam, Tao Chen, Adithyavairavan Murali, Maya Cakmak,",
+    "readmeSnippet": "# Handover-Sim Handover-Sim is a Python-based simulation environment and benchmark for human-to-robot object handovers. The environment and benchmark were initially described in an ICRA 2022 paper: **HandoverSim: A Simulation Framework and Benchmark for Human-to-Robot Object Handovers**   Yu-Wei Chao, Chris Paxton, Yu Xiang, Wei Yang, Balakumar Sundaralingam, Tao Chen, Adithyavairavan Murali, Maya Cakmak, Dieter Fox   IEEE International Conference on Robotics and Automation (ICRA), 2022   [ [paper](https://handover-sim.github.io/assets/chao_icra2022.pdf) ] [ [video](https://youtu.be/lX3CF4lFKWo) ] [ [arXiv](https://arxiv.org/abs/2205.09747) ] [ [project site](https://handover-sim.github.io) ] ### Citing Handover-Sim     @INPROCEEDINGS{chao:icra2022,       author    = {Yu-Wei Chao and Chris Paxton and Yu Xiang and Wei Yang and Balakumar Sundaralingam and Tao Chen and Adithyavairavan Murali and Maya Cakmak and Dieter Fox},       booktitle = {IEEE International Conference on Robotics "
+  },
+  {
+    "id": "NVlabs/DiffRL",
+    "label": "DiffRL",
+    "domain": "simulation",
+    "repo": "NVlabs/DiffRL",
+    "description": "[ICLR 2022] Accelerated Policy Learning with Parallel Differentiable Simulation",
+    "summary": "SHAC This repository contains the implementation for the paper Accelerated Policy Learning with Parallel Differentiable Simulation (ICLR 2022). In this paper, we present a GPU-based differentiable simulation and propose a policy learning method named SHAC leveraging the developed differentiable simulation. We provide a comprehensive benchmark set for policy learning with differentiable simulation.",
+    "readmeSnippet": "# SHAC This repository contains the implementation for the paper [Accelerated Policy Learning with Parallel Differentiable Simulation](https://short-horizon-actor-critic.github.io/) (ICLR 2022). In this paper, we present a GPU-based differentiable simulation and propose a policy learning method named SHAC leveraging the developed differentiable simulation. We provide a comprehensive benchmark set for policy learning with differentiable simulation. The benchmark set contains six robotic control problems for now as shown in the figure below.  <p align=\"center\">     <img src=\"figures/envs.png\" alt=\"envs\" width=\"800\" /> </p> ## Installation - `git clone https://github.com/NVlabs/DiffRL.git --recursive` - The code has been tested on    - Operating System: Ubuntu 16.04, 18.04, 20.04, 21.10, 22.04   - Python Version: 3.7, 3.8   - GPU: TITAN X, RTX 1080, RTX 2080, RTX 3080, RTX 3090, RTX 3090 Ti #### Prerequisites - In the project folder, create a virtual environment in Anaconda:   "
+  },
+  {
+    "id": "NVlabs/RVT",
+    "label": "RVT",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/RVT",
+    "description": "Official Code for RVT-2 and RVT",
+    "summary": "RVT-2: Learning Precise Manipulation from Few Examples Ankit Goyal, Valts Blukis, Jie Xu, Yijie Guo, Yu-Wei Chao, Dieter Fox RSS 2024 RVT: Robotic View Transformer for 3D Object Manipulation Ankit Goyal, Jie Xu, Yijie Guo, Valts Blukis, Yu-Wei Chao, Dieter Fox CoRL 2023 (Oral) RVT-2 solving high precision tasks Single RVT solving multiple tasks This is the official repository that reproduces the r",
+    "readmeSnippet": "[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/rvt-2-learning-precise-manipulation-from-few/robot-manipulation-on-rlbench)](https://paperswithcode.com/sota/robot-manipulation-on-rlbench?p=rvt-2-learning-precise-manipulation-from-few) [***RVT-2: Learning Precise Manipulation from Few Examples***](https://robotic-view-transformer-2.github.io/) <br/> [Ankit Goyal](http://imankgoyal.github.io), [Valts Blukis](https://www.cs.cornell.edu/~valts/), [Jie Xu](https://people.csail.mit.edu/jiex), [Yijie Guo](https://www.guoyijie.me/), [Yu-Wei Chao](https://research.nvidia.com/person/yu-wei-chao), [Dieter Fox](https://homes.cs.washington.edu/~fox/)<br/> ***RSS 2024*** [***RVT: Robotic View Transformer for 3D Object Manipulation***](https://robotic-view-transformer.github.io/) <br/> [Ankit Goyal](http://imankgoyal.github.io), [Jie Xu](https://people.csail.mit.edu/jiex), [Yijie Guo](https://www.guoyijie.me/), [Valts Blukis](https://www.cs.cornell.edu/~valts/), [Yu"
+  },
+  {
+    "id": "NVlabs/diff-dope",
+    "label": "diff-dope",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/diff-dope",
+    "description": "Pose estimation refiner",
+    "summary": "Diff-DOPE A 6-DoF pose refiner that takes as input an image, a 3d model, and an initial object pose. The method then outputs the pose of the object using a differentiable renderer that minimizes the object reprojection error (rgb, depth, edges, mask, etc.). If you want to generate the figure above check out this link. Installation Run simple scene From the root folder of the this repository, call:",
+    "readmeSnippet": "[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit) # Diff-DOPE ![Diff-DOPE compared to megapose](figures/teaser.png) A 6-DoF pose refiner that takes as input an image, a 3d model, and an initial object pose. The method then outputs the pose of the object using a differentiable renderer that minimizes the object reprojection error (rgb, depth, edges, mask, etc.). If you want to generate the figure above check out this [link](https://github.com/TontonTremblay/heatmap_error_pose).   ## Installation ```bash conda create -n diffdope python=3.9 conda activate diffdope pip install -e . ``` ## Run simple scene From the root folder of the this repository, call: ```bash python examples/simple_scene.py ``` The first run will compile several CUDA kernels, which will take a brief amount of time. Subsequent runs will be faster. After the script finishes, you should see the resulting object pose displayed as a "
+  },
+  {
+    "id": "NVlabs/curobo",
+    "label": "curobo",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/curobo",
+    "description": "CUDA Accelerated Robot Library",
+    "summary": "cuRobo CUDA Accelerated Robot Library Documentation Paper [!NOTE] cuRoboV2 is a significant rewrite and the public API has changed from cuRobo v1. If you depend on the v1 API, pin to the v0.7.8 tag. cuRobo is a CUDA-accelerated library for robot motion generation, built on PyTorch, CUDA, and Warp. It provides GPU-parallel algorithms for forward/inverse kinematics, collision checking, trajectory op",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2023-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. --> <!-- SPDX-License-Identifier: Apache-2.0 --> # cuRobo *CUDA Accelerated Robot Library* **[Documentation](https://nvlabs.github.io/curobo) | [Paper](https://arxiv.org/abs/2603.05493)** > [!NOTE] > cuRoboV2 is a significant rewrite and the public API has changed from cuRobo v1. > If you depend on the v1 API, pin to the [`v0.7.8`](https://github.com/NVlabs/curobo/tree/v0.7.8) tag. cuRobo is a CUDA-accelerated library for robot motion generation, built on PyTorch, CUDA, and Warp. It provides GPU-parallel algorithms for forward/inverse kinematics, collision checking, trajectory optimization, geometric planning, GPU-native perception, and whole-body motion generation, scaling from single-arm manipulators to high-DoF humanoids. Key capabilities: - **Dynamics-aware trajectory optimization** with B-spline representation enforcing smoothness and torque limits - **GPU-native ESDF pe"
+  },
+  {
+    "id": "NVlabs/handover-sim2real",
+    "label": "handover-sim2real",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/handover-sim2real",
+    "description": "Official code for CVPR'23 paper: Learning Human-to-Robot Handovers from Point Clouds",
+    "summary": "Handover-Sim2Real Handover-Sim2Real is the official code for the following CVPR 2023 paper: Learning Human-to-Robot Handovers from Point Clouds Sammy Christen, Wei Yang, Claudia Pérez-D'Arpino, Otmar Hilliges, Dieter Fox, Yu-Wei Chao IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023 [arXiv ] [video ] [project site ] Citing Handover-Sim2Real License Handover-Sim2Real is re",
+    "readmeSnippet": "<p align=\"center\">     <img src=\"./docs/teaser_1.gif\" width=32.9%>     <img src=\"./docs/teaser_2.gif\" width=32.9%>     <img src=\"./docs/teaser_3.gif\" width=32.9%> </p> # Handover-Sim2Real Handover-Sim2Real is the official code for the following CVPR 2023 paper: **Learning Human-to-Robot Handovers from Point Clouds**   Sammy Christen, Wei Yang, Claudia Pérez-D'Arpino, Otmar Hilliges, Dieter Fox, Yu-Wei Chao   IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023   [ [arXiv](https://arxiv.org/abs/2303.17592) ] [ [video](https://youtu.be/IsjCdoIAA7s) ] [ [project site](https://handover-sim2real.github.io) ] ### Citing Handover-Sim2Real ```BibTeX @INPROCEEDINGS{christen:cvpr2023,   author    = {Sammy Christen and Wei Yang and Claudia P\\'{e}rez-D'Arpino and Otmar Hilliges and Dieter Fox and Yu-Wei Chao},   booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},   title     = {Learning Human-to-Robot Handovers from Point Clouds},   year"
+  },
+  {
+    "id": "NVlabs/FoundationPose",
+    "label": "FoundationPose",
+    "domain": "pose-and-vision",
+    "repo": "NVlabs/FoundationPose",
+    "description": "[CVPR 2024 Highlight] FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects",
+    "summary": "FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects [[Paper]]( [[Website]]( This is the official implementation of our paper to be appeared in CVPR 2024 (Highlight) Contributors: Bowen Wen, Wei Yang, Jan Kautz, Stan Birchfield We present FoundationPose, a unified foundation model for 6D object pose estimation and tracking, supporting both model-based and model-free setups. Our",
+    "readmeSnippet": "# FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects [[Paper]](https://arxiv.org/abs/2312.08344) [[Website]](https://nvlabs.github.io/FoundationPose/) This is the official implementation of our paper to be appeared in CVPR 2024 (Highlight) Contributors: Bowen Wen, Wei Yang, Jan Kautz, Stan Birchfield We present FoundationPose, a unified foundation model for 6D object pose estimation and tracking, supporting both model-based and model-free setups. Our approach can be instantly applied at test-time to a novel object without fine-tuning, as long as its CAD model is given, or a small number of reference images are captured. We bridge the gap between these two setups with a neural implicit representation that allows for effective novel view synthesis, keeping the downstream pose estimation modules invariant under the same unified framework. Strong generalizability is achieved via large-scale synthetic training, aided by a large language model (LLM), a novel transfor"
+  },
+  {
+    "id": "NVlabs/3DGM",
+    "label": "3DGM",
+    "domain": "slam-mapping",
+    "repo": "NVlabs/3DGM",
+    "description": "Official PyTorch implementation of 3D Gaussian Mapping (3DGM)",
+    "summary": "3D Gaussian Mapping: Simultaneous 2D Segmentation and 3D Mapping with Self-Supervision Memorize What Matters: Emergent Scene Decomposition from Multitraverse, NeurIPS 2024 (Spotlight). Yiming Li, Zehong Wang, Yue Wang, Zhiding Yu, Zan Gojcic, Marco Pavone, Chen Feng, Jose M. Alvarez [[PDF]]( [[Project]]( Emerged 2D segmentation from nine traversals of the same location, collected on different date",
+    "readmeSnippet": "<div align=\"center\">       # 3D Gaussian Mapping: Simultaneous 2D Segmentation and 3D Mapping with Self-Supervision </div> > **Memorize What Matters: Emergent Scene Decomposition from Multitraverse**, NeurIPS 2024 (Spotlight). > [Yiming Li](https://scholar.google.com/citations?hl=en&user=i_aajNoAAAAJ&view_op=list_works&sortby=pubdate), [Zehong Wang](), [Yue Wang](https://scholar.google.com/citations?user=v-AEFIEAAAAJ&hl=en), [Zhiding Yu](https://scholar.google.com/citations?user=1VI_oYUAAAAJ&hl=en), [Zan Gojcic](https://scholar.google.com/citations?user=8KsqL4gAAAAJ&hl=en), [Marco Pavone](https://scholar.google.com/citations?user=RhOpyXcAAAAJ&hl=en), [Chen Feng](https://scholar.google.com/citations?user=YeG8ZM0AAAAJ&hl=en), [Jose M. Alvarez](https://scholar.google.com/citations?user=Oyx-_UIAAAAJ&hl=en) >  [[PDF]](https://arxiv.org/pdf/2405.17187) [[Project]](https://3d-gaussian-mapping.github.io/)  > Emerged 2D segmentation from nine traversals of the same location, collected on"
+  },
+  {
+    "id": "NVlabs/Eagle",
+    "label": "Eagle",
+    "domain": "simulation",
+    "repo": "NVlabs/Eagle",
+    "description": "Eagle: Frontier Vision-Language Models with Data-Centric Strategies",
+    "summary": "🦅 Eagle: Frontier Vision-Language Models with Data-Centric Strategies [📘Eagle Report] [📘Eagle 2 Report] [📘Eagle 2.5 Report] [📘LocateAnything Report] [🤗Model Collection] [🤗LocateAnything Demo] [🌐Project Page] Updates [2026/06] 🎉 LocateAnything is accepted to ECCV 2026. [2026/06] 🔥 Release visual prompt fine-tuning script for LocateAnything with LoRA fine-tuning. [2026/06] 🔥 LocateAnythin",
+    "readmeSnippet": "<div align=\"center\"> #  🦅  Eagle: Frontier Vision-Language Models with Data-Centric Strategies <p>     <img src=\"Eagle/assets/Eagle.png\" alt=\"Eagle\" width=\"500\" height=\"auto\"> </p> [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](LICENSE) [![Model License](https://img.shields.io/badge/Model%20License-NVIDIA%20License-red.svg)](./Eagle2_5/LICENSE_MODEL) [[📘Eagle Report](Eagle/Eagle.pdf)] [[📘Eagle 2 Report](Eagle2_5/Eagle2.pdf)] [[📘Eagle 2.5 Report](Eagle2_5/Eagle2.5.pdf)] [[📘LocateAnything Report](https://research.nvidia.com/labs/lpr/locate-anything/LocateAnything.pdf)] [[🤗Model Collection](https://huggingface.co/collections/nvidia/eagle)] [[🤗LocateAnything Demo](https://huggingface.co/spaces/nvidia/LocateAnything)] [[🌐Project Page](https://nvlabs.github.io/Eagle/)] </div> ## Updates - [2026/06] 🎉 LocateAnything is accepted to [ECCV 2026](https://eccv.ecva.net/). - [2026/06] 🔥 Release [visual prompt fine-tuning script](./Embodied/shel"
+  },
+  {
+    "id": "NVlabs/DRAIL",
+    "label": "DRAIL",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/DRAIL",
+    "description": "[NeurIPS'24] The Official PyTorch implementation of DRAIL",
+    "summary": "[NeurIPS'24] Diffusion Rewards Adversarial Imitation Learning (DRAIL) The Official PyTorch implementation of Diffusion Rewards Adversarial Imitation Learning (NeurIPS'24). Chun-Mao Lai\\ 1 , Hsiang-Chun Wang\\ 1 , Ping-Chun Hsieh 2 , Yu-Chiang Frank Wang 1,3 , Min-Hung Chen 3 , Shao-Hua Sun 1 1 NTU RobotLearning Lab, 2 National Yang Ming Chiao Tung University, 3 NVIDIA Research Taiwan (\\Equal contri",
+    "readmeSnippet": "# [NeurIPS'24] Diffusion Rewards Adversarial Imitation Learning (DRAIL) <h1 align=\"center\">      <img src=\"./drail_model_fig.png\" width=\"1000\"> </h1> The Official PyTorch implementation of [**Diffusion Rewards Adversarial Imitation Learning (NeurIPS'24)**](https://arxiv.org/abs/2405.16194). [Chun-Mao Lai\\*](https://www.mecoli.net/)<sup>1</sup>, [Hsiang-Chun Wang\\*](https://hsiangchun0205.github.io/)<sup>1</sup>, [Ping-Chun Hsieh](https://pinghsieh.github.io/)<sup>2</sup>, [Yu-Chiang Frank Wang](https://vllab.ee.ntu.edu.tw/ycwang.html)<sup>1,3</sup>, [Min-Hung Chen](https://minhungchen.netlify.app/)<sup>3</sup>, [Shao-Hua Sun](https://shaohua0116.github.io)<sup>1</sup><br> <sup>1</sup>[NTU RobotLearning Lab](https://shaohua0116.github.io/), <sup>2</sup>National Yang Ming Chiao Tung University, <sup>3</sup>[NVIDIA Research Taiwan](https://research.nvidia.com/labs/twn/)<br> (\\*Equal contribution) [[`Paper`](https://arxiv.org/abs/2405.16194)] [[`Website`](https://nturobotlearninglab.gi"
+  },
+  {
+    "id": "NVlabs/IsaacLabEureka",
+    "label": "IsaacLabEureka",
+    "domain": "simulation",
+    "repo": "NVlabs/IsaacLabEureka",
+    "description": "",
+    "summary": "Isaac Lab Eureka Overview This repository is an implementation of Eureka: Human-Level Reward Design via Coding Large Language Models in Isaac Lab. It prompts an LLM to discover and tune reward functions automatically for your specific task. We support the native Openai and the Azure Openai APIs. Installation Make sure that you have either an Openai API or Azure Openai API key. Install Isaac Lab, s",
+    "readmeSnippet": "# Isaac Lab Eureka [![IsaacSim](https://img.shields.io/badge/IsaacSim-5.1.0-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html) [![Isaac Lab](https://img.shields.io/badge/IsaacLab-2.3.0-silver)](https://isaac-sim.github.io/IsaacLab) [![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3/whatsnew/3.10.html) [![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/20.04/) [![Windows platform](https://img.shields.io/badge/platform-windows--64-orange.svg)](https://www.microsoft.com/en-us/) [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/license/mit) ## Overview This repository is an implementation of *[Eureka](https://github.com/eureka-research/Eureka): Human-Level Reward Design via Coding Large Language Models* in Isaac Lab. It prompts an LLM to discover and tune reward functions automatically for your specific task. We support the nat"
+  },
+  {
+    "id": "NVlabs/object_centric_diffusion",
+    "label": "object_centric_diffusion",
+    "domain": "simulation",
+    "repo": "NVlabs/object_centric_diffusion",
+    "description": "SPOT: SE(3) Pose Trajectory Diffusion for Object-Centric Manipulation",
+    "summary": "SPOT: SE(3) Pose Trajectory Diffusion for Object-Centric Manipulation Cheng-Chun Hsu, Bowen Wen, Jie Xu, Yashraj Narang, Xiaolong Wang, Yuke Zhu, Joydeep Biswas, Stan Birchfield ICRA 2025 Project Paper Abstract We introduce SPOT, an object-centric imitation learning framework. The key idea is to capture each task by an object-centric representation, specifically the SE(3) object pose trajectory re",
+    "readmeSnippet": "# SPOT: SE(3) Pose Trajectory Diffusion for Object-Centric Manipulation [Cheng-Chun Hsu](https://chengchunhsu.github.io/), [Bowen Wen](https://research.nvidia.com/person/bowen-wen), [Jie Xu](https://research.nvidia.com/person/jie-xu), [Yashraj Narang](https://research.nvidia.com/person/yashraj-narang), [Xiaolong Wang](https://research.nvidia.com/labs/lpr/author/xiaolong-wang/), [Yuke Zhu](https://research.nvidia.com/person/yuke-zhu), [Joydeep Biswas](https://www.joydeepb.com/), [Stan Birchfield](https://research.nvidia.com/person/stan-birchfield) ICRA 2025 [Project](https://nvlabs.github.io/object_centric_diffusion/) | [Paper](https://arxiv.org/abs/2411.00965) ## Abstract We introduce SPOT, an object-centric imitation learning framework. The key idea is to capture each task by an object-centric representation, specifically the SE(3) object pose trajectory relative to the target. This approach decouples embodiment actions from sensory inputs, facilitating learning from various de"
+  },
+  {
+    "id": "NVlabs/ProtoMotions",
+    "label": "ProtoMotions",
+    "domain": "simulation",
+    "repo": "NVlabs/ProtoMotions",
+    "description": "ProtoMotions is a GPU-accelerated simulation and learning framework for training physically simulated digital humans and humanoid robots.",
+    "summary": "ProtoMotions 3 A GPU-Accelerated Framework for Simulated Humanoids (unverified AI generation) --- Overview ProtoMotions3 is a GPU-accelerated simulation and learning framework for training physically simulated digital humans and humanoid robots. Our mission is to provide a fast prototyping platform for various simulated humanoid learning tasks and environments—for researchers and practitioners in ",
+    "readmeSnippet": "<div align=\"center\"> # ProtoMotions 3 **A GPU-Accelerated Framework for Simulated Humanoids** [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE.md) [![Documentation](https://img.shields.io/badge/docs-online-green.svg)](https://protomotions.github.io/) [![Newton](https://img.shields.io/badge/Newton-e7a737c-brightgreen.svg)](https://github.com/newton-physics/newton/commit/e7a737c) [![IsaacLab](https://img.shields.io/badge/IsaacLab-2.3.2-blue.svg)](https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.2) [![IsaacGym](https://img.shields.io/badge/IsaacGym-Preview_4-blue.svg)](https://developer.nvidia.com/isaac-gym) [![Genesis](https://img.shields.io/badge/Genesis-untested-lightgrey.svg)](https://github.com/Genesis-Embodied-AI/Genesis) [![MuJoCo](https://img.shields.io/badge/MuJoCo-3.0+-orange.svg)](https://github.com/google-deepmind/mujoco) [![DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/NVlabs/ProtoMotions) (unverified AI generation)"
+  },
+  {
+    "id": "NVlabs/scene_synthesizer",
+    "label": "scene_synthesizer",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/scene_synthesizer",
+    "description": "Python package to create manipulation scenes.",
+    "summary": "scenesynthesizer A python package to generate manipulation scenes. Check the documentation page for detailed installation instructions, API, and examples. Installation This project will download and install additional third-party open source software projects. Review the license terms of these open source projects before use (e.g. OpenUSD license). Via pip Via git See the documentation for detaile",
+    "readmeSnippet": "[![PyPI - Version](https://img.shields.io/pypi/v/scene-synthesizer)](https://pypi.org/project/scene-synthesizer/) [![Static Badge](https://img.shields.io/badge/docs-passing-brightgreen)](https://scene-synthesizer.github.io/) [![DOI](https://joss.theoj.org/papers/10.21105/joss.07561/status.svg)](https://doi.org/10.21105/joss.07561) # scene_synthesizer ![Banner](imgs/scene_synth_banner.png) A python package to generate manipulation scenes. Check the [documentation](https://scene-synthesizer.github.io/) page for detailed installation instructions, API, and examples. ## Installation This project will download and install additional third-party open source software projects. Review the license terms of these open source projects before use (e.g. [OpenUSD license](https://openusd.org/license>)). ### Via pip ``` pip install scene-synthesizer[recommend] ``` ### Via git ``` # create and activate conda env or venv git clone https://github.com/NVlabs/scene_synthesizer.git cd scene_synthesi"
+  },
+  {
+    "id": "NVlabs/collab-sim",
+    "label": "collab-sim",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/collab-sim",
+    "description": "Research package for MPC VR teleop with Isaac Sim and cuRobo",
+    "summary": "collab-sim COLLAB-SIM is a research package for GPU-accelerated robot teleoperation with MPC and collection of teleop demonstrations in Virtual Reality (VR) in simulation. It runs VR with physics simulation and high quality rendering using NVIDIA's Isaac Sim and XR, enabling rendering of the simulated environment on the VR Headset at interactive speeds (30-35 FPS), while also streaming the VR HMD ",
+    "readmeSnippet": "# collab-sim [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](LICENSE) [![Isaac Sim](https://img.shields.io/badge/Isaac%20Sim-4.5-green.svg)](https://developer.nvidia.com/isaac-sim) [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/) **COLLAB-SIM** is a research package for GPU-accelerated robot teleoperation with MPC and collection of teleop demonstrations in Virtual Reality (VR) in simulation. It runs VR with physics simulation and high quality rendering using NVIDIA's Isaac Sim and XR, enabling rendering of the simulated environment on the VR Headset at interactive speeds (30-35 FPS), while also streaming the VR HMD and controllers states (6-DOF poses and button states) back to the robot application. This is a research preview release to enable researchers to explore uses of VR with robotics simulation and custom VR-based workflows for robot learning and human-robot interaction. ## Table of Contents - [Features](#mai"
+  },
+  {
+    "id": "NVlabs/HOVER",
+    "label": "HOVER",
+    "domain": "simulation",
+    "repo": "NVlabs/HOVER",
+    "description": "HOVER",
+    "summary": "HOVER WBC Table of Contents HOVER WBC Table of Contents Overview Installation Training Data Processing AMASS dataset Teacher Policy Student Policy General Remarks for Training Generalist vs. Specialist Policy Testing Play Teacher Policy Play Student Policy Evaluation Overwriting Configuration Values Sim-to-Sim Validation Developing Unit testing Linting \\& Formatting Set up IDE (Optional) Running S",
+    "readmeSnippet": "# HOVER WBC [![IsaacSim](https://img.shields.io/badge/IsaacSim-4.5.0-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html) [![Isaac Lab](https://img.shields.io/badge/IsaacLab-2.0.0-silver)](https://isaac-sim.github.io/IsaacLab) [![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3/whatsnew/3.10.html) [![Linux platform](https://img.shields.io/badge/ubuntu-22.04-red)](https://releases.ubuntu.com/22.04/) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://pre-commit.com/) [![License](https://img.shields.io/badge/license-ApacheV2-yellow.svg)](https://opensource.org/license/apache-2-0/) # Table of Contents - [HOVER WBC](#hover-wbc) - [Table of Contents](#table-of-contents) - [Overview](#overview) - [Installation](#installation) - [Training](#training)   - [Data Processing](#data-processing)     - [AMASS dataset](#amass-dataset)   - [Teacher Policy](#teacher-policy)"
+  },
+  {
+    "id": "NVlabs/COMPASS",
+    "label": "COMPASS",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/COMPASS",
+    "description": "Cross-embOdiment Mobility Policy via ResiduAl RL and Skill Synthesis",
+    "summary": "COMPASS: Cross-Embodiment Mobility Policy via Residual RL and Skill Synthesis [[Website]]( [[Documentation]]( [[arXiv]]( Overview This repository provides the official PyTorch implementation of COMPASS. COMPASS is a framework for cross-embodiment mobility that combines: Imitation Learning (IL) for strong baseline performance Residual Reinforcement Learning (RL) for embodiment-specific adaptation P",
+    "readmeSnippet": "<h1 align=\"center\"> COMPASS: Cross-Embodiment Mobility Policy via Residual RL and Skill Synthesis </h1> <div align=\"center\"> [![Isaac Lab](https://img.shields.io/badge/IsaacLab-3.0.0--beta1-b.svg)](https://isaac-sim.github.io/IsaacLab/v3.0.0-beta1/index.html) [![IsaacSim](https://img.shields.io/badge/IsaacSim-4.5.0-b.svg)](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/index.html) [![Linux platform](https://img.shields.io/badge/Platform-linux--64-orange.svg)](https://ubuntu.com/blog/tag/22-04-lts) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [[Website]](https://nvlabs.github.io/COMPASS/) [[Documentation]](https://nvlabs.github.io/COMPASS/docs/) [[arXiv]](https://arxiv.org/abs/2502.16372) </div> ## Overview This repository provides the official PyTorch implementation of [COMPASS](https://nvlabs.github.io/COMPASS/). <p align=\"center\">     <img src=\"images/compass.jpg\" alt=\"COMPASS\" width=\"900\" > "
+  },
+  {
+    "id": "NVlabs/AHA",
+    "label": "AHA",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/AHA",
+    "description": "A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation",
+    "summary": "🤖 AHA: A Vision-Language Model for Detecting and Reasoning over Failures in Robotic Manipulation Precise failure reasoning and detection for robotic manipulation [ICLR 2025] [Paper] Jiafei Duan, Wilbert Pumacay, Nishanth Kumar, Yi Ru Wang, Shulin Tian, Wentao Yuan, Ranjay Krishna, Dieter Fox, Ajay Mandlekar, Yijie Guo 📖 Introduction AHA is an open-source VLM specifically designed to detect and r",
+    "readmeSnippet": "# 🤖 AHA: A Vision-Language Model for Detecting and Reasoning over Failures in Robotic Manipulation *Precise failure reasoning and detection for robotic manipulation* [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://aha-vlm.github.io/)  [![Paper](https://img.shields.io/badge/Paper-PDF-red)](https://aha-vlm.github.io/Aha_paper.pdf) **[ICLR 2025]**  [[Paper](https://arxiv.org/abs/2410.00371)] [Jiafei Duan](https://duanjiafei.com), [Wilbert Pumacay](https://wpumacay.github.io), [Nishanth Kumar](https://nishanthjkumar.com/), [Yi Ru Wang](https://helen9975.github.io/), [Shulin Tian](https://shulin16.github.io/), [Wentao Yuan](https://wentaoyuan.github.io), [Ranjay Krishna](https://ranjaykrishna.com), [Dieter Fox](https://homes.cs.washington.edu/~fox/), [Ajay Mandlekar*](https://ai.stanford.edu/~amandlek/), [Yijie Guo*](https://research.nvidia.com/person/yijie-guo) ![Overview](aha-teaser.gif) ## 📖 Introduction AHA is an open-source VLM specifically designed to"
+  },
+  {
+    "id": "NVlabs/blade",
+    "label": "blade",
+    "domain": "simulation",
+    "repo": "NVlabs/blade",
+    "description": "Official PyTorch implementation of BLADE: Single-view Body Mesh Estimation through Accurate Depth Estimation (CVPR 2025). BLADE tackles close-range human mesh recovery where perspective distortion is strongest, and solves for camera pose and focal length in addition to SMPL(-X) parameters.",
+    "summary": "BLADE: Single-view Body Mesh Estimation through Accurate Depth Estimation (CVPR 2025) Authors: Shengze Wang, Jiefeng Li, Tianye Li, Ye Yuan, Henry Fuchs, Koki Nagano, Shalini De Mello, Michael Stengel\\ denotes equal contribution Overview Unlike prior methods that avoid camera recovery and only work well for subjects far from the camera, BLADE tackles close-range human mesh recovery where perspecti",
+    "readmeSnippet": "# BLADE: Single-view Body Mesh Estimation through Accurate Depth Estimation (CVPR 2025) [![Paper](https://img.shields.io/badge/Paper-CVPR%202025-blue)](https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_BLADE_Single-view_Body_Mesh_Estimation_through_Accurate_Depth_Estimation_CVPR_2025_paper.pdf) [![Project Page](https://img.shields.io/badge/Project-Page-green)](https://research.nvidia.com/labs/amri/projects/blade/) **Authors:** Shengze Wang, Jiefeng Li, Tianye Li, Ye Yuan, Henry Fuchs, Koki Nagano*, Shalini De Mello*, Michael Stengel*\\ *denotes equal contribution <p align=\"center\">   <img src=\"assets/teaser_blade.png\" alt=\"BLADE teaser: accurate perspective HMR on close-range images\" width=\"70%\"> </p> ## Overview Unlike prior methods that avoid camera recovery and only work well for subjects far from the camera, BLADE tackles **close-range human mesh recovery** where perspective distortion is strongest in 3 steps: 1. **Predicts pelvis depth (Tz)**: directly from the image"
+  },
+  {
+    "id": "NVlabs/cuTAMP",
+    "label": "cuTAMP",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/cuTAMP",
+    "description": "cuTAMP: Differentiable GPU-Parallelized Task and Motion Planning",
+    "summary": "cuTAMP: Differentiable GPU-Parallelized Task and Motion Planning 🌐 Project Website 📝 Paper Differentiable GPU-Parallelized Task and Motion Planning William Shen 1,2 , Caelan Garrett 2 , Nishanth Kumar 1,2 , Ankit Goyal 2 , Tucker Hermans 2,3 , Leslie Pack Kaelbling 1 , Tomás Lozano-Pérez 1 , Fabio Ramos 2,4 1 MIT CSAIL, 2 NVIDIA Research, 3 University of Utah, 4 University of Sydney Robotics: Sc",
+    "readmeSnippet": "# cuTAMP: Differentiable GPU-Parallelized Task and Motion Planning ### [🌐 Project Website](https://cutamp.github.io) | [📝 Paper](https://arxiv.org/abs/2411.11833) > **Differentiable GPU-Parallelized Task and Motion Planning**   > [William Shen](https://shen.nz/)<sup>1,2</sup>, > [Caelan Garrett](http://web.mit.edu/caelan/)<sup>2</sup>, > [Nishanth Kumar](https://nishanthjkumar.com/)<sup>1,2</sup>, > [Ankit Goyal](https://imankgoyal.github.io/)<sup>2</sup>, > [Tucker Hermans](https://profiles.faculty.utah.edu/u6002596)<sup>2,3</sup>,   > [Leslie Pack Kaelbling](https://people.csail.mit.edu/lpk/)<sup>1</sup>, > [Tomás Lozano-Pérez](https://people.csail.mit.edu/tlp/)<sup>1</sup>, > [Fabio Ramos](https://fabioramos.github.io/Home.html)<sup>2,4</sup>   > <sup>1</sup>[MIT CSAIL](https://www.csail.mit.edu/), > <sup>2</sup>[NVIDIA Research](https://www.nvidia.com/en-us/research/), > <sup>3</sup>[University of Utah](https://www.utah.edu/), > <sup>4</sup>[University of Sydney](https://www.sy"
+  },
+  {
+    "id": "NVlabs/GraspGen",
+    "label": "GraspGen",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/GraspGen",
+    "description": "Official repo for GraspGen: A Diffusion-based Framework for 6-DOF Grasping",
+    "summary": "GraspGen: A Diffusion-based Framework for 6-DOF Grasping GraspGen is a modular framework for diffusion-based 6-DOF robotic grasp generation that scales across diverse settings: 1) embodiments - with 3 distinct gripper types (industrial pinch gripper, suction) 2) observability - robustness to partial vs. complete 3D point clouds and 3) complexity - grasping single-object vs. clutter. We also introd",
+    "readmeSnippet": "<!-- <img src=\"fig/cover.png\" width=\"1000\" height=\"250\" title=\"readme1\">  --> <div align=\"center\">   <img src=\"fig/cover.png\" alt=\"GraspGen logo\" width=\"800\" style=\"margin-left:'auto' margin-right:'auto' display:'block'\"/>   <br>   <br>   <h1>GraspGen: A Diffusion-based Framework for 6-DOF Grasping </h1> </div> <p align=\"center\">   <a href=\"https://graspgen.github.io\">     <img alt=\"Project Page\" src=\"https://img.shields.io/badge/Project-Page-F0529C\">   </a>   <a href=\"https://arxiv.org/abs/2507.13097\">     <img alt=\"Arxiv paper link\" src=\"https://img.shields.io/badge/arxiv-2507.13097-blue\">   </a>   <a href=\"https://huggingface.co/adithyamurali/GraspGenModels\">     <img alt=\"Model Checkpoints link\" src=\"https://img.shields.io/badge/%F0%9F%A4%97%20HF-Models-yellow\">   </a>   <a href=\"https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GraspGen\">     <img alt=\"Datasets link\" src=\"https://img.shields.io/badge/%F0%9F%A4%97%20HF-Datasets-yellow\">   </a>   <a href=\"https://www.youtu"
+  },
+  {
+    "id": "NVlabs/neural-robot-dynamics",
+    "label": "neural-robot-dynamics",
+    "domain": "simulation",
+    "repo": "NVlabs/neural-robot-dynamics",
+    "description": "[CoRL 2025] Neural Robot Dynamics",
+    "summary": "Neural Robot Dynamics (NeRD) This repository contains the implementation for the paper Neural Robot Dynamics (CoRL 2025). Neural Robot Dynamics Jie Xu, Eric Heiden, Iretiayo Akinola, Dieter Fox, Miles Macklin, Yashraj Narang CoRL 2025 In this paper, we propose NeRD (Neural Robot Dynamics), learned robot-specific dynamics models for predicting future states for articulated rigid bodies under contac",
+    "readmeSnippet": "# Neural Robot Dynamics (NeRD) This repository contains the implementation for the paper [Neural Robot Dynamics](https://neural-robot-dynamics.github.io/) (CoRL 2025). [***Neural Robot Dynamics***](https://neural-robot-dynamics.github.io/) <br/> [Jie Xu](https://people.csail.mit.edu/jiex), [Eric Heiden](https://eric-heiden.com/), [Iretiayo Akinola](https://research.nvidia.com/person/iretiayo-akinola), [Dieter Fox](https://homes.cs.washington.edu/~fox/), [Miles Macklin](https://blog.mmacklin.com/about/), [Yashraj Narang](https://research.nvidia.com/person/yashraj-narang) <br/> ***CoRL 2025*** In this paper, we propose NeRD (Neural Robot Dynamics), learned robot-specific dynamics models for predicting future states for articulated rigid bodies under contact constraints. NeRD uniquely replaces the low-level dynamics and contact solvers in an analytical simulator and employs a robot-centric and spatially-invariant simulation state representation. In this repository, we demonstrate how t"
+  },
+  {
+    "id": "NVlabs/alpasim",
+    "label": "alpasim",
+    "domain": "autonomous-cars",
+    "repo": "NVlabs/alpasim",
+    "description": "AlpaSim is an open-source autonomous vehicle simulation platform designed for development and testing of end-to-end AV policies",
+    "summary": "AlpaSim: A modular, lightweight, and data-driven research simulator for autonomous driving What is AlpaSim? AlpaSim is an open-source autonomous vehicle simulation platform designed specifically for research and development. It allows users to test end-to-end AV policies in a closed-loop setting by simulating realistic sensor data, vehicle dynamics, and traffic scenarios within a modular and exten",
+    "readmeSnippet": "# AlpaSim: A modular, lightweight, and data-driven research simulator for autonomous driving <div align=\"center\">   <img src=\"docs/assets/images/thumbnail.gif\" alt=\"AlpaSim Simulation Demo\" width=\"600\"> </div> ## What is AlpaSim? AlpaSim is an open-source autonomous vehicle simulation platform designed specifically for research and development. It allows users to test end-to-end AV policies in a closed-loop setting by simulating realistic sensor data, vehicle dynamics, and traffic scenarios within a modular and extensible testbed. Suitable use cases include: - **Algorithm Validation**: Test new autonomous driving algorithms in realistic environments - **Safety Analysis**: Evaluate vehicle behavior in edge cases and challenging scenarios - **Performance Benchmarking/Regression Testing**: Compare different models and configurations - **Debugging**: Understand and debug complex autonomous driving behaviors ### **Sensor Fidelity** - Pluggable renderer service with default [NuRec](ht"
+  },
+  {
+    "id": "NVlabs/vla0",
+    "label": "vla0",
+    "domain": "foundation-models",
+    "repo": "NVlabs/vla0",
+    "description": "VLA-0: Building State-of-the-Art VLAs with Zero Modification",
+    "summary": "VLA-0: Building State-of-the-Art VLAs with Zero Modification Ankit Goyal, Hugo Hadfield, Xuning Yang, Valts Bulkis, Fabio Ramos NVIDIA --- Abstract Vision-Language-Action models (VLAs) hold immense promise for enabling generalist robot manipulation. However, the best way to build them remains an open question. Current approaches often add complexity, such as modifying the existing vocabulary of a ",
+    "readmeSnippet": "# [VLA-0: Building State-of-the-Art VLAs with Zero Modification](vla0.github.io) **Ankit Goyal, Hugo Hadfield, Xuning Yang, Valts Bulkis, Fabio Ramos** NVIDIA --- ## Abstract Vision-Language-Action models (VLAs) hold immense promise for enabling generalist robot manipulation. However, the best way to build them remains an open question. Current approaches often add complexity, such as modifying the existing vocabulary of a Vision-Language Model (VLM) with action tokens or introducing special action heads. Curiously, the simplest strategy of representing actions directly as text has remained largely unexplored. This work introduces **VLA-0** to investigate this idea. We find that VLA-0 is not only effective; it is surprisingly powerful. With the right design, VLA-0 outperforms more involved models. On LIBERO, a popular benchmark for evaluating VLAs, VLA-0 outperforms all existing methods trained on the same robotic data. Furthermore, without large-scale robotics-specific training, it"
+  },
+  {
+    "id": "NVlabs/physical_ai_av",
+    "label": "physical_ai_av",
+    "domain": "autonomous-cars",
+    "repo": "NVlabs/physical_ai_av",
+    "description": "Devkit and documentation for the NVIDIA Physical AI Autonomous Vehicles Dataset",
+    "summary": "physicalaiav This repository contains a python developer kit and documentation (in the form of a wiki and interactive notebooks) for working with the NVIDIA Physical AI Autonomous Vehicles Dataset, one of the largest, most geographically diverse collections of multi-sensor data empowering AV researchers to build the next generation of Physical AI based end-to-end driving systems. Support 📣 Usage ",
+    "readmeSnippet": "# physical_ai_av This repository contains a python developer kit and documentation (in the form of a [wiki](https://github.com/NVlabs/physical_ai_av/wiki) and interactive [notebooks](notebooks/)) for working with the [NVIDIA Physical AI Autonomous Vehicles Dataset](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles), one of the largest, most geographically diverse collections of multi-sensor data empowering AV researchers to build the next generation of Physical AI based end-to-end driving systems. ## Support 📣 **Usage questions and discussion about Physical AI AV dataset & devkit**: please join us on the [Alpamayo NV Developer Forum](https://forums.developer.nvidia.com/c/autonomous-vehicles/alpamayo/766). 🐛 **Code-level bugs, documentation issues, and feature requests**: file a [GitHub issue](../../issues/new/choose) using the appropriate template (Bug report, Documentation request, or Feature request). The relevant NVIDIA responder is auto-assigned via the `a"
+  },
+  {
+    "id": "NVlabs/GR00T-WholeBodyControl",
+    "label": "GR00T-WholeBodyControl",
+    "domain": "foundation-models",
+    "repo": "NVlabs/GR00T-WholeBodyControl",
+    "description": "Welcome to GR00T Whole-Body Control (WBC)! This is a unified platform for developing and deploying advanced humanoid controllers. This includes: Decoupled WBC models used in NVIDIA Isaac-Gr00t, Gr00t N1.5 and N1.6 and GEAR-SONIC ",
+    "summary": "--- GR00T-WholeBodyControl This is the codebase for the GR00T Whole-Body Control (WBC) projects. It hosts model checkpoints and scripts for training, evaluating, and deploying advanced whole-body controllers for humanoid robots. We currently support: Decoupled WBC: the decoupled controller (RL for lower body, and IK for upper body) used in NVIDIA GR00T N1.5 and N1.6 models; GEAR-SONIC Series: our ",
+    "readmeSnippet": "<div align=\"center\">   <img src=\"media/groot_wbc.png\" width=\"800\" alt=\"GEAR SONIC Header\">   <!-- --- -->       </div> <div align=\"center\"> [![License](https://img.shields.io/badge/License-Apache%202.0-76B900.svg)](LICENSE) [![IsaacLab](https://img.shields.io/badge/IsaacLab-2.3.2-orange.svg)](https://github.com/isaac-sim/IsaacLab/releases/tag/v2.3.2) [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-76B900.svg)](https://nvlabs.github.io/GR00T-WholeBodyControl/) [![Demo](https://img.shields.io/badge/Live%20Demo-GEAR--SONIC-blue.svg)](https://nvlabs.github.io/GEAR-SONIC/demo.html) </div> --- # GR00T-WholeBodyControl This is the codebase for the **GR00T Whole-Body Control (WBC)** projects. It hosts model checkpoints and scripts for training, evaluating, and deploying advanced whole-body controllers for humanoid robots. We currently support: - **Decoupled WBC**: the decoupled controller (RL for lower body, and IK for upper body) used in NVIDIA GR00T [N1.5](http"
+  },
+  {
+    "id": "NVlabs/alpamayo",
+    "label": "alpamayo",
+    "domain": "autonomous-cars",
+    "repo": "NVlabs/alpamayo",
+    "description": "NVIDIA Alpamayo 1 Nano is an open 10B reasoning VLA model for autonomous vehicles that pairs driving trajectories with Chain-of-Causation reasoning.",
+    "summary": "[!IMPORTANT] ## 🚀 Newer Versions of Alpamayo Are Available This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on newer Alpamayo versions. 👉 Visit the new Alpamayo hub: There you will find the latest Alpamayo models, technical reports, tutorials, benchmarks, ",
+    "readmeSnippet": "> [!IMPORTANT] > ## 🚀 [Newer Versions of Alpamayo Are Available](https://github.com/NVlabs/alpamayo-recipes) > > > This repository is no longer under active development and will receive only limited maintenance updates. Future model releases, features, documentation, and community support will be focused on newer Alpamayo versions. > > 👉 Visit the new Alpamayo hub: https://github.com/NVlabs/alpamayo-recipes > > There you will find the latest Alpamayo models, technical reports, tutorials, benchmarks, and ecosystem updates. > > Thank you for your support of Alpamayo 1. We encourage all users to migrate to newer versions for the latest state-of-the-art Physical AI capabilities. <div align=\"center\"> # 🏔️ Alpamayo 1 ### Bridging Reasoning and Action Prediction for Generalizable Autonomous Driving [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Model-Alpamayo--R1--10B-blue)](https://huggingface.co/nvidia/Alpamayo-R1-10B) [![arXiv](https://img.shields.io/badge/arXiv-2511.00"
+  },
+  {
+    "id": "NVlabs/GRAIL",
+    "label": "GRAIL",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/GRAIL",
+    "description": "A digital data-generation pipeline that synthesizes humanoid loco-manipulation data from 3D assets and video priors.",
+    "summary": "GRAIL: Generating Humanoid Loco-Manipulation from 3D Assets and Video Priors GRAIL is a fully digital data-generation pipeline for humanoid loco-manipulation. It composes 3D assets, simulator-ready scenes, robot-proportioned characters, and video foundation model priors to synthesize metric 4D human-object interaction (HOI) trajectories, then retargets them to a Unitree G1 and trains task-general ",
+    "readmeSnippet": "<div align=\"center\"> # GRAIL: Generating Humanoid Loco-Manipulation from 3D Assets and Video Priors <p>   <a href=\"https://research.nvidia.com/labs/dair/grail/\">     <img src=\"https://img.shields.io/badge/Project-Page-blue?style=flat-square\" alt=\"Project Page\"/>   </a>   <a href=\"https://arxiv.org/pdf/2606.05160\">     <img src=\"https://img.shields.io/badge/Paper-PDF-red?style=flat-square\" alt=\"Paper\"/>   </a>   <a href=\"https://nvlabs.github.io/GRAIL/\">     <img src=\"https://img.shields.io/badge/Docs-online-success?style=flat-square\" alt=\"Docs\"/>   </a>   <a href=\"https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Locomanipulation-GRAIL\">     <img src=\"https://img.shields.io/badge/Dataset-HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=000\" alt=\"Dataset\"/>   </a> </p> <img src=\"assets/videos/teaser.gif\" alt=\"GRAIL teaser\" width=\"100%\"/> </div> **GRAIL** is a fully digital data-generation pipeline for humanoid loco-manipulation. It composes 3D assets, simula"
+  },
+  {
+    "id": "NVlabs/GraspGenX",
+    "label": "GraspGenX",
+    "domain": "robotic-arms",
+    "repo": "NVlabs/GraspGenX",
+    "description": "Code Release for GraspGenX",
+    "summary": "GraspGenX: Cross-Embodiment Foundation Model for Grasp Generation GraspGenX is a cross-embodiment grasp generation framework that produces high-quality 6-DOF grasps for any robot gripper — including novel grippers not seen during training. Unlike GraspGen, which trains a separate model per gripper, GraspGenX trains a single model conditioned on a gripper representation derived from the gripper's s",
+    "readmeSnippet": "<!-- <img src=\"fig/cover.png\" width=\"1000\" height=\"250\" title=\"readme1\">  --> <div align=\"center\">   <img src=\"assets/cover2.png\" alt=\"GraspGenX logo\" width=\"800\" style=\"margin-left:'auto' margin-right:'auto' display:'block'\"/>   <br>   <h1>GraspGenX: Cross-Embodiment Foundation Model for Grasp Generation</h1> </div> <p align=\"center\">   <a href=\"https://graspgenx.github.io\">     <img alt=\"Project Page\" src=\"https://img.shields.io/badge/Project-Page-F0529C\">   </a>   <a href=\"https://arxiv.org/abs/2606.00998\">     <img alt=\"Arxiv paper link\" src=\"https://img.shields.io/badge/arxiv-2606.00998-blue\">   </a>   <a href=\"https://huggingface.co/adithyamurali/GraspGenXModel\">     <img alt=\"Model Checkpoints link\" src=\"https://img.shields.io/badge/%F0%9F%A4%97%20HF-Models-yellow\">   </a>   <a href=\"https://www.youtube.com/watch?v=a2sv9EVQJXE&feature=youtu.be\">     <img alt=\"Video link\" src=\"https://img.shields.io/badge/video-red\">   </a>   <a href=\"LICENSE\">     <img alt=\"GitHub License\" src="
+  }
+]

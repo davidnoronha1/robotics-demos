@@ -13,8 +13,7 @@ function Shell() {
       <header>
         <h1>3. IMU attitude estimation</h1>
         <p>
-          Three attitude estimates from your own phone's sensors: gyro-only, accel-only, and complementary fusion. Pick
-          up your phone and feel why fusion exists.
+          Three attitude estimates from your phone's sensors: gyro-only, accel-only, and complementary fusion.
         </p>
       </header>
 

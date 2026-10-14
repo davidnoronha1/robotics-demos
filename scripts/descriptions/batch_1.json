@@ -1,0 +1,678 @@
+[
+  {
+    "id": "isaac-sim",
+    "label": "NVIDIA Isaac Sim",
+    "domain": "simulation",
+    "description": "NVIDIA's robotics simulation platform built on Omniverse — physically based virtual worlds for developing, testing and validating autonomous machines.",
+    "summary": "NVIDIA's robotics simulation platform built on Omniverse — physically based virtual worlds for developing, testing and validating autonomous machines.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "nvidia-omniverse",
+    "label": "NVIDIA Omniverse",
+    "domain": "simulation",
+    "description": "Open platform for building physically based 3D simulations and digital twins; the substrate under Isaac Sim.",
+    "summary": "Open platform for building physically based 3D simulations and digital twins; the substrate under Isaac Sim.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "newton",
+    "label": "Newton Physics",
+    "domain": "simulation",
+    "description": "Open-source, GPU-accelerated, extensible physics engine co-developed by Google DeepMind and Disney Research, built on NVIDIA Warp and OpenUSD; managed by the Linux Foundation.",
+    "summary": "Open-source, GPU-accelerated, extensible physics engine co-developed by Google DeepMind and Disney Research, built on NVIDIA Warp and OpenUSD; managed by the Linux Foundation.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "nvidia-jetson",
+    "label": "NVIDIA Jetson",
+    "domain": "jetson-hardware",
+    "description": "Embedded AI computer family (Orin, Thor) used to deploy Isaac and AI pipelines on autonomous machines at the edge.",
+    "summary": "Embedded AI computer family (Orin, Thor) used to deploy Isaac and AI pipelines on autonomous machines at the edge.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "jetpack",
+    "label": "JetPack SDK",
+    "domain": "jetson-hardware",
+    "description": "The SDK that bundles Linux for Tegra, CUDA and AI/tooling onto Jetson modules.",
+    "summary": "The SDK that bundles Linux for Tegra, CUDA and AI/tooling onto Jetson modules.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "isaac-ros",
+    "label": "NVIDIA Isaac ROS",
+    "domain": "isaac_ros",
+    "description": "Collection of NVIDIA-accelerated, low-latency ROS 2 packages for autonomous robots on Jetson and other NVIDIA platforms.",
+    "summary": "Collection of NVIDIA-accelerated, low-latency ROS 2 packages for autonomous robots on Jetson and other NVIDIA platforms.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "nvidia-halos",
+    "label": "NVIDIA Halos",
+    "domain": "jetson-hardware",
+    "description": "NVIDIA's physical AI safety platform — perception and outside-in safety systems to safeguard warehouse and road robots.",
+    "summary": "NVIDIA's physical AI safety platform — perception and outside-in safety systems to safeguard warehouse and road robots.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "nvidia-isaac",
+    "label": "NVIDIA Isaac",
+    "domain": "jetson-hardware",
+    "description": "The umbrella robotics development platform spanning Isaac Sim, Isaac Lab, Isaac ROS, GR00T foundation models and Cosmos.",
+    "summary": "The umbrella robotics development platform spanning Isaac Sim, Isaac Lab, Isaac ROS, GR00T foundation models and Cosmos.",
+    "readmeSnippet": ""
+  },
+  {
+    "id": "NVIDIA/tegra-nouveau-rootfs",
+    "label": "tegra-nouveau-rootfs",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA/tegra-nouveau-rootfs",
+    "description": "Manifests to create an Arch Linux ARM rootfs augmented with Nouveau and the OSS graphics stack for NVIDIA's Jetson TK1/TX1 boards",
+    "summary": "Tegra Nouveau Installer Scripts =============================== These scripts aim at providing an simple way to enable the open-source graphics stack (Nouveau/Mesa) on Jetson TK1/TX1. It does so by automating the process of cross-compiling the necessary software and adapting a new or already-existing Arch Linux root filesystem to run Nouveau/Mesa as an alternative to the closed-source graphics sta",
+    "readmeSnippet": "Tegra Nouveau Installer Scripts =============================== These scripts aim at providing an simple way to enable the open-source graphics stack (Nouveau/Mesa) on Jetson TK1/TX1. It does so by automating the process of cross-compiling the necessary software and adapting a new or already-existing Arch Linux root filesystem to run Nouveau/Mesa as an alternative to the closed-source graphics stack. Following the instructions of this file will perform the following: - Download an Arch Linux ARM image - Update the image and install required packages on it - Compile the Linux kernel and Nouveau kernel driver - Compile a few DRM applications to play with (kmscube, weston, X) Linux and Nouveau need to be compiled because there are still out-of-tree patches that we need. DRM applications currently need a few specific changes to work on Tegra systems (this is going to be fixed upstream), and thus also need to be compiled. Host System Preparation ----------------------- You will need a bu"
+  },
+  {
+    "id": "NVIDIA/cutlass",
+    "label": "cutlass",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/cutlass",
+    "description": "CUDA Templates and Python DSLs for High-Performance Linear Algebra",
+    "summary": "Overview CUTLASS 4.7.0 CUTLASS 4.7.0 - Aug 2026 CUTLASS is a collection of abstractions for implementing high-performance matrix-matrix multiplication (GEMM) and related computations at all levels and scales within CUDA. It incorporates strategies for hierarchical decomposition and data movement. CUTLASS decomposes these \"moving parts\" into reusable, modular software components and abstractions. P",
+    "readmeSnippet": "![ALT](./media/images/gemm-hierarchy-with-epilogue-no-labels.png \"Complete CUDA GEMM decomposition\") # Overview # CUTLASS 4.7.0 _CUTLASS 4.7.0 - Aug 2026_ CUTLASS is a collection of abstractions for implementing high-performance matrix-matrix multiplication (GEMM) and related computations at all levels and scales within CUDA. It incorporates strategies for hierarchical decomposition and data movement. CUTLASS decomposes these \"moving parts\" into reusable, modular software components and abstractions. Primitives for different levels of a conceptual parallelization hierarchy can be specialized and tuned via custom tiling sizes, data types, and other algorithmic policy. The resulting flexibility simplifies their use as building blocks within custom kernels and applications. CUTLASS has been providing CUDA C++ template abstractions for high-performance linear algebra since 2017 and these abstractions provide extensive support for a wide range of computations including mixed-precision "
+  },
+  {
+    "id": "NVIDIA/pix2pixHD",
+    "label": "pix2pixHD",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/pix2pixHD",
+    "description": "Synthesizing and manipulating 2048x1024 images with conditional GANs",
+    "summary": "pix2pixHD Project Youtube Paper Pytorch implementation of our method for high-resolution (e.g. 2048x1024) photorealistic image-to-image translation. It can be used for turning semantic label maps into photo-realistic images or synthesizing portraits from face label maps. High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs Ting-Chun Wang 1 , Ming-Yu Liu 1 , Jun-Yan Zhu 2",
+    "readmeSnippet": "<img src='imgs/teaser_720.gif' align=\"right\" width=360>\r \r <br><br><br><br>\r \r # pix2pixHD\r ### [Project](https://tcwang0509.github.io/pix2pixHD/) | [Youtube](https://youtu.be/3AIpPlzM_qs) | [Paper](https://arxiv.org/pdf/1711.11585.pdf) <br>\r Pytorch implementation of our method for high-resolution (e.g. 2048x1024) photorealistic image-to-image translation. It can be used for turning semantic label maps into photo-realistic images or synthesizing portraits from face label maps. <br><br>\r [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs](https://tcwang0509.github.io/pix2pixHD/)  \r  [Ting-Chun Wang](https://tcwang0509.github.io/)<sup>1</sup>, [Ming-Yu Liu](http://mingyuliu.net/)<sup>1</sup>, [Jun-Yan Zhu](http://people.eecs.berkeley.edu/~junyanz/)<sup>2</sup>, Andrew Tao<sup>1</sup>, [Jan Kautz](http://jankautz.com/)<sup>1</sup>, [Bryan Catanzaro](http://catanzaro.name/)<sup>1</sup>  \r  <sup>1</sup>NVIDIA Corporation, <sup>2</sup>UC Berkeley  \r  In CVPR 20"
+  },
+  {
+    "id": "NVIDIA/cuda-samples",
+    "label": "cuda-samples",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/cuda-samples",
+    "description": "Samples for CUDA Developers which demonstrates features in CUDA Toolkit",
+    "summary": "CUDA Samples Samples for CUDA Developers which demonstrates features in CUDA Toolkit. This version supports CUDA Toolkit 13.3. Release Notes This section describes the release notes for the CUDA Samples on GitHub only. Change Log Revision History Getting Started Prerequisites Download and install the CUDA Toolkit for your corresponding platform. For system requirements and installation instruction",
+    "readmeSnippet": "# CUDA Samples Samples for CUDA Developers which demonstrates features in CUDA Toolkit. This version supports [CUDA Toolkit 13.3](https://developer.nvidia.com/cuda-downloads). ## Release Notes This section describes the release notes for the CUDA Samples on GitHub only. ### Change Log ### [Revision History](./CHANGELOG.md) ## Getting Started ### Prerequisites Download and install the [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) for your corresponding platform. For system requirements and installation instructions of cuda toolkit, please refer to the [Linux Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/), and the [Windows Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html). ### Getting the CUDA Samples Using git clone the repository of CUDA Samples using the command below. ``` git clone https://github.com/NVIDIA/cuda-samples.git ``` Without using git the easiest way to use these s"
+  },
+  {
+    "id": "NVIDIA/DALI",
+    "label": "DALI",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/DALI",
+    "description": "A GPU-accelerated library containing highly optimized building blocks and an execution engine for data processing to accelerate deep learning training and inference applications.",
+    "summary": "License Documentation Format NVIDIA DALI =========== .. overview-begin-marker-do-not-remove The NVIDIA Data Loading Library (DALI) is a GPU-accelerated library for data loading and pre-processing to accelerate deep learning applications. It provides a collection of highly optimized building blocks for loading and processing image, video and audio data. It can be used as a portable drop-in replacem",
+    "readmeSnippet": "|License|  |Documentation|  |Format| NVIDIA DALI =========== .. overview-begin-marker-do-not-remove The NVIDIA Data Loading Library (DALI) is a GPU-accelerated library for data loading and pre-processing to accelerate deep learning applications. It provides a collection of highly optimized building blocks for loading and processing image, video and audio data. It can be used as a portable drop-in replacement for built in data loaders and data iterators in popular deep learning frameworks. Deep learning applications require complex, multi-stage data processing pipelines that include loading, decoding, cropping, resizing, and many other augmentations. These data processing pipelines, which are currently executed on the CPU, have become a bottleneck, limiting the performance and scalability of training and inference. DALI addresses the problem of the CPU bottleneck by offloading data preprocessing to the GPU. Additionally, DALI relies on its own execution engine, built to maximize the"
+  },
+  {
+    "id": "NVIDIA/tensorrt-laboratory",
+    "label": "tensorrt-laboratory",
+    "domain": "inference",
+    "repo": "NVIDIA/tensorrt-laboratory",
+    "description": "Explore the Capabilities of the TensorRT Platform",
+    "summary": "TensorRT Laboratory The TensorRT Laboratory (trtlab) is a general purpose set of tools to build customer inference applications and services. Triton is a professional grade production inference server. This project is broken into 4 primary components: memory is based on foonathan/memory the memory module was designed to write custom allocators for both host and gpu memory. Several custom allocator",
+    "readmeSnippet": "# TensorRT Laboratory The TensorRT Laboratory (trtlab) is a general purpose set of tools to build customer inference applications and services. [Triton](https://github.com/nvidia/triton) is a professional grade production inference server. This project is broken into 4 primary components:   * `memory` is based on [foonathan/memory](https://github.com/foonathan/memory) the `memory` module       was designed to write custom allocators for both host and gpu memory.  Several custom allocators are      included.     * `core` contains host/cpu-side tools for common components such as thread pools, resource pool,      and userspace threading based on boost fibers.   * `cuda` extends `memory` with a new memory_type for CUDA device memory.  All custom allocators     in `memory` can be used with `device_memory`, `device_managed_memory` or `host_pinned_memory`.   * `nvrpc` is an abstraction layer for building asynchronous microservices.  The current implementation     is based on grpc.   "
+  },
+  {
+    "id": "NVIDIA/video-sdk-samples",
+    "label": "video-sdk-samples",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/video-sdk-samples",
+    "description": "Samples demonstrating how to use various APIs of NVIDIA Video Codec SDK",
+    "summary": "video-sdk-samples Sample applications that demonstrate usage of NVIDIA Video SDK APIs for GPU-accelerated video encoding/decoding.",
+    "readmeSnippet": "# video-sdk-samples Sample applications that demonstrate usage of NVIDIA Video SDK APIs for GPU-accelerated video encoding/decoding. "
+  },
+  {
+    "id": "NVIDIA/retinanet-examples",
+    "label": "retinanet-examples",
+    "domain": "inference",
+    "repo": "NVIDIA/retinanet-examples",
+    "description": "Fast and accurate object detection with end-to-end GPU optimization",
+    "summary": "NVIDIA Object Detection Toolkit (ODTK) Fast and accurate single stage object detection with end-to-end GPU optimization. Description ODTK is a single shot object detector with various backbones and detection heads. This allows performance/accuracy trade-offs. It is optimized for end-to-end GPU processing using: The PyTorch deep learning framework with ONNX support NVIDIA Apex for mixed precision a",
+    "readmeSnippet": "# NVIDIA Object Detection Toolkit (ODTK) **Fast** and **accurate** single stage object detection with end-to-end GPU optimization. ## Description ODTK is a single shot object detector with various backbones and detection heads. This allows performance/accuracy trade-offs. It is optimized for end-to-end GPU processing using: * The [PyTorch](https://pytorch.org) deep learning framework with [ONNX](https://onnx.ai) support * NVIDIA [Apex](https://github.com/NVIDIA/apex) for mixed precision and distributed training * NVIDIA [DALI](https://github.com/NVIDIA/DALI) for optimized data pre-processing * NVIDIA [TensorRT](https://developer.nvidia.com/tensorrt) for high-performance inference * NVIDIA [DeepStream](https://developer.nvidia.com/deepstream-sdk) for optimized real-time video streams support ## Rotated bounding box detections This repo now supports rotated bounding box detections. See [rotated detections training](TRAINING.md#rotated-detections) and [rotated detections inference]("
+  },
+  {
+    "id": "NVIDIA/jetson-gpio",
+    "label": "jetson-gpio",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA/jetson-gpio",
+    "description": "A Python library that enables the use of Jetson's GPIOs",
+    "summary": "Jetson.GPIO - Linux for Tegra Jetson TX1, TX2, AGX Xavier, and Nano development boards contain a 40 pin GPIO header, similar to the 40 pin header in the Raspberry Pi. These GPIOs can be controlled for digital input and output using the Python library provided in the Jetson GPIO Library package. The library has the same API as the RPi.GPIO library for Raspberry Pi in order to provide an easy way to",
+    "readmeSnippet": "# Jetson.GPIO - Linux for Tegra Jetson TX1, TX2, AGX Xavier, and Nano development boards contain a 40 pin GPIO header, similar to the 40 pin header in the Raspberry Pi. These GPIOs can be controlled for digital input and output using the Python library provided in the Jetson GPIO Library package. The library has the same API as the RPi.GPIO library for Raspberry Pi in order to provide an easy way to move applications running on the Raspberry Pi to the Jetson board. This document walks through what is contained in The Jetson GPIO library package, how to configure the system and run the provided sample applications, and the library API. # Package Components In addition to this document, the Jetson GPIO library package contains the following: 1. The `lib/python/` subdirectory contains the Python modules that implement all library functionality. The gpio.py module is the main component that will be imported into an application and provides the needed APIs. The `gpio_event.py` and `gpi"
+  },
+  {
+    "id": "NVIDIA/jetson-rdma-picoevb",
+    "label": "jetson-rdma-picoevb",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA/jetson-rdma-picoevb",
+    "description": "Minimal HW-based demo of GPUDirect RDMA on NVIDIA Jetson AGX Xavier running L4T",
+    "summary": "Introduction This repository provides a minimal hardware-based demonstration of GPUDirect RDMA. This feature allows a PCIe device to directly access CUDA memory, thus allowing zero-copy sharing of data between CUDA and a PCIe device. The code supports: NVIDIA Jetson AGX Xavier (Jetson) running Linux for Tegra (L4T). NVIDIA Drive AGX Xavier running Embedded Linux. A PC running the NVIDIA CUDA drive",
+    "readmeSnippet": "# Introduction This repository provides a minimal hardware-based demonstration of GPUDirect RDMA. This feature allows a PCIe device to directly access CUDA memory, thus allowing zero-copy sharing of data between CUDA and a PCIe device. The code supports: * NVIDIA Jetson AGX Xavier (Jetson) running Linux for Tegra (L4T). * NVIDIA Drive AGX Xavier running Embedded Linux. * A PC running the NVIDIA CUDA drivers and containing a Quadro or Tesla GPU. A graphical representation of the system configuration created by the software in this repository, and the data flow between components, is shown below: ![RDMA Configuration and Data Flow](rdma-flow.svg) # PCIe Device ## Obtaining the Hardware This project uses an FPGA as the PCIe device which accesses CUDA memory. The following FPGA boards are supported: * RHS Research PicoEVB. * HiTech Global HTG-K800. The following sections detail how to obtain and program each board. ### RHS Research PicoEVB #### FPGA Board PicoEVB is an M.2 form"
+  },
+  {
+    "id": "NVIDIA/TensorRT",
+    "label": "TensorRT",
+    "domain": "inference",
+    "repo": "NVIDIA/TensorRT",
+    "description": "NVIDIA® TensorRT™ is an SDK for high-performance deep learning inference on NVIDIA GPUs. This repository contains the open source components of TensorRT.",
+    "summary": ":mega::mega: Announcement :mega::mega: TensorRT 11.X is now released with powerful new capabilities designed to accelerate your AI inference workflows. With this major version bump, TensorRT's API has been streamlined and a few legacy features from 10.X have been removed. Below provides migration guides for the following features: Weakly-typed networks and related APIs have been removed, replaced ",
+    "readmeSnippet": "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Documentation](https://img.shields.io/badge/TensorRT-documentation-brightgreen.svg)](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html) [![Roadmap](https://img.shields.io/badge/Roadmap-Q3_2026-brightgreen.svg)](documents/tensorrt_roadmap_2026q3.pdf) # :mega::mega: Announcement :mega::mega: TensorRT 11.X is now released with powerful new capabilities designed to accelerate your AI inference workflows. With this major version bump, TensorRT's API has been streamlined and a few legacy features from 10.X have been removed. Below provides migration guides for the following features: - Weakly-typed networks and related APIs have been removed, replaced by [Strongly Typed Networks](https://docs.nvidia.com/deeplearning/tensorrt/latest/inference-library/advanced.html#strongly-typed-networks). - Implicit quantization and related APIs have been remov"
+  },
+  {
+    "id": "NVIDIA/CUDALibrarySamples",
+    "label": "CUDALibrarySamples",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/CUDALibrarySamples",
+    "description": "CUDA Library Samples",
+    "summary": "CUDA Library Samples The CUDA Library Samples repository contains various examples that demonstrate the use of GPU-accelerated libraries in CUDA. These libraries enable high-performance computing in a wide range of applications, including math operations, image processing, signal processing, linear algebra, and compression. The samples included cover: Math and Image Processing Libraries cuBLAS (Ba",
+    "readmeSnippet": "[![License](https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0) # CUDA Library Samples The **CUDA Library Samples** repository contains various examples that demonstrate the use of GPU-accelerated libraries in CUDA. These libraries enable high-performance computing in a wide range of applications, including math operations, image processing, signal processing, linear algebra, and compression. The samples included cover: - **Math and Image Processing Libraries** - **cuBLAS** (Basic Linear Algebra Subprograms) - **cuTENSOR** (Tensor Linear Algebra) - **cuSPARSE** (Sparse Matrix Operations) - **cuSOLVER** (Dense and Sparse Solvers) - **cuFFT** (Fast Fourier Transform) - **cuRAND** (Random Number Generation) - **NPP** (Image and Video Processing) - **nvJPEG** (JPEG Encode/Decode) - **nvCOMP** (Data Compression) - **and more...** ## About The CUDA Library Samples are provided by NVIDIA Corporation as Open Source software, releas"
+  },
+  {
+    "id": "NVIDIA/object-detection-tensorrt-example",
+    "label": "object-detection-tensorrt-example",
+    "domain": "inference",
+    "repo": "NVIDIA/object-detection-tensorrt-example",
+    "description": "Running object detection on a webcam feed using TensorRT on NVIDIA GPUs in Python.",
+    "summary": "Object Detection TensorRT Example: This python application takes frames from a live video stream and perform object detection on GPUs. We use a pre-trained Single Shot Detection (SSD) model with Inception V2, apply TensorRT’s optimizations, generate a runtime for our GPU, and then perform inference on the video feed to get labels and bounding boxes. The application then annotates the original fram",
+    "readmeSnippet": "# Object Detection TensorRT Example:  This python application takes frames from a live video stream and perform object detection on GPUs. We use a pre-trained Single Shot Detection (SSD) model with Inception V2, apply TensorRT’s optimizations, generate a runtime for our GPU, and then perform inference on the video feed to get labels and bounding boxes. The application then annotates the original frames with these bounding boxes and class labels. The resulting video feed has bounding box predictions from our object detection network overlaid on it. The same approach can be extended to other tasks such as classification and segmentation. A detailed explanation of this code sample can be found in the [How to Apply Deep Learning for Common Applications webinar](https://www.nvidia.com/en-us/about-nvidia/webinar-portal/?D2C=2003671) and also as a blog on the [NVIDIA Medium Page](https://medium.com/).  ### 1. Setup the environment ``` ./setup_environment.sh ``` ### 2. Run inference on th"
+  },
+  {
+    "id": "NVIDIA/sampleQAT",
+    "label": "sampleQAT",
+    "domain": "inference",
+    "repo": "NVIDIA/sampleQAT",
+    "description": "Inference of quantization aware trained networks using TensorRT",
+    "summary": "TensorRT inference of Resnet-50 trained with QAT. Table Of Contents Description How does this sample work? Prerequisites Running the sample Step 1: Quantization Aware Training Step 2: Export frozen graph of RN50 QAT Step 3: Constant folding Step 4: TF2ONNX conversion Step 5: Post processing ONNX Step 6: Build TensorRT engine from ONNX graph Step 7: TensorRT Inference Additional resources Changelog",
+    "readmeSnippet": "# TensorRT inference of Resnet-50 trained with QAT.\r \r **Table Of Contents**\r - [Description](#description)\r - [How does this sample work?](#how-does-this-sample-work)\r - [Prerequisites](#prerequisites)\r - [Running the sample](#running-the-sample)\r     * [Step 1: Quantization Aware Training](#step-1-quantization-aware-training)\r     * [Step 2: Export frozen graph of RN50 QAT](#step-2-export-frozen-graph-of-rn50-qat)\r     * [Step 3: Constant folding](#step-3-constant-folding)\r \t* [Step 4: TF2ONNX conversion](#step-4-tf2onnx-conversion)\r     * [Step 5: Post processing ONNX](#step-5-post-processing-onnx)\r     * [Step 6: Build TensorRT engine from ONNX graph](#step-6-build-tensorrt-engine-from-onnx-graph)\r     * [Step 7: TensorRT Inference](#step-7-tensorrt-inference)\r - [Additional resources](#additional-resources)\r - [Changelog](#changelog)\r - [Known issues](#known-issues)\r - [License](#license)\r \r ## Description\r \r This sample demonstrates workflow for training and inference of Resnet-5"
+  },
+  {
+    "id": "NVIDIA/cccl",
+    "label": "cccl",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/cccl",
+    "description": "CUDA Core Compute Libraries",
+    "summary": "Contributor Guide Dev Containers Discord Godbolt GitHub Project Documentation - - - - - - CUDA Core Compute Libraries (CCCL) Welcome to the CUDA Core Compute Libraries (CCCL) where our mission is to make CUDA more delightful. This repository unifies three essential CUDA C++ libraries into a single, convenient repository: Thrust (former repo) CUB (former repo) libcudacxx (former repo) The goal of C",
+    "readmeSnippet": "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/NVIDIA/cccl?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) |[Contributor Guide](https://github.com/NVIDIA/cccl/blob/main/CONTRIBUTING.md)|[Dev Containers](https://github.com/NVIDIA/cccl/blob/main/.devcontainer/README.md)|[Discord](https://discord.gg/nvidiadeveloper)|[Godbolt](https://godbolt.org/z/x4G73af9a)|[GitHub Project](https://github.com/orgs/NVIDIA/projects/6)|[Documentation](https://nvidia.github.io/cccl)| |-|-|-|-|-|-| # CUDA Core Compute Libraries (CCCL) Welcome to the CUDA Core Compute Libraries (CCCL) where our mission is to make CUDA more delightful. This repository unifies three essential CUDA C++ libraries into a single, convenient repository: - [Thrust](thrust) ([former repo](https://github.com/nvidia/thrust)) - [CUB](cub) ([former repo](https://github.com/nvidia/cub)) - [libcudacxx](libcudacxx) ([former repo](https://github.com/nvidia/libcudacxx)) The"
+  },
+  {
+    "id": "NVIDIA/trt-samples-for-hackathon-cn",
+    "label": "trt-samples-for-hackathon-cn",
+    "domain": "simulation",
+    "repo": "NVIDIA/trt-samples-for-hackathon-cn",
+    "description": "Simple samples for TensorRT programming",
+    "summary": "NVIDIA TensorRT Tutorial repository This repository is aimed at NVIDIA TensorRT beginners and developers. We provide TensorRT-related learning and reference materials, code examples, and summaries of the annual TensorRT Hackathon competition information. 本仓库面向 NVIDIA TensorRT 初学者和开发者,提供了 TensorRT 相关学习资料和参考资料、丰富的代码范例，以及每年举办一次的 TensorRT Hackathon 的比赛信息 Resource Baidu Netdisk Slices of TensorRT video",
+    "readmeSnippet": "# NVIDIA TensorRT Tutorial repository This repository is aimed at NVIDIA TensorRT beginners and developers. We provide TensorRT-related learning and reference materials, code examples, and summaries of the annual TensorRT Hackathon competition information. 本仓库面向 NVIDIA TensorRT 初学者和开发者,提供了 TensorRT 相关学习资料和参考资料、丰富的代码范例，以及每年举办一次的 TensorRT Hackathon 的比赛信息 ## Resource + [Baidu Netdisk](https://pan.baidu.com/s/14HNCFbySLXndumicFPD-Ww?pwd=gpq2)   + **Slices of TensorRT video tutorial on Bilibili, B 站上 TensorRT 视频教程的幻灯片**   + Dataset used in the TEnsorRT-Cookbook   + Files and information for annual China TensorRT Hackathon competition ## Introduction of each directory + _cookbook_, a TensorRT Recipe containing rich examples of TensorRT code, such as API usage, process of building and running models in TensorRT using native APIs or Parsers, writing TensorRT Plugins, optimization of computation graph, and more advanced techniques of TensorRT. + _Hackathon\\*_, a summary of the annual Chi"
+  },
+  {
+    "id": "NVIDIA/warp",
+    "label": "warp",
+    "domain": "simulation",
+    "repo": "NVIDIA/warp",
+    "description": "A Python framework for GPU-accelerated simulation, robotics, and machine learning.",
+    "summary": "NVIDIA Warp Documentation Changelog Warp is a Python framework for GPU-accelerated simulation, robotics, and machine learning. Warp takes regular Python functions and JIT compiles them to efficient kernel code that can run on the CPU or GPU. Warp comes with a rich set of primitives for physics simulation, robotics, geometry processing, and more. Warp kernels are differentiable and can be used as p",
+    "readmeSnippet": "[![PyPI version](https://badge.fury.io/py/warp-lang.svg)](https://badge.fury.io/py/warp-lang) [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NVIDIA/warp?link=https%3A%2F%2Fgithub.com%2FNVIDIA%2Fwarp%2Fcommits%2Fmain) [![Downloads](https://static.pepy.tech/badge/warp-lang/month)](https://pepy.tech/project/warp-lang) [![codecov](https://codecov.io/github/NVIDIA/warp/graph/badge.svg?token=7O1KSM79FG)](https://codecov.io/github/NVIDIA/warp) ![GitHub - CI](https://github.com/NVIDIA/warp/actions/workflows/ci.yml/badge.svg) # NVIDIA Warp **[Documentation](https://nvidia.github.io/warp/stable/)** | [Changelog](https://github.com/NVIDIA/warp/blob/main/CHANGELOG.md) Warp is a Python framework for GPU-accelerated simulation, robotics, and machine learning. Warp takes regular Python functions and JIT compiles them to efficient kernel code that can run on "
+  },
+  {
+    "id": "NVIDIA/TensorRT-LLM",
+    "label": "TensorRT-LLM",
+    "domain": "inference",
+    "repo": "NVIDIA/TensorRT-LLM",
+    "description": "TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.",
+    "summary": "TensorRT LLM =========================== TensorRT LLM optimizes inference for LLMs and Visual Gen models with specialized kernels for common operations, an efficient runtime, and a pythonic framework that enables you to customize and extend the system. Architecture Performance Examples Documentation Roadmap --- Tech Blogs [07/17] DeepSeek-V4 on NVIDIA Blackwell: Model-Specific and Agentic-Workload",
+    "readmeSnippet": "<div align=\"center\"> TensorRT LLM =========================== <h4>TensorRT LLM optimizes inference for LLMs and Visual Gen models with specialized kernels for common operations, an efficient runtime, and a pythonic framework that enables you to customize and extend the system.</h4> [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://nvidia.github.io/TensorRT-LLM/) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/NVIDIA/TensorRT-LLM) [![python](https://img.shields.io/badge/python-3.12-green)](https://www.python.org/downloads/release/python-3123/) [![python](https://img.shields.io/badge/python-3.10-green)](https://www.python.org/downloads/release/python-31012/) [![cuda](https://img.shields.io/badge/cuda-13.2.1-green)](https://developer.nvidia.com/cuda-downloads) [![torch](https://img.shields.io/badge/torch-2.11.0-green)](https://pytorch.org) [![version](https://img.shields.io/badge/release-1.3.0rc25-green)](https://githu"
+  },
+  {
+    "id": "NVIDIA/nvImageCodec",
+    "label": "nvImageCodec",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/nvImageCodec",
+    "description": "A nvImageCodec library of GPU- and CPU- accelerated codecs featuring a unified interface",
+    "summary": "nvImageCodec The nvImageCodec is an open-source library of accelerated codecs with unified interface. It is designed as a framework for extension modules which delivers codec plugins. This nvImageCodec release includes the following key features: Unified API for decoding and encoding images Batch processing, with variable shape and heterogeneous formats images Codec prioritization with automatic f",
+    "readmeSnippet": "# nvImageCodec ![Version](https://img.shields.io/badge/Version-v0.9.0--beta-blue) [![License](https://img.shields.io/badge/License-Apache_2.0-yellogreen.svg)](https://opensource.org/licenses/Apache-2.0) ![Platform](https://img.shields.io/badge/Platform-linux--x86__64_%7C_linux--aarch64_%7C_windows--64_wsl2_%7C_windows--64-blue) [![Cuda](https://img.shields.io/badge/CUDA-v12.1_%7c_v13.3-%2376B900?logo=nvidia)](https://developer.nvidia.com/cuda-toolkit-archive) [![GCC](https://img.shields.io/badge/GCC->=v14.0-yellow)](https://gcc.gnu.org/gcc-9/) [![CMake](https://img.shields.io/badge/CMake->=v3.18-%23008FBA?logo=cmake)](https://cmake.org/) [![Python](https://img.shields.io/badge/python-v3.9_%7c_v3.10_%7c_v3.11_%7c_v3.12_%7c_v3.13_%7c_v3.13t_%7c_v3.14_%7c_v3.14t-blue?logo=python)](https://www.python.org/) ![PyPI - Wheel](https://img.shields.io/pypi/wheel/nvidia-nvimgcodec-cu12?pypiBaseUrl=https%3A%2F%2Fpypi.org&label=PyPI&link=https%3A%2F%2Fpypi.org%2Fsearch%2F%3Fq%3Dnvidia-nvimgcode"
+  },
+  {
+    "id": "NVIDIA/Stable-Diffusion-WebUI-TensorRT",
+    "label": "Stable-Diffusion-WebUI-TensorRT",
+    "domain": "inference",
+    "repo": "NVIDIA/Stable-Diffusion-WebUI-TensorRT",
+    "description": "TensorRT Extension for Stable Diffusion Web UI",
+    "summary": "TensorRT Extension for Stable Diffusion This extension enables the best performance on NVIDIA RTX GPUs for Stable Diffusion with TensorRT. You need to install the extension and generate optimized engines before using the extension. Please follow the instructions below to set everything up. Supports Stable Diffusion 1.5,2.1, SDXL, SDXL Turbo, and LCM. For SDXL and SDXL Turbo, we recommend using a G",
+    "readmeSnippet": "# TensorRT Extension for Stable Diffusion This extension enables the best performance on NVIDIA RTX GPUs for Stable Diffusion with TensorRT. You need to install the extension and generate optimized engines before using the extension. Please follow the instructions below to set everything up. Supports Stable Diffusion 1.5,2.1, SDXL, SDXL Turbo, and LCM. For SDXL and SDXL Turbo, we recommend using a GPU with 12 GB or more VRAM for best performance due to its size and computational intensity.  ## Installation Example instructions for Automatic1111: 1. Start the webui.bat 2. Select the Extensions tab and click on Install from URL 3. Copy the link to this repository and paste it into URL for extension's git repository 4. Click Install ## How to use 1. Click on the “Generate Default Engines” button. This step takes 2-10 minutes depending on your GPU. You can generate engines for other combinations. 2. Go to Settings → User Interface → Quick Settings List, add sd_unet. Apply these sett"
+  },
+  {
+    "id": "NVIDIA/ChatRTX",
+    "label": "ChatRTX",
+    "domain": "inference",
+    "repo": "NVIDIA/ChatRTX",
+    "description": "A developer reference project for creating Retrieval Augmented Generation (RAG) chatbots on Windows using TensorRT-LLM",
+    "summary": "[!IMPORTANT] As of 1/21/2026, this project has been deprecated. ChatRTX is not maintained anymore. 🚀 RAG on Windows using TensorRT-LLM, NVIDIA NIM and LlamaIndex 🦙 ChatRTX is a demo app that lets you personalize a GPT large language model (LLM) connected to your own content—docs, notes, photos. Leveraging retrieval-augmented generation (RAG), TensorRT-LLM, NVIDIA NIM microservices and RTX accele",
+    "readmeSnippet": "> [!IMPORTANT] > As of 1/21/2026, this project has been deprecated. ChatRTX is not maintained anymore.  # 🚀 RAG on Windows using TensorRT-LLM, NVIDIA NIM and LlamaIndex 🦙 ChatRTX is a demo app that lets you personalize a GPT large language model (LLM) connected to your own content—docs, notes, photos. Leveraging retrieval-augmented generation (RAG), [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM/), [NVIDIA NIM microservices](https://docs.nvidia.com/nim/index.html) and RTX acceleration, you can query a custom chatbot to quickly get contextually relevant answers. This app also lets you give query through your voice. As it all runs locally on your Windows RTX PC, you’ll get fast and secure results. ChatRTX supports various file formats, including text, pdf, doc/docx, xml, png, jpg, bmp. Simply point the application at the folder containing your files and it'll load them into the library in a matter of seconds. ChatRTX supports following AI models: | Model                    "
+  },
+  {
+    "id": "NVIDIA/GenerativeAIExamples",
+    "label": "GenerativeAIExamples",
+    "domain": "inference",
+    "repo": "NVIDIA/GenerativeAIExamples",
+    "description": "Generative AI reference workflows optimized for accelerated infrastructure and microservice architecture.",
+    "summary": "NVIDIA Generative AI Examples This repository is a starting point for developers looking to integrate with the NVIDIA software ecosystem to speed up their generative AI systems. Whether you are building RAG pipelines, agentic workflows, or fine-tuning models, this repository will help you integrate NVIDIA, seamlessly and natively, with your development stack. Table of Contents What's New? Data Fly",
+    "readmeSnippet": "<!--   SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.   SPDX-License-Identifier: Apache-2.0 --> ![](docs/images/apps-catalog-promo-web-banner-laptop-300@2x.jpg) # NVIDIA Generative AI Examples This repository is a starting point for developers looking to integrate with the NVIDIA software ecosystem to speed up their generative AI systems. Whether you are building RAG pipelines, agentic workflows, or fine-tuning models, this repository will help you integrate NVIDIA, seamlessly and natively, with your development stack. ## Table of Contents <!-- TOC --> * [What's New?](#whats-new)   * [Data Flywheel](#data-flywheel)   * [Safer Agentic AI](#safer-agentic-ai)   * [Knowledge Graph RAG](#knowledge-graph-rag)   * [Agentic Workflows with Llama 3.1](#agentic-workflows-with-llama-31)   * [RAG with Local NIM Deployment and LangChain](#rag-with-local-nim-deployment-and-langchain)   * [Vision NIM Workflows](#vision-nim-workflows) * [Try it Now"
+  },
+  {
+    "id": "NVIDIA/nvmath-python",
+    "label": "nvmath-python",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/nvmath-python",
+    "description": "NVIDIA Math Libraries for the Python Ecosystem",
+    "summary": "nvmath-python: NVIDIA Math Libraries for the Python Ecosystem nvmath-python brings the power of the NVIDIA math libraries to the Python ecosystem. The package aims to provide intuitive pythonic APIs giving users full access to all features offered by NVIDIA's libraries in a variety of execution spaces. nvmath-python works seamlessly with existing Python array/tensor frameworks and focuses on provi",
+    "readmeSnippet": "<h1 align=\"center\"><img     src=\"docs/sphinx/_static/nvmath-python-green-r4.svg\"     alt=\"A cube with three sides visible. Dots, a sine wave, and a grid on the faces.\"     width=\"200\"/> </h1> # nvmath-python: NVIDIA Math Libraries for the Python Ecosystem nvmath-python brings the power of the NVIDIA math libraries to the Python ecosystem. The package aims to provide intuitive pythonic APIs giving users full access to all features offered by NVIDIA's libraries in a variety of execution spaces. nvmath-python works seamlessly with existing Python array/tensor frameworks and focuses on providing functionality that is missing from those frameworks. ## Some Examples Below are a few representative examples showcasing the three main categories of features nvmath-python offers: host, distributed host, and device APIs. ### Host APIs Host APIs are called from host code but can execute in any supported execution space (CPU or GPU). The following example shows how to compute a matrix multipli"
+  },
+  {
+    "id": "NVIDIA/Model-Optimizer",
+    "label": "Model-Optimizer",
+    "domain": "inference",
+    "repo": "NVIDIA/Model-Optimizer",
+    "description": "A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.",
+    "summary": "NVIDIA Model Optimizer Documentation Roadmap NVIDIA Model Optimizer (referred to as Model Optimizer, or ModelOpt) is a library comprising state-of-the-art model optimization techniques including quantization, pruning, Neural Architecture Search (NAS), distillation, speculative decoding and sparsity to accelerate models. [Input] Model Optimizer currently supports inputs of a Hugging Face, PyTorch o",
+    "readmeSnippet": "<div align=\"center\"> ![Banner image](docs/source/assets/model-optimizer-banner.png) # NVIDIA Model Optimizer [![Documentation](https://img.shields.io/badge/Documentation-latest-brightgreen.svg?style=flat)](https://nvidia.github.io/Model-Optimizer) [![version](https://img.shields.io/pypi/v/nvidia-modelopt?label=Release)](https://pypi.org/project/nvidia-modelopt/) [![license](https://img.shields.io/badge/License-Apache%202.0-blue)](./LICENSE) [Documentation](https://nvidia.github.io/Model-Optimizer) | [Roadmap](https://github.com/NVIDIA/Model-Optimizer/issues/1699) </div> ______________________________________________________________________ **NVIDIA Model Optimizer** (referred to as **Model Optimizer**, or **ModelOpt**) is a library comprising state-of-the-art model optimization [techniques](#techniques) including quantization, pruning, Neural Architecture Search (NAS), distillation, speculative decoding and sparsity to accelerate models. **[Input]** Model Optimizer currently su"
+  },
+  {
+    "id": "NVIDIA/TensorRT-Incubator",
+    "label": "TensorRT-Incubator",
+    "domain": "inference",
+    "repo": "NVIDIA/TensorRT-Incubator",
+    "description": "Experimental projects related to TensorRT",
+    "summary": "TensorRT Incubator This repository includes experimental projects related to TensorRT. Each project is contained in its own subdirectory; see the READMEs there for more details.",
+    "readmeSnippet": "# TensorRT Incubator This repository includes experimental projects related to TensorRT. Each project is contained in its own subdirectory; see the READMEs there for more details. "
+  },
+  {
+    "id": "NVIDIA/Maya-ACE",
+    "label": "Maya-ACE",
+    "domain": "simulation",
+    "repo": "NVIDIA/Maya-ACE",
+    "description": "Maya-ACE: A Reference Client Implementation for NVIDIA ACE Audio2Face Service",
+    "summary": "Maya ACE &middot; High-Quality Audio-Driven Facial Animation with NVIDIA Audio2Face-3D SDK and ACE Service What is Maya-ACE Maya-ACE is a powerful Maya plugin that brings NVIDIA's Audio2Face-3D technology directly to your creative workflow. It offers two complementary solutions: local GPU processing via the Audio2Face-3D SDK for maximum performance and control, and cloud-based processing through t",
+    "readmeSnippet": "# Maya ACE &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt) **High-Quality Audio-Driven Facial Animation with NVIDIA Audio2Face-3D SDK and ACE Service** ![preview](docs/resource/mace-play-james-a2f.gif) ## What is Maya-ACE Maya-ACE is a powerful Maya plugin that brings NVIDIA's [Audio2Face-3D technology](docs/concepts.md#audio2face-3d-and-maya-ace) directly to your creative workflow. It offers two complementary solutions: local GPU processing via the [Audio2Face-3D SDK](docs/concepts.md#local-inference-audio2face-3d-sdk-and-training-framework) for maximum performance and control, and cloud-based processing through the [Audio2Face-3D NIM](docs/concepts.md#audio2face-3d-nim) for scalability. [Both workflows](docs/concepts.md#workflow-comparison-local-inference-vs-service-based) are fully integrated and optimized within Maya-ACE. Use the local SDK for instant feedback, complete privacy, and interactive parameter tuning on your workstation. "
+  },
+  {
+    "id": "NVIDIA/cosmos",
+    "label": "cosmos",
+    "domain": "foundation-models",
+    "repo": "NVIDIA/cosmos",
+    "description": "NVIDIA Cosmos is an open platform of world models, datasets, and tools that enables developers to build Physical AI for robots, autonomous vehicles, smart infrastructure, and more.",
+    "summary": "Cosmos Table of Contents Introduction Cosmos 3 Key Capabilities Model Architecture Model Family Supported Generation Settings Input and Output Use Cases Generator Reasoner Quickstart Generator with Diffusers Generator with vLLM-Omni Generator with NIM Generator with SGLang Reasoner with Transformers Reasoner with vLLM Reasoner with TensorRT-LLM Reasoner with NIM Troubleshooting Which CUDA version ",
+    "readmeSnippet": "# Cosmos <p align=\"center\">   <img src=\"https://github.com/user-attachments/assets/28f2d612-bbd6-44a3-8795-833d05e9f05f\" width=\"274\" alt=\"NVIDIA Cosmos\"> </p> <p align=\"center\">   <a href=\"https://www.nvidia.com/en-us/ai/cosmos/\">Website</a> |   <a href=\"https://github.com/NVIDIA/cosmos-framework\">Framework</a> |   <a href=\"https://github.com/NVIDIA/cosmos-framework#agent-skills\">Agent Skills</a> |   <a href=\"https://huggingface.co/collections/nvidia/cosmos3\">Models</a> </p> ## Table of Contents - [Introduction](#introduction) - [Cosmos 3](#cosmos-3)   - [Key Capabilities](#key-capabilities)   - [Model Architecture](#model-architecture)   - [Model Family](#model-family)   - [Supported Generation Settings](#supported-generation-settings)   - [Input and Output](#input-and-output)   - [Use Cases](#use-cases)     - [Generator](#generator)     - [Reasoner](#reasoner)   - [Quickstart](#quickstart)     - [Generator with Diffusers](#generator-with-diffusers)     - [Generator with vLLM-Omn"
+  },
+  {
+    "id": "NVIDIA/Isaac-GR00T",
+    "label": "Isaac-GR00T",
+    "domain": "foundation-models",
+    "repo": "NVIDIA/Isaac-GR00T",
+    "description": "NVIDIA Isaac GR00T N1.7 -  A Foundation Model for Generalist Robots.",
+    "summary": "FAQ Table of Contents NVIDIA Isaac GR00T What's New in GR00T N1.7 Installation LeRobot Integration Model Checkpoints & Embodiment Tags Data Format Inference Fine-tuning Evaluation Contributions License Citation --- NVIDIA Isaac GR00T We just released GR00T N1.7 General Availability, the latest version of GR00T N1 with a new VLM backbone (Cosmos-Reason2-2B / Qwen3-VL) and improved performance. This",
+    "readmeSnippet": "<div align=\"center\">   <img src=\"media/header_compress.png\" width=\"800\" alt=\"NVIDIA Isaac GR00T N1.7 Header\">   <!-- --- -->   <p style=\"font-size: 1.2em;\">     <a href=\"https://developer.nvidia.com/isaac/gr00t\"><strong>Website</strong></a> |     <a href=\"https://huggingface.co/collections/nvidia/gr00t-n17\"><strong>Model</strong></a> |     <a href=\"https://huggingface.co/collections/nvidia/physical-ai\"><strong>Datasets (Physical AI)</strong></a> |     <a href=\"https://arxiv.org/abs/2503.14734\"><strong>Paper</strong></a> |     <a href=\"https://developer.nvidia.com/isaac\"><strong>NVIDIA Isaac</strong></a> |     <a href=\"FAQ.md\"><strong>FAQ</strong></a>   </p> </div> ## Table of Contents - [NVIDIA Isaac GR00T](#nvidia-isaac-gr00t) - [What's New in GR00T N1.7](#whats-new-in-gr00t-n17) - [Installation](#installation) - [LeRobot Integration](#lerobot-integration) - [Model Checkpoints & Embodiment Tags](#model-checkpoints--embodiment-tags) - [Data Format](#data-format) - [Inference](#inf"
+  },
+  {
+    "id": "NVIDIA/TensorRT-RTX",
+    "label": "TensorRT-RTX",
+    "domain": "inference",
+    "repo": "NVIDIA/TensorRT-RTX",
+    "description": "NVIDIA TensorRT-RTX is an SDK for high-performance AI inference on NVIDIA RTX GPUs. This repository contains Open-Source Software components of TensorRT-RTX.",
+    "summary": "TensorRT for RTX TensorRT for RTX builds on the proven performance of the NVIDIA TensorRT inference library, and simplifies the deployment of AI models on NVIDIA RTX GPUs across desktops, laptops, and workstations. TensorRT for RTX is a drop-in replacement for NVIDIA TensorRT in applications targeting NVIDIA RTX GPUs from Turing through Blackwell generations. It introduces a Just-In-Time (JIT) opt",
+    "readmeSnippet": "# TensorRT for RTX TensorRT for RTX builds on the proven performance of the NVIDIA TensorRT inference library, and simplifies the deployment of AI models on NVIDIA RTX GPUs across desktops, laptops, and workstations. TensorRT for RTX is a drop-in replacement for NVIDIA TensorRT in applications targeting NVIDIA RTX GPUs from Turing through Blackwell generations. It introduces a Just-In-Time (JIT) optimizer in the runtime that compiles improved inference engines directly on the end-user's RTX-accelerated PC in under 30 seconds. This eliminates the need for lengthy pre-compilation steps and enables rapid engine generation, improved application portability, and cutting-edge inference performance. To support integration into lightweight applications and deployment in memory-constrained environments, TensorRT for RTX is compact under 200 MB. TensorRT for RTX makes real-time, responsive AI applications for image processing, speech synthesis, and generative AI practical and performant on con"
+  },
+  {
+    "id": "NVIDIA/GR00T-Dreams",
+    "label": "GR00T-Dreams",
+    "domain": "foundation-models",
+    "repo": "NVIDIA/GR00T-Dreams",
+    "description": "DreamGen: Nvidia GEAR Lab's initiative to solve the robotics data problem using world models",
+    "summary": "GR00T Dreams NVIDIA Isaac GR00T-Dreams blueprint generates vast amounts of synthetic trajectory data using NVIDIA Cosmos world foundation models, prompted by a single image and language instructions. This enables robots to learn new tasks in unfamiliar environments without needing specific teleoperation data. As a first step, we release DreamGen: Unlocking Generalization in Robot Learning through ",
+    "readmeSnippet": "# GR00T Dreams [![Introduction Video](https://img.youtube.com/vi/8Mwrfvq-GeY/0.jpg)](https://www.youtube.com/watch?v=8Mwrfvq-GeY) NVIDIA Isaac GR00T-Dreams blueprint generates vast amounts of synthetic trajectory data using NVIDIA Cosmos world foundation models, prompted by a single image and language instructions. This enables robots to learn new tasks in unfamiliar environments without needing specific teleoperation data. As a first step, we release <b>DreamGen: Unlocking Generalization in Robot Learning through Video World Models</b> <a href=\"https://research.nvidia.com/labs/gear/dreamgen/\"><strong>Website</strong></a> | <a href=\"https://arxiv.org/abs/2505.12705\"><strong>Paper</strong></a> We provide the full pipeline for DreamGen, as Cosmos-Predict2 as the video world model in the repository. This repository is divided into: 1. [Finetuning video world models](#1-fine-tuning-video-world-models) 2. [Generating synthetic videos](#2-generating-synthetic-robot-videos-using-fine-tune"
+  },
+  {
+    "id": "NVIDIA/3DObjectReconstruction",
+    "label": "3DObjectReconstruction",
+    "domain": "pose-and-vision",
+    "repo": "NVIDIA/3DObjectReconstruction",
+    "description": "3D Object Reconstruction project is a workflow that takes a set of stereo images and camera info and outputs a textured mesh (i.e., .OBJ file). The purpose is to translate physical items into the digital world in a photorealistic way",
+    "summary": "NVIDIA 3D Object Reconstruction Framework 🆕 Updates & News June, 2026: We release Commercial Version Of 3D Object Reconstruction Pipeline! We use Theseus optimizers for pose optimization to replace BundleFusion. Add optional config for color fusion across views to handle varying lighting conditions. (See Configuration for usage) We now use commercial version FoundationStereo ONNX weight from NVID",
+    "readmeSnippet": "# NVIDIA 3D Object Reconstruction Framework ## 🆕 Updates & News - June, 2026: We release Commercial Version Of 3D Object Reconstruction Pipeline!   1. We use [Theseus](https://github.com/facebookresearch/theseus) optimizers for pose optimization to replace [BundleFusion](https://github.com/niessner/BundleFusion).   2. Add optional config for color fusion across views to handle varying lighting conditions.   (See [Configuration](#configuration) for usage)   3. We now use commercial version [FoundationStereo ONNX weight](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/foundationstereo/) from NVIDIA TAO Toolkit. Now could be enabled through FoundationStereo [configuration](#configuration).   4. Add multi-architecture Docker support with automatic detection: deployment now automatically detects x86_64 vs ARM64 (tested on Jetson Orin) and uses the appropriate Dockerfile (`Dockerfile` or `Dockerfile.aarch64`) and upgrade to pytorch 2.7.0 for better compatiblity especially for n"
+  },
+  {
+    "id": "NVIDIA/Audio2Face-3D-SDK",
+    "label": "Audio2Face-3D-SDK",
+    "domain": "simulation",
+    "repo": "NVIDIA/Audio2Face-3D-SDK",
+    "description": "High-performance C++/CUDA SDK for running Audio2Emotion and Audio2Face inference with integrated post-processing.",
+    "summary": "Audio2X SDK The Audio2X SDK is a comprehensive toolkit for fast audio-driven animation and emotion detection. It consists of two main components: Audio2Emotion SDK: Analyzes audio (speech) input to detect and classify emotional states Audio2Face SDK: Generates facial animations from audio (speech) input, supporting both regression and diffusion-based approaches The SDK is designed for high-perform",
+    "readmeSnippet": "# Audio2X SDK The Audio2X SDK is a comprehensive toolkit for fast audio-driven animation and emotion detection. It consists of two main components: - **Audio2Emotion SDK**: Analyzes audio (speech) input to detect and classify emotional states - **Audio2Face SDK**: Generates facial animations from audio (speech) input, supporting both regression and diffusion-based approaches The SDK is designed for high-performance applications requiring fast audio processing and animation generation. It leverages NVIDIA's GPU computing capabilities through CUDA and TensorRT for optimal performance. ### Key Features - **Faster Than Real-time Processing**: Faster than 60 FPS frame generation - **Multi-track Support**: Process multiple audio streams simultaneously - **GPU Acceleration**: Full CUDA/TensorRT integration - **Flexible Architecture**: Support for both batch and interactive processing modes - **Cross-platform**: Windows and Linux support # Build ## Prerequisites ### System Requirements"
+  },
+  {
+    "id": "NVIDIA/OSMO",
+    "label": "OSMO",
+    "domain": "simulation",
+    "repo": "NVIDIA/OSMO",
+    "description": "The developer-first platform for scaling complex Physical AI workloads across heterogeneous compute—unifying training GPUs, simulation clusters, and edge devices in a simple YAML",
+    "summary": "Welcome to OSMO Workflow Orchestration Purpose-built for Physical AI Get Started Documentation Community Roadmap Use OSMO to manage your workflows and even remotely develop on a backend node. Using OSMO's backend configuration, run your workflows seamlessly on any cloud environment. Build a data factory to manage your synthetic and real robot data, train neural networks with experiment tracking, t",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved. Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. SPDX-License-Identifier: Apache-2.0 --> <img src=\"./docs/front_cover.png\" width=\"100%\"/> # Welcome to OSMO ### Workflow Orchestration Purpose-built for Physical AI <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/License-Apache%202.0-blue.svg\" alt=\"License\"></a> <a href=\"https://nvidia.github.io/OSMO/main/user_guide\"><img src=\"https://img.shields.io/badge/docs-l"
+  },
+  {
+    "id": "NVIDIA/TensorRT-Edge-LLM",
+    "label": "TensorRT-Edge-LLM",
+    "domain": "inference",
+    "repo": "NVIDIA/TensorRT-Edge-LLM",
+    "description": "High-performance, light-weight C++ LLM and VLM Inference Software for Physical AI",
+    "summary": "TensorRT Edge-LLM High-Performance Large Language Model Inference Framework for NVIDIA Edge Platforms Overview Support Matrix Quick Start Performance Documentation Roadmap --- Latest News [2026/08] Release 0.10.0 adds support for NVIDIA Nemotron-3.5 Lightning with MTP and DFlash, Cosmos3-Edge, DiffusionGemma, Nemotron-3.5-ASR, and DSpark speculative decoding, alongside an experimental direct Tenso",
+    "readmeSnippet": "<div align=\"center\"> # TensorRT Edge-LLM **High-Performance Large Language Model Inference Framework for NVIDIA Edge Platforms** [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://nvidia.github.io/TensorRT-Edge-LLM/) [![version](https://img.shields.io/badge/release-0.10.0-green)](https://github.com/NVIDIA/TensorRT-Edge-LLM/blob/main/tensorrt_edgellm/_version.py) [![license](https://img.shields.io/badge/license-Apache%202-blue)](https://github.com/NVIDIA/TensorRT-Edge-LLM/blob/main/LICENSE) [Overview](https://nvidia.github.io/TensorRT-Edge-LLM/latest/overview.html)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Support Matrix](https://nvidia.github.io/TensorRT-Edge-LLM/latest/user_guide/getting_started/support-matrix.html)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Quick Start](https://nvidia.github.io/TensorRT-Edge-LLM/latest/user_guide/getting_started/quick-start-guide.html)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Performance](https://nvidia.github.io/Ten"
+  },
+  {
+    "id": "NVIDIA/IsaacTeleop",
+    "label": "IsaacTeleop",
+    "domain": "simulation",
+    "repo": "NVIDIA/IsaacTeleop",
+    "description": "The unified framework for sim & real robot teleoperation",
+    "summary": "Isaac Teleop The unified framework for high-fidelity ego-centric and robotics data collection. --- Overview Isaac Teleop: The unified standard for high-fidelity egocentric and robot data collection. It is designed to address the data bottleneck in robot learning by streamlining device integration; standardizing high-fidelity human demo data collection; and foster device & data interoperability. Ke",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2025-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. SPDX-License-Identifier: Apache-2.0 --> ![Isaac Teleop](docs/source/_static/isaac-teleop-hero.jpg) # Isaac Teleop <div align=\"center\"> **The unified framework for high-fidelity ego-centric and robotics data collection.** [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/) [![Isaac Lab](https://img.shields.io/badge/Isaac%20Lab-3.0.0-orange.svg)](https://isaac-sim.github.io/IsaacLab/develop) [![numpy](https://img.shields.io/badge/numpy-1.23%2B-lightgrey.svg)](https://numpy.org/) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) </div> --- ## Overview **Isaac Teleop**: The unified standard for high-fidelity egocentric and robot data collection. It is designed to address the data bottleneck in robot learning by streamlining device integration; standardizing hi"
+  },
+  {
+    "id": "NVIDIA/ACCV-Lab",
+    "label": "ACCV-Lab",
+    "domain": "simulation",
+    "repo": "NVIDIA/ACCV-Lab",
+    "description": "Accelerated Computer Vision Lab (ACCV-Lab) is a systematic collection of packages with the common goal to facilitate end-to-end efficient training in the ADAS domain, each package offering tools & best practices for a specific aspect/task in this domain.",
+    "summary": "ACCV-Lab Overview Accelerated Computer Vision Lab (ACCV-Lab) is a systematic collection of packages with the common goal to facilitate end-to-end efficient training in the ADAS domain, each package offering tools & best practices for a specific aspect/task in this domain. Resources The following resources provide an overview of the project and its capabilities: Type Title Date Link ------ ------- ",
+    "readmeSnippet": "# ACCV-Lab Overview Accelerated Computer Vision Lab (ACCV-Lab) is a systematic collection of packages with the common goal to  facilitate end-to-end efficient training in the ADAS domain, each package offering tools & best practices for  a specific aspect/task in this domain. ## Resources The following resources provide an overview of the project and its capabilities: | Type | Title | Date | Link | |------|-------|------|------| | 📝 Blog | Accelerate Assisted Driving Training with NVIDIA ACCV-Lab Open-Source Toolkit 【CN】 | 2025-12-24 | [NVIDIA Tech Blog](https://developer.nvidia.cn/blog/accelerate-assisted-driving-training-with-nvidia-accv-lab-open-source-toolkit/) | | 🎬 Video | ADAS & Robotics - Overview of ACCV-Lab for Data Loading and Model Training Acceleration 【EN】 | 2025-11-19 | [Bilibili](https://www.bilibili.com/video/BV14yyEB3E5B/) | | 🎬 Video | Video Training for ADAS 【CN】 and DALI-Based Image Preprocessing Pipeline 【EN】 | 2025-06-12 | [Bilibili](https://www.bilibili.c"
+  },
+  {
+    "id": "NVIDIA/DreamDojo",
+    "label": "DreamDojo",
+    "domain": "foundation-models",
+    "repo": "NVIDIA/DreamDojo",
+    "description": "Official Codebase for \"DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos\" (ICML 2026)",
+    "summary": "💭 DreamDojo 🔥 Highlights DreamDojo is an interactive world model that learns from large-scale human videos. In short, we made the following key contributions: A large-scale video dataset. 44k hours of diverse human egocentric videos, the largest dataset to date for world model pretraining. A foundation world model. The first robot world model of its kind that demonstrates strong generalization t",
+    "readmeSnippet": "<img src=\"assets/banner.gif\" width=\"100%\"/> <div align=\"center\">   <p style=\"font-size: 1.2em;\">     <a href=\"https://dreamdojo-world.github.io/\"><strong>Website</strong></a> |      <a href=\"https://arxiv.org/abs/2602.06949\"><strong>Paper</strong></a> |     <a href=\"https://huggingface.co/nvidia/DreamDojo\"><strong>Models</strong></a> |     <a href=\"https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-GR1\"><strong>Datasets</strong></a>   </p> </div> # 💭 DreamDojo ## 🔥 Highlights *DreamDojo* is an interactive world model that learns from large-scale human videos. In short, we made the following key contributions: - **A large-scale video dataset.** 44k hours of diverse human egocentric videos, the largest dataset to date for world model pretraining. - **A foundation world model.** The first robot world model of its kind that demonstrates strong generalization to diverse objects and environments after post-training. - **A distillation pipeline.** After distillatio"
+  },
+  {
+    "id": "NVIDIA/ncore",
+    "label": "ncore",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/ncore",
+    "description": "Data representations, APIs, and tools for high quality AV and robotics applications",
+    "summary": "NVIDIA NCore NVIDIA NCore is an open, self-contained multi-sensor data platform with a focus on robotics and autonomous vehicle data. It defines a canonical component-based data format, GPU-accelerated camera and LiDAR sensor models, dataset converters, and APIs for reconstruction and simulation. NCore is used by NVIDIA Omniverse NuRec and other research and development workflows. Project Site: re",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. SPDX-License-Identifier: Apache-2.0 --> # NVIDIA NCore [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE) [![CI](https://github.com/NVIDIA/ncore/actions/workflows/ci.yml/badge.svg)](https://github.com/NVIDIA/ncore/actions/workflows/ci.yml) NVIDIA NCore is an open, self-contained multi-sensor data platform with a focus on robotics and autonomous vehicle data. It defines a canonical component-based data format, GPU-accelerated camera and LiDAR sensor models, dataset converters, and APIs for reconstruction and simulation. NCore is used by NVIDIA Omniverse NuRec and other research and development workflows. **Project Site:** [research.nvidia.com/labs/sil/projects/ncore](https://research.nvidia.com/labs/sil/projects/ncore) ## Key Features - **Neural Reconstruction** - Designed for data-driven neural 3D reconstruction and simulation applications - **Data Fo"
+  },
+  {
+    "id": "NVIDIA/skills",
+    "label": "skills",
+    "domain": "simulation",
+    "repo": "NVIDIA/skills",
+    "description": "Agent Skills for NVIDIA products — install into Claude Code, Codex, and other coding agents to run Physical AI, robotics, simulation, CUDA, and RAG workflows end to end.",
+    "summary": "NVIDIA Agent Skills Official, NVIDIA-verified Agent Skills for Claude Code, Codex, and other coding agents. 📖 Docs: docs.nvidia.com/skills · 📺 Livestream: From Vulnerable to Verified · 📝 Blog: NVIDIA Verified Agent Skills: Capability Governance for AI Agents --- Skills are portable instruction sets that teach AI agents how to use NVIDIA software optimally: Physical AI and robotics workflows, si",
+    "readmeSnippet": "<!-- SPDX-License-Identifier: Apache-2.0 AND CC-BY-4.0 --> <!-- Copyright (c) 2026 NVIDIA Corporation. All rights reserved. --> # NVIDIA Agent Skills **Official, NVIDIA-verified Agent Skills for Claude Code, Codex, and other coding agents.** [![NVIDIA](https://img.shields.io/badge/NVIDIA-Verified-76B900?style=flat&logo=nvidia&logoColor=white)](https://nvidia.com) [![Agent Skills Spec](https://img.shields.io/badge/Agent%20Skills-Specification-blue)](https://agentskills.io) [![License](https://img.shields.io/badge/License-Apache%202.0%20%2B%20CC--BY--4.0-green.svg)](#license) > 📖 **Docs:** [docs.nvidia.com/skills](https://docs.nvidia.com/skills) &nbsp;·&nbsp; > 📺 **Livestream:** [From Vulnerable to Verified](https://www.youtube.com/watch?v=sVpKonYJ4D4&list=PL5B692fm6--vEL0FwctKghCpyEnBGAQJA&index=1) &nbsp;·&nbsp; > 📝 **Blog:** [NVIDIA Verified Agent Skills: Capability Governance for AI Agents](https://developer.nvidia.com/blog/nvidia-verified-agent-skills-provide-capability-govern"
+  },
+  {
+    "id": "NVIDIA/elements",
+    "label": "elements",
+    "domain": "gpu-compute",
+    "repo": "NVIDIA/elements",
+    "description": "NVIDIA Design System and UI Agent Harness for AI/ML Factories, Robotics, and Autonomous Vehicles",
+    "summary": "NVIDIA Elements NVIDIA Design System and UI Agent Harness for AI/ML Factories, Robotics, and Autonomous Vehicles. Agent-ready tooling: CLI and MCP expose component APIs, tokens, examples, imports, validation, and setup to terminals and AI assistants. Framework agnostic: Web Components run in React, Angular, Vue, Svelte, Lit, plain HTML, server-rendered templates, and mixed stacks. Built for AI inf",
+    "readmeSnippet": "# NVIDIA Elements NVIDIA Design System and UI Agent Harness for AI/ML Factories, Robotics, and Autonomous Vehicles. - **Agent-ready tooling:** CLI and MCP expose component APIs, tokens, examples, imports, validation, and setup to terminals and AI assistants. - **Framework agnostic:** Web Components run in React, Angular, Vue, Svelte, Lit, plain HTML, server-rendered templates, and mixed stacks. - **Built for AI infrastructure:** Operational UI for AI/ML workloads, autonomous vehicle tools, and robotics consoles. - **Stable API contracts:** Skills and lint guide authoring best practices, common UI patterns, and automated static analysis. ## Requests and Contributions - [NVIDIA Elements Documentation](https://NVIDIA.github.io/elements/) - [Contribution Guidelines](https://NVIDIA.github.io/elements/docs/about/contributions/) - [Feature request](https://github.com/NVIDIA/elements/issues/new?issuable_template=feature) - [Bug report](https://github.com/NVIDIA/elements/issues/new?issuable"
+  },
+  {
+    "id": "NVIDIA/soma-retargeter",
+    "label": "soma-retargeter",
+    "domain": "simulation",
+    "repo": "NVIDIA/soma-retargeter",
+    "description": "SOMA BVH to humanoid robot motion retargeting library built with Newton and NVIDIA Warp",
+    "summary": "SOMA Retargeter Convert SOMA human motion captures into humanoid robot joint animation. Takes BVH motion files as input and produces robot-playable CSV joint data as output using GPU-optimized inverse kinematics via Newton and high-performance computation with NVIDIA Warp. The retargeting pipeline handles proportional human-to-robot scaling, multi-objective IK solving with joint limits, feet stabi",
+    "readmeSnippet": "# SOMA Retargeter [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![SOMA Retargeter Banner](assets/docs/banner.gif) Convert [SOMA](https://github.com/NVlabs/SOMA-X) human motion captures into humanoid robot joint animation. Takes BVH motion files as input and produces robot-playable CSV joint data as output using GPU-optimized inverse kinematics via [Newton](https://github.com/newton-physics/newton) and high-performance computation with [NVIDIA Warp](https://github.com/NVIDIA/warp). The retargeting pipeline handles proportional human-to-robot scaling, multi-objective IK solving with joint limits, feet stabilization to maintain ground contact, and per-DOF joint limit clamping. Currently supports SOMA as the input skeleton and Unitree G1 (29 DOF) as the output robot. Additional robot targets are planned. SOMA Retargeter is part of the [SOMA body model](https://github.com/NVlabs/SOMA-X) ecosystem for humanoid motion da"
+  },
+  {
+    "id": "NVIDIA/flashdreams",
+    "label": "flashdreams",
+    "domain": "foundation-models",
+    "repo": "NVIDIA/flashdreams",
+    "description": "high-performance inference and serving library for interactive autoregressive video and world models",
+    "summary": "FlashDreams is a high-performance inference and serving library for interactive autoregressive video and world models. It began as the optimized runtime behind the NVIDIA OmniDreams closed-loop demo for GTC 2026 and has grown into a general platform for real-time world-model applications across gaming, autonomous vehicles, robotics, simulated or virtual environments, and more. System Requirements ",
+    "readmeSnippet": "<!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. SPDX-License-Identifier: Apache-2.0 --> <p align=\"center\">   <picture>     <source media=\"(prefers-color-scheme: dark)\" srcset=\"assets/logo/horizontal-dark.svg\">     <img alt=\"FlashDreams\" src=\"assets/logo/horizontal-light.svg\" width=\"600\">   </picture> </p> <p align=\"center\">   <a href=\"LICENSE\"><img alt=\"License: Apache 2.0\" src=\"https://img.shields.io/badge/License-Apache_2.0-blue.svg\"></a>   <a href=\"https://nvidia.github.io/flashdreams/main/index.html\"><img alt=\"Documentation\" src=\"https://img.shields.io/badge/docs-latest-blue.svg\"></a> </p> **FlashDreams** is a high-performance inference and serving library for interactive autoregressive video and world models. It began as the optimized runtime behind the [NVIDIA OmniDreams closed-loop demo for GTC 2026][omnidreams-blog] and has grown into a general platform for real-time world-model applications across gaming, autonomous vehi"
+  },
+  {
+    "id": "NVIDIA/DeepStream",
+    "label": "DeepStream",
+    "domain": "deepstream",
+    "repo": "NVIDIA/DeepStream",
+    "description": "NVIDIA DeepStream Monorepo: DeepStream SDK and reference apps for building GPU‑accelerated, real-time video and multi‑sensor analytics pipelines with GStreamer, TensorRT, and vision AI models across edge, on‑prem, and cloud deployments.",
+    "summary": "DeepStream NVIDIA DeepStream SDK is a streaming analytics toolkit for AI-based video and image understanding, providing a GStreamer-based framework to build multi-stream, multi-model inference pipelines on NVIDIA GPUs (dGPU and Jetson). DeepStream pipelines combine hardware-accelerated decoding/encoding, TensorRT inference, object tracking, and message-broker integrations to deliver real-time vide",
+    "readmeSnippet": "# DeepStream [NVIDIA DeepStream SDK](https://developer.nvidia.com/deepstream-sdk) is a streaming analytics toolkit for AI-based video and image understanding, providing a GStreamer-based framework to build multi-stream, multi-model inference pipelines on NVIDIA GPUs (dGPU and Jetson). DeepStream pipelines combine hardware-accelerated decoding/encoding, TensorRT inference, object tracking, and message-broker integrations to deliver real-time video analytics across dGPU and Jetson platforms. DeepStream is published as a unified GitHub repository; sources are to be used under the project [LICENSE](LICENSE) (documentation: CC-BY-4.0; source code: Apache-2.0). GitHub Release assets specific license details can be referred at [Release Asset License](#release-asset-license) under [DeepStream Release Assets](#deepstream-release-assets). The project is actively maintained, but currently not accepting code contributions — refer to the [Contribution Guidelines](#contribution-guidelines) for mo"
+  },
+  {
+    "id": "NVIDIA/halos-outside-in-safety",
+    "label": "halos-outside-in-safety",
+    "domain": "jetson-hardware",
+    "repo": "NVIDIA/halos-outside-in-safety",
+    "description": "NVIDIA Halos Outside-In Safety Blueprint extends robot perception beyond on-board sensors by using external infrastructure cameras and AI agents to dynamically control robot behavior and perform at maximum efficiency. ",
+    "summary": "NVIDIA Halos Outside-In Safety Blueprint Open-source on-ramp for physical AI safety (early access). Built for prototyping, evaluation, and integration development — not for production use in safety-related systems without your own certified safety layer. See SAFETYNOTICE.md. Table of Contents Overview Software Components Profiles Repository Structure Documentation Prerequisites Hardware Requiremen",
+    "readmeSnippet": "<h2>NVIDIA Halos Outside-In Safety Blueprint</h2> > **Open-source on-ramp for physical AI safety (early access).** > Built for prototyping, evaluation, and integration development — not for production use in safety-related systems without your own certified safety layer. > See [SAFETY_NOTICE.md](SAFETY_NOTICE.md). ### Table of Contents - [Overview](#overview) - [Software Components](#software-components) - [Profiles](#profiles) - [Repository Structure](#repository-structure) - [Documentation](#documentation) - [Prerequisites](#prerequisites) - [Hardware Requirements](#hardware-requirements) - [Quickstart Guide](#quickstart-guide) - [Parallel Terms in context of Safety-Core](#parallel-terms-in-context-of-safety-core) - [Contributing](#contributing) - [License](#license) ## Overview NVIDIA Halos Outside-In Safety Blueprint is a reference architecture for building safety agents and part of [NVIDIA Halos for Robotics](https://www.nvidia.com/en-us/ai-trust-center/halos/robotics), a full"
+  },
+  {
+    "id": "NVIDIA/NeMo-Speech.cpp",
+    "label": "NeMo-Speech.cpp",
+    "domain": "simulation",
+    "repo": "NVIDIA/NeMo-Speech.cpp",
+    "description": "NeMo-Speech.cpp is a lightweight C++ inference runtime for Speech models ",
+    "summary": "NeMo-Speech.cpp A lightweight native C++ runtime for NVIDIA Nemotron Speech models built on ggml. Runs speech models in realtime and in batch mode across platforms/backends. Contents Installation Quick start Command line Local server and playground Native SDK Build from source Documentation License Contributing Installation From a source checkout, install the CLI, HTTP API, and browser playground ",
+    "readmeSnippet": "# NeMo-Speech.cpp A lightweight native C++ runtime for NVIDIA Nemotron Speech models built on ggml. Runs speech models in realtime and in batch mode across platforms/backends. ## Contents - [Installation](#installation) - [Quick start](#quick-start) - [Command line](#command-line) - [Local server and playground](#local-server-and-playground) - [Native SDK](#native-sdk) - [Build from source](#build-from-source) - [Documentation](#documentation) - [License](#license) - [Contributing](#contributing) ## Installation From a source checkout, install the CLI, HTTP API, and browser playground for the detected platform and backend: ```bash scripts/install.sh --source export PATH=\"$HOME/.local/bin:$PATH\"  # current shell; future shells are updated ``` The source build requires Git, CMake 3.26 or newer, Ninja, a C++17 compiler, and the toolkit for the selected GPU backend. See [Installation](docs/install.md) for platform-specific prerequisites, options, and the native release-archive flow."
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_common",
+    "label": "isaac_ros_common",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_common",
+    "description": "Common utilities, packages, scripts, and testing infrastructure for Isaac ROS packages.",
+    "summary": "Isaac ROS Common Essential utilities, packages, scripts, and testing infrastructure for Isaac ROS packages. Overview The Isaac ROS Common repository contains an array of essential packages for building, testing, and using Isaac ROS. For solutions to known issues, see the Troubleshooting section. --- Documentation Please visit the Isaac ROS Documentation to learn how to use this repository. --- Lat",
+    "readmeSnippet": "# Isaac ROS Common Essential utilities, packages, scripts, and testing infrastructure for Isaac ROS packages. ## Overview The Isaac ROS Common repository contains an array of essential packages for building, testing, and using Isaac ROS. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_common/isaac_ros_common_tools.png/\"><img alt=\"Isaac ROS DevOps tools\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_common/isaac_ros_common_tools.png/\" width=\"auto\"/></a></div> For solutions to known issues, see the [Troubleshooting](https://nvidia-isaac-ros.github.io/troubleshooting/index.html) section. --- ## Documentation Please visit the [Isaac ROS Documentation](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_co"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference",
+    "label": "isaac_ros_dnn_inference",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference",
+    "description": "NVIDIA-accelerated DNN model inference ROS 2 packages using NVIDIA Triton/TensorRT for both Jetson and x86_64 with CUDA-capable GPU",
+    "summary": "Isaac ROS DNN Inference NVIDIA-accelerated DNN model inference ROS 2 packages using NVIDIA Triton/TensorRT for both Jetson and x8664 with CUDA-capable GPU. Webinar Available Learn how to use this package by watching our on-demand webinar: Accelerate YOLOv5 and Custom AI Models in ROS with NVIDIA Isaac --- Overview Isaac ROS DNN Inference contains ROS 2 packages for performing DNN inference, provid",
+    "readmeSnippet": "# Isaac ROS DNN Inference NVIDIA-accelerated DNN model inference ROS 2 packages using NVIDIA Triton/TensorRT for both Jetson and x86_64 with CUDA-capable GPU. <div align=\"center\"><img alt=\"bounding box for people detection\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_dnn_inference/isaac_ros_dnn_peoplenet.jpg/\" width=\"300px\"/> <img alt=\"segementation mask for people detection\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_dnn_inference/isaac_ros_dnn_inference_peoplesemsegnet.jpg/\" width=\"300px\"/></div> ## Webinar Available Learn how to use this package by watching our on-demand webinar: [Accelerate YOLOv5 and Custom AI Models in ROS with NVIDIA Isaac](https://gateway.on24.com/wcc/experience/elitenvidiabrill/1407606/3998202/isaac-ros-webinar-series) --- ## Overview Isaac ROS DNN Infer"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_visual_slam",
+    "label": "isaac_ros_visual_slam",
+    "domain": "slam-mapping",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_visual_slam",
+    "description": "Visual SLAM/odometry package based on NVIDIA-accelerated cuVSLAM",
+    "summary": "Isaac ROS Visual SLAM NVIDIA-accelerated, simultaneous localization and mapping (SLAM) using stereo visual inertial odometry (SVIO). --- Webinar Available Learn how to use this package by watching our on-demand webinar: Pinpoint, 250 fps, ROS 2 Localization with vSLAM on Jetson --- Overview Isaac ROS Visual SLAM provides a high-performance, best-in-class ROS 2 package for VSLAM (visual simultaneou",
+    "readmeSnippet": "# Isaac ROS Visual SLAM NVIDIA-accelerated, simultaneous localization and mapping (SLAM) using stereo visual inertial odometry (SVIO). <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_visual_slam/cuvslam_ros_3.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_visual_slam/cuvslam_ros_3.gif/\" width=\"800px\"/></a></div> --- ## Webinar Available Learn how to use this package by watching our on-demand webinar: [Pinpoint, 250 fps, ROS 2 Localization with vSLAM on Jetson](https://gateway.on24.com/wcc/experience/elitenvidiabrill/1407606/3998202/isaac-ros-webinar-series) --- ## Overview Isaac ROS Visual SLAM provides a high-performance, best-in-class ROS 2 package for VSLAM (visual simultaneous localization and "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_argus_camera",
+    "label": "isaac_ros_argus_camera",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_argus_camera",
+    "description": "ROS 2 packages based on NVIDIA libArgus library for NVIDIA-accelerated CSI camera support.",
+    "summary": "Isaac ROS Argus Camera ROS 2 packages based on NVIDIA libArgus library for NVIDIA-accelerated CSI camera support. Overview The Isaac ROS Argus Camera module contains an ROS 2 package for sensor processing to output images. Image sensors are connected on CSI and GMSL hardware interfaces to Jetson platforms. This package uses dedicated hardware engines to accelerate image processing. Output images a",
+    "readmeSnippet": "# Isaac ROS Argus Camera ROS 2 packages based on NVIDIA `libArgus` library for NVIDIA-accelerated CSI camera support. <div align=\"center\"><img src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_argus_camera/isaac_ros_argus_sample_raw.png/\" width=\"300px\" title=\"raw image\"/> <img src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_argus_camera/isaac_ros_argus_sample_isp.png/\" width=\"300px\" title=\"isp processed image\"/></div> ## Overview The Isaac ROS Argus Camera module contains an ROS 2 package for sensor processing to output images. Image sensors are connected on CSI and GMSL hardware interfaces to Jetson platforms. This package uses dedicated hardware engines to accelerate image processing. Output images are used in graphs of nodes for AI and CV perception packages, image compression for capture to disk by even"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_apriltag",
+    "label": "isaac_ros_apriltag",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_apriltag",
+    "description": "NVIDIA-accelerated Apriltag detection and pose estimation.",
+    "summary": "Isaac ROS AprilTag NVIDIA-accelerated AprilTag detection and pose estimation. Overview Isaac ROS AprilTag contains a ROS 2 package for detection of AprilTags, a type of fiducial marker that provides a point of reference or measure. AprilTag detections are NVIDIA-accelerated for high performance. A common graph of nodes connects from an input camera through rectify and resize to AprilTag. Rectify w",
+    "readmeSnippet": "# Isaac ROS AprilTag NVIDIA-accelerated AprilTag detection and pose estimation. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag_sample_crop.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag_sample_crop.gif/\" width=\"550px\"/></a></div> ## Overview Isaac ROS AprilTag contains a ROS 2 package for detection of [AprilTags](https://github.com/AprilRobotics/apriltag), a type of fiducial marker that provides a point of reference or measure. AprilTag detections are NVIDIA-accelerated for high performance. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resou"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline",
+    "label": "isaac_ros_image_pipeline",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline",
+    "description": "NVIDIA-accelerated ROS 2 packages for camera image processing.",
+    "summary": "Isaac ROS Image Pipeline NVIDIA-accelerated Image Pipeline. Overview Isaac ROS Image Pipeline is a metapackage of functionality for image processing. Camera output often needs pre-processing to meet the input requirements of multiple different perception functions. This can include cropping, resizing, mirroring, correcting for lens distortion, and color space conversion. For stereo cameras, additi",
+    "readmeSnippet": "# Isaac ROS Image Pipeline NVIDIA-accelerated Image Pipeline. <div align=\"center\"><img src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_pipeline/100_right.jpg/\" width=\"300px\"/> <img src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_pipeline/300_right_hallway2_rect.png/\" width=\"300px\"/></div> <div align=\"center\"><img src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_pipeline/300_right_hallway2_gray_rect.png/\" width=\"300px\"/></div> ## Overview Isaac ROS Image Pipeline is a metapackage of functionality for image processing. Camera output often needs pre-processing to meet the input requirements of multiple different perception functions. This can include cropping, resizing, mirroring, c"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation",
+    "label": "isaac_ros_pose_estimation",
+    "domain": "pose-and-vision",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation",
+    "description": "Deep learned, NVIDIA-accelerated 3D object pose estimation",
+    "summary": "Isaac ROS Pose Estimation Deep learned, NVIDIA-accelerated 3D object pose estimation Overview Isaac ROS Pose Estimation contains three ROS 2 packages to predict the pose of an object. Refer the following table to see the differences of them: Node Novel Object wo/ Retraining TAO Support Speed Quality Maturity ---------------------------- ------------------------------- --------------- --------- ---",
+    "readmeSnippet": "# Isaac ROS Pose Estimation Deep learned, NVIDIA-accelerated 3D object pose estimation <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_pose_estimation/dope_objects.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_pose_estimation/dope_objects.png/\" width=\"400px\"/></a></div> ## Overview Isaac ROS Pose Estimation  contains three ROS 2 packages to predict the pose of an object. Refer the following table to see the differences of them: | Node                       | Novel Object wo/ Retraining   | TAO Support   | Speed   | Quality   | Maturity    | |----------------------------|-------------------------------|---------------|---------|-----------|-------------| | `isaac_ros_foundationpose` | ✓               "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_image_segmentation",
+    "label": "isaac_ros_image_segmentation",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_image_segmentation",
+    "description": "NVIDIA-accelerated, deep learned semantic image segmentation",
+    "summary": "Isaac ROS Image Segmentation NVIDIA-accelerated, deep learned semantic image segmentation Overview Isaac ROS Image Segmentation contains ROS packages for semantic image segmentation. These packages provide methods for classification of an input image at the pixel level by running GPU-accelerated inference on a DNN model. Each pixel of the input image is predicted to belong to a set of defined clas",
+    "readmeSnippet": "# Isaac ROS Image Segmentation NVIDIA-accelerated, deep learned semantic image segmentation <div align=\"center\"><img alt=\"sample input to image segmentation\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_segmentation/isaac_ros_image_segmentation_example.png/\" width=\"320px\"/> <img alt=\"sample output from image segmentation\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_segmentation/isaac_ros_image_segmentation_example_seg.png/\" width=\"320px\"/></div> ## Overview Isaac ROS Image Segmentation contains ROS packages for semantic image segmentation. These packages provide methods for classification of an input image at the pixel level by running GPU-accelerated inference on a DNN model. Each pixel of the input image is predicted to belong to a set of defined classes. The output pre"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_nvblox",
+    "label": "isaac_ros_nvblox",
+    "domain": "slam-mapping",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_nvblox",
+    "description": "NVIDIA-accelerated 3D scene reconstruction and Nav2 local costmap provider using nvblox",
+    "summary": "Isaac ROS Nvblox Nvblox ROS 2 integration for local 3D scene reconstruction and mapping. Overview Isaac ROS Nvblox contains ROS 2 packages for 3D reconstruction and cost maps for navigation. isaacrosnvblox processes depth and pose to reconstruct a 3D scene in real-time and outputs a 2D costmap for Nav2. The costmap is used in planning during navigation as a vision-based solution to avoid obstacles",
+    "readmeSnippet": "# Isaac ROS Nvblox Nvblox ROS 2 integration for local 3D scene reconstruction and mapping. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nvblox/isaac_sim_nvblox_humans.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nvblox/isaac_sim_nvblox_humans.gif/\" width=\"600px\"/></a></div> ## Overview Isaac ROS Nvblox contains ROS 2 packages for 3D reconstruction and cost maps for navigation. `isaac_ros_nvblox` processes depth and pose to reconstruct a 3D scene in real-time and outputs a 2D costmap for [Nav2](https://github.com/ros-navigation/navigation2). The costmap is used in planning during navigation as a vision-based solution to avoid obstacles. `isaac_ros_nvblox` is designed to work with depth-cameras and"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_object_detection",
+    "label": "isaac_ros_object_detection",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_object_detection",
+    "description": "NVIDIA-accelerated, deep learned model support for image space object detection",
+    "summary": "Isaac ROS Object Detection NVIDIA-accelerated, deep learned model support for object detection including DetectNet. Overview Isaac ROS Object Detection contains ROS 2 packages to perform object detection. isaacrosrtdetr, isaacrosdetectnet, isaacrosyolov8, and isaacrosgroundingdino each provide a method for spatial classification using bounding boxes with an input image. Classification is performed",
+    "readmeSnippet": "# Isaac ROS Object Detection NVIDIA-accelerated, deep learned model support for object detection including DetectNet. <div align=\"center\"><img alt=\"original image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_object_detection/isaac_ros_object_detection_example.png/\" width=\"300px\"/> <img alt=\"bounding box predictions using DetectNet\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_object_detection/isaac_ros_object_detection_example_bbox.png/\" width=\"300px\"/></div> ## Overview Isaac ROS Object Detection contains ROS 2 packages to perform object detection. `isaac_ros_rtdetr`, `isaac_ros_detectnet`, `isaac_ros_yolov8`, and `isaac_ros_grounding_dino` each provide a method for spatial classification using bounding boxes with an input image. Classification is performed by a GPU-accelerated model"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth",
+    "label": "isaac_ros_dnn_stereo_depth",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth",
+    "description": "NVIDIA-accelerated, deep learned stereo disparity estimation",
+    "summary": "Isaac ROS DNN Stereo Depth NVIDIA-accelerated, deep learned stereo disparity estimation --- Webinar Available Learn how to use this package by watching our on-demand webinar: Using ML Models in ROS 2 to Robustly Estimate Distance to Obstacles --- Overview Deep Neural Network (DNN)–based stereo models have become essential for depth estimation because they overcome many of the fundamental limitatio",
+    "readmeSnippet": "# Isaac ROS DNN Stereo Depth NVIDIA-accelerated, deep learned stereo disparity estimation <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_dnn_stereo_depth/ess3.0_conf0_r2b_storage_576p.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_dnn_stereo_depth/ess3.0_conf0_r2b_storage_576p.gif/\" width=\"800px\"/></a></div> --- ## Webinar Available Learn how to use this package by watching our on-demand webinar: [Using ML Models in ROS 2 to Robustly Estimate Distance to Obstacles](https://gateway.on24.com/wcc/experience/elitenvidiabrill/1407606/3998202/isaac-ros-webinar-series) --- ## Overview Deep Neural Network (DNN)–based stereo models have become essential for depth estimation because they overcome many of th"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_depth_segmentation",
+    "label": "isaac_ros_depth_segmentation",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_depth_segmentation",
+    "description": "NVIDIA-accelerated, deep learned depth segmentation and obstacle field ranging using Bi3D",
+    "summary": "Isaac ROS Depth Segmentation NVIDIA-accelerated packages for depth segmentation. --- Webinar Available Learn how to use this package by watching our on-demand webinar: Using ML Models in ROS 2 to Robustly Estimate Distance to Obstacles --- Overview Isaac ROS Depth Segmentation provides NVIDIA NVIDIA-accelerated packages for depth segmentation. The isaacrosbi3d package uses the optimized Bi3D DNN m",
+    "readmeSnippet": "# Isaac ROS Depth Segmentation NVIDIA-accelerated packages for depth segmentation. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_depth_segmentation/isaac_ros_bi3d_real_opt.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_depth_segmentation/isaac_ros_bi3d_real_opt.gif/\" width=\"500px\"/></a></div> --- ## Webinar Available Learn how to use this package by watching our on-demand webinar: [Using ML Models in ROS 2 to Robustly Estimate Distance to Obstacles](https://gateway.on24.com/wcc/experience/elitenvidiabrill/1407606/3998202/isaac-ros-webinar-series) --- ### Overview Isaac ROS Depth Segmentation provides NVIDIA NVIDIA-accelerated packages for depth segmentation. The `isaac_ros_bi3d` package uses the optimized [Bi3"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_nitros",
+    "label": "isaac_ros_nitros",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_nitros",
+    "description": "NVIDIA Isaac Transport for ROS package for hardware-acceleration friendly movement of messages",
+    "summary": "Isaac ROS NITROS NVIDIA Isaac Transport for ROS package for hardware-acceleration friendly movement of messages. Overview Isaac ROS NITROS contains NVIDIA’s implementation of type adaptation and negotiation in ROS 2. To learn more about NITROS, see here. Isaac ROS NITROS is composed of a number of individual packages, each with either a functional or structural purpose: isaacrosgxf: : This package",
+    "readmeSnippet": "# Isaac ROS NITROS NVIDIA Isaac Transport for ROS package for hardware-acceleration friendly movement of messages. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nitros/image5-1.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nitros/image5-1.gif/\" width=\"600px\"/></a></div> ## Overview Isaac ROS NITROS contains NVIDIA’s implementation of type adaptation and negotiation in ROS 2. To learn more about NITROS, see [here](https://nvidia-isaac-ros.github.io/concepts/nitros/index.html). Isaac ROS NITROS is composed of a number of individual packages, each with either a functional or structural purpose: `isaac_ros_gxf`: : This package serves as a container for precompiled GXF extensions used by other Isaac RO"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_compression",
+    "label": "isaac_ros_compression",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_compression",
+    "description": "NVIDIA-accelerated data compression",
+    "summary": "Isaac ROS Compression NVIDIA-accelerated data compression. Overview Isaac ROS Compression provides H.264 image encoder and decoder that leverages the specialized hardware in NVIDIA GPUs and the Jetson platform. The isaacrosh264encoder package can compress an image into H.264 data using the NVENC. The isaacrosh264decoder package can decode the H.264 data into original images using the NVDEC. Image ",
+    "readmeSnippet": "# Isaac ROS Compression NVIDIA-accelerated data compression. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_compression/isaac_ros_compression_nodegraph.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_compression/isaac_ros_compression_nodegraph.png/\" width=\"800px\"/></a></div> ## Overview Isaac ROS Compression provides H.264 image encoder and decoder that leverages the specialized hardware in NVIDIA GPUs and the [Jetson](https://developer.nvidia.com/embedded-computing) platform. The `isaac_ros_h264_encoder` package can compress an image into H.264 data using the NVENC. The `isaac_ros_h264_decoder` package can decode the H.264 data into original images using the NVDEC. Image compression reduces the data "
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_cloud_control",
+    "label": "isaac_ros_cloud_control",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_cloud_control",
+    "description": "VDA5050-compatible mission controller",
+    "summary": "Isaac ROS Cloud Control VDA5050-compatible mission controller --- Webinars Learn more about missions by watching our on-demand webinar: Build Connected Robots with NVIDIA Isaac Dispatch and Client Overview Isaac ROS Cloud Control provides the ROS 2 packages for communication with a robot fleet management service, including Mission Client, a VDA5050-compatible client that receives tasks and actions",
+    "readmeSnippet": "# Isaac ROS Cloud Control VDA5050-compatible mission controller <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_cloud_control/MD.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_cloud_control/MD.png/\" width=\"800px\"/></a></div> --- ## Webinars Learn more about missions by watching our on-demand webinar: [Build Connected Robots with NVIDIA Isaac Dispatch and Client](https://gateway.on24.com/wcc/experience/elitenvidiabrill/1407606/3998202/isaac-ros-webinar-series) ## Overview Isaac ROS Cloud Control provides the ROS 2 packages for communication with a robot fleet management service, including Mission Client, a VDA5050-compatible client that receives tasks and actions from the fleet management service and"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/ros2_benchmark",
+    "label": "ros2_benchmark",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/ros2_benchmark",
+    "description": "Benchmark the performance of your ROS 2 graphs",
+    "summary": "ros2benchmark Overview Robots are real-time systems which require complex graphs of heterogeneous computation to perform perception, planning, and control. These graphs of computation need to perform work deterministically and with known latency. The computing platform has a fixed budget for heterogeneous computation (TOPS) and throughput; computation is typically performed on multiple CPUs, GPUs,",
+    "readmeSnippet": "# ros2_benchmark <div align=\"center\"><img alt=\"ros2_benchmark introduction\" src=\"resources/ros2_benchmark_intro.png\" width=\"500px\"/></div> ## Overview Robots are real-time systems which require complex graphs of heterogeneous computation to perform perception, planning, and control. These graphs of computation need to perform work deterministically and with known latency. The computing platform has a fixed budget for heterogeneous computation (TOPS) and throughput; computation is typically performed on multiple CPUs, GPUs, and additional special purpose, fixed function hardware accelerators. `ros2_benchmark` provides the tools for measuring the throughput, latency, and compute utilization of these complex graphs without altering the code under test. The results can be used to make informed design decisions on how best a robotics application can meet its real-time requirements. Results can be used to optimize system performance by tracking results over time against changes in the im"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_benchmark",
+    "label": "isaac_ros_benchmark",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_benchmark",
+    "description": "Performance benchmarking for NVIDIA-accelerated Isaac ROS packages",
+    "summary": "Isaac ROS Benchmark Performance benchmarking for NVIDIA-accelerated Isaac ROS packages. Overview Isaac ROS Benchmark builds upon the ros2benchmark to provide configurations to benchmark Isaac ROS graphs. Performance results that measure Isaac ROS for throughput, latency, and utilization enable robotics developers to make informed decisions when designing real-time robotics applications. The Isaac ",
+    "readmeSnippet": "# Isaac ROS Benchmark Performance benchmarking for NVIDIA-accelerated Isaac ROS packages. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_benchmark/r2b_turtlebot_takeoff.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.5/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_benchmark/r2b_turtlebot_takeoff.gif/\" width=\"800px\"/></a></div> ## Overview Isaac ROS Benchmark builds upon the [ros2_benchmark](https://github.com/NVIDIA-ISAAC-ROS/ros2_benchmark) to provide configurations to benchmark Isaac ROS graphs. Performance results that measure Isaac ROS for throughput, latency, and utilization enable robotics developers to make informed decisions when designing real-time robotics applications. The Isaac ROS performance results can be independently verified, as th"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_freespace_segmentation",
+    "label": "isaac_ros_freespace_segmentation",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_freespace_segmentation",
+    "description": "NVIDIA-accelerated, deep-learned freespace segmentation",
+    "summary": "Isaac ROS Freespace Segmentation NVIDIA-accelerated, deep-learned freespace segmentation Overview Isaac ROS Freespace Segmentation contains an ROS 2 package to produce occupancy grids for navigation. By processing a freespace segmentation mask with the pose of the robot relative to the ground, Bi3D Freespace produces an occupancy grid for Nav2, which is used to avoid obstacles during navigation. T",
+    "readmeSnippet": "# Isaac ROS Freespace Segmentation NVIDIA-accelerated, deep-learned freespace segmentation <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_freespace_segmentation/isaac_ros_bi3d_real_opt.gif/\"><img alt=\"Isaac ROS Freespace Segmentation Sample Output\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_freespace_segmentation/isaac_ros_bi3d_real_opt.gif/\" width=\"500px\"/></a></div> ## Overview Isaac ROS Freespace Segmentation contains an ROS 2 package to produce occupancy grids for navigation. By processing a freespace segmentation mask with the pose of the robot relative to the ground, Bi3D Freespace produces an occupancy grid for [Nav2](https://github.com/ros-planning/navigation2), which is used to avoid obstacles during navigation. This package"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_map_localization",
+    "label": "isaac_ros_map_localization",
+    "domain": "slam-mapping",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_map_localization",
+    "description": "NVIDIA-accelerated global localization",
+    "summary": "Isaac ROS Map Localization NVIDIA-accelerated Map localization. Overview The Isaac ROS Map Localization module contains ROS 2 packages for lidar processing to estimate poses relative to a map. The Occupancy Grid Localizer processes a planar range scan to estimate pose in an occupancy grid map; this occurs in less than 1 second for most maps. This initial pose can be used to bootstrap navigation fo",
+    "readmeSnippet": "# Isaac ROS Map Localization NVIDIA-accelerated Map localization. <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_map_localization/occupancy_grid_localizer.gif/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_map_localization/occupancy_grid_localizer.gif/\" width=\"600px\"/></a></div> ## Overview The Isaac ROS Map Localization module contains ROS 2 packages for lidar processing to estimate poses relative to a map. The Occupancy Grid Localizer processes a planar range scan to estimate pose in an occupancy grid map; this occurs in less than 1 second for most maps. This initial pose can be used to bootstrap navigation for mobile robots and has been integrated and tested with Nav2. This can remove the need for upwards of 30 seco"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_nova",
+    "label": "isaac_ros_nova",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_nova",
+    "description": "ROS 2 support packages for Nova.",
+    "summary": "Isaac ROS Nova Optimized Isaac ROS packages for Isaac Nova Orin. Overview Isaac ROS Nova provides a set of optimized packages and tools to interface with the Nova sensor suite. These packages integrate with hardware timestamp synchronization on Jetson Orin platforms to enable high-quality sensor fusion. Sensor data streams through Isaac ROS graphs using NITROS for NVIDIA-accelerated processing. [!",
+    "readmeSnippet": "# Isaac ROS Nova Optimized Isaac ROS packages for [Isaac Nova Orin](https://developer.nvidia.com/isaac/nova-orin). <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nova/Nova_Carter_Isaac_KV_540p_01_v002_DM.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nova/Nova_Carter_Isaac_KV_540p_01_v002_DM.png/\" width=\"800px\"/></a></div> ## Overview Isaac ROS Nova provides a set of optimized packages and tools to interface with the Nova sensor suite. These packages integrate with hardware timestamp synchronization on Jetson Orin platforms to enable high-quality sensor fusion. Sensor data streams through Isaac ROS graphs using [NITROS](https://nvidia-isaac-ros.github.io/concepts/nitros/index.html) for NVIDIA-accelerated processing"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/nova_carter",
+    "label": "nova_carter",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/nova_carter",
+    "description": "Packages for Nova Carter support",
+    "summary": "Nova Carter This meta-repository contains the packages required for the Nova Carter robots to control their motors / wheelbase, communicate with the Mission Dispatcher, navigate with Nav2, localize with Isaac ROS Visual SLAM, and reconstruct 3D scenes with Isaac ROS Nvblox. Setup and Documentation Visit the Nova Carter page to learn how to use this repository.",
+    "readmeSnippet": "# Nova Carter This meta-repository contains the packages required for the [Nova Carter](https://robotics.segway.com/nova-carter/) robots to control their motors / wheelbase, communicate with the [Mission Dispatcher](https://github.com/nvidia-isaac/isaac_mission_dispatch), navigate with [Nav2](https://github.com/ros-planning/navigation2), localize with [Isaac ROS Visual SLAM](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_visual_slam/index.html), and reconstruct 3D scenes with [Isaac ROS Nvblox](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_nvblox/index.html). <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/nova_carter/carter_header.jpg/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/nova_carter"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/gxf",
+    "label": "gxf",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/gxf",
+    "description": "Acceleration-friendly component architecture framework",
+    "summary": "Graph eXecution Framework (GXF) Overview GXF is a framework from NVIDIA that provides a component-based architecture designed for developing hardware accelerated compute graphs. The framework is at the foundation of other high-performance SDKs such as NVIDIA Holoscan, DeepStream, and Isaac ROS. For example, NITROS (NVIDIA Isaac Transport for ROS) leverages GXF compute graphs embedded within ROS 2 ",
+    "readmeSnippet": "# Graph eXecution Framework (GXF) ## Overview [GXF](https://docs.nvidia.com/holoscan/sdk-user-guide/overview.html) is a framework from NVIDIA that provides a component-based architecture designed for developing hardware accelerated compute graphs. The framework is at the foundation of other high-performance SDKs such as [NVIDIA Holoscan](https://developer.nvidia.com/holoscan-sdk), [DeepStream](https://docs.nvidia.com/metropolis/deepstream/dev-guide/graphtools-docs/docs/text/GraphComposer_Graph_Runtime.html), and [Isaac ROS](https://github.com/NVIDIA-ISAAC-ROS). For example, [NITROS](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros) (NVIDIA Isaac Transport for ROS) leverages GXF compute graphs embedded within ROS 2 nodes with optimized transport between them to achieve highly efficient ROS application graphs. The [isaac_ros_gxf](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros/tree/main/isaac_ros_gxf) package is located in Isaac ROS NITROS repository that holds the GXF framewo"
+  },
+  {
+    "id": "NVIDIA-ISAAC-ROS/isaac_ros_noetic_interfaces",
+    "label": "isaac_ros_noetic_interfaces",
+    "domain": "isaac_ros",
+    "repo": "NVIDIA-ISAAC-ROS/isaac_ros_noetic_interfaces",
+    "description": "ROS 1 Noetic interfaces for Isaac ROS",
+    "summary": "Isaac ROS Noetic Interfaces Collection of generated ROS 1 Noetic sources for Isaac ROS interface packages for use with the Isaac ROS NITROS Bridge. --- Latest Update 2024-09-26: Update for Isaac ROS 3.1",
+    "readmeSnippet": "# Isaac ROS Noetic Interfaces Collection of generated ROS 1 Noetic sources for Isaac ROS interface packages for use with the [Isaac ROS NITROS Bridge](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_nitros_bridge/index.html). <div align=\"center\"><a class=\"reference internal image-reference\" href=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nitros_bridge/isaac_ros_nitros_bridge_overview.png/\"><img alt=\"image\" src=\"https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nitros_bridge/isaac_ros_nitros_bridge_overview.png/\" width=\"800px\"/></a></div> --- ## Latest Update 2024-09-26: Update for Isaac ROS 3.1 "
+  }
+]

@@ -16,6 +16,7 @@ export interface NodeData {
   defaultBranch?: string;
   description?: string;
   summary: string;
+  steDescription?: string;
   stars?: number;
   forks?: number;
   language?: string | null;
